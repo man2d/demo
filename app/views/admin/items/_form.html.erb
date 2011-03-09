@@ -41,6 +41,6 @@
    <% end %>
 	<%= f.buttons do %>
 	  <%= f.commit_button :label => "Сохранить", :button_html => {:class => :yellow_button} %>
-	  <%= f.button :label => "Отменить", :button_html => {:class => :yellow_button} %>
+	  <li><%= link_to "Отменить", collection_url, :class => :yellow_button, :confirm => "Внимание!\nИзменения не будут сохранены. Продолжить?" %></li>
 	<% end %>
 <% end %>
