@@ -1,0 +1,144 @@
+(function($) {
+  
+  function recursive_load_column(page_id) {
+	if (page_id > 1) {
+		$.getJSON('/admin/pages/'+page_id+'.json', 
+		function(data){
+		  var new_page_id = data.page.parent_id;
+		  console.log(new_page_id);	
+     	  recursive_load_column(new_page_id);
+		});
+		$.getJSON('/admin/pages.json?parent_id='+page_id, 
+		  function(data) {
+		  		var items = [];	
+			    var level;
+			    if (data[0]) {
+			      level = data[0].page.cached_level;
+			    } else {
+				  level = 0;
+			    }
+			    
+			    if(data.length) {
+			      var html = '<td class="level_'+level+'"><ul class="tree">';
+			      $.each(data, function(key, val) {
+			      html += '<li><span class="parent"><a class="pic context" id="page_'+val.page.id+'" href="#"></a><a href="#/page/'+val.page.id+'">'+val.page.title+'</a></span></li>';
+			      });
+			      html += '</ul></td>';
+			      console.log(data[0].page.parent_id);
+         	      
+			   } else {
+			   //  document.location.href = '/admin/pages/'+page_id+'/edit';	
+		 	   }
+			  $('table#main tr').append(html);
+			  
+		});
+	}
+  }  
+  
+  function loadColumn(level) {
+    $.getJSON(
+	 '/admin/pages.json?level='+level,
+	 function(data) {
+	   		var html = '<td class="level_'+level+'"><ul class="tree">';
+		      $.each(data, function(key, val) {
+		      html += '<li><span class="parent"><a class="pic context" id="page_'+val.page.id+'" href="#"></a><a href="#/page/'+val.page.id+'">'+val.page.title+'</a></span></li>';
+		      });
+		      html += '</ul></td>';
+	 }
+	);
+  }
+        var app = $.sammy('#main', function() {
+      
+          this.get('#/', function(context) {
+            context.log('Yo yo yo');
+          });
+
+          this.get('#/page/(.*?)', function(context) {
+	
+	        context.log(this.params['splat'][0]);
+		    context.log('hi');
+		    var context = context;
+//		    var page_id = this.params['id'];
+		    var ids = this.params['splat'][0].split('/');
+		    context.log(ids);
+		    $('table#main tr td').remove();
+		    for(var key in ids) {
+			id = ids[key];
+			context.log(id);
+			$.getJSON(
+			  '/admin/pages.json?parent_id='+id,
+			  { async: false},
+              function(data) {
+				var items = [];	
+			    var level;
+			    if (data[0]) {
+			      level = data[0].page.cached_level;
+			    } else {
+				  level = 0;
+			    }
+				if(data.length) {
+			      var html = '<td class="level_'+level+'"><ul class="tree">';
+  			      $.each(data, function(key, val) {
+			      html += '<li><span class="parent"><a class="pic context" id="page_'+val.page.id+'" href="#"></a><a href="#/page/'+val.page.admin_path+'">'+val.page.title+'</a></span></li>';
+			      });
+			      html += '</ul></td>';
+			    } else {
+				
+		 	    }
+        		$('table#main tr').append(html);
+		    });
+		   }
+		//    recursive_load_column(page.parent_id);
+		    /*
+			$.getJSON(
+			  '/admin/pages/'+this.params['id']+'.json?parent_id='+this.params['id'], 
+			  function(data) {
+			    level = data[0].page.cached_level;
+			});
+			
+		    $.getJSON(
+			  '/admin/pages.json?parent_id='+page_id, 
+			  function(data) {
+			    var items = [];	
+			    var level;
+			    if (data[0]) {
+			      level = data[0].page.cached_level;
+			    } else {
+				  level = 0;
+			    }
+			    
+			    if(data.length) {
+			      var html = '<td class="level_'+level+'"><ul class="tree">';
+  			      $.each(data, function(key, val) {
+			      html += '<li><span class="parent"><a class="pic context" id="page_'+val.page.id+'" href="#"></a><a href="#/page/'+val.page.id+'">'+val.page.title+'</a></span></li>';
+			      });
+			      html += '</ul></td>';
+			   } else {
+			   //  document.location.href = '/admin/pages/'+page_id+'/edit';	
+		 	   }
+			  $('table#main tr').append(html);
+			 });
+			*/
+          });
+      
+        });
+      
+        $(function() {
+          app.run('#/');
+        });
+
+	   $('.context').live('click', function() {
+         $('.contextMenu').remove();
+		 var el = $(this);
+		 var id = $(this).attr('id').split('_')[1];
+		 var controller = $(this).attr('id').split('_')[0]+'s';
+
+		 var url = '/admin/'+controller+'/'+id+'/menu';
+
+		 $.get(url, function(result) {
+			el.parents('span').append(result);
+		 });
+
+	  });
+      
+      })(jQuery);

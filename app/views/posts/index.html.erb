@@ -1,0 +1,15 @@
+<%
+content_for(:breadcrumbs) do
+%> / <b>Новости</b>
+<%
+end
+%>
+<div class="news n_long">
+	<h2>Новости</h2>
+	<% @posts.each do |post| %>
+    <p><%= image_tag post.image_url if post.image_url %><span class="date"><%= post.updated_at.strftime("%d/%m/%Y") %></span><a href="/posts/show/<%= post.id %>"><%= post.title %></a></p>
+    <% end %>
+</div>
+<div class="pages clear">
+	<%= will_paginate @posts %>
+</div>

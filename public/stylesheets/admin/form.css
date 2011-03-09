@@ -1,0 +1,75 @@
+form {float: left; clear: both; width: 100%;}
+form ol {margin: 0px; padding: 0px; width: 100%; float: left;}
+
+.color_lgray {color: #838383;}
+.color_red {color: red;}
+.hidden { display: none;}
+
+fieldset {margin: 0px; padding: 0px; border: none; border-bottom: solid 1px #898989; width: 100%; margin-bottom: 30px;}
+fieldset li {float: left; clear: both; margin-bottom: 20px; width: 100%;}
+fieldset label {font-family: "Arial", "Helvetica", sans-serif; font-size: 14px; color: #838383; width: 160px; display: block; float: left; margin-top: 12px;}
+fieldset input, fieldset select, fieldset option, fieldset textarea {font-family: "Verdana", "Geneva", sans-serif; font-size: 18px; line-height: 20px; float: left;}
+fieldset select {width: 360px; padding-left: 10px;}
+li.select label { margin-top: 5px;}
+li.boolean input {width: auto;margin-top: 1px;}
+fieldset input {width: 460px; height: 40px; padding: 0px 10px;}
+fieldset textarea {width: 460px; float: left; height: 100px; padding: 10px;}
+	.big textarea {width: 760px; height: 400px;}
+	.big .info {display: none;}
+
+form div {border: solid 0px red;}
+.info, .example {float: left; font-family: "Verdana", "Geneva", sans-serif; font-size: 14px; line-height: 16px;}
+.example {float: left; clear: both; margin: 10px 0px 10px 10px; max-width: 440px;}
+.info {margin-left: 10px; width: 280px;}
+
+a.collapse { display: inline-block; border-bottom: dashed 1px; text-decoration: none; margin-left: 160px; font-family: "Arial", "Helvetica", sans-serif; font-size: 20px; line-height: 23px; margin-bottom: 10px;}
+
+form .docs {float: left; clear: both; width: 780px;}
+form .docs div {width: 25%; float: left; margin-bottom: 20px; color: #868686; font-family: "Verdana", "Geneva", sans-serif; font-size: 14px;}
+form .docs div a {font-family: "Verdana", "Geneva", sans-serif; font-size: 14px; line-height: 16px;}
+form .docs div span {float: left; clear: both; position: relative; margin-top: 10px;}
+form .docs div span a.delete { display: block; position: absolute; top: -15px; left: -15px; margin-left: 100%;
+	font-size: 12px; line-height: 27px; background-image: url('/images/admin/delete.png'); height: 31px; padding-left: 35px;
+	background-repeat: no-repeat;
+}
+form .docs div span a.delete:hover {background-image: url('/images/admin/delete_over.png');}
+form .addDocs {float:left; clear: both; background-color: #f3f3f3; margin-top: 10px; width: 760px; padding: 10px;
+	font-family: "Verdana", "Geneva", sans-serif; font-size: 14px;
+}
+form .addDocs input { height: auto; margin: 10px 0px; font-size: 14px;}
+form .addDocs a.addMore { display: block; float: left; clear: both; border-bottom: dashed 1px; font-family: "Verdana", "Geneva", sans-serif; font-size: 14px; text-decoration: none;}
+.yellow_button {display: inline-block; font-family: "Arial", "Helvetica", sans-serif; font-size: 17px; height: 37px; color: #411c00; border: solid 1px #ef7500;
+	background-image: url('/images/admin/buttonsBg.gif'); line-height: 35px; padding: 0px 10px; text-decoration: none; font-weight: bold;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	border-radius: 5px;
+}
+.yellow_button:hover {color: white;}
+	form .addDocs .yellow_button {float: left; clear: both; margin-top: 25px;}
+	
+.buttons {border: none;}
+    .buttons ol { margin-left: 160px;}
+	.buttons li { width: auto; clear: none; position: relative; float: left;}
+	.buttons label {margin: 0px; padding: 0px;}
+	.buttons input { width: 200px; display: block; height: auto; width: auto; margin: 0px; padding: 0px; margin-right: 10px; margin-top: 2px; cursor: pointer;}
+	.buttons .yellow_button { margin-right: 40px; margin-top: 25px; height: 37px; width: 140px; text-align: center; padding: 0;}
+
+.confirm { background-color: #f5f5f5; border: solid 1px #ff0000;
+	 font-family: "Verdana", "Geneva", sans-serif; font-size: 17px; line-height: 23px;
+	 background-image: url('/images/admin/attention.gif');
+	 background-repeat: no-repeat;
+	 background-position: 20px 20px;
+	 padding: 15px 0px;
+	 padding-left: 80px;
+	 width: 300px;
+	 position: absolute; bottom: -20px; left: 300px;
+}
+.confirm_button {display: inline-block; font-family: "Arial", "Helvetica", sans-serif; font-size: 16px; height: 32px; color: black; border: solid 2px #7d7d7d;
+	background-image: url('/images/admin/buttonsBg2.gif'); line-height: 33px; padding: 0px 10px; text-decoration: none; font-weight: bold;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	border-radius: 5px;
+}
+.buttons .confirm_button { margin-top: 15px;}

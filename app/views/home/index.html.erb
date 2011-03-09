@@ -1,0 +1,23 @@
+    	<h1>Porsche Cayman S</h1>
+<h2><a class="save">Сохранить</a></h2>
+        <div class="news n_short">
+        	<h2>Новости</h2>
+<% @posts.each do |post| %>
+            <p><span class="date"><%= post.created_at.strftime("%d/%m/%Y") %></span><div class="editable" id="<%= dom_id(post)+"_announce" %>"><%= raw post.announce %></div></p>
+<% end %>
+         
+        </div>
+<% @blocks.each do |block| %>
+<div class="editable"><%= raw block.content %></div>
+<% end %>
+
+        <div class="models mw620">
+        	<h2>Модельный ряд Porsche</h2>
+			  <% @items.each do |item| %>
+        		<div class="cols_4"><center><%= image_tag item.image_url if item.image_url %><br /><a href="/catalog/show/<%= item.id %>"><%= item.title %></a><p><%= item.description %></p></center></div>
+ 		     <%= cycle("", "", "", raw('<div class="clear"></div>'))%>
+              <% end %>
+            
+            <div class="clear"></div>
+        </div>
+

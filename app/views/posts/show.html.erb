@@ -1,0 +1,14 @@
+<div class="models mw160">
+	<h3>Модельный ряд Porsche</h3>
+	<% @items.each do |item| %>
+	<div class="cols_1"><center><% if item.image_url %><img src="<%= item.image_url %>" /><% end %><br /><a href="/catalog/show/<%= item.id %>"><%= item.title %></a><p><%= item.description %></p></center></div>
+	<% end %>    
+</div>
+<div class="news n_full">
+	<h2><%= @post.title %></h2>
+    <p><span class="date"><%= @post.updated_at.strftime("%d/%m/%Y")%></span><% if@post.image_url %><img src="<%= @post.image_url %>" /><% end %><%= @post.body %></p>
+    <p></p>
+</div>
+
+
+

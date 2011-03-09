@@ -1,0 +1,7 @@
+<% content_tag(:div, :class => "fields") do %>
+<% f.inputs do %>
+<%= f.input :property, :as => :select, :class => :property %> <%= link_to "Новое свойство", new_admin_property_path, {:remote => true} %>
+<%= f.input :value %> 
+<%= link_to_remove_fields("Удалить", f) %>  
+<% end %>
+<% end %>

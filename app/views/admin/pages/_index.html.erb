@@ -1,0 +1,5 @@
+<ul class="tree">
+<% collection.each do |resource| %>
+<li><span class="parent"><a class="pic context" id="page_<%=resource.id%>" href="#"></a><a href="#/page/<%=resource.id%>"><%= resource.title %></a></span></li>
+<% end %>
+</ul>

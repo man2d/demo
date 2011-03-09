@@ -1,0 +1,26 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+en:
+    activerecord:
+        attributes:
+            item:
+                title: "Название"
+
+en:
+   formtastic:
+     titles:
+       post_details: "Post details"
+     labels:
+       post:
+         title: "Choose a title..."
+         body: "Write something..."
+         edit:
+           title: "Edit title"
+     hints:
+       post:
+         title: "Choose a good title for you post."
+         body: "Write something inspiring here."
+     actions:
+       create: "Create my %{model}"
+       update: "Save changes"
+       dummie: "Launch!"

@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="<%= I18n.locale %>">
+
+<head>
+
+  <meta charset="utf-8" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+
+  <title><%= yield :title %></title>
+
+  <%#= stylesheet_link_tag "/vendor/typus/stylesheets/reset",
+                          "/vendor/jquery-ui-1.8.9.custom/css/ui-lightness/jquery-ui-1.8.9.custom.css",
+                          "/vendor/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.css",
+                          "/vendor/typus/stylesheets/screen",
+                          "/vendor/typus/stylesheets/application" %>
+  <%= stylesheet_link_tag "/stylesheets/admin/common.css", "/stylesheets/admin/content.css" , "admin/form" %>
+
+  <%#= yield :stylesheets -%>
+
+  <%= javascript_include_tag :defaults, :ckeditor, "/javascripts/ckeditor/adapters/jquery.js", "jquery-ui", "/javascripts/sammy.js", "/javascripts/admin/admin.js"  %>
+  <%#= javascript_include_tag :ckeditor %>
+
+  <%= yield :javascripts -%>
+
+  <%= csrf_meta_tag %>
+
+</head>
+
+<body>
+
+<div id="overlay" style="position: absolute; top: 200px; left: 300px; width: 300px; height: 300px; z-index: 1; background: #fff; display: none;">
+</div>
+<div id="main_container">
+
+    <div id="header_wrapper">
+
+		<div class="head"><img class="naviLogo" src="/images/admin/Navigator_logo.gif" alt="" /><h1 class="siteName">DriveInfo</h1><a class="goToSite" href="/" target="_blank">Посмотреть сайт<span></span></a></div>
+		
+
+
+        <div class="left">
+          <%= render 'admin/shared/tabs' %>
+        </div>
+
+        <div class="right">
+          <%#= login_info %>
+        </div>
+
+        <div class="clear"></div>
+
+
+
+    </div>
+
+    <div id="content_wrapper" class="content">
+	  <div class="contentWrap">
+		
+      	<%= yield :helpbar %>
+
+      <div id="content" class="treeScroll">
+        <%= yield :layout %>
+      </div>
+
+      <div class="clear"></div></div></div>
+    <div class="foot">
+    	<p class="contact">© Дизайн-студия <a href="#">Logomotiv</a>,<br />2003-2011</p>
+        <p class="copyright">Тел.: (812) 572-39-03,<br />эл. почта: <a href="#">support@logomotiv.ru</a></p>
+    </div>
+
+    </div>
+
+    
+      
+
+  </div>
+
+</body>
+
+</html>

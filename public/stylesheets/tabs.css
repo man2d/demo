@@ -1,0 +1,7 @@
+.tabs {width: 100%; overflow: hidden; margin-bottom: 25px;}
+	.tabs li {float: left; border-bottom: solid 1px #8da0a8; padding: 8px 30px; height: 17px;}
+	.tabs li a, .tabs li p { font-size: 14px; margin: 0px; padding: 0px;}
+	.tabs li a { border-bottom: dashed 1px; text-decoration: none;}
+	.tabs li.current {border: solid 1px #8da0a8; border-bottom: none; }
+	.tabs li.current a, .tabs li.current p { color: #333333; border: none;}
+	.tabs li.last {width: 500px; margin-right: -500px;}

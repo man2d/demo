@@ -1,0 +1,23 @@
+<% content_for :helpbar do %>
+<div class="addItems_border">
+<ul class="addItems">
+	<li class="red"><%= link_to "Новый баннер", new_resource_url  %></li>
+    <li><%#= link_to 'Добавить новость', new_admin_post_path, :class => "ico_addArrow" %></li>
+    <li><a class="ico_addArrow" href="#">Добавить аксессуар</a></li>
+</ul>
+</div>
+<% end %>
+
+<table border="0" id="main">
+	<tr>
+		<td>
+			<ul class="tree other sortable" id="banners">
+				<% collection.each do |resource| %>
+				<li id="banner_<%= resource.id %>"><span class="handle"><center><%=raw resource.content if resource.content %></center><%=content_tag(:p, resource.title) if resource.methods.find{|m| m == 'title' }%>
+				                <p class="buttons"><a class="ico_cmDel" href="<%=resource_url(resource, :method => :delete)%>"></a><a class="ico_cmEdit" href="<%=edit_resource_url(resource)%>"></a></p>
+				                </span></li>
+				<% end %>
+			</ul>
+		</td>
+	</tr>
+</table>

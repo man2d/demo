@@ -1,0 +1,4 @@
+<% semantic_form_for ["admin", resource], :html => {:multipart => true} do |f| %>
+	<%= f.input :content, :as => :ckeditor %>
+	<%= f.buttons %>
+<% end %>

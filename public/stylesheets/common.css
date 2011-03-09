@@ -1,0 +1,80 @@
+html, body {
+	width: 100%;	height: 100%;
+	margin: 0px;	padding: 0px;
+}
+body {
+	background-color: #595959;
+	font-family: "Verdana", "Geneva", sans-serif;
+	font-size: 12px;
+	line-height: 15px;
+	color: black;
+	background: url('/images/bg.gif');
+}
+div, p, img, ul, li, table, tr, td, a, span, h1, h2, h3, h4, h5, pre {margin: 0px;	padding: 0px; position: relative;}
+ul, li {list-style-type: none; position: relative;}
+img {border: none; position: relative;}
+table, tr, td, th {vertical-align: top;}
+div {border: solid 0px red;}
+p, a {
+	font-family: "Verdana", "Geneva", sans-serif;
+	font-size: 12px;
+	line-height: 15px;
+}
+p {color: black; padding-bottom: 5px;}
+a {color: #9b1f2c;}
+a:hover {color: #dd0a21;}
+
+.color_blue {color: #035ea5;}
+.split_line_blue {
+	float: left;
+	width: 100%;
+	height: 1px;
+	background-color: #035ea5;
+	overflow: hidden;
+	margin: 25px 0px;
+}
+
+.border_red {border: solid 1px red;}
+.border_blue {border: solid 1px blue;}
+
+.left {float: left;}
+.right {float: right;}
+.clear {clear: both;}
+
+.hide {display: none;}
+.show {display: block;}
+#carinfo_description { float: left; margin-top: 10px}
+#main_container {
+	position: relative;
+	width: 1020px;
+	margin: 0 auto;
+	text-align: left;
+}
+
+.head, .content, .menu, .foot {
+	width: 100%;
+	border: solid 0px blue;
+	position: relative;
+	float: left;
+	clear: both;
+}
+.head, .menu, .foot {background-color: #0f0c12;}
+.head {
+	height: 125px;
+	border-bottom: solid 1px #807e82;
+}
+.menu a, .menu p{color: #ffff37; padding: 0px 40px; font-size: 14px;	line-height: 40px; display: block; float: left; text-decoration: none;}
+.menu .current a, .menu .current p, .menu .current {color: black; background-color: white;}
+.menu a:hover{color: black; background-color: white;}
+
+.content {
+	background-color: white;
+	overflow: hidden;
+	border-bottom: solid 1px #0f0c12;
+	padding: 40px;
+	padding-top: 20px;
+	width: 940px;
+}
+.foot {
+	border-top: solid 1px #ffff37;
+} 

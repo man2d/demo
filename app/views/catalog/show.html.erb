@@ -1,0 +1,41 @@
+<% content_for :breadcrumbs do %>
+/ <%= link_to 'Каталог', '/catalog' %>
+/ <b><%= @item.title %></b>
+<% end %>
+    	<h1><%= @item.title %></h1>
+<% if @item.assets.size	> 0 %>
+        <div class="gallery">
+            	<div class="big"><%= image_tag @item.assets.first.filename_url if @item.assets.first && @item.assets.first.filename_url %></div>
+				<% @item.assets.each do |asset| %>
+				  <div><img src="<%= asset.filename_url(:thumb) %>" /><a href="#" rel="<%= asset.filename_url %>"></a></div>
+				<% end %>
+                
+        </div>
+<% end %>
+        <div class="w725 clear">
+
+        <div class="carinfo_menu">
+	    <% if @item.item_properties %><a href="javascript:void(0);" class="table" id="carinfo_toggle">Комплектация</a><% end %>
+	    <% if @item.description %><a class="current" id="description_toggle" class="current" href="javascript:void(0);">Описание</a><% end %>
+	    </div>
+        <% if @item.item_properties %>
+        <table class="carinfo_table" cellpadding="0" cellspacing="0" style="display:none;">
+	   
+        	<tr>
+	      <% @item.properties.order(:id).each do |property| %>
+        	<th><%= property.title %></th>
+          <% end %>
+		   </tr>
+		    <tr>
+		   <% @item.item_properties.order(:property_id).each do |item_property| %>
+            <td><b><%= item_property.value %></b></td>
+           <% end %>
+            </tr>
+        </table>
+        <% end %>
+         <% if @item.description%>
+        <div id="carinfo_description">
+       <%= raw @item.description %>
+        </div>
+        <% end %>
+        </div>

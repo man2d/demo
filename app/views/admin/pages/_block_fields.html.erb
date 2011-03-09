@@ -1,0 +1,9 @@
+<div class="fields">
+<% f.inputs do %>
+  <li>
+	<label for="block_content">Содержание</label>
+    <div class="left"><%= f.text_area :content, :class => :ckeditor_textarea %><div class="example"><%= link_to_remove_fields("Удалить", f)%></div></div>
+  </li>
+<% end %>
+</div>
+

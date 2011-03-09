@@ -1,0 +1,46 @@
+<% semantic_form_for ["admin", resource], :html => { :multipart => true } do |f| %>
+  <% f.inputs do %>
+    
+	<%= f.input :title %>
+	<%= f.input :price %>
+	<li id="item_description_input" class="string optional">
+		<label for="item_description">Описание</label>
+		<div class="left"><%= f.ckeditor_textarea :item, :description %></div>
+	</li>
+	<%= resource.image_url if resource.image?%>
+	<%= f.input :image, :as => :file %>
+    <%= f.input :remove_image, :as => :boolean %>
+    <% #f.inputs :for => :assets %>
+   <% end %>
+    
+   <% f.inputs do %>
+    <a class="collapse" href="javascript:void();" rel="assets_block">Вложения</a>
+    <div class="assets_block hidden">
+    <% if resource.assets %>
+      <% resource.assets.each do |asset| %>
+        <%= image_tag(asset.filename_url) if asset.filename_url %>
+        <%= link_to "Delete" %>
+      <% end %>
+    <% end %>
+
+	<% f.semantic_fields_for :assets do |asset| %>
+      <%= render 'asset_fields', :f => asset %>
+    <% end %>
+    <%= link_to_add_fields "Добавить", f, :assets %>
+	</div>
+   <% end %>
+   <% f.inputs do %>
+	<a class="collapse" href="javascript:void();" rel="properties_block">Характеристики</a>
+	<div class="properties_block hidden">
+	<% f.semantic_fields_for :item_properties do |item_properties| %>
+      <%= render 'item_property_fields', :f => item_properties %>
+	<% end %>
+	
+	<%= link_to_add_fields "Добавить", f, :item_properties %>
+	</div>
+   <% end %>
+	<%= f.buttons do %>
+	  <%= f.commit_button :label => "Сохранить", :button_html => {:class => :yellow_button} %>
+	  <%= f.button :label => "Отменить", :button_html => {:class => :yellow_button} %>
+	<% end %>
+<% end %>
