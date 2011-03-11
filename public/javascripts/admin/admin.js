@@ -149,14 +149,14 @@ function remove_fields(link) {
 function add_fields(link, association, content) {  
      var new_id = new Date().getTime();  
      var regexp = new RegExp("new_" + association, "g");  
-     $(link).parent().before(content.replace(regexp, new_id));  
+     $(link).parent().after(content.replace(regexp, new_id));  
      $('textarea.ckeditor_textarea').ckeditor();
 }
 
 
 function translit(textus) {
-	var rusChars = new Array('а','б','в','г','д','е','ё','ж','з','и','й','к','л','м','н','о','п','р','с','т','у','ф','х','ч','ц','ш','щ','э','ю','\я','ы','ъ','ь', ' ', '\'', '\"', '\#', '\$', '\%', '\&', '\*', '\,', '\:', '\;', '\<', '\>', '\?', '\[', '\]', '\^', '\{', '\}', '\|', '\!', '\@', '\(', '\)', '\-', '\=', '\+', '\/', '\\');
-	var transChars = new Array('a','b','v','g','d','e','jo','zh','z','i','j','k','l','m','n','o','p','r','s','t','u','f','h','ch','c','sh','csh','e','ju','ja','y','', '', ' ', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+	var rusChars = new Array('а','б','в','г','д','е','ё','ж','з','и','й','к','л','м','н','о','п','р','с','т','у','ф','х','ч','ц','ш','щ','э','ю','\я','ы','ъ','ь', ' ', '\'', '\"', '\#', '\$', '\%', '\&', '\*', '\,', '\:', '\;', '\<', '\>', '\?', '\[', '\]', '\^', '\{', '\}', '\|', '\!', '\@', '\(', '\)', '\-', '\=', '\+', '\/', '\\',' ');
+	var transChars = new Array('a','b','v','g','d','e','jo','zh','z','i','j','k','l','m','n','o','p','r','s','t','u','f','h','ch','c','sh','csh','e','ju','ja','y','', '', ' ', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '_');
 	var from = textus.toString().toLowerCase();
     var to = "";
     var len = from.length;
@@ -175,5 +175,5 @@ function translit(textus) {
       }
     to += (isRus) ? transChars[j] : character;
     }
-   return to;
+   return to.replace(' ','_');
 }

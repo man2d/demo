@@ -1,0 +1,15 @@
+	<% if @item.interior_assets.size > 0 %>
+	<div id="interior" class="cat_slideshow" style="position: absolute; top: -300px; left: -2000px">
+	<div id="intContentFlow" class="ContentFlow" style="width:100%;">
+            <div class="loadIndicator"><div class="indicator"></div></div>
+            <div class="flow">
+				<% @item.interior_assets.each do |asset| %>
+	            <img class="item" alt="" title="" src="<%= asset.asset.url %>" />
+	            <% end %>
+            </div>
+            <div class="globalCaption"></div>
+            <div class="scrollbar" style="display:none;"><div class="slider"><div class="position"></div></div></div>
+        </div>
+ 
+	</div>
+    <% end %>

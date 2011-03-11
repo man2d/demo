@@ -1,3 +1,4 @@
+# coding: utf-8
 module ApplicationHelper
   
   def link_to_add_fields(name, f, association)  
@@ -10,5 +11,23 @@ module ApplicationHelper
   
   def link_to_remove_fields(name, f)  
        f.hidden_field(:_destroy) + link_to_function(name, "remove_fields(this)")  
+  end
+  
+  def link_or_span(page)
+    if page.url == "/"+params[:path]+"/"
+      klass = "current" 
+      content_tag = "p" 
+    end
+    html = ""
+    html += content_tag(:li, :class => klass) do 
+      if content_tag == 'p'
+        content_tag(:p) do
+          raw page.title + content_tag(:span, "→")
+        end
+      else
+        link_to page.title, page.url
+      end
+
+    end
   end
 end

@@ -1,0 +1,38 @@
+.registration {width: 100%;}
+	.registration, .registration a {color: white; font-family: "Arial", "Helvetica", sans-serif; font-size: 16px; line-height: 19px;}
+	.registration a:hover {color: #165e80;}
+	.registration div, .registration label{}
+	.registration label {float: left; clear: both;}
+	.registration input {float: left; clear: both; padding: 0px; margin: 0px; }
+	.registration .radio {float: left; clear: both; padding: 20px 0px;}
+		.registration .radio label { margin-bottom: 7px;}
+		.registration .radio input {width: 19px; height: 19px;}
+	.registration .text {padding-bottom: 20px; float:left; clear: both;}
+		.registration .text input {width: 430px; height: 40px; margin-left: -3px; 
+			background-image: url("../images/form_input_bg.gif");
+			background-repeat: repeat-x;
+			border: solid 1px #999999;
+			font-size: 23px;
+			padding: 0px 10px;
+			outline: 0 none;
+			-moz-border-radius: 4px;
+			-webkit-border-radius: 4px;
+			-khtml-border-radius: 4px;
+			border-radius: 4px;
+			behavior: url(border-radius.htc);
+			}
+			.registration .text .error {border: solid 1px #c80009; outline: solid 0px #c80009; background-image: url("../images/form_input_bg_err.gif");}
+		.registration .not_ready, .registration .ready {float: left; background-repeat: no-repeat; background-position: 50% 50%; width: 50px; height: 37px;}
+			.registration .ready { background-image: url("../images/reg_v.gif");}
+		.registration .example {float: left; clear: both; font-family: "Georgia", serif; font-style: italic; color: #d7ecf5; font-size: 12px;}
+		.registration .info {float: left; font-family: "Georgia", serif; font-style: italic; font-size: 11px; line-height: 15px; width: 300px; margin-top: -2px;}
+	.registration .text label { margin-bottom: 1px;}
+	.registration .errorInfo {font-family: "Georgia", serif; font-style: italic; color: #c80009; font-size: 18px; line-height: 19px; width: 750px; padding: 10px 0px;}
+	.registration .submit {background-color: #cccccc; color: white; font-size: 18px; text-decoration: none; line-height: 50px; padding: 0px 30px; display: inline-block;
+			-moz-border-radius: 4px;
+			-webkit-border-radius: 4px;
+			-khtml-border-radius: 4px;
+			border-radius: 4px;
+	}
+	.registration .submit:hover {background-color: #165e80; color: white;}
+	.registration .showPass {text-decoration: none; border-bottom: dashed 1px; font-size: 12px; line-height: 14px; margin-top: 2px; float: left; clear: both;}

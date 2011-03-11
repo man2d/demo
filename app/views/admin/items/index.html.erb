@@ -3,7 +3,7 @@
 <ul class="addItems">
 	<li class="red"><%= link_to "Новый товар", new_resource_url  %></li>
     <li><%#= link_to 'Добавить новость', new_admin_post_path, :class => "ico_addArrow" %></li>
-    <li><a class="ico_addArrow" href="#">Добавить аксессуар</a></li>
+    
 </ul>
 </div>
 <% end %>
@@ -13,8 +13,8 @@
 		<td>
 			<ul class="tree other sortable" id="items">
 				<% collection.each do |resource| %>
-				<li id="item_<%= resource.id %>"><span><center><%=image_tag(resource.image_url) if resource.image_url %></center><p><%=resource.title%></p>
-				                <p class="buttons"><a class="ico_cmDel" href="<%=resource_url(resource, :method => :delete)%>"></a><a class="ico_cmEdit" href="<%=edit_resource_url(resource)%>"></a></p>
+				<li id="item_<%= resource.id %>"><span><center><%= resource.title %><br/><%=image_tag(resource.image.url(:thumb)) if resource.image.url %></center>
+				                <p class="buttons"><%= link_to "", resource_url(resource), :method => :delete, :class=> "ico_cmDel", :confirm => "Объект будет удален!\nХотите продолжить?" %><a class="ico_cmEdit" href="<%=edit_resource_url(resource)%>"></a></p>
 				                </span></li>
 				<% end %>
 			</ul>

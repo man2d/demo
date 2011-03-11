@@ -1,0 +1,20 @@
+<ul class="leftMenu">
+<% 
+if @page.root?
+  left_menu_items = @page.children 
+else
+  left_menu_items = @page.self_and_siblings
+end
+%>
+
+<% left_menu_items.each do |page| %>
+  <%= raw link_or_span(page) %>
+<% end %>
+
+</ul>
+<!--
+<div class="leftBlueBox">
+	<div class="resumePic"><a href="#">Резюме капитанов</a></div>
+    <div class="clear"></div>
+    <div class="servisPic"><a href="#">Заявка на сервисное обслуживание яхты</a></div>
+</div>-->

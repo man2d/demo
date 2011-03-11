@@ -7,6 +7,9 @@ form ol {margin: 0px; padding: 0px; width: 100%; float: left;}
 
 fieldset {margin: 0px; padding: 0px; border: none; border-bottom: solid 1px #898989; width: 100%; margin-bottom: 30px;}
 fieldset li {float: left; clear: both; margin-bottom: 20px; width: 100%;}
+fieldset .properties li { float: left; clear: none; width: 50%;}
+fieldset .properties li label { line-height: 20px; padding: 0; margin: 0;}
+fieldset .properties li select { width: 90%; height: 40px; padding: 0 10px;}
 fieldset label {font-family: "Arial", "Helvetica", sans-serif; font-size: 14px; color: #838383; width: 160px; display: block; float: left; margin-top: 12px;}
 fieldset input, fieldset select, fieldset option, fieldset textarea {font-family: "Verdana", "Geneva", sans-serif; font-size: 18px; line-height: 20px; float: left;}
 fieldset select {width: 360px; padding-left: 10px;}

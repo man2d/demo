@@ -5,4 +5,7 @@ class Admin::BannersController < Admin::BaseController
   def create
     create!(:notice => "Dude! Nice job creating that page. Yeeeah") { collection_url }
   end
+  def update
+    update!(:notice => "Dude! Nice job creating that page. Yeeeah") { collection_url }
+  end
 end

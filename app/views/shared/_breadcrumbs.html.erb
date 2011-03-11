@@ -1,0 +1,18 @@
+<% 
+@page ||= @item.page
+%>
+<div class="tree">
+<% if @item %>
+	<a href="/">Главная</a><% @page.self_and_ancestors.each do |page| %> / <a href="<%= page.url %>"><%= page.title %></a><% end %> <%= raw ' / ' + content_tag(:b, @item.title) if @item %>
+<% else %>
+<a href="#">Главная</a><% @page.self_and_ancestors.each do |page| %>
+  <% if page == @page %>
+   / <b><%= page.title %></b>
+  <% else %>
+   / <a href="<%= page.url %>"><%= page.title %></a>
+  <% end %>
+<% end %>
+
+<% end %>
+	<div class="arrow"></div>
+</div>

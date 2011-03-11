@@ -15,8 +15,10 @@ class HomeController < ApplicationController
   def index
     @items = Item.order("created_at DESC").limit(16)
     @posts = Post.order("created_at DESC").limit(5)
-    @blocks = Page.find_by_slug("main").blocks.limit(1)
+    @page = Page.find_by_slug("main")
+    @blocks = @page.blocks.limit(1) if @page
   end
+  
   def show
     @page = Page.find_by_slug(params[:id])
   end

@@ -1,0 +1,19 @@
+<% Page.roots.menu.each do |page| %>
+<li><a href="<%=page.url %>"><%= page.title %></a>
+  <% if page.children.menu.size > 0 %><span class="arrow"></span>
+  <ul class="sub1">
+	<% page.children.menu.each do |child_page| %>
+	<li><a href="<%= child_page.url %>"><%= child_page.title %></a>
+		<% if child_page.items.size > 0 %><span class="arrow"></span>
+		<ul class="sub2">
+			<% child_page.items.each do |item| %>
+			  <li class="yaht_load" id="<%=dom_id(item)%>"><a href="<%= item.url %>"><%= item.title %></a>
+			<% end %>
+		</ul>
+		<% end %>
+	</li>
+	<% end %>
+  </ul>
+  <% end %>	
+</li>
+<% end %>

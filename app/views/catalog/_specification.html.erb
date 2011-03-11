@@ -1,0 +1,19 @@
+<% if @item.specification_assets.size > 0 || @item.item_properties.size > 0 %>
+<div class="spec" id="specification" style="display:none;">
+	<% if @item.specification_assets.size > 0 %>
+	<div class="left"><% @item.specification_assets.each do |asset| %><img alt="" src="<%= asset.asset.url %>"><% end %></div>
+    <% end %>
+<% if @item.item_properties.size > 0 %>
+    <div class="right">
+    	<table>
+        	<tbody>
+<% @item.item_properties.each do |item_property| %>
+			<tr><td><p class="name"><%= item_property.property.title %><span class="points"></span></p></td><td></td></tr>
+            <tr><td></td><td><p class="value"><%= item_property.value %></p></td></tr>
+<% end %>
+        </tbody></table>
+    </div>
+<% end %>
+<div class="clear"></div>
+</div>
+<% end %>

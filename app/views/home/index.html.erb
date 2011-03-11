@@ -1,23 +1,112 @@
+
+<div class="main_banner">
+    <div class="images">
+	<div id="slider">
+		<img src="images/main_banner/colombo_algarve_42.jpg" />
+		<img src="images/main_banner/colombo_atlantic_38.jpg" />
+		<img src="images/main_banner/colombo_virage_35.jpg" />
+		<img src="images/main_banner/sarnico_60.jpg" />
+		<img src="images/main_banner/sarnico_65.jpg" />
+		<img src="images/main_banner/sarnico_spider.jpg" />
+	</div>
+        <!--<img src="images/main_banner_pic1.jpg" alt="" />
+        <img src="images/main_banner_pic1.jpg" alt="" />
+        <img src="images/main_banner_pic1.jpg" alt="" />
+        <img src="images/main_banner_pic1.jpg" alt="" />-->
+    </div>
+    <div class="textData"><div class="bg"></div><p>Sarnico / 60</p></div>
+    <div class="clear"></div>
+<!--
+    <center>
+	<div class="navi">
+    <p class="points">
+        <span class="l"></span><span class="r"></span>
+        <a href="#0"></a>
+        <a class="current" href="#1"></a>
+        <a href="#2"></a>
+        <a href="#3"></a><a href="#4"></a><a href="#5"></a><a href="#6"></a><a href="#7"></a><a href="#8"></a><a href="#9"></a><a href="#10"></a>
+    </div>
+    </p>
+-->
+    </center>
+</div>
+
+<div class="content">
+	<div class="index">
+    	<div class="left">
+        	<p class="about"><span></span>Компания «Президент-Нева» Энергетический центр» является эксклюзивным дилером компании <a href="#">Cantieri di Sarnico</a> на территории Российской Федерации. Мы хотим создать среду общения и удобный сервис для владельцев яхт.</p>
+            <h3>Яхты в <a href="#">наличии</a></h3>
+            <ul class="cols_3">
+            <li>
+            	<a href="#"><img src="images/indexPic.png" alt="" /></a>
+                <p><a href="#">Noblesse</a><br />
+                	Пробег: 1800 миль<br />
+					Год выпуска: 2007</p>
+            </li>
+            <li>
+            	<a href="#"><img src="images/indexPic.png" alt="" /></a>
+                <p><a href="#">Noblesse</a><br />
+                	Пробег: 1800 миль<br />
+					Год выпуска: 2007</p>
+            </li>
+            <li>
+            	<a href="#"><img src="images/indexPic.png" alt="" /></a>
+                <p><a href="#">Noblesse</a><br />
+                	Пробег: 1800 миль<br />
+					Год выпуска: 2007</p>
+            </li>
+            </ul>
+            <p class="doc defaultPic"><a href="#">Каталог яхт</a>(5 Mб, ПДФ)</p>
+        </div>
+        <div class="right">
+        	<div class="part">
+        		<img src="images/ship.gif" alt="" /><a href="#">Судовладельцу</a>
+            	<img src="images/cap.gif" alt="" /><a href="#">Капитану</a>
+            </div>
+            <h3><a href="#">Новости</a></h3>
+            <div class="news">
+            	<a href="#">Компания Cantieri di Sarnico, основанная в 1992 году.</a>
+                <a href="#">В продаже яхта Colombo Alldays 37 c пробегом.</a>
+                <a href="#">Заканчивается прием заявок на участие в соревнованииях.</a>
+                <a href="#">Открыт прием заказов на новую яхту</a>
+            </div>
+            <h3>Новое в <a href="#">блоге</a></h3>
+            <div class="news">
+            	<a href="#">Встреча членов клуба 2011</a>
+                <a href="#">Тест-драйв новой клубной яхты, ждем всех</a>
+                <a href="#">Где хранить зимой?</a>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+</div>
+
+<!--<div class="content">
     	<h1>Porsche Cayman S</h1>
 <h2><a class="save">Сохранить</a></h2>
         <div class="news n_short">
         	<h2>Новости</h2>
+<% if @posts %>
 <% @posts.each do |post| %>
             <p><span class="date"><%= post.created_at.strftime("%d/%m/%Y") %></span><div class="editable" id="<%= dom_id(post)+"_announce" %>"><%= raw post.announce %></div></p>
 <% end %>
-         
+<% end %>
         </div>
+<% if @blocks %>
 <% @blocks.each do |block| %>
 <div class="editable"><%= raw block.content %></div>
 <% end %>
-
+<% end %>
         <div class="models mw620">
         	<h2>Модельный ряд Porsche</h2>
+<% if @items %>
 			  <% @items.each do |item| %>
         		<div class="cols_4"><center><%= image_tag item.image_url if item.image_url %><br /><a href="/catalog/show/<%= item.id %>"><%= item.title %></a><p><%= item.description %></p></center></div>
  		     <%= cycle("", "", "", raw('<div class="clear"></div>'))%>
               <% end %>
-            
+<% end %>            
             <div class="clear"></div>
         </div>
-
+</div>
+-->

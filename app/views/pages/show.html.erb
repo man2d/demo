@@ -1,0 +1,22 @@
+
+<div class="content typical">
+    	<div class="left">
+			<%= render 'shared/left_menu' %>
+        </div>
+        <div class="right">
+        	<h1><%= @page.title %></h1>
+            <%= raw @page.body %>
+
+            <% if @page.assets.size > 0 %>
+            <div class="split_line"></div>
+            <% @page.asset_groups.each do |asset_group| %>
+            <div class="col_2 left">
+            	<h2><%= asset_group.title %></h2>
+           	 		<% asset_group.assets.each do |asset| %>
+					<p class="docs"><img src="images/doc.gif"><a href="#">Водный кодекс РФ, ДОК</a></p>
+					<% end %>
+            </div>
+			<% end %>
+            <% end %>
+        </div>
+    </div>

@@ -1,7 +1,9 @@
 <div class="fields">
 <% f.inputs do %>
-  <%= f.input :filename, :as => :file, :name => :filename %>
-  <%= f.input :asset_group, :as => :select %> <%= link_to "Новая группа", new_admin_asset_group_path, {:remote => true} %>     
-  <%= link_to_remove_fields("Удалить", f)%>  
+  <%= f.input :asset, :as => :file, :name => :filename, :label => "Файл" %>
+  <%= f.hidden_field :asset_group_id, :value => @asset_group_id %>
+  <%#= f.input :asset_group, :as => :select %>      
+
+  <%= link_to_remove_fields("Удалить", f)%>
 <% end %>
 </div>

@@ -7,7 +7,7 @@
 		</div>
 	</li>
 	<%= f.input :slug %>
-	<%= f.input :parent, :as => :select, :label => "Родительский раздел" %>
+	<li class="select optional" id="page_parent_input"><label for="page_parent_id">Родительский раздел</label><%= f.select :parent_id, nested_set_options(Page, resource) {|i| "#{'-'*i.level} #{i.title}"}, :include_blank => true %></li>
 	<li id="page_body_input" class="ckeditor optional">
 		<label for="page_body">Содержание</label>
 		<div class="left">
@@ -15,6 +15,7 @@
 		</div>
 	</li>
 	<li id="page_status_input" class="boolean optional"><input type="hidden" value="0" name="page[status]"><label for="page_status">Показывать</label><%= f.check_box :status %></li>
+	<li id="page_menu_input" class="boolean optional"><input type="hidden" value="0" name="page[menu]"><label for="page_menu">Показывать в меню</label><%= f.check_box :menu %></li>	
   <% end %>
   <% f.inputs do %>
     <a class="collapse" href="javascript:void();" rel="seo_block">SEO поля</a>

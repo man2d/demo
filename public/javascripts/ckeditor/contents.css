@@ -38,3 +38,6 @@ img, input, textarea
 	cursor: default;
 }
 
+.hidden {
+	display: none;
+}

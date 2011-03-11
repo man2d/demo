@@ -2,11 +2,12 @@
 #   gem install sqlite3
 development:
   adapter: mysql2
-  database: navigator2
+  database: yahtus
   pool: 5
   username: root
   password: root
   timeout: 5000
+  encoding: utf8
   socket: /Applications/MAMP/tmp/mysql/mysql.sock
 
 # Warning: The database defined as "test" will be erased and

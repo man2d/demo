@@ -4,7 +4,7 @@ Navigator2::Application.routes.draw do
 
   root :to => "home#index"
   
-  
+  resources :items
   match 'admin' => 'admin::Pages#index'
   
   namespace "admin" do
@@ -80,6 +80,8 @@ Navigator2::Application.routes.draw do
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-  match ':controller(/:action(/:id(.:format)))'
+#  match ':controller(/:action(/:id(.:format)))'
   resources :pages, :controller => :home
+
+  match '*path' => 'redirect#index'
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110303122053) do
+ActiveRecord::Schema.define(:version => 20110311150959) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
@@ -81,6 +81,12 @@ ActiveRecord::Schema.define(:version => 20110303122053) do
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_assetable_type"
   add_index "ckeditor_assets", ["user_id"], :name => "fk_user"
 
+  create_table "item_assigns", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "item_properties", :force => true do |t|
     t.integer  "property_id"
     t.integer  "item_id"
@@ -97,6 +103,11 @@ ActiveRecord::Schema.define(:version => 20110303122053) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image"
+    t.integer  "page_id"
+    t.integer  "item_assign_id"
+    t.integer  "length"
+    t.boolean  "on_hand"
+    t.integer  "lgth"
   end
 
   create_table "pages", :force => true do |t|
@@ -113,6 +124,8 @@ ActiveRecord::Schema.define(:version => 20110303122053) do
     t.datetime "updated_at"
     t.string   "resource"
     t.integer  "cached_level"
+    t.boolean  "menu"
+    t.string   "cached_url"
   end
 
   create_table "posts", :force => true do |t|
