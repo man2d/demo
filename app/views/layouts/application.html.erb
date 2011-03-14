@@ -9,7 +9,6 @@
 <%= csrf_meta_tag %>
 
 <link rel="stylesheet" href="/stylesheets/nivo-slider.css" type="text/css" media="screen" />
-<script src="/javascripts/jquery.aslideshow.min.js"></script>
 <script type="text/javascript" src="/javascripts/jquery.nivo.slider.js"></script>
 <script type="text/javascript">
 $(window).load(function() {
@@ -19,14 +18,14 @@ $(window).load(function() {
 	        animSpeed:500, //Slide transition speed
 	        pauseTime:3000,
 	        startSlide:0, //Set starting Slide (0 index)
-	        directionNav:false, //Next & Prev
+	        directionNav:false, //Next and Prev
 	        directionNavHide:true, //Only show on hover
 	        controlNav:true, //1,2,3...
 	        controlNavThumbs:false, //Use thumbnails for Control Nav
 	        controlNavThumbsFromRel:false, //Use image rel for thumbs
 	        controlNavThumbsSearch: '.jpg', //Replace this with...
 	        controlNavThumbsReplace: '_thumb.jpg', //...this in thumb Image src
-	        keyboardNav:true, //Use left & right arrows
+	        keyboardNav:true, //Use left and right arrows
 	        pauseOnHover:true, //Stop animation while hovering
 	        manualAdvance:false, //Force manual transitions
 	        captionOpacity:0.8, //Universal caption opacity
@@ -72,9 +71,8 @@ $(window).load(function() {
 	<%= render 'shared/menu' %>
 
         <li style="z-index: 24;" class="blog"><a href="#">БЛОГ<img src="/images/blog.gif" alt="Блог" /></a></li>
-
-        <div class="clear"></div>
     </ul>
+    <div class="clear"></div>
     <div id="content">
 	  <%= yield %>
 	  <div class="yacht">
@@ -101,7 +99,7 @@ $(window).load(function() {
 </div>
 </div>
 
-
+</div>
 
 </body>
 </html>

@@ -181,7 +181,7 @@
             }
             //Set initial active link
             $('.nivo-controlNav a:eq('+ vars.currentSlide +')').addClass('active');
-console.log(slider);
+//console.log(slider);
             
             $('.nivo-controlNav a').live('click', function(){
                 if(vars.running) return false;
