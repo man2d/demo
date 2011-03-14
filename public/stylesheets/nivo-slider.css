@@ -36,19 +36,12 @@
 .nivo-slice {
 	display:block;
 	position:absolute;
-	z-index:50;
+	z-index:10;
 	height:100%;
 }
 /* Caption styles */
 .nivo-caption {
-	position:absolute;
-	left:0px;
-	bottom:0px;
-	background:#000;
-	color:#fff;
-	opacity:0.8; /* Overridden by captionOpacity setting */
-	width:100%;
-	z-index:89;
+position: absolute; bottom: 68px; right: 0px; overflow: hidden; background-image: url("../images/bluebg.png");z-index:100;
 }
 .nivo-caption p {
 	padding:5px;

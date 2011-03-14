@@ -4,12 +4,10 @@
         <div class="loadIndicator"><div class="indicator"></div></div>
         <div class="flow">
 			<% @item.exterior_assets.each do |asset| %>
-            <img class="item" alt="" title="" src="<%= asset.asset.url %>" />
+            <img class="item" alt="" title="" src="<%= asset.asset.url(:gallery) %>" />
             <% end %>
             <!-- Add as many items as you like. -->
         </div>
-        <div class="globalCaption"></div>
-        <div class="scrollbar" style="display:none;"><div class="slider"><div class="position"></div></div></div>
     </div>
 
 </div>

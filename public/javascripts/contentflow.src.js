@@ -692,23 +692,23 @@ ContentFlow.prototype = {
         loadingTimeout: 30000, //milliseconds
         activeElement: 'content', // item or content
 
-        maxItemHeight: 300,
-        scaleFactor: 1.0,
-        scaleFactorLandscape: 1.66,
+        maxItemHeight: 0,
+        scaleFactor: 1,
+        scaleFactorLandscape: 1.33,
         scaleFactorPortrait: 1.0,
         fixItemSize: false,
         relativeItemPosition: "top center", // align top/above, bottom/below, left, right, center of position coordinate
 
         circularFlow: true,
         verticalFlow: false,
-        visibleItems: 2,
+        visibleItems: -1,
         endOpacity: 1,
         startItem:  "center",
         scrollInFrom: "pre",
 
         flowSpeedFactor: 1.0,
         flowDragFriction: 1.0,
-        scrollWheelSpeed: 0.0,
+        scrollWheelSpeed: 1.0,
         keys: {
             13: function () { this.conf.onclickActiveItem(this._activeItem) },
             37: function () { this.moveTo('pre') }, 
@@ -718,7 +718,7 @@ ContentFlow.prototype = {
         },
 
         reflectionColor: "transparent", // none, transparent or hex RGB CSS style #RRGGBB
-        reflectionHeight: 0.15,          // float (relative to original image height)
+        reflectionHeight: 0.5,          // float (relative to original image height)
         reflectionGap: 0.0,
 
         /* ==================== actions ==================== */
@@ -772,7 +772,6 @@ ContentFlow.prototype = {
         /* ==================== calculations ==================== */
 
         calcStepWidth: function(diff) {
-
             var vI = this.conf.visibleItems;
             var items = this.items.length;
             items = items == 0 ? 1 : items;
@@ -802,7 +801,6 @@ ContentFlow.prototype = {
 
             var h = 1/(Math.abs(rP)+1);
             var w = h;
-
             return {width: w, height: h};
         },
 
@@ -1692,8 +1690,7 @@ ContentFlow.prototype = {
             this.Flow.style.width = mFS.width.width+"px";
             this.Flow.style.height =3* mFS.width.width * (1 + this.conf.reflectionHeight + this.conf.reflectionGap) + "px";
         } else {
-            this.Flow.style.height ="500px";
-			this.Flow.style.width = "1000px";
+            this.Flow.style.height = mFS.height.height +(mFS.height.top - pF.top)+"px";
         }
 
         /* remove gap */

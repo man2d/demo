@@ -4,7 +4,7 @@
             <div class="loadIndicator"><div class="indicator"></div></div>
             <div class="flow">
 				<% @item.interior_assets.each do |asset| %>
-	            <img class="item" alt="" title="" src="<%= asset.asset.url %>" />
+	            <img class="item" alt="" title="" src="<%= asset.asset.url(:gallery) %>" />
 	            <% end %>
             </div>
             <div class="globalCaption"></div>

@@ -82,6 +82,6 @@ Navigator2::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
 #  match ':controller(/:action(/:id(.:format)))'
   resources :pages, :controller => :home
-
+#  match '/javascripts/*path' => Sprockets
   match '*path' => 'redirect#index'
 end

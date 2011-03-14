@@ -1,24 +1,3 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
-function slideSwitch(el) {
-	
-    var active = jQuery('#slideShow img.active');
-
-
-    if ( active.length == 0 ) active = jQuery('#slideShow img:last');
-
-    var next =  active.next().length ? active.next()
-        : jQuery('#slideShow img:first');
-
-    active.addClass('last-active');
-
-    next.css({opacity: 0.0})
-        .addClass('active')
-        .animate({opacity: 1.0}, 1000, function() {
-            active.removeClass('active last-active');
-        });
-}
-
 (function($){  
 
 

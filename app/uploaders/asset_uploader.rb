@@ -11,10 +11,16 @@ class AssetUploader < CarrierWave::Uploader::Base
   storage :file
   # storage :s3
 
-  process :resize_to_fit => [270, 360]
+  process :resize_to_fit => [270, 180]
 
+  version :specification do
+    process :resize_to_fit => [498,359]
+  end
   version :thumb do
     process :resize_to_fill => [175,130]
+  end
+  version :gallery do
+    process :resize_to_fit => [420,300]
   end
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
