@@ -8,6 +8,7 @@
 .main_menu a, .sub1 a, .sub2 a, .sub3 a {font-family: "Arial", "Helvetica", sans-serif; display: block; position: relative;}
 	.main_menu a {color: #333333; font-size: 14px; letter-spacing: 1px; line-height: 18px; padding: 0px 7px; text-transform: uppercase;}
 	.sub1 a, .sub2 a, .sub3 a {padding: 2px; padding-bottom: 3px; color: #282d30; font-size: 13px; line-height: 13px; text-decoration: none; letter-spacing: normal; border: none; background-image: url("../images/mmenu_tbg.gif"); text-transform: none;}
+	.sub1 a, .sub2 a { padding: 4px 7px; padding-bottom: 5px; padding-left: 10px; }
 	.sub2 a {background-image: url("../images/mmenu_bbg.png");position:relative;display:block;}
 	.sub3 a { margin: 0px; padding: 0px;}
 .sub1 li, .sub2 li, .sub3 li {margin-left: 0px;}
