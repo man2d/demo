@@ -104,7 +104,7 @@
         
         //Create caption
         $('.nivoSlider').after(
-            $('<div class="nivo-caption"><p></p></div>').css({ display:'none', opacity:settings.captionOpacity })
+            $('<div class="nivo-caption"><p></p></div>').css({ opacity:settings.captionOpacity })
         );			
         //Process initial  caption
         if(vars.currentImage.attr('title') != ''){

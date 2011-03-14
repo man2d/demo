@@ -244,19 +244,10 @@ h3, h3 a {font-size: 16px; line-height: 18px; font-weight: normal; font-family: 
 	    *display: inline;
 	    }
 .hidden {display: none;}
-/*
-#slideShow img {
+
+#slider img {
     position:absolute;
-    top:0;
-    left:0;
-    z-index:8;
+    top:0px;
+    left:0px;
+    display:none;
 }
-
-#slideShow img.active {
-    z-index:10;
-}
-
-#slideShow img.last-active {
-    z-index:9;
-}
-*/
