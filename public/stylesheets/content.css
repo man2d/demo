@@ -223,21 +223,26 @@ h3, h3 a {font-size: 16px; line-height: 18px; font-weight: normal; font-family: 
 
 .cat_slideshow {float: left; clear: both; width: 100%; margin-bottom: 10px;}
 
-.main_banner {position: relative; margin-bottom: 20px; float: left; width: 100%; overflow: hidden;}
+.main_banner {position: relative; margin-bottom: 20px; width: 100%; overflow:hidden;}
 	.main_banner .images {width: 100%; height: 400px; overflow: hidden;
 	}
 	.main_banner .images img {position: absolute; top: 0px; left: 0px;}
 	.main_banner .nivo-caption {position: absolute; bottom: 68px; right: 0px;}
 	.main_banner .nivo-caption .bg {background-color: #0287c1; position: absolute; width: 100%; height: 100%; top: 0px; left: 0px; filter:alpha(opacity=66); -moz-opacity: 0.66;	-khtml-opacity: 0.66; opacity: 0.66; }
 	.main_banner .nivo-caption p {color: white; white-space: pre; font-size: 28px; line-height: 42px; margin: 0px 25px; margin-right: 90px; font-family: 'HeliosLightRegular', sans-serif;}
-	.main_banner .nivo-controlNav {background-image: url("../images/mb_button_bg_m.gif"); height: 31px; display: inline-block; padding: 0px; margin: 0 auto;}
+/*	.main_banner .nivo-controlNav {background-image: url("../images/mb_button_bg_m.gif"); height: 31px; display: inline-block; padding: 0px; margin: 0 auto;}*/
 	.main_banner .nivo-controlNav .l, .main_banner .nivo-controlNav .r  {position: absolute; width: 6px; height: 31px; top: 0px;}
 	.main_banner .nivo-controlNav .l {background-image: url("../images/mb_button_bg_l.gif"); left: -6px;}
 	.main_banner .nivo-controlNav .r {background-image: url("../images/mb_button_bg_r.gif"); right: -6px;}
-	.main_banner .nivo-controlNav a {float: left; width: 14px; height: 14px; background-image: url("../images/mb_button_off.gif"); margin: 8px 6px; text-decoration: none;}
+	.main_banner .nivo-controlNav a {float: left; width: 14px; height: 14px; background-image: url("../images/mb_button_off.gif"); margin: 8px 6px; text-decoration: none; overflow: hidden;}
 	.main_banner .nivo-controlNav a:hover {background-image: url("../images/mb_button_over.gif");}
 	.main_banner .nivo-controlNav a.active {background-image: url("../images/mb_button_on.gif");}
 	
+	.main_banner .nivo-controlNav { z-index: 3; background-image: url("../images/mb_button_bg_m.gif"); height: 31px; display: inline-block; padding: 0px;
+	    margin: 0 auto;
+	    *zoom: 1;
+	    *display: inline;
+	    }
 .hidden {display: none;}
 /*
 #slideShow img {
