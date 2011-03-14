@@ -41,7 +41,7 @@
 }
 /* Caption styles */
 .nivo-caption {
-position: absolute; bottom: 68px; right: 0px; overflow: hidden; background-image: url("../images/bluebg.png");z-index:100;
+position: absolute; bottom: 68px; right: 0px; overflow: hidden; background-image: url("../images/bluebg.png");z-index:9;
 }
 .nivo-caption p {
 	padding:5px;
