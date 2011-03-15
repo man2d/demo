@@ -62,7 +62,7 @@ function ImageFlow ()
 		reflectionGET:      '',             /* Pass variables via the GET method to the reflect_.php script */
 		reflectionP:        0.5,            /* Height of the reflection in percent of the source image */
 		reflectionPNG:      false,          /* Toggle reflect2.php or reflect3.php */
-		reflectPath:        'http://192.168.1.121/',             /* Path to the reflect_.php script */
+		reflectPath:        'http://mail.allur.logomotiv.ru/',             /* Path to the reflect_.php script */
 		scrollbarP:         0.6,            /* Width of the scrollbar in percent */
 		slider:             true,           /* Toggle slider */
 		sliderCursor:       'e-resize',     /* Slider cursor type - default is 'default' */
@@ -362,7 +362,7 @@ function ImageFlow ()
 		}
 
 		var loadingP = document.getElementById(my.ImageFlowID+'_loading_txt');
-		var loadingTxt = document.createTextNode('loading images '+completed+'/'+i);
+		var loadingTxt = document.createTextNode('Загрузка картинок '+completed+'/'+i);
 		loadingP.replaceChild(loadingTxt,loadingP.firstChild);
 		return finished;
 	};
