@@ -83,5 +83,6 @@ Navigator2::Application.routes.draw do
 #  match ':controller(/:action(/:id(.:format)))'
   resources :pages, :controller => :home
 #  match '/javascripts/*path' => Sprockets
+match '/gallery' => 'gallery#index'
   match '*path' => 'redirect#index'
 end

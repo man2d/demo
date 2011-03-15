@@ -1,0 +1,3 @@
+class GalleryController < ApplicationController
+
+end

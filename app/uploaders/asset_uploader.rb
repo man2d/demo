@@ -11,8 +11,11 @@ class AssetUploader < CarrierWave::Uploader::Base
   storage :file
   # storage :s3
 
-  process :resize_to_fit => [270, 180]
+  # process :resize_to_fit => [270, 180]
 
+  version :big do
+    process :resize_to_fit => [800,600]
+  end
   version :specification do
     process :resize_to_fit => [498,359]
   end
