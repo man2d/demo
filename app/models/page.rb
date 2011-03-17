@@ -1,6 +1,7 @@
 class Page < ActiveRecord::Base
   acts_as_nested_set
   before_save :caching_level, :caching_url
+  before_create :caching_level, :caching_url
   after_save :rebuild_tree
 
   has_many :items

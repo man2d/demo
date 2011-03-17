@@ -1,5 +1,5 @@
-<div class="content">
-<div class="catalog">
+<div class="w910 catalog">
+<div class="brand">
 
 <% @page.items.select(:lgth).group(:lgth).each do |length| %>
             <ul>
@@ -9,7 +9,12 @@
                 <li>
                 <a href="<%= item.url %>"><% if item.image.url %><img alt="" src="<%= item.image.url(:thumb) %>"><% end %></a>
                 <a href="<%= item.url %>" class="name"><%= item.title %></a>
-                <a href="javascript:void();" class="comparison remove" id="<%= dom_id(item) %>">Добавить к сравнению</a>
+
+				<% if !session[:comparison] || !session[:comparison].include?(item.id.to_i) %>
+				<%= link_to "Добавить к сравнению", "/comparison/#{item.id}", :remote => true, :class => [:add, :comparison], :id => "item_#{item.id}_comparison" %>
+				<% else %>
+				<%= link_to "Убрать из сравнения", "/comparison/#{item.id}", :remote => true, :class => [:remove, :comparison], :id => "item_#{item.id}_comparison" %>
+				<% end %>
                 </li>
 <% end %>
 

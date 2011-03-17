@@ -1,0 +1,11 @@
+## Style design ##
+Classes to help capture CSS styles and map/convert these to styles (style options) that can be used by prawn.
+
+## CssStyles ##
+An object to hold css styles for a given XML element.
+
+## Parser ##
+methods to help parse the CSS style declarations for a given nokogiri XML element into a CssStyle object.
+
+## StyleMapper ##
+'to_pdf_style' converts a CssStyle instance to a valid Prawn style options hash. This hash can be merged (see merged_styles)

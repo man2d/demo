@@ -1,4 +1,4 @@
-<div class="content">
+<div class="w910 catalog">
 
         <div class="left">
        		<%= render 'shared/breadcrumbs' %>
@@ -7,11 +7,15 @@
         <div class="actions">
         	<p class="presence"><span class="color_gray_l">Наличие:</span> Есть на складе <span class="point">•</span></p>
         	<a href="#">Отправить заявку</a>
-        	<a href="#" class="add">Добавить к сравнению</a>
+			<% if session[:comparison] && session[:comparison].include?(@item.id)%>
+        	<a href="/comparison/<%= @item.id %>" class="remove comparison" data-remote="true">Убрать из сравнения</a>
+			<% else %>
+        	<a href="/comparison/<%= @item.id %>" class="add comparison" data-remote="true">Добавить к сравнению</a>
+			<% end %>
         </div>
         
         <ul class="tabs">
-        	<li<%=raw ' class="current"' if params[:view] =='review' %>><a href="?view=review" rel="review">Обзор</a></li>
+        	<li<%=raw ' class="current"' if params[:view] =='review' || !params[:view] %>><a href="?view=review" rel="review">Обзор</a></li>
             <% if @item.exterior_assets.size > 0 %><li<%=raw ' class="current"' if params[:view] =='exterior' %>><a href="?view=exterior" rel="exterior">Экстерьер</a></li><% end %>
             <% if @item.interior_assets.size > 0 %><li<%=raw ' class="current"' if params[:view] =='interior' %>><a href="?view=interior" rel="interior">Интерьер</a></li><% end %>
             <% if @item.specification_assets.size > 0 || @item.item_properties.size > 0 %><li<%=raw ' class="current"' if params[:view] =='specification' %>><a href="?view=specification" rel="specification">Спецификация</a></li><% end %>

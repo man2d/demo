@@ -1,0 +1,15 @@
+body {
+   behavior: url("js/csshover3.htc");
+}
+#main_container {
+	width: 970px;
+}
+.contMargin {
+	width: 954px;
+}
+
+.main_menu li, .sub1 li, .sub2 li{ width: auto; margin: 0px; padding: 0px; }
+.compare .shadow_b {padding-bottom: 14px;}
+.compare_result tr:hover {background-color: #f4f4f4;}
+.compare_result tr.first:hover {background-color: transparent;}
+

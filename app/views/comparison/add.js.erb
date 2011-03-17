@@ -1,0 +1,5 @@
+$('#compare_container').html('<%= render :partial => 'comparison/list' %>');
+
+<% if session[:comparison] && session[:comparison].size > 0 %>
+	$('#compare_items').show();
+<% end %>

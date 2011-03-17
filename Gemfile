@@ -1,4 +1,5 @@
 source 'http://rubygems.org'
+source 'http://gems.github.com'
 
 gem 'rails', '3.0.5'
 
@@ -49,3 +50,8 @@ group :test do
   gem 'timecop'
   gem 'launchy'
 end
+
+gem 'prawn'
+gem 'nokogiri', '>= 1.4.1'
+gem 'kmandrup-colorist', '>= 0.1.2'
+gem 'html_css_decorator'

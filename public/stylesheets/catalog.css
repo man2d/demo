@@ -1,0 +1,38 @@
+.catalog div h1 {margin-top: 15px; margin-bottom: 10px;}
+.brand {position: relative;}
+	.brand ul {float: left; clear: both; position: relative; margin-bottom: 20px; width: 100%; margin-left: 75px; width: 700px; display: inline;}
+	.brand li {float: left; margin-right: 35px; margin-bottom: 15px;}
+	.brand li.number {padding-left: 45px; margin-left: -125px; margin-top: 23px; display: block;
+			background-image: url("/images/catalogLine.gif"); background-repeat: no-repeat; background-position: 0px 11px;
+	}
+	.brand li.number p {font-family: 'HeliosLightRegular', sans-serif; color: #a6a6a6; font-size: 39px;}
+	.brand li a {display: block; float:left; clear: both; margin-bottom: 5px;}
+		.brand li a.add, .brand li a.remove {font-family: "Arial", "Helvetica", sans-serif; text-decoration: none;
+			border-bottom: dashed 1px; font-size: 12px; line-height: 13px; color: #165e80;}
+		.brand li a.remove {color: #808080;}
+		.brand li a.name {font-family: 'HeliosLightRegular', sans-serif; font-size: 16px;
+			color: #4d4d4d; border: none; text-decoration: underline;}
+		.brand li a:hover {color: #c80009;}
+	.filterResult ul { margin-left: 0px; margin-top: 30px; width: auto;}
+	
+.cat_model {float: left; clear: both; width: 100%; margin-bottom: 10px;}
+	.cat_model .left {width: 420px; overflow: hidden; padding-bottom: 20px;}
+		.cat_model .left img { float: left; clear: both; margin-bottom: 15px;}
+	.cat_model .right {width: 460px;}
+	.cat_model .right p {font-size: 13px; line-height: 20px; margin-bottom: 10px;}
+	.indent {text-indent: -8px;}
+	
+	.videoButton { position: relative; display: inline-block;
+		font-family: 'HeliosLightRegular', sans-serif; font-size: 13px; border-bottom: dashed 1px; text-decoration: none; line-height: 15px;
+	}
+		.videoButton span {position: absolute; background-image: url("/images/video_ico.gif"); display: block; width: 17px; height: 18px; left: -23px; top: -1px;}
+
+.spec {float: left; clear: both; width: 100%; margin-bottom: 10px;}
+	.spec p, .spec a {font-family: "Arial", "Helvetica", sans-serif; font-size: 12px; line-height: 15px;}
+	.spec a {text-decoration: none; border-bottom: dotted 1px;}
+		noindex:-o-prefocus, /* opera hack */
+		.spec a {white-space: pre;} 
+	.spec p {color: #666666;}
+	.spec .name { width: 220px; overflow: hidden; padding-right: 20px;}
+	.spec .points {position: absolute; width: 300px; height: 0px; border-bottom: dotted 1px #b3b3b3; margin-left: 4px; bottom: 7px;}
+	.spec .value {display: block; width: 80px; margin-top: -22px;}

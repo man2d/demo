@@ -1,0 +1,43 @@
+<div class="w910">
+	<div class="tree"><a href="#">Главная</a> /  <b>Подбор</b> <div class="arrow"></div></div>
+</div>
+<% form_tag '/filter/do', :method => :post, :remote => true, :id=>:filterForm  do %>
+<%= hidden_field_tag 'item_assign_id' %>
+<%= hidden_field_tag 'lgth' %>
+<% end %>
+<div class="blueBg filters">
+	<div class="w910">
+		<h2>Назначение</h2>
+		<ul class="f1 filter_ul">
+			<% Item.group(:item_assign_id).each do |item|%>
+			  <% if item.item_assign %>
+		<li><a href="#" rel="item_assign_id" data="<%= item.item_assign_id %>"><span><%= item.item_assign.title %></span></a></li>
+			  <% end %>
+			<% end %>
+<!--		<li class="current"><a href="#"><span>Для длительных прогулок<br />до нескольких дней</span></a></li> -->
+		<li><a class="all" href="#"><span>Показать все</span></a></li>
+		</ul>
+		<h2>Длина (футы)</h2>
+		<ul class="f2 filter_ul">
+			<% Item.select(:lgth).group(:lgth).each do |length|%>
+		        <li><a href="#" rel="lgth" data="<%= length.lgth %>"><%= length.lgth %></a><span></span></li>
+		    <% end %>
+<!--		<li class="current"><a href="#">37</a><span></span></li> -->
+		</ul>
+	</div>
+</div>
+<div class="w910 brand filterResult" id="filterResult">
+	<ul>
+	<li>
+	<a href="#"><img src="images/comparePic.png" alt="" /></a>
+	<a class="name" href="#">Super Indios</a>
+	<a class="add" href="#">Добавить к сравнению</a>
+	</li>
+	<li>
+	<a href="#"><img src="images/comparePic.png" alt="" /></a>
+	<a class="name" href="#">Super Indios</a>
+	<a class="remove" href="#">Убрать из сравнения</a>
+	</li>
+	</ul>
+	<div class="clear"></div>
+</div>

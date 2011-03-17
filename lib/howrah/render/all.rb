@@ -1,0 +1,8 @@
+require 'howrah/render/base'
+require 'howrah/render/text_base'
+require 'howrah/render/block_tags'
+require 'howrah/render/inline_tags'
+require 'howrah/render/h_tags'
+require 'howrah/render/list_tags'
+require 'howrah/render/table_tags'
+require 'howrah/render/special_tags'

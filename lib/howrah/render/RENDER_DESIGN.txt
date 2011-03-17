@@ -1,0 +1,46 @@
+## Render design ##
+
+Each HTML element can have its own Renderer registered, simply by following the following naming convention:
+
+Howrah::Render::<TagName>
+
+This way it is easy to customize a renderer or add new renderers for specific html/xml elements of choice, or to support new elements from HTML 5 etc. 
+
+## Base ##
+
+The Base class is central to the renderer, as it sets up shared state and ensures some default functionality/behavior for key API functions.
+
+class Base
+
+  def initialize(state, element, options = {})
+    @state = state
+    @element = element
+    @options = options  
+  end 
+  
+  ...
+end  
+
+Added StateManager class to encapsulate all global state in the rendering process. Uses method_missing to ensure proxy functionality :)
+See: http://railstips.org/blog/archives/2009/08/07/patterns-are-not-scary-method-missing-proxy/
+
+The generator initializes starting state, then each time a Renderer is created, it is initialized with the creators state, so they all point to the same state object.
+Singleton state pattern was rejected, since it would disallow for parallel execution - doing multiple conversions simultaneously, which is probably a common pattern! 
+
+All Renderers should follow same pattern as Base. Requires some refactoring!!!  
+
+## Text ##
+
+Is a special renderer dedicated to render pure Text nodes using the current style. 
+This is currently the only renderer not directly mapped to a specific HTML tag.                     
+
+## TextBase ##
+Base class for any HTML tag that is text centered in nature or acts like a text. 
+  
+## BlockBase ##  
+Base class for any HTML tag that acts like a block. 
+Idea: allow super calls for shared functionality, such as the "newline" effect etc. Maybe bounding box :width, :height ?
+
+NOTE: 
+Not sure if all these xxxBase classes are required, gives much. This part requires redesign.
+We should design one renderer at a time using specs!!! Then using specs, gradually refactor to optimal design and reuse, DRY and beautiful!

@@ -1,0 +1,49 @@
+<div class="w910">
+	<div class="left">
+   		<div class="tree"><a href="#">Главная</a> / <a href="#">Каталог яхт</a> / <a href="#">Colombo</a> / <b>Alldays</b> <div class="arrow"></div></div>
+    </div>
+	<div class="compare_result">
+	<table cellpadding="0" cellspacing="0">
+    	<tr class="first">
+            <th>
+            <h3 class="color_gray_l">Добавить</h3>
+
+         
+            </ul>
+            </th>
+			<% i = 0 %>
+        	<% @items.each do |item| %><td class="row_<%=i+=1%>"<%=raw ' style="width:0;opacity:0"' if i > 5 %>><span><a href="<%= item.url %>"><img src="<%= item.image.url(:thumb) %>" /></a><a class="close" href="/comparison/<%= item.id %>"></a></span><a href="<%= item.url %>"><%= item.title %></a></td><% end %>
+           
+        </tr>
+		
+		<% Property.all.each do |property| %>
+        <tr><th><%= property.title %></th>
+ 	        <% i = 0 %>
+			<% @items.each do |item| %>
+			<td class="row_<%=i+=1%>"<%=raw ' style="width:0;opacity:0;"' if i > 5 %>><%= item.item_properties.where(:property_id => property.id).first.value if item.item_properties.where(:property_id => property.id).first %></td>
+			<% end %>
+			</tr>
+        <% end %>
+       
+    </table>
+    <a class="next" href="javascript:void(0);" <%=raw 'style="display:none;"' if @items.size < 6 %>><span></span></a>
+    <a class="prev" href="javascript:void(0);" style="display:none"><span></span></a>
+    <ul class="addMenu">
+    <% Page.find_by_slug("catalog").children.where("pages.slug != 's_probegom'").each do |category| %>
+    <li><span class="bg"><p><%= category.title %></p><span class="arrow"></span></span>
+    	<ul>
+		<% category.items.each do |item| %>
+	
+        <li <%=raw ' class="selected"' if session[:comparison].include?(item.id) %>><a href="/comparison/<%= item.id %>"><%= item.lgth %> <%= item.title %><span class="v"></span></a></li>
+		
+        <% end %>
+        </ul>
+    </li>
+	<% end %>
+    <!--<div style="margin-top: 15px; margin-left: 225px;">
+    	<p class="doc defaultPic"><a href="/comparison/pdf">Сохранить</a>(ПДФ)</p><p class="doc printPic"><a href="#">Распечатать</a></p>
+    </div>-->
+    </div>
+    <div class="clear"></div>
+</div>
+<script type="text/javascript">var compareItems = <%= @items.size %>;</script>

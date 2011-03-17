@@ -1,0 +1,12 @@
+## Spec design ##
+
+The specs are created using RSpec 2.0 and Mocha as the mocking framework.
+
+Currently (as of may 27th) the specs only contains spec skeletons to test the various HTML tag (element) renderers.
+The specs are currently without 'should' verifications. Prawn contains methods to assist with verifying the actual output of prawn and these should be used.
+
+
+
+
+
+

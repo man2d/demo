@@ -1,0 +1,23 @@
+## Helper design ##
+
+Most of the Helpers here are context specific modules that are included by the Generator and/or the Base renderer (which is the shared superclass for all renderers). 
+This way it is ensure that required functionality is easy to add on.
+
+## Class helper ##
+Manages registration of Render classes, trying to find a class for a specific tag name and if found the name, value pair is added to a hash for next use. 
+
+## Element helper ##
+Provides methods to handle specific types of Nokogiri model elements such as XMLElement and TextElement.
+The Generator initially uses 'handle_element' on the first 'html' element found to kick-off the rendering process.
+
+Renderers can use these as needed. The method handle_element takes a type key as the second argument. This can be used by a Renderer to ensure only a subset of 
+child elements are handled. Fx for some nodes (fx TABLE), only XMLElement child nodes are to be considered and Text elements ignored. 
+
+## HTML helper ##
+Provides various methods to help Renderers operate on HTML elements.
+
+## Style helper ##
+Provides various methods to help Renderers operate with CSS and PDF styles.
+
+## Text helper ##
+Provides various methods to help Renderers operate with Text elements.

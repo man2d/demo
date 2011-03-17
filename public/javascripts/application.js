@@ -1,4 +1,5 @@
 (function($){  
+
 /*
 	$('a[rel=interior]').live('click', function() {
 		$('#interior').css('position', 'relative').css('left','0').css('top', '0');
@@ -16,6 +17,44 @@ $('ul.tabs a, .sub3 a').live('click', function() {
 });
 */
 
+$('.filter_ul a').live('click', function() {
+  $(this).parents('ul').children('li').removeClass('current');
+  $(this).parents('li').addClass('current');
+  $('form#filterForm input#'+$(this).attr('rel')).val($(this).attr('data'));
+  $('form#filterForm').submit();
+});
+
+$('.comparison').live('click', function(){
+  $(this).toggleClass('add').toggleClass('remove');	
+  if($(this).text() == "Добавить к сравнению") {
+	$(this).text("Убрать из сравнения");
+  } else {
+	$(this).text("Добавить к сравнению");	
+  }
+});
+var from=1;
+$('.compare_result .prev').live('click', function(){
+	if(from >= 2) {
+	from--;
+	$('.row_'+(from+5).toString()).animate({width: 0, opacity: 0}, 1000);
+	$('.row_'+(from).toString()).animate({width: 136, opacity: 1}, 1000);	
+	$('.compare_result .next').show();
+	if(from == 1) $(this).hide();
+	} else {
+		$(this).hide();
+	}
+});
+$('.compare_result .next').live('click', function(){
+	if(compareItems-5 >= from) {
+	from++;
+	$('.row_'+(from-1).toString()).animate({width: 0, opacity: 0}, 1000);	
+	$('.row_'+(from+4).toString()).animate({width: 136, opacity: 1}, 1000);
+	$('.compare_result .prev').show();
+	if(from+4 == compareItems) $(this).hide();
+	} else {
+		$(this).hide();
+	}
+});
 
 $('.toggle').live('click', function() {
   $('#'+$(this).attr('rel')).slideToggle();
@@ -24,9 +63,13 @@ $('.toggle').live('click', function() {
 $('.yaht_load').live('mouseenter', function(){
   var id = $(this).attr('id').split('_')[1];
   var el = $(this);
+//  if(!$(this).children("div.sub3").length) {
+
   $.get('/items/'+id, function(data){
     el.append(data);
+    el.removeClass('yaht_load');
   });
+//  }
 });
 
 $('#carinfo_toggle').live('click', function() {

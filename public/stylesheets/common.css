@@ -4,11 +4,12 @@ html, body {
 }
 body {
 	background-color: #fff;
-	background-image: url("../images/color.gif");
+	background-image: url("/images/color.gif");
 	font-family: "Arial", "Helvetica", sans-serif;
 	font-size: 14px;
 	line-height: 22px;
 	color: #1a1a1a;
+	position: relative;
 }
 div, p, img, ul, li, table, tr, td, a, span, h1, h2, h3, h4, h5, pre {margin: 0px;	padding: 0px; position: relative;}
 ul, li {list-style-type: none; position: relative;}
@@ -49,91 +50,108 @@ a:hover {color: #c80009;}
 .clear {clear: both;}
 
 .hide {display: none;}
+.hidden {display: none;}
 .show {display: block;}
+.overflow {overflow: hidden;}
 
 #main_container {
 	max-width: 1200px;
 	min-width: 950px;
-	width: expression(document.body.clientWidth < 950? "950px" : document.body.clientWidth > 1200? "1200px" : "auto");
-	margin: 0 auto;
-	overflow: hidden;
+	margin: 0px auto;
 }
 .contMargin {
-	margin: 0px 8px;
-	background-image: url("../images/mainBG.gif");
+	margin: 8px;
+	position: relative;
+	clear: both;
+}
+.contMargin.bg {
+	background-image: url("/images/mainBG.gif");
 	background-repeat: repeat-x;
 	background-color: white;
-	position: relative;
-	overflow: hidden;
 }
-.wrap {width: 100%; min-width: 950px; background-image: url("../images/gradient.gif"); background-repeat: repeat-x; float:left; clear: both; padding-top: 8px;}
-.mapBg {background-image: url("../images/map.gif"); background-position: 50% 0%; background-repeat: no-repeat; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;}
-.bgPic {background-image: url("../images/mainBG_pic.gif"); background-position: 0% 100%; background-repeat: no-repeat; position: absolute; bottom: 0px; left: 0px; width: 550px; height: 1025px;
-filter:alpha(opacity=10); /* IE 5.5+*/
--moz-opacity: 0.1; /* Mozilla 1.6 и ниже */
--khtml-opacity: 0.1; /* Konqueror 3.1, Safari 1.1 */
-opacity: 0.1; /* CSS3 - Mozilla 1.7b +, Firefox 0.9 +, Safari 1.2+, Opera 9 */
+.wrap {width: 100%; min-width: 950px; background-image: url("/images/gradient.gif"); background-repeat: repeat-x; float:left; clear: both; position: relative;}
+.mapBg {background-image: url("/images/map.gif"); background-position: 50% 0%; background-repeat: no-repeat; position: absolute; left: 0px; width: 100%; height: 1338px;}
+	.mapBg img {display: none;}
+	.mapBg.bottom {bottom: 0px;}
+	.transparent .mapBg img {display: block;}
+.bgPic {background-image: url("/images/mainBG_pic.gif"); background-position: 0% 100%; background-repeat: no-repeat; position: absolute; bottom: 0px; left: 0px; width: 550px; height: 1025px;
+filter:alpha(opacity=10);
+-moz-opacity: 0.1;
+-khtml-opacity: 0.1;
+opacity: 0.1;
 }
 
 
-.head, .content, .main_menu, .foot {
+.head, .content, .main_menu, .foot, .w910 {
 	width: 910px;
+	width: 100%;
 	margin: 0 auto;
 	position: relative;
+	clear: both;
 }
-.head {height: 145px;}
+
+.head {z-index: 4; margin: 0px; padding: 0px;}
 	.phone {float: left; margin-top: 23px; clear: both;}
 	.phone, .phone a {font-size: 29px; font-family: 'HeliosLightRegular', sans-serif;}
 	.phone a { text-decoration: none; border-bottom: dashed 1px; line-height: 25px;}
-	.logo {float: left; margin-top: 25px;}
-	.home, .mail, .sitemap {display: block; width: 16px; height: 12px; overflow: hidden; float:left; margin-left: 15px; margin-top: 45px;}
-	.home {background-image: url("../images/home.gif");}
-	.mail {background-image: url("../images/mail.gif");}
-	.sitemap {background-image: url("../images/sitemap.gif");}
-	.home:hover {background-image: url("../images/home_over.gif");}
-	.mail:hover {background-image: url("../images/mail_over.gif");}
-	.sitemap:hover {background-image: url("../images/sitemap_over.gif");}
+	.logo {float: left; margin-top: 25px; margin-bottom: 30px; width: 193px; height: 89px; display: block; overflow: hidden; padding: 0;
+		background-image: url("/images/PrezidentNeva.gif");}
+	.home, .mail, .sitemap {display: block; background-image: url("/images/hms_ico.gif"); width: 16px; height: 12px; overflow: hidden; float:left; margin-left: 15px; margin-top: 45px;}
+	.home {background-position: 0px 0px;}
+	.mail {background-position: -16px 0px;}
+	.sitemap {background-position: -32px 0px;}
 	.client {float: left; background-color: #165e80; margin-left: 20px; margin-top: 18px; padding: 8px 15px;}
 		.client, .client p, .client a{ color: white; text-decoration: none;}
 		.client a {border-bottom: solid 1px;}
 		.client .enter { border-bottom: dashed 1px;}
 		.client a:hover {color: #58c9ff;}
 
-.main_menu {margin-bottom: 15px; z-index: 20;}
+.main_menu {z-index: 3;}
 
-.content {z-index: 19; clear: both;}
-	.content.typical .left {float: left; width: 200px; margin-right: -225px;}
-	.content.typical .right {float: left; width: auto; margin-left: 225px;}
-	.content.typical .right img {max-width: 670px;}
+.w910 {width: 910px;}
+#content { z-index: 2; padding-top: 10px; overflow: hidden;}
+	.w910.typical .left {float: left; width: 200px; margin-right: -225px;}
+	.w910.typical .right {float: left; width: auto; margin-left: 225px;}
+	.w910.typical .right img {max-width: 670px;}
 	.contentWrap {margin: 30px 50px; clear:both; margin-right: 60px;}
 	.col_2 {width: 50%;}
-	.content.typical .col_2 {width: 48%;}
-	.content.typical .col_2.left {float: left;}
-	.content.typical .col_2.right {float: right;}
+	.w910.typical .col_2 {width: 48%;}
+	.w910.typical .col_2.left {float: left;}
+	.w910.typical .col_2.right {float: right;}
 
-.foot { height: 80px;}
+.foot {height: 80px;}
 	.foot a, .foot p {font-size: 10px; line-height: 15px; color: white;}
 	.foot a {color: #99bbd1;}
 	.foot a:hover {color: white;}
 	.foot .author, .copyright {margin: 15px 0px; margin-bottom: 8px;}
-	.foot .author {float: right; background-image: url("../images/Logomotiv.gif"); background-repeat: no-repeat; padding-left: 35px; background-position: 0px 3px;}
+	.foot .author {float: right; background-image: url("/images/Logomotiv.gif"); background-repeat: no-repeat; padding-left: 35px; background-position: 0px 3px;}
 	.foot .copyright {float: left; text-indent: -11px; margin-right: 80px; padding-left: 12px; margin-left: -12px;}
 	.foot .smap {margin-left: 9px; float: left; clear: both;}
 	.search {float: left; clear: both; display: inline; height: 22px; margin-top: 18px; position: relative; margin-left: 9px;}
-		.search input {border: none; outline: 0 none; background-image: url("../images/search_m.gif"); border:0;  line-height: 22px;
+		.search input {border: none; outline: 0 none; background-image: url("/images/search_m.gif"); border:0;  line-height: 22px;
 			margin: 0px; padding: 0px; height: 22px; width: 225px; color: #808080; font-size: 11px;float: left; clear: both;}
-		.search input:focus {border: none; outline: 0 none;}
-		.search .ico {background-image: url("../images/search_ico.gif"); background-repeat: no-repeat; background-position: 4px 4px;
-		 	padding: 4px; padding-right: 9px; width: 13px; height: 12px; position: absolute; top: 1px; right: -11px;}
-			.search .ico:hover {background-image: url("../images/search_ico_over.gif");}
-		.search .l, .search .r {width: 12px; height: 22px; position: absolute; top: 0px; border:0;}
-		.search .l {background-image: url("../images/search_l.gif"); left: -11px;}
-		.search .r {background-image: url("../images/search_r.gif"); right: -11px;}
-	.yacht {height: 30px; clear: both; position: relative;}
-	.yacht img {position: absolute; bottom: 0px; left: 0px; margin-left: 86%;}
+		.search input:focus {border: none; outline: 0 none; color: black;}
+		.search .ico {background-image: url("/images/search_ico.gif"); width: 17px; height: 16px; position: absolute; top: 3px; right: -5px;}
+			.search .ico:hover {background-position: 0px -16px;}
+		.search .l, .search .r {background-image: url("/images/search_rounds.png"); width: 12px; height: 22px; position: absolute; top: 0px; border:0; overflow: hidden;}
+		.search .l {left: -11px;}
+		.search .r {background-position: -12px 0px; right: -11px;}
+	.yacht {height: 35px; clear: both; position: relative; background-image: url('/images/yacht.png'); background-repeat: no-repeat; background-position: 95% 1px;}
 	.yacht .water {background-color: #00558e; width: 100%; height: 8px; position: absolute; bottom: 0px; left: 0px;
 		filter:alpha(opacity=50);	-moz-opacity: 0.5;	-khtml-opacity: 0.5; opacity: 0.5; overflow: hidden;
 	}
 		
-#TB_window { z-index: 10030;}
-#TB_overlay { z-index: 10199;}
+.transparent {background: none;}
+	.transparent .contMargin.bg {background: none;}
+	.transparent .head { background-image: url('/images/head_bg.png'); background-repeat: repeat;}
+	.transparent #content { background-image: url('/images/content_bg.png');}
+	.transparent .foot { background-image: url('/images/foot_bg.png');}
+	.transparent .logo {background-image: url('/images/PrezidentNeva.png');}
+	.transparent .phone, .transparent .phone a {color: white;}
+	.transparent .phone a:hover { color: #c80009}
+	.transparent .home {background-position: 0px -12px;}
+	.transparent .mail {background-position: -16px -12px;}
+	.transparent .sitemap {background-position: -32px -12px;}
+		.home:hover {background-position: 0px -24px;}
+		.mail:hover {background-position: -16px -24px;}
+		.sitemap:hover {background-position: -32px -24px;}

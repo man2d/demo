@@ -1,4 +1,4 @@
-﻿/*
+/*
 Name:       ImageFlow
 Version:    1.3.0 (March 9 2010)
 Author:     Finn Rudolph
@@ -44,7 +44,7 @@ function ImageFlow ()
 		buttons:            true,          /* Toggle navigation buttons */
 		captions:           true,           /* Toggle captions */
 		circular:           false,          /* Toggle circular rotation */
-		imageCursor:        'default',      /* Cursor type for all images - default is 'default' */
+		imageCursor:        'pointer',      /* Cursor type for all images - default is 'default' */
 		ImageFlowID:        'imageflow',    /* Default id of the ImageFlow container */
 		imageFocusM:        1.0,            /* Multiplicator for the focussed image size in percent */
 		imageFocusMax:      2,              /* Max number of images on each side of the focussed one */
@@ -62,7 +62,7 @@ function ImageFlow ()
 		reflectionGET:      '',             /* Pass variables via the GET method to the reflect_.php script */
 		reflectionP:        0.5,            /* Height of the reflection in percent of the source image */
 		reflectionPNG:      false,          /* Toggle reflect2.php or reflect3.php */
-		reflectPath:        'http://mail.allur.logomotiv.ru/',             /* Path to the reflect_.php script */
+		reflectPath:        'http://192.168.1.121/',             /* Path to the reflect_.php script */
 		scrollbarP:         0.6,            /* Width of the scrollbar in percent */
 		slider:             true,           /* Toggle slider */
 		sliderCursor:       'e-resize',     /* Slider cursor type - default is 'default' */
@@ -362,7 +362,7 @@ function ImageFlow ()
 		}
 
 		var loadingP = document.getElementById(my.ImageFlowID+'_loading_txt');
-		var loadingTxt = document.createTextNode('Загрузка картинок '+completed+'/'+i);
+		var loadingTxt = document.createTextNode(''+completed+'/'+i);
 		loadingP.replaceChild(loadingTxt,loadingP.firstChild);
 		return finished;
 	};

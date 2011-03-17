@@ -5,7 +5,7 @@
 <title><%=(@title?@title:raw('Яхт-клуб &laquo;Президент Нева&raquo;'))%></title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-<%= stylesheet_link_tag "common", "content", "fonts", "forms", "mainMenu", "otherMenu", "tabs" %>
+<%= stylesheet_link_tag "common", "content", "fonts", "forms", "mainMenu", "otherMenu", "tabs", "catalog" %>
 <%#= stylesheet_link_tag :all %>
 <!--[if IE]><link rel="stylesheet" href="/stylesheets/ie/IE.css" type="text/css" /><![endif]-->
 <!--[if lte IE 6]>
@@ -34,15 +34,17 @@
     // instead of editing the highslide.js file
     hs.graphicsDir = '/javascripts/highslide/graphics/';
 </script>
+<script type="text/javascript" src="/javascripts/fenix.js"></script>
 </head>
 <body>
 <div class="wrap"><div class="mapBg"></div>
-<div id="main_container"><div class="contMargin"><div class="bgPic"></div>
+<div id="main_container"><div class="contMargin bg"><div class="bgPic"></div>
 	<div class="head">
+		<div class="w910">
 		<% if params[:controller] == 'home' && params[:action] == 'index' %>
-    	<img class="logo" alt="Президент Нева" src="/images/PrezidentNeva.gif" />
+    	<p class="logo"></p>
 		<% else %>
-		<a href="/"><img class="logo" alt="Президент Нева" src="/images/PrezidentNeva.gif" /></a>
+		<a href="/" class="logo"></a>
 		<% end %>
         <div class="right">
         	<div class="right clear">
@@ -53,33 +55,26 @@
             <div class="right clear">
         		<p class="phone color_gray_l">(812) <a href="#">320-63-00</a></p><div class="client"><a class="enter" href="#">Войдите</a> или <a href="#">зарегистрируйтесь</a>.</div>
             </div>
-		</div>
-        <div class="compare" style="display:none;"><div class="shadow_b"><div class="shadow_r"><div class="data">
-        	<center><a class="count toggle" rel="compare_items" href="#">3 яхты к сравнению<span></span></a></center>
-            <div class="compare_items" id="compare_items" style="display:none;">
-                <a href="#">Colombo Alldays 3788 8 88</a>
-                <a href="#">Colombo Alldays Sport Fisher Megayahtus</a>
-                <a href="#">Colombo Alldays 37</a>
-            </div>
-            <center><a class="button" href="#"><span class="l"></span>Сравнить<span class="r"></span></a></center>
-        </div></div></div></div>
-    </div>
-    <ul class="main_menu" style="height: 30px;">
-	<%= render 'shared/menu' %>
+			</div>
+			<div id="compare_container"><%= render 'comparison/list' %></div>
+			<ul class="main_menu" style="height: 30px;">
+			<%= render 'shared/menu' %>
 
-        <li style="z-index: 24;" class="blog"><a href="#">БЛОГ<img src="/images/blog.gif" alt="Блог" /></a></li>
-    </ul>
-    <div class="clear"></div>
+		        <li style="z-index: 24;" class="blog"><a href="#">БЛОГ</a><span></span></li>
+		    </ul>
+		</div>
+    </div>
+    
     <div id="content">
 	  <%= yield %>
 	  <div class="yacht">
-		<img src="/images/yacht.gif" alt="" />
 	    <div class="water"></div>
 	  </div>
     </div>
 </div>
-
+<div class="contMargin">
 <div class="foot">
+	<div class="w910">
     <p class="author">Дизайн — студия <a href="http://logomotiv.ru/">Logomotiv</a>, 2011.<br /><a href="#">Информация</a> о проекте.</p>
     <p class="copyright">© 2011 «Президент-Нева» Энергетический центр»<br /><a href="/contacts/">Контактная информация</a></p>
     <div class="left">
@@ -95,7 +90,8 @@
 <div class="clear"></div>
 </div>
 </div>
-
+</div>
+</div>
 </div>
 
 </body>

@@ -14,3 +14,28 @@
 	.leftMenu .current span {display: inline-block;}
 	.leftMenu .current * {color: #4d4d4d; text-decoration: none; font-weight: bold;}
 	.leftMenu a {display: block;}
+	
+.addMenu {float: left; width: 140px; display: inline; position: absolute; top: 43px; left: 5px;}
+	.addMenu li {border: solid 0px; float: left; clear: both; width: 100%; margin-bottom: 3px; position: relative; background-image: url("../images/mmenu_tbg.gif");
+		padding-right: 20px;
+		*padding-right: 0px;
+	}
+	.addMenu li:hover {background-image: url("../images/mmenu_wbg.png");}
+	.addMenu li:hover ul {display: block;}
+	.addMenu .arrow {display: none; width: 4px; height: 7px; position: absolute; right: 7px; top: 50%; margin-top: -3px; background-image: url("../images/menuArrow.gif"); overflow: hidden;}
+	.addMenu li:hover .arrow {display: block;}
+	.addMenu li:hover p {color: #282d30; border-bottom: none; display: block;}
+	.addMenu li .bg {display: block; float: left; width: 100%; z-index: 21; padding: 3px 10px; position: relative; background-image: none;}
+	.addMenu li:hover .bg {background-image: url("../images/mmenu_bbg.png"); background-repeat: repeat;}
+	.addMenu li p, .addMenu a {font-family: 'HeliosLightRegular', sans-serif; font-size: 13px; line-height: 15px;}
+	.addMenu li p {color: #165e80; border-bottom: dashed 1px; display: inline; padding: 0px;}
+	.addMenu a {border: none; color: #282d30; display: block; line-height: 20px; padding: 0px 5px; padding-top: 1px; position: relative;}
+	.addMenu li ul {display: none; position: absolute; top: -3px; left: -3px; margin-left: 100%; width: 180px; padding: 3px;
+		background-image: url("../images/mmenu_wbg.png");}
+	.addMenu li ul li a {text-decoration: none; line-height: 20px;}
+	.addMenu li ul li a:hover {color: #282d30;}
+	.addMenu li ul li {background-image: url("../images/mmenu_bbg.png"); margin: 0px; padding: 0px;}
+	.addMenu li ul li:hover {background-image: url("../images/mmenu_wbg.png");}
+	.addMenu .selected {color: #999999;}
+	.addMenu .v {display: none; overflow: hidden; width: 10px; height: 9px; position: absolute; right: 7px; top: 50%; margin-top: -4px; background-image: url("../images/compare_v.png");}
+	.addMenu .selected .v {display: block;}
