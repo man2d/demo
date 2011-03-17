@@ -1,28 +1,15 @@
 (function($){  
 
-/*
-	$('a[rel=interior]').live('click', function() {
-		$('#interior').css('position', 'relative').css('left','0').css('top', '0');
-	});
-	$('a[rel=exterior]').live('click', function() {
-		$('#exterior').css('position', 'relative').css('left','0').css('top', '0');
-	});
 
-
-$('ul.tabs a, .sub3 a').live('click', function() {
-  $('div#tabs > div').hide();
-  $('ul.tabs li').removeClass('current');
-  $(this).parents('li').addClass('current');
-  $('div#tabs > div#'+$(this).attr('rel')).show();	
-});
-*/
-
+/** Подбор **/
 $('.filter_ul a').live('click', function() {
   $(this).parents('ul').children('li').removeClass('current');
   $(this).parents('li').addClass('current');
-  $('form#filterForm input#'+$(this).attr('rel')).val($(this).attr('data'));
+  $('form#filterForm input#'+$(this).attr('rel')).val($(this).attr('data')); 
   $('form#filterForm').submit();
 });
+
+/** Сравнение **/
 
 $('.comparison').live('click', function(){
   $(this).toggleClass('add').toggleClass('remove');	
@@ -56,6 +43,8 @@ $('.compare_result .next').live('click', function(){
 	}
 });
 
+/** Общее **/
+
 $('.toggle').live('click', function() {
   $('#'+$(this).attr('rel')).slideToggle();
 });
@@ -72,6 +61,11 @@ $('.yaht_load').live('mouseenter', function(){
 //  }
 });
 
+
+/*
+$("div.gallery a").live('click', function() {
+  $('div.gallery div.big img').attr('src', $(this).attr('rel'));
+});
 $('#carinfo_toggle').live('click', function() {
   $('table.carinfo_table').show();
   $('#carinfo_description').hide();
@@ -83,11 +77,7 @@ $('#description_toggle').live('click', function() {
   $(this).addClass('current'); $('#carinfo_toggle').removeClass('current');
 });
 
-$("div.gallery a").live('click', function() {
-  $('div.gallery div.big img').attr('src', $(this).attr('rel'));
-});
-
-/*$('a.force').live('click', function() {
+$('a.force').live('click', function() {
   document.location.href = $(this).attr('href');	
 });*/
 
@@ -96,6 +86,16 @@ $("div.gallery a").live('click', function() {
 $('.points a').click(function(){
 	int=window.clearInterval(int)
 });*/
+$('.showPass').live('click', function() {
+	if($(this).text() == 'Показать пароль') {
+//		$('#user_password').attr('type', 'text');	
+		alert('#user_password_password').val();
+		$(this).text('Скрыть пароль');
+	} else {
+		$('#user_password').attr('type', 'password')
+		$(this).text('Скрыть пароль');
+	}
+});
   
 })(jQuery);
 

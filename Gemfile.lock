@@ -104,6 +104,7 @@ GEM
     jquery-rails (0.2.7)
       rails (~> 3.0)
       thor (~> 0.14.4)
+    jrails (0.6.0)
     json (1.4.6)
     json_pure (1.5.1)
     kgio (2.3.2)
@@ -215,6 +216,7 @@ DEPENDENCIES
   html_css_decorator
   inherited_resources (~> 1.2.1)
   jquery-rails (>= 0.2.6)
+  jrails
   kmandrup-colorist (>= 0.1.2)
   launchy
   mysql2

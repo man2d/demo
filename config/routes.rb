@@ -1,5 +1,7 @@
 Navigator2::Application.routes.draw do
   
+  devise_for :users
+
   devise_for :admin_users, :controllers => { :sessions => "admin/sessions" }
 
   root :to => "home#index"
@@ -84,6 +86,10 @@ Navigator2::Application.routes.draw do
   resources :pages, :controller => :home
 #  match '/javascripts/*path' => Sprockets
 #  match '/gallery' => 'gallery#index'
+  devise_scope :user do
+    get '/register', :to => 'devise/registrations#new'
+    get '/login', :to => 'devise/sessions#new'
+  end
   match '/filter' => 'selection#index'
   match '/filter/do' => 'selection#list'
   match '/filter/search' => 'selection#search'

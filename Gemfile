@@ -21,8 +21,9 @@ gem 'sortable'
 #gem 'awesome_nested_set'
 
 # Stuff
+#gem 'searchlogic'
 gem 'paperclip', '~> 2.3.8'
- 
+gem 'jrails'
 gem 'ckeditor', :git => 'git://github.com/galetahub/rails-ckeditor.git', :branch => 'rails3'
 gem 'jquery-rails', '>= 0.2.6'
 gem 'russian'

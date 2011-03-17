@@ -1,1 +1,13 @@
-<%= raw @items.to_xml %>
+<% if @items %>
+<ul>
+<% @items.each do |item| %>
+<li>
+<a href="<%= item.url %>"><img src="<%= item.image.url(:thumb) %>" alt="" /></a>
+<a class="name" href="#"><%= item.title %></a>
+<a class="add comparison" href="/comparison/<%= item.id %>">Добавить к сравнению</a>
+</li>
+<% end %>
+<% else %>
+Не найдено ни одной яхты.
+<% end %>
+<div class="clear"></div>
