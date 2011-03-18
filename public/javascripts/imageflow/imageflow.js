@@ -1473,10 +1473,6 @@ domReadyEvent.init();
 domReady(function()
 {
 	var instanceOne = new ImageFlow();
-	instanceOne.init({ ImageFlowID:'exteriorFlow', circular: true, slider: false, 
-	onClick: function() { 
-		return hs.expand(this, 
-	                                    { src: this.getAttribute('longdesc') } ); } 
-	
+	instanceOne.init({ ImageFlowID:'exteriorFlow', circular: true, slider: false, 	
 	});
 });

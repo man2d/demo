@@ -16,7 +16,6 @@
     <% #f.inputs :for => :assets %>
   <% end %>
     
-   <% end %>
    <% AssetGroup.find(1,2,3,4).each do |group| %>
    <% f.inputs do %>
     <a class="collapse" href="javascript:void();" rel="asset_<%=group.id%>_block"><%= group.title %></a>

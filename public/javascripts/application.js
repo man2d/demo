@@ -78,24 +78,9 @@ $('.toggle').live('click', function() {
 });
 
 $('.yaht_load').live('mouseenter', function(){
-  var id = $(this).attr('id').split('_')[1];
-  var el = $(this);
-  var listItem = $(this).parents("ul.sub2");
-  var index = $(this).prevAll().length;
-  $('.sub3').hide();
-  el.children('.sub3').css('top', "-"+(index*22).toString()+"px").show();
-  el.children('.sub3').show();
-console.log(id);
-//console.log("ent");
-//  if(!$(this).children("div.sub3").length) {
-
-/*  $.get('/items/'+id, function(data){
-    el.append(data);
-    el.children('.sub3').css('top', "-"+top.toString()+"px");
-    el.removeClass('yaht_load');
-  });*/
-
-//  }
+  var el = $(this);  
+  var index = $(this).prevAll().length;  
+  $('.sub3').hide(); el.children('.sub3').css('top', "-"+(index*22).toString()+"px").show();
 }).live('mouseleave', function() { $('.sub3').hide()});
 
 /** Галерея **/

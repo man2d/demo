@@ -1,10 +1,5 @@
 ﻿@charset "utf-8";
  @media screen, projection {
-.imageflow, .imageflow *, .imageflow * *, .imageflow * * *, .imageflow * * * *, .imageflow * * * * * {
-	-moz-user-select: none;
-	-khtml-user-select: none;
-	-webkit-user-select: none;
-}
 .imageflow {
 	overflow-x: hidden;
 	overflow-y: hidden;
@@ -50,7 +45,7 @@
 	width: 1%;
 }
 .imageflow .navigation {
-	z-index: 10020;
+	z-index: 8;
 	margin-top: -120px;
 	background-image: url("/images/tr_bg.gif");
 }
