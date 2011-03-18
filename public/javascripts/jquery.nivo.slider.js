@@ -327,7 +327,7 @@
 					});
 				} else {*/
 
-					$('.nivo-caption p').html(title);
+					$('.nivo-caption a').html(title).attr('href', vars.currentImage.attr('href'));
 //				}					
 				$('.nivo-caption').fadeIn(settings.animSpeed);
 			} else {
