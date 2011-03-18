@@ -102,7 +102,7 @@
 		.compare .count.open:hover span {background-position: 0px -6px;}
 		.compare .count.close:hover span {background-position: -8px -6px;}
 		
-	.compare .compare_items {float: left; clear: both; padding: 0px 15px; margin-bottom: 3px;}
+	.compare .compare_items {float: left; clear: both; padding: 0px 15px; margin-bottom: 3px; width: 174px;}
 		.compare .compare_items li {float: left; clear: both; width: 100%; padding: 3px 0px;}
 		.compare .compare_items a {display: inline; position: relative; float: left; margin-right: 30px;}
 		.compare .compare_items .close {display: block; background-image: url("../images/compare_x.gif"); width: 15px; height: 15px;
@@ -196,7 +196,7 @@ h3, h3 a {font-size: 16px; line-height: 18px; font-weight: normal; font-family: 
 	.main_banner .images img {position: absolute; top: 0px; left: 0px;}
 	.main_banner .nivo-caption {position: absolute; bottom: 68px; right: 0px; overflow: hidden; background-image: url("../images/bluebg.png");}
 	.main_banner .nivo-caption .bg {background-color: #0287c1; position: absolute; display: block; height: 100px; width: 100%; top: 0px; left: 0px; filter:alpha(opacity=66); -moz-opacity: 0.66;	-khtml-opacity: 0.66; opacity: 0.66;}
-	.main_banner .nivo-caption a {color: white; white-space: pre; font-size: 28px; line-height: 42px; margin: 0px 25px; margin-right: 90px; font-family: 'HeliosLightRegular', sans-serif;}
+	.main_banner .nivo-caption p {color: white; white-space: pre; font-size: 28px; line-height: 42px; margin: 0px 25px; margin-right: 90px; font-family: 'HeliosLightRegular', sans-serif;}
 	.main_banner .nivo-controlNav {background-image: url("../images/mb_button_bg_m.gif"); height: 31px; display: inline-block; padding: 0px;
 	margin: 0 auto;
 	*zoom: 1;

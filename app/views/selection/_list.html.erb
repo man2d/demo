@@ -4,7 +4,11 @@
 <li>
 <a href="<%= item.url %>"><img src="<%= item.image.url(:thumb) %>" alt="" /></a>
 <a class="name" href="#"><%= item.title %></a>
-<a class="add comparison" href="/comparison/<%= item.id %>">Добавить к сравнению</a>
+<% if session[:comparison] && session[:comparison].include?(item.id) %>
+<a class="remove comparison" data-remote="true" href="/comparison/<%= item.id %>">Убрать из сравнения</a>
+<% else %>
+<a class="add comparison" data-remote="true" href="/comparison/<%= item.id %>">Добавить к сравнению</a>
+<% end %>
 </li>
 <% end %>
 <% else %>
