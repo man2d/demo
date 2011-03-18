@@ -1,7 +1,9 @@
 <div class="w910">
 	<div class="left">
    		<div class="tree"><a href="#">Главная</a> / <a href="#">Каталог яхт</a> / <a href="#">Colombo</a> / <b>Alldays</b> <div class="arrow"></div></div>
+
     </div>
+		<div class="clear"></div>
 	<div class="compare_result">
 	<table cellpadding="0" cellspacing="0">
     	<tr class="first">
@@ -26,8 +28,8 @@
         <% end %>
        
     </table>
-    <a class="next" href="javascript:void(0);" <%=raw 'style="display:none;"' if @items.size < 6 %>><span></span></a>
-    <a class="prev" href="javascript:void(0);" style="display:none"><span></span></a>
+    <a class="next" <%=raw 'style="display:none;"' if @items.size < 6 %>><span></span></a>
+    <a class="prev" style="display:none"><span></span></a>
     <ul class="addMenu">
     <% Page.find_by_slug("catalog").children.where("pages.slug != 's_probegom'").each do |category| %>
     <li><span class="bg"><p><%= category.title %></p><span class="arrow"></span></span>

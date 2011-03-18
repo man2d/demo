@@ -1,5 +1,5 @@
 <div class="formWrap">
-<% form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => :registration}) do |f| %>
+<% form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => :registration}) do |f| %>
 	<div class="w910"><h1>Регистрация</h1></div>
 	<div class="blueBg">
 		<div class="w910">
@@ -10,14 +10,14 @@
 				<div class="text">
 					<label for="name">Имя</label>
 					<div class="left clear">
-						<%= f.text_field :name, :value => "Имя" %>
+						<%= f.text_field :name, :default => "Имя" %>
 						<div class="example">Пример: Имя</div>
 					</div><div class="ready"></div><div class="info"></div>
 				</div>
 				<div class="text">
 					<label for="mail">Электронная почта</label>
 					<div class="left clear">
-						<%= f.text_field :email, :value => "Электронная почта" %>
+						<%= f.text_field :email, :default => "Электронная почта" %>
 						<div class="example">Пример: почта@почта</div>
 					</div><div class="not_ready"></div><div class="info">Адрес электронной почты будет логином для авторизации на сайте.
 Адрес нигде не публикуется и не достанется спамерам.</div>
@@ -26,16 +26,15 @@
 					<label for="pass">Пароль</label>
 					<div class="left clear">
 						<%= f.password_field :password, :id => "user_password_password" %>
-						<%= f.text_field :password, :id => "user_password_field", :style => 'display:none;'%>
-						<div class="example"><a class="showPass" href="#">Показать пароль</a></div>
+						<div class="example pass"></div>
 					  </div><div class="ready"></div><div class="info"></div>
 				</div>
 		</div>
 	</div>
 	<div class="w910">
-		  <%= devise_error_messages! %>
-		<div class="errorInfo">Введите корректный адрес электронной почты</div>
-		<a class="submit" href="#" onclick="document.forms.user_new.submit;">Зарегистрироваться...</a>
+		  
+		<div class="errorInfo"><%= devise_error_messages! %></div>
+		<input type="submit" class="submit" href="#">Зарегистрироваться...</a>
 	</div>
 <% end %>
 </div>

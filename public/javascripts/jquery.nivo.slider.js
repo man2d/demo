@@ -104,13 +104,13 @@
         
         //Create caption
         $('.nivoSlider').after(
-            $('<div class="nivo-caption"><p></p></div>').css({ opacity:settings.captionOpacity })
+            $('<div class="nivo-caption"><a></a></div>').css({ opacity:settings.captionOpacity })
         );			
         //Process initial  caption
         if(vars.currentImage.attr('title') != ''){
             var title = vars.currentImage.attr('title');
             if(title.substr(0,1) == '#') title = $(title).html();
-            $('.nivo-caption p').html(title);					
+            $('.nivo-caption a').html(title).attr('href', vars.currentImage.attr('href'));					
             $('.nivo-caption').fadeIn(settings.animSpeed);
         }
         
@@ -517,7 +517,7 @@
             }
         }
         
-        //Trigger the afterLoad callback
+        //Trigger the afterf callback
         settings.afterLoad.call(this);
     };
         

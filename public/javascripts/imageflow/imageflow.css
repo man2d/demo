@@ -1,37 +1,42 @@
 ﻿@charset "utf-8";
-@media screen, projection {
-	.imageflow { 
+ @media screen, projection {
+.imageflow, .imageflow *, .imageflow * *, .imageflow * * *, .imageflow * * * *, .imageflow * * * * * {
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+}
+.imageflow {
 	overflow-x: hidden;
 	overflow-y: hidden;
 	position: relative;
 	text-align: left;
 	visibility: hidden;
 	width: 100%;
-	}
-	.imageflow img { 
+}
+.imageflow img {
 	border: none;
 	position: absolute;
 	top: 0px;
 	visibility: hidden;
 	cursor:pointer;
-	}
-	.imageflow p { 
+}
+.imageflow p {
 	margin: 0px auto;
 	text-align: center;
-	}
-	.imageflow .loading { 
-		clear: both;
+}
+.imageflow .loading {
+	clear: both;
 	border: 1px solid #ffffff;
-    margin: 0 auto;
-	padding: 5px;
+	margin: 0 auto;
 	position: relative;
 	visibility: visible;
 	width: 50px;
 	height: 60px;
 	background-image: url("/images/ajax_loader.gif");
 	background-repeat: no-repeat;
-	}
-	.imageflow .loading_bar { 
+}
+.imageflow .loading_txt { text-align: center;}
+.imageflow .loading_bar {
 	background-image: none;
 	background-attachment: scroll;
 	background-repeat: repeat;
@@ -43,23 +48,24 @@
 	height: 15px;
 	visibility: visible;
 	width: 1%;
-	}
-	.imageflow .navigation { 
-	z-index: 8;
+}
+.imageflow .navigation {
+	z-index: 10020;
 	margin-top: -120px;
-	}
-	.imageflow .caption { 
+	background-image: url("/images/tr_bg.gif");
+}
+.imageflow .caption {
 	font-weight: 700;
 	position: relative;
 	text-align: center;
 	z-index: 10001;
-	}
-	.imageflow .scrollbar { 
+}
+.imageflow .scrollbar {
 	height: 1px;
 	position: relative;
 	z-index: 10002;
-	}
-	.imageflow .slider { 
+}
+.imageflow .slider {
 	display: none;
 	background-attachment: scroll;
 	background-clip: border-box;
@@ -77,16 +83,16 @@
 	position: absolute;
 	width: 14px;
 	z-index: 10003;
-	}
-	.imageflow .slideshow { 
+}
+.imageflow .slideshow {
 	cursor: pointer;
 	height: 14px;
 	margin: 20px 0px 0px 20px;
 	position: absolute;
 	width: 14px;
 	z-index: 10003;
-	}
-	.imageflow .slideshow.pause { 
+}
+.imageflow .slideshow.pause {
 	background-image: url("http://192.168.1.121:3000/javascripts/imageflow/button_pause.png");
 	background-attachment: scroll;
 	background-repeat: no-repeat;
@@ -95,8 +101,8 @@
 	background-origin: padding-box;
 	background-clip: border-box;
 	background-color: transparent;
-	}
-	.imageflow .slideshow.play { 
+}
+.imageflow .slideshow.play {
 	background-image: url("http://192.168.1.121:3000/javascripts/imageflow/button_play.png");
 	background-attachment: scroll;
 	background-repeat: no-repeat;
@@ -105,19 +111,19 @@
 	background-origin: padding-box;
 	background-clip: border-box;
 	background-color: transparent;
-	}
-	.imageflow .images { 
+}
+.imageflow .images {
 	white-space: nowrap;
-	}
-	.imageflow .button { 
+}
+.imageflow .button {
 	cursor: pointer;
 	background-image: url("/images/compare_scroll.png");
 	overflow: hidden;
 	height: 36px;
-	position: relative;
+	position: absolute;
 	width: 36px;
-	}
-	.imageflow .previous { 
+}
+.imageflow .previous {
 	background-attachment: scroll;
 	background-clip: border-box;
 	background-color: transparent;
@@ -130,9 +136,11 @@
 	margin-left: -192px;
 	margin-right: 0px;
 	margin-top: -7px;
-	}
-	.imageflow .previous:hover {background-position: -36px -36px;} 
-	.imageflow .next { 
+}
+.imageflow .previous:hover {
+	background-position: -36px -36px;
+}
+.imageflow .next {
 	background-attachment: scroll;
 	background-clip: border-box;
 	background-color: transparent;
@@ -144,15 +152,16 @@
 	float: right;
 	margin-bottom: 0px;
 	margin-left: 30px;
-	margin-right: -180px;
+	right: -180px;
 	margin-top: -7px;
-	}
-	.imageflow .next:hover {background-position: 0px -36px;} 
-
-	.highslide-container { 
+}
+.imageflow .next:hover {
+	background-position: 0px -36px;
+}
+.highslide-container {
 	z-index: 10003 !important;
-	}
-	.highslide-credits { 
+}
+.highslide-credits {
 	display: none !important;
-	}
+}
 }

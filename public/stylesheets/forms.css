@@ -1,18 +1,18 @@
 .formWrap {width: 100%; float: left; clear: both; margin: 0 auto; padding: 0px;}
-.registration { display: inline; margin: 0px; padding: 0px;}
-	.registration, .registration a {color: white; font-family: "Arial", "Helvetica", sans-serif; font-size: 16px; line-height: 19px;}
-	.registration a:hover {color: #165e80;}
-	.registration div, .registration label {}
-	.registration div {}
-	.registration label {float: left; clear: both;}
-	.registration input {float: left; clear: both; padding: 0px; margin: 0px; }
-	.registration .radio {float: left; clear: both; padding: 20px 0px;}
-		.registration .radio label { margin-bottom: 7px;}
-		.registration .radio input {width: 19px; height: 19px; margin-right: 2px;}
-	.registration .text {padding-bottom: 20px; float:left; clear: both; width: 100%;}
-		.registration .text input {width: 430px; height: 40px; margin-left: -3px; position:relative;
+form { display: inline; margin: 0px; padding: 0px;}
+	form, form a {color: white; font-family: "Arial", "Helvetica", sans-serif; font-size: 16px; line-height: 19px;}
+	form a:hover {color: #165e80;}
+	form div, form label {}
+	form div {}
+	form label {float: left; clear: both;}
+	form input {float: left; clear: both; padding: 0px; margin: 0px; }
+	form .radio {float: left; clear: both; padding: 20px 0px;}
+		form .radio label { margin-bottom: 7px;}
+		form .radio input {width: 19px; height: 19px; margin-right: 2px;}
+	form .text {padding-bottom: 20px; float:left; clear: both; width: 100%;}
+		form .text input {width: 430px; height: 40px; margin-left: -3px; position:relative;
 			background-color: #FFF;
-			background-image: url("/images/form_input_bg.gif");
+			background-image: url("../images/form_input_bg.gif");
 			background-repeat: repeat-x;
 			border: solid 1px #999999;
 			font-size: 23px;
@@ -25,20 +25,20 @@
 			border-radius: 4px;
 			behavior: url('js/PIE-1.0beta3/PIE.htc');
 			}
-			.registration .text .error {border: solid 1px #c80009; outline: solid 0px #c80009; background-image: url("/images/form_input_bg_err.gif");}
-		.registration .not_ready, .registration .ready {float: left; background-repeat: no-repeat; background-position: 50% 50%; width: 50px; height: 37px;}
-			.registration .ready { background-image: url("/images/reg_v.gif");}
-		.registration .example {float: left; clear: both; font-family: "Georgia", serif; font-style: italic; color: #d7ecf5; font-size: 12px; width: 430px;}
-		.registration .info {float: left; font-family: "Georgia", serif; font-style: italic; font-size: 11px; line-height: 15px; width: 300px; margin-top: -2px;}
-	.registration .text label { margin-bottom: 1px; width: 100%;}
-	.registration .errorInfo {font-family: "Georgia", serif; font-style: italic; color: #c80009; font-size: 18px; line-height: 19px; width: 750px; padding: 10px 0px;}
-	.registration .submit {background-color: #cccccc; color: white; font-size: 18px; text-decoration: none; line-height: 50px; padding: 0px 30px; display: inline-block;
+			form .text .error {border: solid 1px #c80009; outline: solid 0px #c80009; background-image: url("../images/form_input_bg_err.gif");}
+		form .not_ready, form .ready {float: left; background-repeat: no-repeat; background-position: 50% 50%; width: 50px; height: 37px;}
+			form .ready { background-image: url("../images/reg_v.gif");}
+		form .example {float: left; clear: both; font-family: "Georgia", serif; font-style: italic; color: #d7ecf5; font-size: 12px; width: 430px;}
+		form .info {float: left; font-family: "Georgia", serif; font-style: italic; font-size: 11px; line-height: 15px; width: 300px; margin-top: -2px;}
+	form .text label { margin-bottom: 1px; width: 100%;}
+	form .errorInfo {font-family: "Georgia", serif; font-style: italic; color: #c80009; font-size: 18px; line-height: 19px; width: 750px; padding: 10px 0px;}
+	form .submit {background-color: #cccccc; color: white; font-size: 18px; text-decoration: none; line-height: 50px; padding: 0px 30px; display: inline-block;
 			-moz-border-radius: 4px;
 			-webkit-border-radius: 4px;
 			-khtml-border-radius: 4px;
 			border-radius: 4px;
 			behavior: url('js/PIE-1.0beta3/PIE.htc');
 	}
-	.registration .submit:hover {background-color: #165e80; color: white; behavior: url('js/PIE-1.0beta3/PIE.htc');}
-	.registration .showPass {text-decoration: none; border-bottom: dashed 1px; font-size: 12px; line-height: 14px; margin-top: 2px; font-style: normal; display: inline;}
-	.registration .showPass:hover {color: #165e80;}
+	form .submit:hover {background-color: #165e80; color: white; behavior: url('js/PIE-1.0beta3/PIE.htc');}
+	form .showPass {text-decoration: none; border-bottom: dashed 1px; font-size: 12px; line-height: 14px; margin-top: 2px; font-style: normal; display: inline;}
+	form .showPass:hover {color: #165e80;}

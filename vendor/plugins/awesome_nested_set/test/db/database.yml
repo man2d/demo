@@ -16,3 +16,4 @@ mysql:
   username: root
   password:
   database: awesome_nested_set_plugin_test
+  encoding: utf-8

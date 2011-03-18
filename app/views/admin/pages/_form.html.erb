@@ -17,13 +17,19 @@
 	<li id="page_status_input" class="boolean optional"><input type="hidden" value="0" name="page[status]"><label for="page_status">Показывать</label><%= f.check_box :status %></li>
 	<li id="page_menu_input" class="boolean optional"><input type="hidden" value="0" name="page[menu]"><label for="page_menu">Показывать в меню</label><%= f.check_box :menu %></li>	
   <% end %>
+<% if resource.resource == 'catalog/index' %>
+   <%= f.inputs do %>
+	<%= f.input :image, :as => :file, :label => "Картинка" %>
+   <% end %>
+<% end %>
   <% f.inputs do %>
     <a class="collapse" href="javascript:void();" rel="seo_block">SEO поля</a>
     <div class="seo_block hidden">
-	  <%= f.input :meta_keywords, :as => :text, :hint => 'Эта хуйня нужна для поисковиков' %>
+	  <%= f.input :meta_keywords, :as => :text, :hint => 'Эта  нужна для поисковиков' %>
 	  <%= f.input :meta_description, :as => :text %>
 	</div>
   <% end %>
+
 
   <% f.inputs do %>
     <a class="collapse" href="javascript:void();" rel="blocks_block">Блоки</a>

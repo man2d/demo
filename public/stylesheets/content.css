@@ -1,11 +1,11 @@
 .file { padding-left: 32px; background-repeat: no-repeat; background-position: 0px 3px; display: block; margin-bottom: 5px;}
 	.file, .file * { font-size: 13px; line-height: 15px;}
-.doc {background-image: url("/images/doc.gif");}
-.pdf {background-image: url("/images/pdf.gif");}
-.ppt {background-image: url("/images/ppt.gif");}
+.doc {background-image: url("../images/doc.gif");}
+.pdf {background-image: url("../images/pdf.gif");}
+.ppt {background-image: url("../images/ppt.gif");}
 	.doc, .pdf, .ppt { height: 30px;}
-.defaultPic {background-image: url("/images/doc_default.gif");padding-left: 50px;}
-.printPic {background-image: url("/images/doc_print.gif");padding-left: 35px;}
+.defaultPic {background-image: url("../images/doc_default.gif");padding-left: 50px;}
+.printPic {background-image: url("../images/doc_print.gif");padding-left: 35px;}
 	.defaultPic, .printPic {float: left; margin-right: 20px; height: 27px;}
 
 .index {clear: both;}
@@ -18,14 +18,14 @@
 		.index .cols_3 li {width: 33%; float: left; margin-bottom: 10px;}
 		.index .cols_3 li p {margin-top: 7px; font-size: 11px; line-height: 14px; color: #666666;}
 		.index .cols_3 li p a {font-family: "Arial", "Helvetica", sans-serif; font-size: 14px; line-height: 21px;}
-	.index .part {background-image: url("/images/partBg.gif");float: left; height: 50px; width: 100%; margin-bottom: 30px;}
+	.index .part {background-image: url("../images/partBg.gif");float: left; height: 50px; width: 100%; margin-bottom: 30px;}
 		.index .part img {float: left; margin-left: 30px; margin-top: 10px;}
 		.index .part a {font-family: "Arial", "Helvetica", sans-serif; font-size: 17px; line-height: 20px; display: block; float: left; margin: 4px; margin-top: 14px;}
 	.news { width: 90%; margin-bottom: 20px;}
 		.news a {clear: both; display: inline-block; margin-bottom: 7px; color: #4b5e66; font-family: "Times New Roman", serif; font-size: 14px; line-height: 17px}
 		.news a:hover {color: #c80009;}
 
-.blueBg {background-image: url("/images/bluebg.png"); position: relative; float: left; clear: both; width: 100%;}
+.blueBg {background-image: url("../images/bluebg.png"); position: relative; float: left; clear: both; width: 100%;}
 .filters {padding-top: 15px; margin-top: 10px;}
 	.filters h2 { color: black; margin: 0px;}
 	.filters ul.f1 {display: inline; float: left; clear: both; margin-bottom: 15px; margin-top: 7px;}
@@ -39,7 +39,7 @@
 		behavior: url('js/PIE-1.0beta3/PIE.htc');
 	}
 	.filters ul.f1 li.current a {background-color: #165e80; border: solid 1px #165e80;
-		background-image: url('/images/filter_v.gif'); background-repeat: no-repeat; background-position: 215px 57px; behavior: url('js/PIE-1.0beta3/PIE.htc');}
+		background-image: url('../images/filter_v.gif'); background-repeat: no-repeat; background-position: 215px 57px; behavior: url('js/PIE-1.0beta3/PIE.htc');}
 	.filters ul.f1 li.current a span { border: none;}
 	.filters ul.f1 li a {height:65px; padding-top: 15px; width:240px; display: block; text-align: center; text-decoration: none;}
 	.filters ul.f1 li a span {color: white; border-bottom: dashed 1px white;}
@@ -56,10 +56,10 @@
 	.filters ul.f2 li {text-align: center; float: left; width: 38px; height: 57px; margin-right: 20px; position: relative;}
 	.filters ul.f2 a {display: inline-block;  text-decoration: none; border-bottom: dashed 1px; color: white; font-size: 23px; font-family: 'HeliosLightRegular', sans-serif; line-height: 25px; margin-top: 5px;}
 	.filters ul.f2 a:hover {color: #165e80;}
-	.filters ul.f2 li.current { background-image: url('/images/num3BG.gif'); background-repeat: no-repeat;}
+	.filters ul.f2 li.current { background-image: url('../images/num3BG.gif'); background-repeat: no-repeat;}
 	.filters ul.f2 li.current a { border: none;}
 	.filters ul.f2 li.current a:hover { color: white;}
-	.filters ul.f2 li.current span {background-image: url('/images/filterArrow.png'); display: block; width: 23px; height: 12px;
+	.filters ul.f2 li.current span {background-image: url('../images/filterArrow.png'); display: block; width: 23px; height: 12px;
 		position: absolute; bottom: -12px; left: 7px; overflow: hidden;
 	}
 
@@ -72,52 +72,60 @@
 .list1 { margin-left: 60px; padding-bottom: 12px; padding-top: 5px;}
 	.list1 li { margin-bottom: 7px;}
 	.list1 * {color: #666666; text-indent: -18px; padding: 0px;}
-.leftBlueBox { background-image: url('/images/bluebg.png'); padding: 20px 0px; padding-left: 200px; margin-left: -200px; margin-top: 25px; color: white; width: 100%;}
+.leftBlueBox { background-image: url('../images/bluebg.png'); padding: 20px 0px; padding-left: 200px; margin-left: -200px; margin-top: 25px; color: white; width: 100%;}
 	.leftBlueBox * {color: white;}
 	.leftBlueBox div {padding: 7px 0px; padding-left: 42px; background-repeat: no-repeat; background-position: 0% 50%;}
 	.leftBlueBox a { text-decoration: none; border-bottom: dashed 1px; display: inline; clear: both; line-height: 15px;}
 	.leftBlueBox a:hover {color: #165e80;}
-	.resumePic {background-image: url('/images/resumePic.gif');}
-	.servisPic {background-image: url('/images/servisPic.gif');}
+	.resumePic {background-image: url('../images/resumePic.gif');}
+	.servisPic {background-image: url('../images/servisPic.gif');}
 .contactInfo, .contactInfo * { font-size: 13px; line-height: 17px;}
 
 .compare {position: absolute; top: 0px; left: 220px; z-index: 300;}
-
-     .compare div {}
-     .compare a {display: block; clear: both; font-size: 13px; line-height: 15px;}
-     .compare .shadow_r, .compare .shadow_b { float: left; clear: both;}
-     .compare .shadow_b {background-image: url("../images/c_shadow_b.png"); background-position: 0% 100%; background-repeat: no-repeat; padding-bottom: 15px;}
-     .compare .shadow_r {background-image: url("../images/c_shadow_r.png"); background-position: 100% 0%; background-repeat: repeat-y; padding-right: 9px;}
-	 .compare .data {background-color: white; float: left; clear: both; width: 204px;}
-     .compare .count {border-bottom: dashed 1px; color: #4d4d4d; position: relative; text-decoration: none; margin-left: -6px; display: inline-block; margin: 5px 0px;}
-          .compare .count span {
-               display: block; overflow: hidden;
-               position: absolute; top: 6px; right: -13px;
-               background-image: url("../images/compareArrow.gif");
-               width: 8px; height: 6px;
-          }
-          .compare .count.open span {background-position: 0px 0px;}
-          .compare .count.close span {background-position: -8px 0px;}
-          
-          .compare .count:hover {border-bottom: dashed 1px; color: #c80009;}
-          .compare .count.open:hover span {background-position: 0px -6px;}
-          .compare .count.close:hover span {background-position: -8px -6px;}
-          
-     .compare .compare_items {float: left; clear: both; padding: 0px 15px; margin-bottom: 3px;}
-          .compare .compare_items li {float: left; clear: both; width: 100%; padding: 3px 0px;}
-          .compare .compare_items a {display: inline; position: relative; float: left; margin-right: 30px;}
-          .compare .compare_items .close {display: block; background-image: url("../images/compare_x.gif"); width: 15px; height: 15px;
-               position: absolute; top: 0px; right: 0px; overflow: hidden; margin: 0px;
-          }
-          .compare .compare_items .close:hover {background-position: 0px -15px;}
-     .compare .button { display: inline-block; border: solid 1px #8da0a8; height: 18px; line-height: 17px; font-size: 12px; text-decoration: none; padding: 0px 6px; margin: 5px auto; margin-bottom: 10px;
-          -moz-border-radius: 7px;
-               -webkit-border-radius: 7px;
-               -khtml-border-radius: 7px;
-               border-radius: 7px;
-               behavior: url('js/PIE-1.0beta3/PIE.htc');
-     }
-     .compare .button:hover {behavior: url('js/PIE-1.0beta3/PIE.htc');}
+	.compare div {}
+	.compare a {display: block; clear: both; font-size: 13px; line-height: 15px;}
+	.compare .shadow_r, .compare .shadow_b { float: left; clear: both;}
+	.compare .shadow_b {background-image: url("../images/c_shadow_b.png"); background-position: 0% 100%; background-repeat: no-repeat; padding-bottom: 15px;}
+	.compare .shadow_r {background-image: url("../images/c_shadow_r.png"); background-position: 100% 0%; background-repeat: repeat-y; padding-right: 9px;}
+	.compare .data {background-color: white; float: left; clear: both; width: 204px;} 
+	.compare .count {border-bottom: dashed 1px; color: #4d4d4d; position: relative; text-decoration: none; margin-left: -6px; display: inline-block; margin: 5px 0px;}
+		.compare .count span {
+			display: block; overflow: hidden;
+			position: absolute; top: 6px; right: -13px;
+			background-image: url("../images/compareArrow.gif");
+			width: 8px; height: 6px;
+		}
+		.compare .count.open span {background-position: 0px 0px;}
+		.compare .count.close span {background-position: -8px 0px;}
+		
+		.compare .count:hover {border-bottom: dashed 1px; color: #c80009;}
+		.compare .count.open:hover span {background-position: 0px -6px;}
+		.compare .count.close:hover span {background-position: -8px -6px;}
+		
+	.compare .compare_items {float: left; clear: both; padding: 0px 15px; margin-bottom: 3px;}
+		.compare .compare_items li {float: left; clear: both; width: 100%; padding: 3px 0px;}
+		.compare .compare_items a {display: inline; position: relative; float: left; margin-right: 30px;}
+		.compare .compare_items .close {display: block; background-image: url("../images/compare_x.gif"); width: 15px; height: 15px;
+			position: absolute; top: 4px; right: 0px; overflow: hidden; margin: 0px;
+		}
+		.compare .compare_items .close:hover {background-position: 0px -15px;}
+	.compare .button { display: inline-block; border: solid 1px #8da0a8; height: 18px; line-height: 17px; font-size: 12px; text-decoration: none; padding: 0px 6px; margin: 5px auto; margin-bottom: 10px;
+		-moz-border-radius: 7px;
+			-webkit-border-radius: 7px;
+			-khtml-border-radius: 7px;
+			border-radius: 7px;
+			behavior: url('js/PIE-1.0beta3/PIE.htc');
+	}
+	.compare .button:hover {behavior: url('js/PIE-1.0beta3/PIE.htc');}
+		
+.compare_result {margin-left: -15px; display: inline; margin-bottom: 10px; padding-top: 7px; float: left; clear: both; position: relative; width: 100%;}
+	.compare_result .next, .compare_result .prev {width: 36px; height: 36px; display: block; position: absolute; top: 37px; overflow: hidden;
+		background-image: url("../images/compare_scroll.png");
+	}
+		.compare_result .next {background-position: 0px 0px; right: -28px;}
+		.compare_result .prev {background-position: -36px 0px; left: 182px;}
+		.compare_result a.next:hover {background-position: 0px -36px;}
+		.compare_result a.prev:hover {background-position: -36px -36px;}
 
 	.compare_result tr {float: left; clear: both;}
 	.compare_result tr:hover {background-color: #f4f4f4;}
@@ -135,13 +143,13 @@
 	.compare_result td a {position: relative; font-size: 13px; display: inline-block; float:left; clear: both;}
 	.compare_result td span {float: left; margin-bottom: 5px;}
 	.compare_result td span a {float: left;}
-	.compare_result .close {display: block; position: absolute; top: -9px; right: -9px; width: 20px; height: 20px; background-image: url("/images/compareResult_x.png"); z-index: 10; overflow: hidden;}
+	.compare_result .close {display: block; position: absolute; top: -9px; right: -9px; width: 20px; height: 20px; background-image: url("../images/compareResult_x.png"); z-index: 10; overflow: hidden;}
 	.compare_result .close:hover {background-position: 0px -20px;}
 
 .tree {margin-bottom: 5px; float: left; border: solid 1px #a8bac1; position: relative; height: 22px; padding: 0px 15px; border-right: none; display: block;}
 	.tree, .tree p, .tree a {color: #165e80; font-size: 13px; line-height: 21px;}
 	.tree a:hover {color: #c80009;}
-	.tree .arrow {background-image: url("/images/treeArrow.gif"); width: 11px; height: 24px; position: absolute; top: -1px; right: -10px;}
+	.tree .arrow {background-image: url("../images/treeArrow.gif"); width: 11px; height: 24px; position: absolute; top: -1px; right: -10px;}
 	
 .sort, .sort a, .sort b {font-size: 14px; line-height: 22px; height: 22px;}
 	.sort a, .sort b {margin: 0px 5px;}
@@ -151,7 +159,7 @@
 	
 h1 {color: #333333; font-size: 40px; line-height: 43px; font-weight: normal; font-family: 'HeliosLightRegular', sans-serif;
 	position: relative; margin-bottom: 15px; clear: both;}
-	h1 span {position: absolute; background-image: url("/images/num2BG.gif"); width: 30px; height: 30px;
+	h1 span {position: absolute; background-image: url("../images/num2BG.gif"); width: 30px; height: 30px;
 			color: white; font-size: 18px; line-height: 29px; text-align: center; bottom: 3px; margin-left: 10px; font-family: "Arial", "Helvetica", sans-serif;
 		}
 
@@ -186,18 +194,18 @@ h3, h3 a {font-size: 16px; line-height: 18px; font-weight: normal; font-family: 
 	.main_banner .images {width: 100%; height: 400px; overflow: hidden;
 	}
 	.main_banner .images img {position: absolute; top: 0px; left: 0px;}
-	.main_banner .nivo-caption {position: absolute; bottom: 68px; right: 0px; overflow: hidden; background-image: url("/images/bluebg.png");}
+	.main_banner .nivo-caption {position: absolute; bottom: 68px; right: 0px; overflow: hidden; background-image: url("../images/bluebg.png");}
 	.main_banner .nivo-caption .bg {background-color: #0287c1; position: absolute; display: block; height: 100px; width: 100%; top: 0px; left: 0px; filter:alpha(opacity=66); -moz-opacity: 0.66;	-khtml-opacity: 0.66; opacity: 0.66;}
-	.main_banner .nivo-caption p {color: white; white-space: pre; font-size: 28px; line-height: 42px; margin: 0px 25px; margin-right: 90px; font-family: 'HeliosLightRegular', sans-serif;}
-	.main_banner .nivo-controlNav {background-image: url("/images/mb_button_bg_m.gif"); height: 31px; display: inline-block; padding: 0px;
+	.main_banner .nivo-caption a {color: white; white-space: pre; font-size: 28px; line-height: 42px; margin: 0px 25px; margin-right: 90px; font-family: 'HeliosLightRegular', sans-serif;}
+	.main_banner .nivo-controlNav {background-image: url("../images/mb_button_bg_m.gif"); height: 31px; display: inline-block; padding: 0px;
 	margin: 0 auto;
 	*zoom: 1;
 	*display: inline;
 	}
 	.main_banner .nivo-controlNav .l, .main_banner .nivo-controlNav .r  {position: absolute; width: 6px; height: 31px; top: 0px;}
-	.main_banner .nivo-controlNav .l {background-image: url("/images/mb_button_bg_l.gif"); left: -6px;}
-	.main_banner .nivo-controlNav .r {background-image: url("/images/mb_button_bg_r.gif"); right: -6px;}
-	.main_banner .nivo-controlNav a {float: left; width: 14px; height: 14px; background-image: url("/images/mb_button.gif"); margin: 8px 6px; text-decoration: none; overflow: hidden;}
+	.main_banner .nivo-controlNav .l {background-image: url("../images/mb_button_bg_l.gif"); left: -6px;}
+	.main_banner .nivo-controlNav .r {background-image: url("../images/mb_button_bg_r.gif"); right: -6px;}
+	.main_banner .nivo-controlNav a {float: left; width: 14px; height: 14px; background-image: url("../images/mb_button.gif"); margin: 8px 6px; text-decoration: none; overflow: hidden;}
 	.main_banner .nivo-controlNav a:hover {background-position: 0px -14px;}
 	.main_banner .nivo-controlNav a.active {background-position: 0px -28px;}
 	.main_banner .nivo-controlNav a.active:hover {background-position: 0px -28px;}

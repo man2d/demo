@@ -75,3 +75,4 @@ position: absolute; bottom: 68px; right: 0px; overflow: hidden; background-image
 .nivo-controlNav a.active {
 	font-weight:bold;
 }
+#slider { background: url("/images/ajax_loader.gif") no-repeat 49% 49%; width: 1201px; height: 455px;}

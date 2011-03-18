@@ -20,4 +20,5 @@ class Item < ActiveRecord::Base
   accepts_nested_attributes_for :assets, :allow_destroy => true
   accepts_nested_attributes_for :item_properties, :allow_destroy => true
   mount_uploader :image, ImageUploader
+  has_one :slide
 end

@@ -18,7 +18,7 @@ Navigator2::Application.routes.draw do
         get 'hide'
       end
     end
-    resources :items, :item_properties, :assets, :asset_groups, :banners, :properties
+    resources :items, :item_properties, :assets, :asset_groups, :banners, :properties, :slides
     resources :blocks
     resources :posts do 
       member do

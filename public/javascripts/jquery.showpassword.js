@@ -54,26 +54,24 @@ $.fn.showPassword = function(options) {
         }
         e.preventDefault();
       },
-      css: {
-        left: elPosition.left + elWidth,
-        top: elPosition.top + elHeight
-      },
+      
       text: o.linkText
-    }).appendTo($parent);
+    }).appendTo('.example.pass');
     
-    var $toggleAnchor = $parent.find('.'+o.linkClass),
+    /*var $toggleAnchor = $parent.find('.'+o.linkClass),
         toggleAnchorWidth = $toggleAnchor.outerWidth(),
         toggleAnchorLeft = parseInt($toggleAnchor.css('left'), 10),
         toggleAnchorHeight = $toggleAnchor.outerHeight(),
-        toggleAnchorTop = parseInt($toggleAnchor.css('top'), 10);
+        toggleAnchorTop = parseInt($toggleAnchor.css('top'), 10);*/
         
-    $toggleAnchor.css({
+    /*$toggleAnchor.css({
       'left': (toggleAnchorLeft - toggleAnchorWidth - o.linkRightOffset),
       'top': (toggleAnchorTop - toggleAnchorHeight - o.linkTopOffset)
-    });
+    });*/
     
     //Create the input to switch
     $('<input/>', {
+	  'name': o.showPasswordName,
       'class': o.showPasswordInputClass,
       css: {
         display: 'none',
@@ -81,7 +79,7 @@ $.fn.showPassword = function(options) {
         top: elPosition.top
       },
       type: 'text'
-    }).appendTo($parent);
+    }).prependTo($parent);
     
     //When form is submitted and password is hidden, update the password val
     $this.closest('form').bind('submit', function() {
@@ -96,11 +94,13 @@ $.fn.showPassword = function(options) {
 // default options
 $.fn.showPassword.defaults = {
   linkClass: 'show-password-link',
-  linkText: 'Show',
+  linkText: 'Показать пароль',
   showPasswordLinkText: 'Hide',
   showPasswordInputClass: 'password-showing',
+  showPasswordName: 'user[password]',
   linkRightOffset: 0,
   linkTopOffset: 0
+
 };
 
 })(jQuery);

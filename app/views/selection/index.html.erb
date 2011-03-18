@@ -1,5 +1,5 @@
 <div class="w910">
-	<div class="tree"><a href="/">Главная</a> /  <b>Подбор</b> <div class="arrow"></div></div>
+	<div class="tree"><a href="/">Главная</a> /  <b>Выбор яхты</b> <div class="arrow"></div></div>
 </div>
 <% form_tag '/filter/do', :method => :post, :remote => true, :id=>:filterForm  do %>
 <%= hidden_field_tag 'search[item_assign_id]', '', :id => :item_assign_id %>
@@ -11,16 +11,16 @@
 		<ul class="f1 filter_ul">
 			<% Item.group(:item_assign_id).each do |item|%>
 			  <% if item.item_assign %>
-		<li><a href="javascript:void(0);" rel="item_assign_id" data="<%= item.item_assign_id %>"><span><%= item.item_assign.title %></span></a></li>
+		<li><a rel="item_assign_id" data="<%= item.item_assign_id %>"><span><%= item.item_assign.title %></span></a></li>
 			  <% end %>
 			<% end %>
 <!--		<li class="current"><a href="javascript:void(0);"><span>Для длительных прогулок<br />до нескольких дней</span></a></li> -->
-		<li><a class="all" href="javascript:void(0);" rel="item_assign_id" data=""><span>Показать все</span></a></li>
+		<li><a class="all" rel="item_assign_id" data=""><span>Показать все</span></a></li>
 		</ul>
 		<h2>Длина (футы)</h2>
 		<ul class="f2 filter_ul">
 			<% Item.select(:lgth).group(:lgth).each do |length|%>
-		        <li><a href="javascript:void(0);" rel="lgth" data="<%= length.lgth %>"><%= length.lgth %></a><span></span></li>
+		        <li><a rel="lgth" data="<%= length.lgth %>"><%= length.lgth %></a><span></span></li>
 		    <% end %>
 <!--		<li class="current"><a href="javascript:void(0);">37</a><span></span></li> -->
 		</ul>

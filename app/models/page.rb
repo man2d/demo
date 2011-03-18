@@ -11,6 +11,8 @@ class Page < ActiveRecord::Base
   has_one :item_assign
   accepts_nested_attributes_for :blocks, :assets
   
+  mount_uploader :image, DefaultUploader
+  
   scope :menu, lambda{where("menu > 0 ")}
   def admin_path
     ids = ["0"]

@@ -1,5 +1,30 @@
 (function($){  
 
+/** Регистрация **/
+$(document).ready(function(){
+	$('#user_password_password').showPassword({
+	 linkClass: 'showPass',
+	 linkText: 'Показать пароль',
+	 showPasswordLinkText: 'Скрыть пароль',
+	 showPasswordInputClass: 'password-showing',
+	 linkRightOffset: 0,
+	 linkTopOffset: 0
+	});
+	
+	$('form.registration input').each(function(){
+	  $(this).focusin(function() {
+		if($(this).val() == $(this).attr('default')) {
+			$(this).val('');
+		}
+	  }).focusout(function() {
+	    if(!$(this).val()) $(this).val($(this).attr('default'));	
+	  });
+	});
+	
+
+});
+
+
 
 /** Подбор **/
 $('.filter_ul a').live('click', function() {
@@ -10,6 +35,9 @@ $('.filter_ul a').live('click', function() {
 });
 
 /** Сравнение **/
+$('.compare .toggle').live('click', function() {
+	$(this).toggleClass('open').toggleClass('close');
+});
 
 $('.comparison').live('click', function(){
   $(this).toggleClass('add').toggleClass('remove');	
@@ -52,15 +80,25 @@ $('.toggle').live('click', function() {
 $('.yaht_load').live('mouseenter', function(){
   var id = $(this).attr('id').split('_')[1];
   var el = $(this);
+  var listItem = $(this).parents("ul.sub2");
+  var index = $(this).prevAll().length;
+  $('.sub3').hide();
+  el.children('.sub3').css('top', "-"+(index*22).toString()+"px").show();
+  el.children('.sub3').show();
+console.log(id);
+//console.log("ent");
 //  if(!$(this).children("div.sub3").length) {
 
-  $.get('/items/'+id, function(data){
+/*  $.get('/items/'+id, function(data){
     el.append(data);
+    el.children('.sub3').css('top', "-"+top.toString()+"px");
     el.removeClass('yaht_load');
-  });
-//  }
-});
+  });*/
 
+//  }
+}).live('mouseleave', function() { $('.sub3').hide()});
+
+/** Галерея **/
 
 /*
 $("div.gallery a").live('click', function() {
@@ -86,7 +124,7 @@ $('a.force').live('click', function() {
 $('.points a').click(function(){
 	int=window.clearInterval(int)
 });*/
-$('.showPass').live('click', function() {
+/*$('.showPass').live('click', function() {
 	if($(this).text() == 'Показать пароль') {
 //		$('#user_password').attr('type', 'text');	
 		alert('#user_password_password').val();
@@ -95,7 +133,7 @@ $('.showPass').live('click', function() {
 		$('#user_password').attr('type', 'password')
 		$(this).text('Скрыть пароль');
 	}
-});
+});*/
   
 })(jQuery);
 
@@ -112,8 +150,8 @@ jQuery(document).ready(function(){
 
 $(window).load(function() {
     $('#slider').nivoSlider({
-	        effect:'fold', //Specify sets like: 'fold,fade,sliceDown'
-	        slices:15,
+	        effect:'fade', //Specify sets like: 'fold,fade,sliceDown'
+	        slices:1,
 	        animSpeed:500, //Slide transition speed
 	        pauseTime:3000,
 	        startSlide:0, //Set starting Slide (0 index)

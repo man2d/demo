@@ -5,7 +5,9 @@
         	<h1><%= @item.title %><span><%= @item.lgth %></span></h1>
         </div>
         <div class="actions">
-        	<p class="presence"><span class="color_gray_l">Наличие:</span> Есть на складе <span class="point">•</span></p>
+	
+        	<p class="presence"><span>Наличие:</span> 
+				<% if @item.on_hand %>Есть на складе <span class="point">•</span></p><% else %>Нет на складе <span class="point" style="color:#808080;">•</span></p><% end %>
         	<a href="#">Отправить заявку</a>
 			<% if session[:comparison] && session[:comparison].include?(@item.id)%>
         	<a href="/comparison/<%= @item.id %>" class="remove comparison" data-remote="true">Убрать из сравнения</a>

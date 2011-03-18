@@ -1,9 +1,12 @@
 .catalog div h1 {margin-top: 15px; margin-bottom: 10px;}
+
+.catBanner { background-image: url('../images/sunset2.jpg'); width: 100%; height: 160px;}
+
 .brand {position: relative;}
 	.brand ul {float: left; clear: both; position: relative; margin-bottom: 20px; width: 100%; margin-left: 75px; width: 700px; display: inline;}
 	.brand li {float: left; margin-right: 35px; margin-bottom: 15px;}
 	.brand li.number {padding-left: 45px; margin-left: -125px; margin-top: 23px; display: block;
-			background-image: url("/images/catalogLine.gif"); background-repeat: no-repeat; background-position: 0px 11px;
+			background-image: url("../images/catalogLine.gif"); background-repeat: no-repeat; background-position: 0px 11px;
 	}
 	.brand li.number p {font-family: 'HeliosLightRegular', sans-serif; color: #a6a6a6; font-size: 39px;}
 	.brand li a {display: block; float:left; clear: both; margin-bottom: 5px;}
@@ -25,7 +28,7 @@
 	.videoButton { position: relative; display: inline-block;
 		font-family: 'HeliosLightRegular', sans-serif; font-size: 13px; border-bottom: dashed 1px; text-decoration: none; line-height: 15px;
 	}
-		.videoButton span {position: absolute; background-image: url("/images/video_ico.gif"); display: block; width: 17px; height: 18px; left: -23px; top: -1px;}
+		.videoButton span {position: absolute; background-image: url("../images/video_ico.gif"); display: block; width: 17px; height: 18px; left: -23px; top: -1px;}
 
 .spec {float: left; clear: both; width: 100%; margin-bottom: 10px;}
 	.spec p, .spec a {font-family: "Arial", "Helvetica", sans-serif; font-size: 12px; line-height: 15px;}

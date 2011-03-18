@@ -36,6 +36,6 @@
 	.addMenu li ul li a:hover {color: #282d30;}
 	.addMenu li ul li {background-image: url("../images/mmenu_bbg.png"); margin: 0px; padding: 0px;}
 	.addMenu li ul li:hover {background-image: url("../images/mmenu_wbg.png");}
-	.addMenu .selected {color: #999999;}
+	.addMenu .selected a {color: #999999;}
 	.addMenu .v {display: none; overflow: hidden; width: 10px; height: 9px; position: absolute; right: 7px; top: 50%; margin-top: -4px; background-image: url("../images/compare_v.png");}
 	.addMenu .selected .v {display: block;}

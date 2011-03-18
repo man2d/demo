@@ -1,12 +1,15 @@
 <div class="clear"></div>
 <div class="main_banner">
 	<div id="slider" class="images">
-		<img src="images/main_banner/colombo_algarve_42.jpg" title="Algarve 42" alt="" />
-		<img src="images/main_banner/colombo_atlantic_38.jpg" title="Atlantic 38" alt="" />
-		<img src="images/main_banner/colombo_virage_35.jpg" title="Virage 35" alt="" />
-		<img src="images/main_banner/sarnico_60.jpg" title="Sarnico 60" alt="" />
-		<img src="images/main_banner/sarnico_65.jpg" title="Sarnico 65" alt="" />
-		<img src="images/main_banner/sarnico_spider.jpg" title="Spider" alt="" />
+		<% Slide.all.each do |slide| %>
+			<%= image_tag slide.image.url, :title => slide.title, :alt => '', :href => slide.item.url %>
+		<% end %>
+		<img src="images/main_banner/colombo_algarve_42.jpg" title="Algarve 42" alt="" style="display:none;" />
+		<img src="images/main_banner/colombo_atlantic_38.jpg" title="Atlantic 38" alt="" style="display:none;" />
+		<img src="images/main_banner/colombo_virage_35.jpg" title="Virage 35" alt="" style="display:none;" />
+		<img src="images/main_banner/sarnico_60.jpg" title="Sarnico 60" alt="" style="display:none;" />
+		<img src="images/main_banner/sarnico_65.jpg" title="Sarnico 65" alt="" style="display:none;" />
+		<img src="images/main_banner/sarnico_spider.jpg" title="Spider" alt="" style="display:none;" />
 	</div>
 
 </div>

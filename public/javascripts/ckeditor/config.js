@@ -30,7 +30,7 @@ CKEDITOR.editorConfig = function( config )
     [
         ['Source'],
         ['Cut','Copy','Paste'],
-        ['Undo','Redo','RemoveFormat'],
+        ['Undo','Redo','RemoveFormat','Format'],
         ['Bold','Italic','Subscript','Superscript', 'TextColor'],
         ['NumberedList','BulletedList'],
         ['JustifyLeft','JustifyCenter','JustifyRight'],

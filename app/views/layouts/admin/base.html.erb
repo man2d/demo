@@ -17,7 +17,7 @@
 
   <%#= yield :stylesheets -%>
 
-  <%= javascript_include_tag :defaults, :ckeditor, "/javascripts/ckeditor/adapters/jquery.js", "jquery-ui", "/javascripts/sammy.js", "/javascripts/admin/admin.js"  %>
+  <%= javascript_include_tag "jquery", :ckeditor, "/javascripts/ckeditor/adapters/jquery.js", "jquery-ui", "/javascripts/sammy.js", "/javascripts/admin/admin.js"  %>
   <%#= javascript_include_tag :ckeditor %>
 
   <%= yield :javascripts -%>
