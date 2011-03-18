@@ -4,14 +4,5 @@ class Admin::SlidesController < Admin::BaseController
   respond_to :html, :xml, :json, :js
   defaults :route_prefix => 'admin'
   
-  def destroy
-
-    destroy!{
-    super do |format|
-      format.js {
-        
-      }
-    end
-    }
-  end
+  def destroy destroy!{collection_url} end
 end

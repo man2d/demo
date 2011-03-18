@@ -8,4 +8,7 @@ class Admin::BannersController < Admin::BaseController
   def update
     update!(:notice => "Dude! Nice job creating that page. Yeeeah") { collection_url }
   end
+  def destroy
+    destroy! { collection_url }
+  end
 end
