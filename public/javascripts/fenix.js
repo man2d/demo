@@ -7,6 +7,34 @@
 	/*jQuery(".sProbegom").click(function() {
 		alert("Hello world!");
 	});*/
+	//shadow fix 
+	jQuery.each(jQuery(".dataShadowWrap"), function() {
+		var h = jQuery(this).height();
+		var w = jQuery(this).width();
+		if ((h%2) != 0)	jQuery(this).height(++h);
+		if ((w%2) != 0)	jQuery(this).width(++w);
+	});
+	
+	
+	//enter 
+	jQuery('.enterFormPos').css("display", "none")
+	jQuery(".enter").click(eFormAnim);
+	function eFormAnim() {
+		jQuery('.enterForm').animate({
+			opacity: "toggle"
+		}, 300);
+		jQuery('.enterFormPos').animate({
+			height: "toggle"
+		}, 300, function() {
+			if (jQuery(".enter").hasClass("active")) {
+				jQuery(".enter").removeClass("active");
+			} else {
+				jQuery(".enter").addClass("active");
+			}
+		});
+	}
+	
+	
 	for (var i=1; i < jQuery(".sProbegom").children().length; i++) {
 		if (((i+1)%5) == 0)
 			jQuery(".sProbegom").children("li:eq("+i+")").css('margin-right', '-200px').css('clear', 'right').after('<div class="clear"></div>');
@@ -15,6 +43,24 @@
 			//jQuery(".sProbegom").children("li:eq("+i+")").css('clear', 'both').css('background-color', 'red');
 	}
 	//alert(jQuery(".wrap").height());
+	//sub3
+	jQuery(".sub3").parent().mouseover(function() {
+		var pos = jQuery(this).position();
+		jQuery(this).children(".sub3").css("top", -pos.top);
+	});
+
+	jQuery(".sub3").parent( function() {
+		//var pos = jQuery(this).offset();
+		//alert()
+		jQuery(this).css("background-color", "red");
+	});
+	
+	
+	
+	jQuery(".sub3").click(function() {
+		var pos = jQuery(".sub3").parent().offset();
+		alert(pos.top);
+	});
 	//настраиваем фоны при маленькой высоте контента
 	if (jQuery(".wrap").height() < 1338) {
 		jQuery(".wrap").css('height', '100%').css('background-position', 'bottom');
@@ -41,5 +87,6 @@
 		if (jQuery.trim(jQuery(this).val()) == "")
 			jQuery(this).val("Поиск");
 	});
+	
 	//jQuery(".sProbegom").children("li:eq(4)").css('background-color', 'red').css('margin-right', '-200px')
 });

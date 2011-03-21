@@ -13,7 +13,7 @@ class HomeController < ApplicationController
       end
   
   def index
-    @items = Item.order("created_at DESC").limit(16)
+    @items = Item.order("RAND()").limit(3)
     @blog_posts = @posts = Post.order("created_at DESC").limit(5)
     
     @page = Page.find_by_slug("main")
