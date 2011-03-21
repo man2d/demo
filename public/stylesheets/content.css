@@ -1,13 +1,15 @@
-.file { padding-left: 32px; background-repeat: no-repeat; background-position: 0px 3px; display: block; margin-bottom: 5px;}
-	.file, .file * { font-size: 13px; line-height: 15px;}
-.doc {background-image: url("../images/doc.gif");}
-.pdf {background-image: url("../images/pdf.gif");}
-.ppt {background-image: url("../images/ppt.gif");}
-	.doc, .pdf, .ppt { height: 30px;}
-.defaultPic {background-image: url("../images/doc_default.gif");padding-left: 50px;}
-.printPic {background-image: url("../images/doc_print.gif");padding-left: 35px;}
-	.defaultPic, .printPic {float: left; margin-right: 20px; height: 27px;}
-
+.file {color: #808080; margin-bottom: 10px; float: left; clear: both; display: inline; margin-right: 20px; padding-left: 27px; min-height: 29px;
+	background-repeat: no-repeat; background-position: 0px 2px;
+}
+	.file, .file * {font-size: 12px; line-height: 15px;}
+	.file a {display: block;}
+	.doc {background-image: url("../images/files/doc.gif");}
+	.pdf {background-image: url("../images/files/pdf.gif");}
+	.xls {background-image: url("../images/files/xls.gif");}
+	.ppt {background-image: url("../images/files/ppt.gif");}
+	.cat {background-image: url("../images/files/catalog.gif"); padding-left: 47px;}
+	.print {background-image: url("../images/files/print.gif"); padding-left: 33px;}
+		
 .index {clear: both;}
 	.index .left {width: 520px;}
 	.index .about, .index .about a {font-size: 16px; line-height: 23px; font-family: 'HeliosLightRegular', sans-serif;}
@@ -156,15 +158,18 @@
 	.sort {color: #999999; float: right; margin-right: -5px;}
 	.sort b {color: #1a1a1a;}
 	.sort a {text-decoration: none; border-bottom: dashed 1px;}
-	
-h1 {color: #333333; font-size: 40px; line-height: 43px; font-weight: normal; font-family: 'HeliosLightRegular', sans-serif;
+
+
+h1, h1 a {font-size: 40px; line-height: 43px; font-weight: normal; font-family: 'HeliosLightRegular', sans-serif;
 	position: relative; margin-bottom: 15px; clear: both;}
+	h1 {color: #333333;}
 	h1 span {position: absolute; background-image: url("../images/num2BG.gif"); width: 30px; height: 30px;
 			color: white; font-size: 18px; line-height: 29px; text-align: center; bottom: 3px; margin-left: 10px; font-family: "Arial", "Helvetica", sans-serif;
 		}
 
-h2 {color: #666666; font-size: 21px; line-height: 27px; font-weight: normal; font-family: 'HeliosLightRegular', sans-serif;
+h2, h2 a {font-size: 21px; line-height: 27px; font-weight: normal; font-family: 'HeliosLightRegular', sans-serif;
 	position: relative; margin-bottom: 7px; clear: both;}
+	h2 {color: #666666;}
 	
 h3, h3 a {font-size: 16px; line-height: 18px; font-weight: normal; font-family: "Arial", "Helvetica", sans-serif;
 	position: relative; margin-bottom: 10px; clear: both;}
@@ -190,13 +195,12 @@ h3, h3 a {font-size: 16px; line-height: 18px; font-weight: normal; font-family: 
 	.sProbegom .price {color: #0093c6; font-size: 17px; font-weight: bold;}
 		.sProbegom .price i { font-weight: normal;}
 
-.main_banner {position: relative; margin-bottom: 20px; float: left; width: 100%;}
-	.main_banner .images {width: 100%; height: 400px; overflow: hidden;
-	}
+.main_banner {position: relative; margin-bottom: 20px; float: left; width: 100%; overflow: hidden;}
+	.main_banner .images {width: 100%; height: 400px; overflow: hidden;}
 	.main_banner .images img {position: absolute; top: 0px; left: 0px;}
-	.main_banner .nivo-caption {position: absolute; bottom: 68px; right: 0px; overflow: hidden; background-image: url("../images/bluebg.png");}
+	.main_banner .nivo-caption {position: absolute; bottom: 68px; right: -2px; overflow: hidden; background-image: url("../images/bluebg.png");}
 	.main_banner .nivo-caption .bg {background-color: #0287c1; position: absolute; display: block; height: 100px; width: 100%; top: 0px; left: 0px; filter:alpha(opacity=66); -moz-opacity: 0.66;	-khtml-opacity: 0.66; opacity: 0.66;}
-	.main_banner .nivo-caption a {color: white; white-space: pre; font-size: 28px; line-height: 42px; margin: 0px 25px; margin-right: 90px; font-family: 'HeliosLightRegular', sans-serif; text-decoration: none;}
+	.main_banner .nivo-caption * {color: white; white-space: pre; font-size: 28px; line-height: 42px; margin: 0px 25px; margin-right: 90px; font-family: 'HeliosLightRegular', sans-serif; text-decoration: none;}
 	.main_banner .nivo-controlNav {background-image: url("../images/mb_button_bg_m.gif"); height: 31px; display: inline-block; padding: 0px;
 	margin: 0 auto;
 	*zoom: 1;

@@ -3,7 +3,7 @@
 
 <head>
 
-  <meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
 
   <title><%= yield :title %></title>
@@ -23,13 +23,14 @@
   <%= yield :javascripts -%>
 
   <%= csrf_meta_tag %>
-
+<style type="text/css">
+ul.sortable { -webkit-select: none; }
+</style>
 </head>
 
 <body>
 
-<div id="overlay" style="position: absolute; top: 200px; left: 300px; width: 300px; height: 300px; z-index: 1; background: #fff; display: none;">
-</div>
+
 <div id="main_container">
 
     <div id="header_wrapper">

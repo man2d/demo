@@ -1,8 +1,16 @@
 
 <div class="w910 catalog">
 	<% if @page.image && @page.image.url %><%= image_tag @page.image.url %><% else %><h1><%= @page.title %></h1><% end %>
+	<ul id="tabs_switch" class="tabs">
+		<li class="current"><a href="#yachts" rel="yachts">Яхты</a></li>
+		<li><a href="#history" rel="history">История</a></li>
+	</ul>
 <div class="brand">
 
+
+<div class="clear"></div>
+<div id="tabs">
+	<div id="yachts">
 <% @page.items.select(:lgth).group(:lgth).each do |length| %>
             <ul>
 
@@ -23,5 +31,10 @@
 
             </ul>
 <% end %>
+	</div>
+	<div id="history" style="display:none;">
+		<%= raw @page.body %>
+	</div>
+</div>
 </div>
 </div>

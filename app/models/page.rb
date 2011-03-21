@@ -12,6 +12,9 @@ class Page < ActiveRecord::Base
   accepts_nested_attributes_for :blocks, :assets
   
   mount_uploader :image, DefaultUploader
+  mount_uploader :pdf, DefaultUploader
+  
+ # sortable :scope => :parent_id
   
   scope :menu, lambda{where("menu > 0 ")}
   def admin_path

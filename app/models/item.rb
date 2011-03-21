@@ -16,6 +16,7 @@ class Item < ActiveRecord::Base
     page.url + self.id.to_s
   end
   
+#  sortable :scope => :page_id
   
   accepts_nested_attributes_for :assets, :allow_destroy => true
   accepts_nested_attributes_for :item_properties, :allow_destroy => true

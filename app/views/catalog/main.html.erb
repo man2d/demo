@@ -1,0 +1,38 @@
+<div class="bgPic"></div>
+		<div class="w910">
+    		<div class="tree"><a href="/">Главная</a> / <b>Каталог яхт</b> <div class="arrow"></div></div>
+
+		</div>
+		
+		<div class="catBanner">
+		</div>
+		
+		<div class="w910">
+			<% @brands.each do |brand|%>
+        	<div class="col_2 <%='left' if brand == @brands.first%><%='right' if brand == @brands.last%>">
+				<img src="<%= brand.image.url %>" /><br /><br />
+				<%= brand.description %>
+            </div>
+			<% end %>
+         
+			<div class="clear"><br /></div>
+			<% @brands.each do |brand|%>
+        	<div class="col_2 <%='left' if brand == @brands.first%><%='right' if brand == @brands.last %>">
+            	<h2><a href="<%= brand.url %>">Каталог <%= brand.title %></a></h2>
+                <% if brand.pdf.url %><p class="file defaultPic2"><a href="<%= brand.pdf.url %>"><%= brand.title %></a><br />(<%= (brand.pdf.size/1.megabyte.to_f*100).to_i.to_f/100 %> Mб, ПДФ)</p><% end %>
+
+            </div>
+            <% end %>
+            
+            <div class="clear"></div>
+        
+        	<a href="/filter/" class="podborButton">Подобрать яхту<span></span></a>
+
+        	
+			<h2><a href="/catalog/s_probegom/">Яхты с пробегом</a></h2>
+            <ul class="sProbegom">
+	<% @items.each do |item| %>
+	<%= render 'used_item' %>
+	<% end %>
+			</ul>
+		</div>

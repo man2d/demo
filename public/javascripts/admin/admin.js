@@ -44,7 +44,55 @@ $(document).ready(function (){
 		 } else {
 		   //try load some new data or redirect to edit page!	
 
-		   window.location.href = '/admin/pages/'+last_id+'/edit';
+		  if($('a#page_'+val).parent('.parent').children('a.items').length) {
+		    $.getJSON('/admin/items.json?page_id='+val, function(data) {
+//			  	var items = new Array();
+//				   items[0] = new Array();
+/*				   $.each(data, function(key, val) {
+
+				    var item = val.item;
+				    if(!items[item.level]) items[item.level] = new Array();
+		//		    context.log(item);
+				    items[item.level][item.id] = item;
+				  });*/
+				 //context.log(items);
+				var display = '';	
+
+				    var key = $('table#pages td:last').attr('class').split("_")[1]+1;
+
+				    html = '<td class="level_'+key+'"><ul class="tree pages'+sortable+'" id="items">';
+				      for(id in data) {
+//					   console.log(data[id]);
+					    var item = data[id].item;
+				//console.log(key);
+
+					    html += '<li '+display+' class="page_list_item parent_'+item.page_id+'" id="item_'+item.id+'"><span class="parent"><a class="pic context" id="item_'+item.id+'" href="#"></a><a href="#/page/'+'">'+item.title+' '+item.lgth+'</a></span></li>';
+				      }
+				    html += '</ul></td>';
+				    //context.log(html);
+				    $('table#pages tr').append(html);
+				$('ul#items').sortable(	{
+
+					cursor: 'crosshair',
+					items: 'li',
+
+					opacity: 0.4,
+
+					update: function(){
+					$.ajax({
+					type: 'post',
+					data: $(this).sortable('serialize'),
+					dataType: 'script',
+					complete: function(request){
+					$('ul.sortable').effect('highlight');
+					},
+					url: '/admin/sort/'+$(this).attr('id')})
+					}
+					});
+				
+		    });	
+		  }
+//		   window.location.href = '/admin/pages/'+last_id+'/edit';
 		 }
 	    });
 	    $('ul.tree li.parent_0.page_list_item').show();
@@ -87,7 +135,11 @@ $(document).ready(function (){
 			    if(key != 0) {
 				  display = 'style="display:none;"'
 			    }
-			    html += '<li '+display+' class="page_list_item parent_'+page.parent_id+'" id="page_'+page.id+'"><span class="parent"><a class="pic context" id="page_'+page.id+'" href="#"></a><a href="#/page/'+page.admin_path+'">'+page.title+'</a></span></li>';
+				items_load_class = '';
+				if(page.resource == 'catalog/index') {
+					items_load_class='class="items"';
+				}
+			    html += '<li '+display+' class="page_list_item parent_'+page.parent_id+'" id="page_'+page.id+'"><span class="parent"><a class="pic context" id="page_'+page.id+'" href="#"></a><a '+items_load_class+' href="#/page/'+page.admin_path+'">'+page.title+'</a></span></li>';
 		      }
 		    html += '</ul></td>';
 		    //context.log(html);
@@ -118,8 +170,8 @@ $(document).ready(function(){
 	var sortable_options = {
 	
 	cursor: 'crosshair',
-	items: 'li',
-	handler: '.parent',
+	items: 'li.sort',
+
 	opacity: 0.4,
 
 	update: function(){
@@ -133,10 +185,29 @@ $(document).ready(function(){
 	url: '/admin/sort/'+$(this).attr('id')})
 	}
 	};
-	$('ul.sortable').sortable(sortable_options);
+	
+	//$('ul.sortable').sortable();
+	//$('li').disableSelection();
+	$('ul.sortable').sortable({
+	cursor: 'crosshair',
+	items: 'li',
+	opacity: 0.4,
+	update: function(){
+	$.ajax({
+	type: 'post',
+	data: $(this).sortable('serialize'),
+	dataType: 'script',
+	complete: function(request){
+	$('ul.sortable').effect('highlight');
+	},
+	url: '/admin/sort/'+$(this).attr('id')})
+	}
+	});
+	
 	$('ul.pages li').live('click', function() {
 		var id = $(this).attr('id').split("_")[1];
-		$('li.parent_'+id).parents('ul').addClass('sortable').sortable(sortable_options);
+		$('li').removeClass('sort');
+		$('li.parent_'+id).addClass('sort').parents('ul').addClass('sortable').sortable(sortable_options);
 		
 	});
 });

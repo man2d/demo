@@ -2,6 +2,44 @@
 
 /** Регистрация **/
 $(document).ready(function(){
+	
+	/*var options = {
+    	    target: "#output",
+		    timeout: 3000 // тайм-аут
+		  };*/
+	$('#user_new').submit(function() {
+	  	
+		
+	});
+	
+	/*$("#user_new").validate({
+		submitHandler: function(form) {
+			      $(form).ajaxSubmit(options);
+			    },
+		  rules: {
+		    field: {
+		      required: true,
+		      url: true
+		    }
+	  }, 	
+	messages: {
+		      Name: {
+		        required: "Укажите свое имя!",
+		        minlength: "Не менее 2 символов",
+		        maxlength: "Не более 12 символов"
+		      },
+		      Email: {
+		        required: "Нужно указать email адрес",
+		        email: "Нужен корректный email адрес!"
+		      }
+		},	
+	  errorPlacement: function(error, element) {
+				      var er = element.attr("name");
+				      error.appendTo( element.parent().find("label[@for=" + er + "]").find("em") );
+				    }
+	
+	 });*/
+		
 	$('#user_password_password').showPassword({
 	 linkClass: 'showPass',
 	 linkText: 'Показать пароль',
@@ -11,7 +49,34 @@ $(document).ready(function(){
 	 linkTopOffset: 0
 	});
 	
+	var email_regexp = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+	function validateForm() {
+		$('form.registration input').each(function() {
+		    var id = $(this).attr('id');
+		    var val = $(this).val();
+
+		    if(id == 'user_name') {
+			  console.log('xep');
+	          if(val.length >= 3 && val.length <= 20) { console.log('xep3'); $('#'+id+'_status').removeClass('not_ready').addClass('ready'); }
+			  else { $('#'+id+'_status').removeClass('ready').addClass('not_ready') }
+		    } else if(id == 'user_password_password' || $(this).hasClass('password-showing') ) {
+			  if(val.length >= 6 && val.length <= 20) { $('#user_password_status').removeClass('not_ready').addClass('ready'); }
+			  else {$('#user_password_status').removeClass('ready').addClass('not_ready'); }
+		    } else if(id == 'user_email') {
+			  if(val.length >= 4 && val.length <= 36 && email_regexp.test(val)) { $('#'+id+'_status').removeClass('not_ready').addClass('ready')}
+			  else { $('#'+id+'_status').removeClass('ready').addClass('not_ready') }
+		    }
+		   });
+	}
+	validateForm();
 	$('form.registration input').each(function(){
+	  $(this).keyup(function() {
+	    console.log($(this).attr('name'));
+	   validateForm();
+	   if($('.ready').length == 3) {
+		 $('input[type=submit]').css('background-color', '#000').css('cursor', 'pointer');
+	   }
+	  });
 	  $(this).focusin(function() {
 		if($(this).val() == $(this).attr('default')) {
 			$(this).val('');
@@ -27,11 +92,17 @@ $(document).ready(function(){
 
 
 /** Подбор **/
-$('.filter_ul a').live('click', function() {
+/*$('.filter_ul a').live('click', function() {
   $(this).parents('ul').children('li').removeClass('current');
   $(this).parents('li').addClass('current');
   $('form#filterForm input#'+$(this).attr('rel')).val($(this).attr('data')); 
   $('form#filterForm').submit();
+});*/
+$('.f1 a').live('click', function() {
+  $.get('/filter/do?search[item_assign_id]='+$(this).attr('data'));
+});
+$('.f2 a').live('click', function() {
+  $.get('/filter/do?search[lgth]='+$(this).attr('data'));
 });
 
 /** Сравнение **/
@@ -131,6 +202,12 @@ jQuery(document).ready(function(){
 //	  $('div#tabs').children('div').hide();
 //	  $('div#'+hash).show();
 //	}
+	$('ul#tabs_switch a').click(function() {
+		$('div#tabs > div').hide();
+		$('div#tabs div#'+$(this).attr('rel')).show();
+		$('ul#tabs_switch a').parent('li').removeClass('current');
+		$(this).parent('li').addClass('current');
+	});
 });
 
 $(window).load(function() {

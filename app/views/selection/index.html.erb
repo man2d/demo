@@ -1,10 +1,7 @@
 <div class="w910">
 	<div class="tree"><a href="/">Главная</a> /  <b>Выбор яхты</b> <div class="arrow"></div></div>
 </div>
-<% form_tag '/filter/do', :method => :post, :remote => true, :id=>:filterForm  do %>
-<%= hidden_field_tag 'search[item_assign_id]', '', :id => :item_assign_id %>
-<%= hidden_field_tag 'search[lgth]', '', :id => :lgth %>
-<% end %>
+
 <div class="blueBg filters">
 	<div class="w910">
 		<h2>Назначение</h2>
@@ -22,7 +19,6 @@
 			<% Item.select(:lgth).group(:lgth).each do |length|%>
 		        <li><a rel="lgth" data="<%= length.lgth %>"><%= length.lgth %></a><span></span></li>
 		    <% end %>
-<!--		<li class="current"><a href="javascript:void(0);">37</a><span></span></li> -->
 		</ul>
 	</div>
 </div>

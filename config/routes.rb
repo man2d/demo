@@ -18,7 +18,12 @@ Navigator2::Application.routes.draw do
         get 'hide'
       end
     end
-    resources :items, :item_properties, :assets, :asset_groups, :banners, :properties, :slides
+    resources :items do
+      member do
+        get 'menu'
+      end
+    end
+    resources :item_properties, :assets, :asset_groups, :banners, :properties, :slides
     resources :blocks
     resources :posts do 
       member do
@@ -83,13 +88,20 @@ Navigator2::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
 #  match ':controller(/:action(/:id(.:format)))'
+  resources :posts
   resources :pages, :controller => :home
 #  match '/javascripts/*path' => Sprockets
 #  match '/gallery' => 'gallery#index'
+  devise_for :users
   devise_scope :user do
     get '/register', :to => 'devise/registrations#new'
     get '/login', :to => 'devise/sessions#new'
+    get '/logout', :to => 'devise/sessions#destroy'
+    
   end
+  match '/catalog' => 'catalog#main'
+  match '/catalog/s_probegom' => 'catalog#used'
+  match '/catalog/s_probegom/:sort' => 'catalog#used'
   match '/filter' => 'selection#index'
   match '/filter/do' => 'selection#list'
   match '/filter/search' => 'selection#search'

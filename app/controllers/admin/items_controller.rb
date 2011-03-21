@@ -17,9 +17,17 @@ class Admin::ItemsController < Admin::BaseController
     update!(:notice => "Dude! Nice job creating that page. Yeeeah") { collection_url }
   end
   
+  def menu
+    render :partial => 'menu'
+  end
+  
   protected
   
   def collection
-    @items = Item.limit(20)
+    if params[:page_id]
+      @items = Item.find_all_by_page_id(params[:page_id])
+    else
+      @items = Item.all
+    end
   end
 end

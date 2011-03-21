@@ -340,6 +340,9 @@
 				var sliceWidth = Math.round(slider.width()/settings.slices);
 				$(this).css({ height:'0px', opacity:'0', 
 					background: 'url("'+ vars.currentImage.attr('src') +'") no-repeat -'+ ((sliceWidth + (i * sliceWidth)) - sliceWidth) +'px 0%' });
+				$(this).click(function() {
+					document.location.href = vars.currentImage.attr('href');
+				})	
 				i++;
 			});
 			

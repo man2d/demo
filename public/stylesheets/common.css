@@ -45,9 +45,10 @@ a:hover {color: #c80009;}
 .border_red {border: solid 1px red;}
 .border_blue {border: solid 1px blue;}
 
-.left {float: left;}
-.right {float: right;}
-.clear {clear: both;}
+.left {float: left !important;}
+.right {float: right !important;}
+.clear {clear: both !important;}
+.noclear {clear: none !important;}
 
 .hide {display: none;}
 .hidden {display: none;}
@@ -58,7 +59,6 @@ a:hover {color: #c80009;}
 	max-width: 1200px;
 	min-width: 950px;
 	margin: 0px auto;
-	-moz-user-select: none;
 	-khtml-user-select: none;
 	-webkit-user-select: none;
 }
@@ -66,7 +66,6 @@ a:hover {color: #c80009;}
 	margin: 8px;
 	position: relative;
 	clear: both;
-	-moz-user-select: auto;
 	-khtml-user-select: auto;
 	-webkit-user-select: auto;
 }
@@ -106,24 +105,22 @@ opacity: 0.1;
 	.home {background-position: 0px 0px;}
 	.mail {background-position: -16px 0px;}
 	.sitemap {background-position: -32px 0px;}
-	.client {float: left; background-color: #165e80; margin-left: 20px; margin-top: 18px; padding: 8px 15px;}
-		.client, .client p, .client a{ color: white; text-decoration: none;}
+	.client {z-index: 100; float: left; background-color: #165e80; margin-left: 20px; margin-top: 18px; padding: 8px 15px;}
+		.client, .client p, .client a {color: white; text-decoration: none; position: relative;}
 		.client a {border-bottom: solid 1px;}
-		.client .enter {border-bottom: dashed 1px;}
+		.client .enter {border-bottom: dashed 1px; z-index: 231;}
 		.client a:hover {color: #58c9ff;}
+		.client .active {color: #58c9ff; border: none;}
 
 .main_menu {z-index: 3;}
 
 .w910 {width: 910px;}
 #content { z-index: 2; padding-top: 10px; overflow: hidden;}
-	.w910.typical .left {float: left; width: 200px; margin-right: -225px;}
-	.w910.typical .right {float: left; width: auto; margin-left: 225px;}
-	.w910.typical .right img {max-width: 670px;}
+	.typical .left {float: left; width: 200px; margin-right: -225px; display: inline;}
+	.typical .right {float: left !important; margin-left: 225px; display: inline;}
+	.typical .right img {max-width: 670px;}
 	.contentWrap {margin: 30px 50px; clear:both; margin-right: 60px;}
-	.col_2 {width: 50%;}
-	.w910.typical .col_2 {width: 48%;}
-	.w910.typical .col_2.left {float: left;}
-	.w910.typical .col_2.right {float: right;}
+	.col_2 {width: 48% !important; margin: 0px !important;}
 
 .foot {height: 80px;}
 	.foot a, .foot p {font-size: 10px; line-height: 15px; color: white;}

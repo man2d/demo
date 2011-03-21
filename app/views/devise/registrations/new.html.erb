@@ -12,14 +12,14 @@
 					<div class="left clear">
 						<%= f.text_field :name, :default => "Имя" %>
 						<div class="example">Пример: Имя</div>
-					</div><div class="ready"></div><div class="info"></div>
+					</div><div class="not_ready" id="user_name_status"></div><div class="info"></div>
 				</div>
 				<div class="text">
 					<label for="mail">Электронная почта</label>
 					<div class="left clear">
 						<%= f.text_field :email, :default => "Электронная почта" %>
 						<div class="example">Пример: почта@почта</div>
-					</div><div class="not_ready"></div><div class="info">Адрес электронной почты будет логином для авторизации на сайте.
+					</div><div class="not_ready" id="user_email_status"></div><div class="info">Адрес электронной почты будет логином для авторизации на сайте.
 Адрес нигде не публикуется и не достанется спамерам.</div>
 				</div>
 				<div class="text">
@@ -27,14 +27,14 @@
 					<div class="left clear">
 						<%= f.password_field :password, :id => "user_password_password" %>
 						<div class="example pass"></div>
-					  </div><div class="ready"></div><div class="info"></div>
+					  </div><div class="not_ready" id="user_password_status"></div><div class="info"></div>
 				</div>
 		</div>
 	</div>
 	<div class="w910">
 		  
 		<div class="errorInfo"><%= devise_error_messages! %></div>
-		<input type="submit" class="submit" href="#">Зарегистрироваться...</a>
+		<input type="submit" class="submit" value="Зарегистрироваться..." />
 	</div>
 <% end %>
 </div>

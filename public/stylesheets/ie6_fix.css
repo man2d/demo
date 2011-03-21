@@ -11,4 +11,3 @@ body {
 .main_menu li, .sub1 li, .sub2 li{ width: auto; margin: 0px; padding: 0px; }
 .compare_result tr:hover {background-color: #f4f4f4;}
 .compare_result tr.first:hover {background-color: transparent;}
-

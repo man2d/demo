@@ -4,6 +4,7 @@ content_for(:breadcrumbs) do
 <%
 end
 %>
+<div class="w910">
 <div class="news n_long">
 	<h2>Новости</h2>
 	<% @posts.each do |post| %>
@@ -12,4 +13,5 @@ end
 </div>
 <div class="pages clear">
 	<%= will_paginate @posts %>
+</div>
 </div>

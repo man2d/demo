@@ -2,7 +2,7 @@
   <% f.inputs do %>
     <li class="select optional" id="item_page_input"><label for="item_page_id">Категория</label><%= f.select :page_id, nested_set_options(Page.find_by_slug("catalog")) {|i| "#{'-'*i.level} #{i.title}"}, :include_blank => true %></li>
 	<%= f.input :title %>
-	<%= f.input :price %>
+	<%= f.input :price %> <%= f.input :currency %>
 	<%= f.input :item_assign, :as => :select, :label => "Назначение" %>
 	<%= f.input :lgth, :label => "Длина" %>
 	<li id="item_on_hand_input" class="boolean optional"><label for="item_on_hand">Есть в наличии</label><%= f.check_box :on_hand %></li>
@@ -15,7 +15,13 @@
     <%= f.input :remove_image, :as => :boolean, :label => "Удалить картинку" %>
     <% #f.inputs :for => :assets %>
   <% end %>
-    
+
+   <% if resource.page && resource.page.slug == 's_probegom' %>
+    <% f.inputs do  %>
+      <%= f.input :mielage %>
+      <%= f.input :year %>
+    <% end %>
+   <% end %>
    <% AssetGroup.find(1,2,3,4).each do |group| %>
    <% f.inputs do %>
     <a class="collapse" href="javascript:void();" rel="asset_<%=group.id%>_block"><%= group.title %></a>

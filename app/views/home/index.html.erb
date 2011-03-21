@@ -10,47 +10,36 @@
 
 <div class="w910 index">
     	<div class="left">
-        	<p class="about"><span></span>Компания «Президент-Нева» Энергетический центр» является эксклюзивным дилером компании <a href="#">Cantieri di Sarnico</a> на территории Российской Федерации. Мы хотим создать среду общения и удобный сервис для владельцев яхт.</p>
-            <h3>Яхты в <a href="#">наличии</a></h3>
+        	<p class="about"><span></span><%= @page.body %>
+            <h3>Яхты в <a href="/catalog">наличии</a></h3>
             <ul class="cols_3">
+	        <% @items.each do |item| %>
             <li>
-            	<a href="#"><img src="images/indexPic.png" alt="" /></a>
-                <p><a href="#">Noblesse</a><br />
-                	Пробег: 1800 миль<br />
-					Год выпуска: 2007</p>
+            	<a href="#"><img src="<%= item.image.url(:thumb) %>" alt="" /></a>
+                <p><a href="<%= item.url %>"><%= item.title %></a><br />
+                	Пробег: <%= item.mileage %> миль<br />
+					Год выпуска: <%= item.year %></p>
             </li>
-            <li>
-            	<a href="#"><img src="images/indexPic.png" alt="" /></a>
-                <p><a href="#">Noblesse</a><br />
-                	Пробег: 1800 миль<br />
-					Год выпуска: 2007</p>
-            </li>
-            <li>
-            	<a href="#"><img src="images/indexPic.png" alt="" /></a>
-                <p><a href="#">Noblesse</a><br />
-                	Пробег: 1800 миль<br />
-					Год выпуска: 2007</p>
-            </li>
+ 			<% end %>
             </ul>
-            <p class="file defaultPic"><a href="#">Каталог яхт</a>(5 Mб, ПДФ)</p>
+            <% if @page.pdf.url %><p class="file defaultPic"><a href="<%= @page.pdf.url %>">Каталог яхт</a>(5 Mб, ПДФ)</p><% end %>
         </div>
         <div class="right">
         	<div class="part">
-        		<img src="images/ship.gif" alt="" /><a href="#">Судовладельцу</a>
+        		<img src="images/ship.gif" alt="" /><a href="/about/sudovladeltsu">Судовладельцу</a>
             	<img src="images/cap.gif" alt="" /><a href="/about/kapitanu/">Капитану</a>
             </div>
-            <h3><a href="#">Новости</a></h3>
+            <h3><a href="/posts">Новости</a></h3>
             <div class="news">
-            	<a href="#">Компания Cantieri di Sarnico, основанная в 1992 году.</a>
-                <a href="#">В продаже яхта Colombo Alldays 37 c пробегом.</a>
-                <a href="#">Заканчивается прием заявок на участие в соревнованииях.</a>
-                <a href="#">Открыт прием заказов на новую яхту</a>
+				<% @posts.each do |post| %>
+				  <%= link_to post.title, posts_url(post) %>
+				<% end %>
             </div>
-            <h3>Новое в <a href="#">блоге</a></h3>
+            <h3>Новое в <a href="/blog">блоге</a></h3>
             <div class="news">
-            	<a href="#">Встреча членов клуба 2011</a>
-                <a href="#">Тест-драйв новой клубной яхты, ждем всех</a>
-                <a href="#">Где хранить зимой?</a>
+			    <% @blog_posts.each do |post| %>
+				  <%= link_to post.title, posts_url(post) %>
+				<% end %>
             </div>
         </div>
         <div class="clear"></div>

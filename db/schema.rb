@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110319062014) do
+ActiveRecord::Schema.define(:version => 20110321142126) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
@@ -108,6 +108,10 @@ ActiveRecord::Schema.define(:version => 20110319062014) do
     t.integer  "length"
     t.boolean  "on_hand"
     t.integer  "lgth"
+    t.integer  "position"
+    t.integer  "mileage"
+    t.integer  "year"
+    t.string   "currency"
   end
 
   create_table "pages", :force => true do |t|
@@ -127,6 +131,9 @@ ActiveRecord::Schema.define(:version => 20110319062014) do
     t.boolean  "menu"
     t.string   "cached_url"
     t.string   "image"
+    t.text     "description"
+    t.string   "pdf"
+    t.integer  "position"
   end
 
   create_table "posts", :force => true do |t|
@@ -153,21 +160,25 @@ ActiveRecord::Schema.define(:version => 20110319062014) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                               :default => "", :null => false
-    t.string   "encrypted_password",   :limit => 128, :default => "", :null => false
-    t.string   "password_salt",                       :default => "", :null => false
+    t.string   "email",                                     :default => "", :null => false
+    t.string   "encrypted_password",         :limit => 128, :default => "", :null => false
+    t.string   "password_salt",                             :default => "", :null => false
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                       :default => 0
+    t.integer  "sign_in_count",                             :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "type"
     t.string   "name"
+    t.date     "confirmed_at"
+    t.string   "confirmation_token"
+    t.date     "confirmation_token_sent_at"
+    t.date     "confirmation_sent_at"
+    t.string   "user_type"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

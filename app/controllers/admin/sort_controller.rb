@@ -1,6 +1,6 @@
 class Admin::SortController < ApplicationController
   def sort
-    @models = eval(params[:model].singularize.capitalize+".all")
+    @models = eval(params[:model].singularize.capitalize+".find(params[:"+params[:model].singularize+"])")
   #  logger.info params[:banner]
     render :text => ""
 
