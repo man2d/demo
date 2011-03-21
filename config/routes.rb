@@ -96,5 +96,15 @@ Navigator2::Application.routes.draw do
   match '/comparison' => 'comparison#index'
   match '/comparison/pdf' => 'comparison#pdf'
   match '/comparison/:id' => 'comparison#add'
+=begin
+  Page.all.each do |page|
+    unless page.resource
+      get page.url => 'home#show', :id => page.id
+    else
+      get page.url => page.resource.sub('/', '#'), :id => page.id
+      get page.url+'/:id' => 'catalog#show'
+    end
+  end
+=end
   match '*path' => 'redirect#index'
 end

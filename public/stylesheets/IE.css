@@ -1,16 +1,8 @@
 .spec a {white-space: normal;} 
 
 .filters table .bg {}
-div.f1 {
-   position: relative;
+.enterForm .text input {
+	padding-top: 0px;
+	line-height: 30px; 
+	height: 30px;
 }
-div.f1 span {
-   position: absolute;
-   top: 50%;
-}
-div.f1 span span {
-   position: relative;
-   top: -50%;
-}
-
-input {}

@@ -2,7 +2,7 @@
 <div class="main_banner">
 	<div id="slider" class="images">
 		<% Slide.all.each do |slide| %>
-			<%= image_tag slide.image.url, :title => slide.title, :alt => '', :href => slide.item.url %>
+			<%= image_tag slide.image.url, :title => slide.title, :alt => '', :href => slide.item.url, :style => 'display:none;' %>
 		<% end %>
 	</div>
 
@@ -37,7 +37,7 @@
         <div class="right">
         	<div class="part">
         		<img src="images/ship.gif" alt="" /><a href="#">Судовладельцу</a>
-            	<img src="images/cap.gif" alt="" /><a href="#">Капитану</a>
+            	<img src="images/cap.gif" alt="" /><a href="/about/kapitanu/">Капитану</a>
             </div>
             <h3><a href="#">Новости</a></h3>
             <div class="news">

@@ -11,9 +11,9 @@
 <table border="0" id="main">
 	<tr>
 		<td>
-			<ul class="tree other sortable" id="banners">
+			<ul class="tree other sortable" id="slides">
 				<% collection.each do |resource| %>
-				<li id="banner_<%= resource.id %>"><span class="handle"><center><%=image_tag(resource.image_url) if resource.image_url %></center><%=content_tag(:p, resource.title) if resource.methods.find{|m| m == 'title' }%>
+				<li id="slide_<%= resource.id %>"><span class="handle"><center><%=image_tag(resource.image_url) if resource.image_url %></center><%=content_tag(:p, resource.title) if resource.methods.find{|m| m == 'title' }%>
 				                <p class="buttons"><%= link_to "", resource_url(resource), :method => :delete, :class=> "ico_cmDel", :confirm => "Объект будет удален!\nХотите продолжить?" %></a><a class="ico_cmEdit" href="<%=edit_resource_url(resource)%>"></a></p>
 				                </span></li>
 				<% end %>

@@ -1,6 +1,6 @@
 
 <div class="sub3">
-                    	<% if item.image.url %><center><a href="<%= item.url %>"><img alt="" src="<%= item.image.url %>"></a></center><% end %>
+                    	<% if item.image.url %><center><a href="<%= item.url %>"><img alt="" src="<%= item.image.url(:normal) %>"></a></center><% end %>
                         <h2><%= item.title %><span><%= item.lgth %></span></h2>
                     	<div class="left">
 							<a class="force" href="<%= item.url %>?view=review">Обзор</a>
@@ -13,8 +13,9 @@
 							<% if item.item_properties.size > 0 %>
 							    <p>
 							<% item.item_properties.each do |item_property| %>
+							<% if item_property.property %>
 										<%= item_property.property.title %> &ndash;&nbsp; <%= item_property.value %><br/>
-
+							<% end %>
 							<% end %>
 								</p>
 							<% end %>

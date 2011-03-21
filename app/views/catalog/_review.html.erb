@@ -1,5 +1,5 @@
 <div class="cat_model" id="review">
-        	<div class="left"><img alt="" src="<%= @item.image.url %>" />
+        	<div class="left"><img alt="" src="<%= @item.image.url(:normal) %>" />
             	<center><a href="#" class="videoButton"><span></span>Видеообзор</a></center>
             </div>
             <div class="right"><%= raw @item.description %></div>

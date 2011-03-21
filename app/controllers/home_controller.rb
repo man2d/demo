@@ -21,5 +21,6 @@ class HomeController < ApplicationController
   
   def show
     @page = Page.find_by_slug(params[:id])
+    @page = Page.find(params[:id]) unless @page
   end
 end
