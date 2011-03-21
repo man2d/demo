@@ -1,4 +1,7 @@
 <% semantic_form_for ["admin", resource], :html => { :multipart => true } do |f| %>
+  <% resource.errors.each do |field,error| %>
+    <b><%= field %> <%= error %></b><br/>
+  <% end %>
   <% f.inputs do %>
     <li class="select optional" id="item_page_input"><label for="item_page_id">Категория</label><%= f.select :page_id, nested_set_options(Page.find_by_slug("catalog")) {|i| "#{'-'*i.level} #{i.title}"}, :include_blank => true %></li>
 	<%= f.input :title %>
@@ -50,7 +53,7 @@
 	<a class="collapse" href="javascript:void();" rel="properties_block">Характеристики</a>
 	<div class="properties_block hidden">
 	<% f.semantic_fields_for :item_properties do |item_properties| %>
-      <%= render 'item_property_fields', :f => item_properties %>
+      <%#= render 'item_property_fields', :f => item_properties %>
 	<% end %>
 	
 	<%= link_to_add_fields "Добавить", f, :item_properties %>

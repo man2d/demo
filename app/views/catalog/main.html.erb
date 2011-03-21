@@ -32,7 +32,7 @@
 			<h2><a href="/catalog/s_probegom/">Яхты с пробегом</a></h2>
             <ul class="sProbegom">
 	<% @items.each do |item| %>
-	<%= render 'used_item' %>
+	<%= render 'used_item', :item => item %>
 	<% end %>
 			</ul>
 		</div>

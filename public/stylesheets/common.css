@@ -110,7 +110,9 @@ opacity: 0.1;
 		.client a {border-bottom: solid 1px;}
 		.client .enter {border-bottom: dashed 1px; z-index: 231;}
 		.client a:hover {color: #58c9ff;}
+		.client .enter:hover {color: #58c9ff;}
 		.client .active {color: #58c9ff; border: none;}
+		.client .active:hover  {color: #58c9ff;}
 
 .main_menu {z-index: 3;}
 

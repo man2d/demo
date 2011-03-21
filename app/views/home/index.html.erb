@@ -32,13 +32,13 @@
             <h3><a href="/posts">Новости</a></h3>
             <div class="news">
 				<% @posts.each do |post| %>
-				  <%= link_to post.title, posts_url(post) %>
+				  <%= link_to post.title, posts_url(post) %><br/>
 				<% end %>
             </div>
             <h3>Новое в <a href="/blog">блоге</a></h3>
             <div class="news">
 			    <% @blog_posts.each do |post| %>
-				  <%= link_to post.title, posts_url(post) %>
+				  <%= link_to post.title, posts_url(post) %><br/>
 				<% end %>
             </div>
         </div>

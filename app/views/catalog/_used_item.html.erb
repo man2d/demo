@@ -3,9 +3,10 @@
 
 <a href="#"><img src="<%= item.image.url(:thumb) %>" alt="" /></a>
 <a class="name" href="<%= item.url %>"><%= item.title %></a>
-<p class="info">Пробег: <b><%= item.mileage %></b> <i><%= Russian.p(item.mileage, "миля", "мили", "миль")%></i><br />
-Год выпуска: <b><%= item.year %></b>
+<p class="info">
+	<% if item.mileage %>Пробег: <b><%= item.mileage %></b> <i><%= Russian.p(item.mileage, "миля", "мили", "миль")%></i><br /><% end %>
+<% if item.year %>Год выпуска: <b><%= item.year %></b><% end %>
 </p>
 
-<p class="price"><%= item.price %><i><%= item.currency %></i></p>
+<% if item.price %><p class="price"><%= item.price %><i><%= item.currency %></i></p><% end %>
 </li>

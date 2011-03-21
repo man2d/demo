@@ -15,6 +15,8 @@
 	.sub2 a {background-image: url("../images/mmenu_bbg.png");}
 	.sub3 a { margin: 0px; padding: 0px;}
 	.main_menu a:hover {background-color: #165e80; text-decoration: none;}
+	.main_menu li.current {background-color: #165e80; text-decoration: none;}
+	.main_menu li.current a {text-decoration: none; color: white;}
 	.sub1 a:hover {background-color: transparent; background-image: url("../images/mmenu_bbg.png"); color: #282d30;}
 	.sub2 a:hover {background-color: transparent; background-image: url("../images/mmenu_wbg.png"); color: #282d30;}
 		.transparent .sub1 a, .transparent .sub2 a, .transparent .sub3 a {color: #282d30;}
