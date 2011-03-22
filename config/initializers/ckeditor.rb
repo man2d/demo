@@ -11,7 +11,7 @@ if Object.const_defined?("Ckeditor")
 
     # The file_types setting accepts a semi-colon separated list of file extensions 
     # that are allowed to be selected by the user. Use '*.*' to allow all file types.
-    #config.swf_file_types = "*.doc;*.wpd;*.pdf;*.swf;*.xls"
+    config.swf_file_types = "*.doc;*.wpd;*.pdf;*.swf;*.xls"
 
     # The file_size_limit setting defines the maximum allowed size of a file to be uploaded. 
     # This setting accepts a value and unit. Valid units are B, KB, MB and GB. 
@@ -31,7 +31,7 @@ if Object.const_defined?("Ckeditor")
      
     # The same as for downloads files, only to upload images
     #config.swf_image_file_types_description = "Images"
-    #config.swf_image_file_types = "*.jpg;*.jpeg;*.png;*.gif"
+    config.swf_image_file_types = "*.jpg;*.jpeg;*.png;*.gif"
     #config.swf_image_file_size_limit = "5 MB"
     #config.swf_image_file_upload_limit = 10
     

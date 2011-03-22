@@ -79,8 +79,9 @@
 	.leftBlueBox div {padding: 7px 0px; padding-left: 42px; background-repeat: no-repeat; background-position: 0% 50%;}
 	.leftBlueBox a { text-decoration: none; border-bottom: dashed 1px; display: inline; clear: both; line-height: 15px;}
 	.leftBlueBox a:hover {color: #165e80;}
-	.resumePic {background-image: url('../images/resumePic.gif');}
+	.resumePic {background-image: url('../images/resumePic.gif'); background-position: 0px 6px !important;}
 	.servisPic {background-image: url('../images/servisPic.gif');}
+	.joinPic {background-image: url('../images/joinPic.gif'); background-position: 4px 5px !important;}
 .contactInfo, .contactInfo * { font-size: 13px; line-height: 17px;}
 
 .compare {position: absolute; top: 0px; left: 220px; z-index: 300;}
@@ -111,14 +112,15 @@
 			position: absolute; top: 4px; right: 0px; overflow: hidden; margin: 0px;
 		}
 		.compare .compare_items .close:hover {background-position: 0px -15px;}
-	.compare .button { display: inline-block; border: solid 1px #8da0a8; height: 18px; line-height: 17px; font-size: 12px; text-decoration: none; padding: 0px 6px; margin: 5px auto; margin-bottom: 10px;
+	.compare .button, .resume .button { display: inline-block; border: solid 1px #8da0a8; height: 18px; line-height: 17px; font-size: 12px; text-decoration: none; padding: 0px 6px; margin: 5px auto; margin-bottom: 10px;
 		-moz-border-radius: 7px;
 			-webkit-border-radius: 7px;
 			-khtml-border-radius: 7px;
 			border-radius: 7px;
 			behavior: url('js/PIE-1.0beta3/PIE.htc');
 	}
-	.compare .button:hover {behavior: url('js/PIE-1.0beta3/PIE.htc');}
+	.compare .button:hover, .resume .button:hover {behavior: url('js/PIE-1.0beta3/PIE.htc');}
+	.resume .button {height: 30px; line-height: 29px; padding: 0px 30px;}
 		
 .compare_result {margin-left: -15px; display: inline; margin-bottom: 10px; padding-top: 7px; float: left; clear: both; position: relative; width: 100%;}
 	.compare_result .next, .compare_result .prev {width: 36px; height: 36px; display: block; position: absolute; top: 37px; overflow: hidden;
@@ -175,13 +177,12 @@ h3, h3 a {font-size: 16px; line-height: 18px; font-weight: normal; font-family: 
 	position: relative; margin-bottom: 10px; clear: both;}
 	h3 {color: #333333;}
 		
-.actions {float: right; margin-top: 5px;}
-	.presence {font-size: 10px; line-height: 11px; margin-bottom: 20px; position: relative; display: block;}
-	.presence .point {font-size: 23px; line-height: 11px; overflow: hidden; position: absolute; top: 0px; right: -4px; display: block; color: #0093c6;
+.actions {float: right; margin-top: 5px; z-index: 1500; width: 140px;}
+	.presence {font-size: 10px; line-height: 11px; margin-bottom: 20px; position: relative; display: block; float: left;} 
+	.presence .point {font-size: 23px; line-height: 11px; overflow: hidden; position: absolute; top: 0px; right: -13px; display: block; color: #0093c6;
 	*top: 2px;
 	}
 	.actions a {text-decoration: none; border-bottom: dashed 1px; display: block; float: left; clear: both; margin-bottom: 5px; font-size: 13px; line-height: 16px;}
-
 
 
 .sProbegom {float: left; clear: both; border: solid 0px; width: 100%; display: inline;}
@@ -214,3 +215,29 @@ h3, h3 a {font-size: 16px; line-height: 18px; font-weight: normal; font-family: 
 	.main_banner .nivo-controlNav a.active {background-position: 0px -28px;}
 	.main_banner .nivo-controlNav a.active:hover {background-position: 0px -28px;}
 	
+.buyProcess {float: left; clear: both; width: 100%; margin-bottom: 30px; display: inline; overflow: hidden;}
+	.buyProcess .steps {width: 51% !important;}
+	.buyProcess .info  {width: 49% !important;}
+	.buyProcess .steps { float: left; display: inline; margin-top: -22px !important; overflow: hidden; padding-bottom: 5px;}
+	.buyProcess .steps li { background: repeat-y 10px 0px url("../images/buyProcessLine.gif"); padding-top: 22px; display: inline; width: 100%; float: left; clear: both; position: relative;}
+	.buyProcess .steps span {color: white; width: 22px; display: block; float: left; text-align: center; line-height: 22px; padding-right: 8px; font-size: 14px; overflow: hidden; background: no-repeat url("../images/buyProcessPic.gif");}
+	.buyProcess .steps .arrow {position: absolute; display: none; top: 22px; right: -2px; background: no-repeat url("../images/buyProcessArrow.gif"); overflow: hidden; width: 13px; height: 25px; padding: 0px; float: left; clear: both;}
+	.buyProcess .steps .current a {color: #0092c5; font-weight: bold; border: none; cursor: default;}
+	.buyProcess .steps .current .arrow { display: block;}
+	.buyProcess .steps a {color: #333333; font-size: 13px; font-style: italic; text-decoration: none; border-bottom: dashed 1px;}
+	.buyProcess .steps a:hover { color: #0092c5;}
+	
+	.buyProcess .info {float: left; background-color: #f1f1f1; color: #4d4d4d; position: relative; height: 3000px; margin-bottom: -3000px !important;}
+	.buyProcess .info li {display: none; padding: 20px;}
+	.buyProcess .info li.current {display: block;}
+	
+.resume { float: left; clear: both; width: 100%;}
+	.resume li {width: 305px; float: left; margin-right: 30px; margin-bottom: 27px;}
+	.resume li img { float: left; margin-right: 15px; margin-top: 3px;}
+	.resume li .name {font-size: 16px; line-height: 19px;}
+	.resume li .invite {font-size: 12px; line-height: 14px; text-decoration: none; border-bottom: dashed 1px;}
+	.resume li p {font-size: 11px; line-height: 15px; color: #4d4d4d; padding: 0px; padding-top: 3px;}
+	.resume li .yacht {font-size: 11px; line-height: 15px; color: #4d4d4d; padding: 0px; padding-top: 3px;}
+	.resume li .blog {background-image: url("../images/blog.png"); background-repeat: no-repeat; font-size: 11px; padding-left: 18px; line-height: 16px;}
+	.resume li .ship {font-size: 14px; line-height: 28px; color: #1a1a1a;}
+	.resume li .ship span {color: #808080;}

@@ -16,6 +16,8 @@ class Item < ActiveRecord::Base
     page.url + self.id.to_s
   end
   
+  scope :used, :conditions => {:page_id => 10}
+  scope :brand_new, :conditions => "page_id != 10"
 #  sortable :scope => :page_id
   
   accepts_nested_attributes_for :assets, :allow_destroy => true

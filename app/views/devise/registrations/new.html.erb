@@ -1,23 +1,23 @@
 <div class="formWrap">
-<% form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => :registration}) do |f| %>
+<% form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => [:registration, :validatable]}) do |f| %>
 	<div class="w910"><h1>Регистрация</h1></div>
 	<div class="blueBg">
 		<div class="w910">
 				<div class="radio">
-					<label><%= f.radio_button :type, "captain" %>Капитан</label>
-					<label><%= f.radio_button :type, "owner" %>Судовладелец</label>
+					<label><%= f.radio_button :user_type, "captain" %>Капитан</label>
+					<label><%= f.radio_button :user_type, "owner" %>Судовладелец</label>
 				</div>
 				<div class="text">
 					<label for="name">Имя</label>
 					<div class="left clear">
-						<%= f.text_field :name, :default => "Имя" %>
+						<%= f.text_field :name %>
 						<div class="example">Пример: Имя</div>
 					</div><div class="not_ready" id="user_name_status"></div><div class="info"></div>
 				</div>
 				<div class="text">
 					<label for="mail">Электронная почта</label>
 					<div class="left clear">
-						<%= f.text_field :email, :default => "Электронная почта" %>
+						<%= f.text_field :email %>
 						<div class="example">Пример: почта@почта</div>
 					</div><div class="not_ready" id="user_email_status"></div><div class="info">Адрес электронной почты будет логином для авторизации на сайте.
 Адрес нигде не публикуется и не достанется спамерам.</div>

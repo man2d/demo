@@ -1,20 +1,25 @@
+<div class="formWrap">
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => [:validatable]}) do |f| %>
+<div class="w910"><h1>Авторизация</h1></div>
+<div class="blueBg">
+		<div class="w910">
+  <div class="text"><br/><%= f.label :email, "E-mail" %><br />
+  <div class="left clear"><%= f.text_field :email %></div><div class="not_ready" id="user_email_status"></div></div>
 
-<div class="w910">
-<h2>Вход</h2>
+  <div class="text"><%= f.label :password, "Пароль" %><br />
+  <div class="left clear"><%= f.password_field :password, :id => 'user_password_password' %></div><div class="not_ready" id="user_password_status"></div></div>
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <p><%= f.label :email %><br />
-  <%= f.text_field :email %></p>
+  <div class="radio"><% if devise_mapping.rememberable? -%>
+    <label for="remember_me">Запомнить меня <%= f.check_box :remember_me %></label>
+  <% end -%></div>
+  <div class="w910">
+  <div class="errorInfo"><%= flash[:alert] %></div>
+  <%= f.submit "Войти", :class => :submit %>
+  </div>
 
-  <p><%= f.label :password %><br />
-  <%= f.password_field :password %></p>
-
-  <% if devise_mapping.rememberable? -%>
-    <p><%= f.check_box :remember_me %> <%= f.label :remember_me %></p>
-  <% end -%>
-
-  <p><%= f.submit "Sign in" %></p>
 <% end %>
-
+<div class="clear"></div>
 <%= render :partial => "devise/shared/links" %>
+</div>
+</div>
 </div>

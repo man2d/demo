@@ -1,6 +1,6 @@
 <% Page.roots.menu.each do |page| %>
 
-<li<%=raw ' class="current"' if request.fullpath.to_s.include?(page.slug) %>><a href="<%=page.url %>"><%= page.title %></a>
+<li><a<%=raw ' class="current"' if request.fullpath.to_s.include?(page.slug) %> href="<%=page.url %>"><%= page.title %></a>
   <% if page.slug == 'catalog' && page.children.menu.size > 0 %><span class="arrow"></span>
   <ul class="sub1">
 	<% page.children.menu.each do |child_page| %>

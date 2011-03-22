@@ -18,7 +18,7 @@ Navigator2::Application.routes.draw do
         get 'hide'
       end
     end
-    resources :items do
+    resources :items, :used_items do
       member do
         get 'menu'
       end
@@ -119,4 +119,6 @@ Navigator2::Application.routes.draw do
   end
 =end
   match '*path' => 'redirect#index'
+  match ':controller/:action(/:id(.:format))'
+
 end

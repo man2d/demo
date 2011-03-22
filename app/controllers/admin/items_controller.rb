@@ -27,7 +27,7 @@ class Admin::ItemsController < Admin::BaseController
     if params[:page_id]
       @items = Item.find_all_by_page_id(params[:page_id])
     else
-      @items = Item.all
+      @items = Item.brand_new.all
     end
   end
 end

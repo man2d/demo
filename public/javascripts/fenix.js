@@ -17,9 +17,29 @@
 	
 	
 	//enter 
-	jQuery('.enterFormPos').css("display", "none")
+	jQuery('.enterFormPos').css("display", "none");
+	var state = "x";
+	jQuery('.enterFormPos').mouseleave(function() {
+		state = "out";
+		jQuery('body').bind('click', formsHandler);
+	}).mouseenter(function() {
+		state = "in";
+		jQuery('body').unbind();
+	});
+	function formsHandler() {
+		eFormAnim();
+		state = "x";
+		jQuery('body').unbind();
+	};
 	jQuery(".enter").click(eFormAnim);
 	function eFormAnim() {
+		state = "x";
+		jQuery('body').unbind();
+		if (jQuery(".enter").hasClass("active")) {
+			jQuery(".enter").removeClass("active");
+		} else {
+			jQuery(".enter").addClass("active");
+		}
 		jQuery('.enterForm').animate({
 			opacity: "toggle"
 		}, 300);
@@ -27,9 +47,12 @@
 			height: "toggle"
 		}, 300, function() {
 			if (jQuery(".enter").hasClass("active")) {
-				jQuery(".enter").removeClass("active");
-			} else {
-				jQuery(".enter").addClass("active");
+				if (state == "out" || state == "x") {
+					jQuery('body').unbind();
+					jQuery('body').bind('click', formsHandler);
+				} else {
+					jQuery('body').unbind();
+				}
 			}
 		});
 	}
@@ -48,19 +71,7 @@
 		var pos = jQuery(this).position();
 		jQuery(this).children(".sub3").css("top", -pos.top);
 	});
-
-	jQuery(".sub3").parent( function() {
-		//var pos = jQuery(this).offset();
-		//alert()
-		jQuery(this).css("background-color", "red");
-	});
 	
-	
-	
-	jQuery(".sub3").click(function() {
-		var pos = jQuery(".sub3").parent().offset();
-		alert(pos.top);
-	});
 	//настраиваем фоны при маленькой высоте контента
 	if (jQuery(".wrap").height() < 1338) {
 		jQuery(".wrap").css('height', '100%').css('background-position', 'bottom');

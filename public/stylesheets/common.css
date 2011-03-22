@@ -106,7 +106,11 @@ opacity: 0.1;
 	.mail {background-position: -16px 0px;}
 	.sitemap {background-position: -32px 0px;}
 	.client {z-index: 100; float: left; background-color: #165e80; margin-left: 20px; margin-top: 18px; padding: 8px 15px;}
-		.client, .client p, .client a {color: white; text-decoration: none; position: relative;}
+		.client, .client p, .client a {color: white; text-decoration: none; position: relative;
+			-moz-user-select: none;
+			-khtml-user-select: none;
+			-webkit-user-select: none;
+		}
 		.client a {border-bottom: solid 1px;}
 		.client .enter {border-bottom: dashed 1px; z-index: 231;}
 		.client a:hover {color: #58c9ff;}

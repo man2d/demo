@@ -1,5 +1,5 @@
 <ul class="menu">
-<% {:pages => "Страницы", :items => "Товары", :banners => "Баннеры", :posts => "Новости", :slides => "Слайдшоу"}.each do |controller, name| %>
+<% {:pages => "Страницы", :items => "Товары", :used_items => "Товары с пробегом", :banners => "Баннеры", :posts => "Новости", :slides => "Слайдшоу"}.each do |controller, name| %>
     <% if params[:controller] == "admin/"+controller.to_s
 	    klasss = "current"
        if params[:action] == 'index'

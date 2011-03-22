@@ -1,11 +1,3 @@
-GIT
-  remote: git://github.com/galetahub/rails-ckeditor.git
-  revision: d9ca2bb71b91c3bf0ddae9c995cda896e2fbc596
-  branch: rails3
-  specs:
-    ckeditor (3.5.1)
-      mime-types (>= 1.16)
-
 GEM
   remote: http://rubygems.org/
   remote: http://gems.github.com/
@@ -60,6 +52,8 @@ GEM
     celerity (0.8.8)
     childprocess (0.1.7)
       ffi (~> 0.6.3)
+    ckeditor (3.4.2.pre)
+      mime-types (>= 1.16)
     configuration (1.2.0)
     css_parser_master (1.2.4)
     cucumber (0.10.0)
@@ -204,7 +198,7 @@ DEPENDENCIES
   capistrano
   capybara
   carrierwave
-  ckeditor!
+  ckeditor (= 3.4.2.pre)
   cucumber-rails
   database_cleaner
   devise

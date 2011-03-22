@@ -7,9 +7,7 @@ class Ckeditor::Asset < ActiveRecord::Base
   belongs_to :assetable, :polymorphic => true
   
   before_validation :make_content_type
-  before_create :read_dimensions, :parameterize_filename
-  
-  attr_accessible :data, :assetable_type, :assetable_id
+  before_create :make_dimensions
   
   def url(*args)
     data.url(*args)
@@ -37,7 +35,7 @@ class Ckeditor::Asset < ActiveRecord::Base
   end
   
   def format_created_at
-    I18n.l(created_at, :format=>"%d.%m.%Y %H:%M")
+    I18n.l(self.created_at, :format=>"%d.%m.%Y %H:%M")
   end
   
   def to_xml(options = {})
@@ -60,11 +58,11 @@ class Ckeditor::Asset < ActiveRecord::Base
   end
   
   def has_dimensions?
-    respond_to?(:width) && respond_to?(:height)
+    self.respond_to?(:width) && self.respond_to?(:height)
   end
   
   def image?
-    Ckeditor::IMAGE_TYPES.include?(data_content_type)
+    ["image/jpeg", "image/tiff", "image/png", "image/gif", "image/bmp"].include?(self.data_content_type)
   end
   
   def geometry
@@ -72,16 +70,9 @@ class Ckeditor::Asset < ActiveRecord::Base
     @geometry
   end
   
-  protected
+  private
     
-    def parameterize_filename
-      unless data_file_name.blank?
-        filename = Ckeditor::Utils.parameterize_filename(data_file_name)
-        self.data.instance_write(:file_name, filename)
-      end  
-    end
-    
-    def read_dimensions
+    def make_dimensions
       if image? && has_dimensions?
         self.width = geometry.width
         self.height = geometry.height

@@ -13,7 +13,7 @@
 		<label for="item_description">Описание</label>
 		<div class="left"><%= f.ckeditor_textarea :item, :description %></div>
 	</li>
-	<%= resource.image_url if resource.image?%>
+	<%= image_tag resource.image_url if resource.image?%>
 	<%= f.input :image, :as => :file %>
     <%= f.input :remove_image, :as => :boolean, :label => "Удалить картинку" %>
     <% #f.inputs :for => :assets %>
@@ -25,7 +25,7 @@
       <%= f.input :year %>
     <% end %>
    <% end %>
-   <% AssetGroup.find(1,2,3,4).each do |group| %>
+   <% AssetGroup.find(1,2,3,4,7).each do |group| %>
    <% f.inputs do %>
     <a class="collapse" href="javascript:void();" rel="asset_<%=group.id%>_block"><%= group.title %></a>
     <div class="asset_<%=group.id%>_block hidden">

@@ -1,0 +1,66 @@
+<% semantic_form_for ["admin", resource], :html => { :multipart => true } do |f| %>
+  <% resource.errors.each do |field,error| %>
+    <b><%= field %> <%= error %></b><br/>
+  <% end %>
+  <% f.inputs do %>
+    <li class="select optional" id="item_page_input"><label for="item_page_id">Категория</label><%= f.select :page_id, nested_set_options(Page.find_by_slug("catalog")) {|i| "#{'-'*i.level} #{i.title}"}, :include_blank => true %></li>
+	<%= f.input :title %>
+	<%= f.input :price %> <%= f.input :currency %>
+	<%= f.input :item_assign, :as => :select, :label => "Назначение" %>
+	<%= f.input :lgth, :label => "Длина" %>
+	<li id="item_on_hand_input" class="boolean optional"><label for="item_on_hand">Есть в наличии</label><%= f.check_box :on_hand %></li>
+	<li id="item_description_input" class="string optional">
+		<label for="item_description">Описание</label>
+		<div class="left"><%= f.ckeditor_textarea :item, :description %></div>
+	</li>
+	<%= resource.image_url if resource.image?%>
+	<%= f.input :image, :as => :file %>
+    <%= f.input :remove_image, :as => :boolean, :label => "Удалить картинку" %>
+    <% #f.inputs :for => :assets %>
+  <% end %>
+
+   <% if resource.page && resource.page.slug == 's_probegom' %>
+    <% f.inputs do  %>
+      <%= f.input :mileage %>
+      <%= f.input :year %>
+    <% end %>
+   <% end %>
+   <% AssetGroup.find(1,2,3,4).each do |group| %>
+   <% f.inputs do %>
+    <a class="collapse" href="javascript:void();" rel="asset_<%=group.id%>_block"><%= group.title %></a>
+    <div class="asset_<%=group.id%>_block hidden">
+    <% if resource.assets.where(:asset_group_id => group.id) %>
+      <% resource.assets.where(:asset_group_id => group.id).each do |asset| %>
+		<div id="<%= dom_id(asset) %>">
+        <%= image_tag(asset.asset_url(:thumb)) if asset.asset_url %>
+        <%= link_to "Удалить", admin_asset_url(asset, "js"), :method => :delete, :remote => true, :confirm => "Удалить файл?" %>
+		</div>
+      <% end %>
+    <% end %>
+    
+
+	<% f.semantic_fields_for :assets do |asset| %>
+	<% @asset_group_id = group.id %>
+      <%= render 'asset_fields', :f => asset %>
+	  <% break %>
+    <% end %>
+	<div class="clear"></div>
+    <%= link_to_add_fields "Добавить", f, :assets %>
+	</div>
+   <% end %>
+   <% end %>
+   <% f.inputs do %>
+	<a class="collapse" href="javascript:void();" rel="properties_block">Характеристики</a>
+	<div class="properties_block hidden">
+	<% f.semantic_fields_for :item_properties do |item_properties| %>
+      <%#= render 'item_property_fields', :f => item_properties %>
+	<% end %>
+	
+	<%= link_to_add_fields "Добавить", f, :item_properties %>
+	</div>
+   <% end %>
+	<%= f.buttons do %>
+	  <%= f.commit_button :label => "Сохранить", :button_html => {:class => :yellow_button} %>
+	  <li><%= link_to "Отменить", collection_url, :class => :yellow_button, :confirm => "Внимание!\nИзменения не будут сохранены. Продолжить?" %></li>
+	<% end %>
+<% end %>

@@ -2,7 +2,7 @@
 
 class AssetUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
-
+  
   # Include RMagick or ImageScience support:
   # include CarrierWave::RMagick
   # include CarrierWave::ImageScience
@@ -20,11 +20,16 @@ class AssetUploader < CarrierWave::Uploader::Base
     process :resize_to_fit => [498,359]
   end
   version :thumb do
-    process :resize_to_fill => [175,130]
+      process :resize_to_fill => [175,130]
   end
   version :gallery do
     process :resize_to_fit => [420,300]
   end
+
+#  else
+#    version :thumb do
+#    end
+#  end
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
