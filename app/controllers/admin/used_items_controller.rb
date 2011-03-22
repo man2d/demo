@@ -23,6 +23,9 @@ class Admin::UsedItemsController < Admin::BaseController
   
   protected
   
+  def resource
+    @item = Item.find_by_id(params[:id])
+  end
   def collection
     if params[:page_id]
       @items = Item.find_all_by_page_id(params[:page_id])
