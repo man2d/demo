@@ -1,7 +1,7 @@
-<% if @item.interior_assets.size > 0 %>
+<% if @item.interior_images.size > 0 %>
         <div class="imageflow" id="exteriorFlow">
-			<% @item.interior_assets.each do |asset| %>
-            <img class="item" alt="" title="" src="<%= asset.asset.url(:gallery) %>" longdesc="javascript:tb_show( '<%= @item.title %>', '<%= asset.asset.url(:big) %>', '' )" />
+			<% @item.interior_images.each do |image| %>
+            <img class="item" alt="" title="" src="<%= image.url(:normal) %>" longdesc="javascript:tb_show( '<%= @item.title %>', '<%= image.url(:small_wallpaper) %>', '' )" />
             <% end %>
         </div>
 <% end %>

@@ -33,12 +33,12 @@
 	<a class="collapse" href="javascript:void();" rel="interior_block">Интерьер</a>
 	<div class="interior_block hidden">
 	<% if @item.interior_images %>
-	  <% @item.interior_images.each do |image| %>
+	 <% @item.interior_images.each do |image| %>
 	    <div id="<%= dom_id(image) %>"><%= image_tag image.url(:thumb) %> <%= link_to "Удалить", admin_asset_path(image, :js), :method => :delete, :confirm => "Удалить файл?", :remote => true %></div>
 	  <% end %>
 	<% end %>
-	<%= f.semantic_fields_for :interior_images do |interior_images| %>
-     <%#= render 'item_property_fields', :f => item_properties %>
+	<% f.semantic_fields_for :interior_images do |interior_images| %>
+     <%#= render 'interior_images', :f => interior_images %>
 	<% end %>
 	<%= link_to_add_fields "Добавить", f, :interior_images %>
 	</div>
@@ -52,7 +52,7 @@
 	    <div id="<%= dom_id(image) %>"><%= image_tag image.url(:thumb) %> <%= link_to "Удалить", admin_asset_path(image, :js), :method => :delete, :confirm => "Удалить файл?", :remote => true %></div>
 	  <% end %>
 	<% end %>
-	<%= f.semantic_fields_for :exterior_images do |exterior_images| %>
+	<% f.semantic_fields_for :exterior_images do |exterior_images| %>
      <%#= render 'item_property_fields', :f => item_properties %>
 	<% end %>
 	<%= link_to_add_fields "Добавить", f, :exterior_images %>
@@ -67,7 +67,7 @@
 	    <div id="<%= dom_id(image) %>"><%= image_tag image.url(:thumb) %> <%= link_to "Удалить", admin_asset_path(image, :js), :method => :delete, :confirm => "Удалить файл?", :remote => true %></div>
 	  <% end %>
 	<% end %>
-	<%= f.semantic_fields_for :specification_images do |specification_images| %>
+	<% f.semantic_fields_for :specification_images do |specification_images| %>
      <%#= render 'item_property_fields', :f => item_properties %>
 	<% end %>
 	<%= link_to_add_fields "Добавить", f, :specification_images %>
@@ -82,7 +82,7 @@
 	    <div id="<%= dom_id(video) %>"><%= video.id %> <%= link_to "Удалить" %></div><% %>
 	  <% end %>
 	<% end %>
-	<%= f.semantic_fields_for :videos do |videos| %>
+	<% f.semantic_fields_for :videos do |videos| %>
      <%#= render 'item_property_fields', :f => item_properties %>
 	<% end %>
 	<%= link_to_add_fields "Добавить", f, :videos %>
