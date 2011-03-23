@@ -10,7 +10,7 @@ class Item < ActiveRecord::Base
   end
 =end
   def url
-    page.url + self.id.to_s
+      page.url + self.id.to_s if page
   end
   alias_method :item_url, :url
 
