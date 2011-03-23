@@ -26,7 +26,7 @@ class Item < ActiveRecord::Base
   has_many :videos, :as => :assetable, :class_name => "Item::Video", :dependent => :destroy
   has_one :image, :as => :assetable, :class_name => "Item::Image", :dependent => :destroy
   
-  accepts_nested_attributes_for :exterior_images, :interior_images, :videos, :image, :allow_destroy => true
+  accepts_nested_attributes_for :exterior_images, :interior_images, :specification_images, :videos, :image, :allow_destroy => true
 #  accepts_nested_attributes_for :image,  :allow_destroy => true
 
   
