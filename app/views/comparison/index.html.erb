@@ -1,6 +1,6 @@
 <div class="w910">
 	<div class="left">
-   		<div class="tree"><a href="/">Главная</a> / <a href="/catalog">Каталог яхт</a> <b>Сравнение</b> <div class="arrow"></div></div>
+   		<div class="tree"><a href="/">Главная</a> / <a href="/catalog">Каталог яхт</a> / <b>Сравнение</b> <div class="arrow"></div></div>
 
     </div>
 		<div class="clear"></div>
@@ -14,7 +14,7 @@
             </ul>
             </th>
 			<% i = 0 %>
-        	<% @items.each do |item| %><td class="row_<%=i+=1%>"<%=raw ' style="width:0;opacity:0"' if i > 5 %>><span><a href="<%= item.url %>"><img src="<%= item.image.url(:thumb) %>" /></a><a class="close" href="/comparison/<%= item.id %>"></a></span><a href="<%= item.url %>"><%= item.title %></a></td><% end %>
+        	<% @items.each do |item| %><td class="row_<%=i+=1%>"<%=raw ' style="width:0;opacity:0"' if i > 5 %>><span><a href="<%= item.url %>"><% if item.image %><img src="<%= item.image.url(:thumb) %>" /><% end %></a><a class="close" href="/comparison/<%= item.id %>"></a></span><a href="<%= item.url %>"><%= item.title %></a></td><% end %>
            
         </tr>
 		

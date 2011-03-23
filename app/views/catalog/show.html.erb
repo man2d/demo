@@ -22,6 +22,7 @@
             <% if @item.interior_images.size > 0 %><li<%=raw ' class="current"' if params[:view] =='interior' %>><a href="?view=interior" rel="interior">Интерьер</a></li><% end %>
             <% if @item.specification_images.size > 0 || @item.item_properties.size > 0 %><li<%=raw ' class="current"' if params[:view] =='specification' %>><a href="?view=specification" rel="specification">Спецификация</a></li><% end %>
             <% if @item.threed_assets.size > 0 %><li<%=raw ' class="current"' if params[:view] =='threed_view' %>><a href="?view=threed_view" rel="3dview">3-D вид</a></li><% end %>
+            <% if @item.videos.size > 0 %><li<%=raw ' class="current"' if params[:view] =='video' %>><a href="?view=video" rel="video">Видео</a></li><% end %>
             <li class="last"></li>
         </ul>
 

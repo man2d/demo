@@ -1,7 +1,7 @@
-<% if @item.specification_assets.size > 0 || @item.item_properties.size > 0 %>
+<% if @item.specification_images.size > 0 || @item.item_properties.size > 0 %>
 <div class="spec" id="specification">
-	<% if @item.specification_assets.size > 0 %>
-	<div class="left"><% @item.specification_assets.each do |asset| %><img alt="" src="<%= asset.asset.url %>" /><% end %></div>
+	<% if @item.specification_images.size > 0 %>
+	<div class="left"><% @item.specification_images.each do |image| %><img alt="" src="<%= image.url %>" /><% end %></div>
     <% end %>
 <% if @item.item_properties.size > 0 %>
     <div class="right">

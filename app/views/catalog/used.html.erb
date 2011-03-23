@@ -2,7 +2,7 @@
 			<div class="tree"><a href="/">Главная</a> / <a href="/catalog">Каталог яхт</a> / <b>С пробегом</b> <div class="arrow"></div></div>
 
 			<div class="sort">Сортировать по: 
-				<% if params[:sort] == 'year' || !params[:sort] %><b>Год выпуска</b><% else %><a href="/catalog/s_probegom/year">Год выпуска</a><% end %> / <% if params[:sort] == 'mileage'%><b>Пробег</b><% else %><a href="/catalog/s_probegom/mileage">Пробег</a><% end %> / <% if params[:sort] == 'price' %><b>Цена</b><% else %><a href="/catalog/s_probegom/price">Цена</a><% end %></div>
+				<% if params[:sort] == 'year' || !params[:sort] %><b>Год выпуска</b><% else %><a href="/catalog/s_probegom?sort=year">Год выпуска</a><% end %> / <% if params[:sort] == 'mileage'%><b>Пробег</b><% else %><a href="/catalog/s_probegom?sort=mileage">Пробег</a><% end %> / <% if params[:sort] == 'price' %><b>Цена</b><% else %><a href="/catalog/s_probegom?sort=price">Цена</a><% end %></div>
 			<ul class="sProbegom">
 				<% @items.each do |item| %>
 			    <%= render 'used_item', :item => item %>

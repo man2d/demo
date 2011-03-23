@@ -101,7 +101,7 @@ Navigator2::Application.routes.draw do
   end
   match '/catalog' => 'catalog#main'
   match '/catalog/s_probegom' => 'catalog#used'
-  match '/catalog/s_probegom/:sort' => 'catalog#used'
+#  match '/catalog/s_probegom/:sort' => 'catalog#used'
   match '/filter' => 'selection#index'
   match '/filter/do' => 'selection#list'
   match '/filter/search' => 'selection#search'
