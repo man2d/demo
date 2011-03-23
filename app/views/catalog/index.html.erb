@@ -17,8 +17,8 @@
             	<li class="number"><p><%= length.lgth %></p></li>
 <% @page.items.find_all_by_lgth(length.lgth).each do |item| %>
                 <li>
-                <a href="<%= item.url %>"><% if item.image.url %><img alt="" src="<%= item.image.url(:thumb) %>"><% end %></a>
-                <a href="<%= item.url %>" class="name"><%= item.title %></a>
+                <a href="<%= item.item_url %>"><% if item.image %><img alt="" src="<%= item.image.url(:thumb) %>"><% end %></a>
+                <a href="<%= item.item_url %>" class="name"><%= item.title %></a>
 
 				<% if !session[:comparison] || !session[:comparison].include?(item.id.to_i) %>
 				<%= link_to "Добавить к сравнению", "/comparison/#{item.id}", :remote => true, :class => [:add, :comparison], :id => "item_#{item.id}_comparison" %>

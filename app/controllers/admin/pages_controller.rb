@@ -20,6 +20,18 @@ class Admin::PagesController < Admin::BaseController
     end
   end
   
+  def new
+    @page = Page.new
+    @page.build_image
+    render :text => @page == resource
+  end
+  
+  def edit
+    @page = Page.find(params[:id])
+    @page.build_image unless @page.image
+    edit!
+  end
+  
   def create
     create!(:notice => "Dude! Nice job creating that page. Yeeeah") { collection_url }
   end

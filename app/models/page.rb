@@ -1,18 +1,23 @@
 class Page < ActiveRecord::Base
   acts_as_nested_set
-  before_save :caching_level, :caching_url
-  before_create :caching_level, :caching_url
-  after_save :rebuild_tree
-
+#  after_create :caching_level, :caching_url
+  after_save :caching_level, :caching_url, :rebuild_tree
+  after_create :caching_url, :caching_level, :rebuild_tree
+  
   has_many :items
   has_many :blocks, :as => :attachable
-  has_many :assets, :as => :assetable
-  has_many :asset_groups, :through => :assets
+#  has_many :assets, :as => :assetable
+#  has_many :asset_groups, :through => :assets
   has_one :item_assign
-  accepts_nested_attributes_for :blocks, :assets
   
-  mount_uploader :image, DefaultUploader
-  mount_uploader :pdf, DefaultUploader
+  
+#  mount_uploader :image, DefaultUploader
+#  mount_uploader :pdf, DefaultUploader
+  has_one :image, :as => :assetable, :class_name => "Page::Image", :dependent => :destroy
+  has_one :pdf, :as => :assetable, :class_name => "Page::Pdf", :dependent => :destroy
+  has_many :attachments, :as => :assetable, :class_name => "Page::Attachment", :dependent => :destroy
+
+  accepts_nested_attributes_for :blocks, :image, :attachments, :pdf, :allow_destroy => true
   
  # sortable :scope => :parent_id
   
@@ -37,6 +42,8 @@ class Page < ActiveRecord::Base
 
   def caching_url
     self.cached_url = url
+    self.save
+    puts self.cached_url
   end
   
   private

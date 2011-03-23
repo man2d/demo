@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110321142126) do
+ActiveRecord::Schema.define(:version => 20110323094420) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
@@ -38,13 +38,13 @@ ActiveRecord::Schema.define(:version => 20110321142126) do
   end
 
   create_table "assets", :force => true do |t|
-    t.string   "filename"
-    t.integer  "item_id"
-    t.integer  "asset_group_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string   "type"
     t.integer  "assetable_id"
     t.string   "assetable_type"
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.datetime "attachment_updated_at"
   end
 
   create_table "banners", :force => true do |t|
@@ -61,6 +61,16 @@ ActiveRecord::Schema.define(:version => 20110321142126) do
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "carrierwave_assets", :force => true do |t|
+    t.string   "filename"
+    t.integer  "item_id"
+    t.integer  "asset_group_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "assetable_id"
+    t.string   "assetable_type"
   end
 
   create_table "ckeditor_assets", :force => true do |t|
@@ -176,8 +186,8 @@ ActiveRecord::Schema.define(:version => 20110321142126) do
     t.string   "name"
     t.date     "confirmed_at"
     t.string   "confirmation_token"
-    t.date     "confirmation_token_sent_at"
-    t.date     "confirmation_sent_at"
+    t.datetime "confirmation_token_sent_at"
+    t.datetime "confirmation_sent_at"
     t.string   "user_type"
   end
 

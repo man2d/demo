@@ -72,7 +72,7 @@ $(document).ready(function(){
 	$('form.validatable input').each(function(){
 	  $(this).keyup(function() {
 	   validateForm();
-	   if($(this).parents('form').find('.not_ready').length == 0) {
+	   if($(this).parents('form').find('	.not_ready').length == 0) {
 		 $(this).parents('form').find('input[type=submit]').addClass('formReady');
 	   }
 	  });	

@@ -5,8 +5,14 @@ class Admin::ItemsController < Admin::BaseController
  
   def new
     @item = Item.new
-    @item.assets.build
-    @item.item_properties.build
+    @item.build_image
+    new!
+  end
+  
+  def edit
+    @item = Item.find(params[:id])
+    @item.build_image unless resource.image
+    edit!
   end
   
   def create
@@ -22,6 +28,7 @@ class Admin::ItemsController < Admin::BaseController
   end
   
   protected
+  
   
   def collection
     if params[:page_id]

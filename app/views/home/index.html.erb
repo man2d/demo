@@ -15,14 +15,14 @@
             <ul class="cols_3">
 	        <% @items.each do |item| %>
             <li>
-            	<a href="#"><img src="<%= item.image.url(:thumb) %>" alt="" /></a>
+            	<% if item.image %><a href="#"><img src="<%= item.image.url(:thumb) %>" alt="" /></a><% end %>
                 <p><a href="<%= item.url %>"><%= item.title %></a><br />
                 	Пробег: <%= item.mileage %> миль<br />
 					Год выпуска: <%= item.year %></p>
             </li>
  			<% end %>
             </ul>
-            <% if @page.pdf.url %><p class="file defaultPic"><a href="<%= @page.pdf.url %>">Каталог яхт</a>(5 Mб, ПДФ)</p><% end %>
+            <% if @page.pdf %><p class="file defaultPic"><a href="<%= @page.pdf.url %>">Каталог яхт</a>(5 Mб, ПДФ)</p><% end %>
         </div>
         <div class="right">
         	<div class="part">

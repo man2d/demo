@@ -22,7 +22,8 @@ gem 'sortable'
 
 # Stuff
 #gem 'searchlogic'
-gem 'paperclip', '~> 2.3.8'
+#gem 'paperclip', '~> 2.3.8'
+#gem 'spawn'
 gem 'jrails'
 #gem 'ckeditor', :git => 'git://github.com/galetahub/rails-ckeditor.git', :branch => 'rails3'
 gem 'ckeditor', '3.4.2.pre'

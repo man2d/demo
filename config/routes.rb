@@ -118,6 +118,7 @@ Navigator2::Application.routes.draw do
     end
   end
 =end
+  match 'ckeditor/:action(/:id(.:format))' => 'ckeditor'
   match '*path' => 'redirect#index'
   match ':controller/:action(/:id(.:format))'
 

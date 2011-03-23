@@ -1,0 +1,13 @@
+<div class="cat_model" id="video">
+<!--        	<div class="left"><img alt="" src="<%= @item.image.url(:normal) %>" />
+            	<center><a href="#" class="videoButton"><span></span>Видеообзор</a></center>
+            </div>
+            <div class="right"><%= raw @item.description %></div>
+-->
+<!--
+-->
+<video width="320" height="240" src="<%= @item.videos.last.url %>" controls>
+	<a href="<%= @item.videos.last.url(:flv) %>" style="display:block;width:520px;height:330px" id="player"></a>
+	<script type="text/javascript">flowplayer("player", "/flowplayer-3.2.7.swf");</script>
+</video>
+</div>

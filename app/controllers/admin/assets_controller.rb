@@ -5,7 +5,8 @@ class Admin::AssetsController < Admin::BaseController
   defaults :route_prefix => 'admin'
   
   def destroy
-
+    @asset = Asset.find(params[:id])
+    
     destroy!{
     super do |format|
       format.js {
