@@ -23,7 +23,6 @@ class Admin::PagesController < Admin::BaseController
   def new
     @page = Page.new
     @page.build_image
-    render :text => @page == resource
   end
   
   def edit
