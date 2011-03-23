@@ -1,8 +1,9 @@
 class Page < ActiveRecord::Base
   acts_as_nested_set
 #  after_create :caching_level, :caching_url
-  after_save :caching_level_and_url, :rebuild_tree
-  after_create :caching_url, :caching_level, :rebuild_tree
+  after_save :rebuild_tree
+  before_create :caching_url_and_level
+  before_save :caching_url_and_level
   
   has_many :items
   has_many :blocks, :as => :attachable
@@ -40,10 +41,10 @@ class Page < ActiveRecord::Base
   end
   
 
-  def caching_level_and_url
+  def caching_url_and_level
     self.cached_url = url
     self.cached_level = level
-    self.save
+#    self.save
   end
   
   private
