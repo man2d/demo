@@ -3,5 +3,8 @@ Gemfile.lock
 db/*.sqlite3
 log/*.log
 tmp/
+.DS_Store
+public/ckeditor_assets/
 public/uploads/
+public/system/
 config/database.yml
