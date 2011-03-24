@@ -12,7 +12,7 @@ class Item::Image < Asset
 #        '/public/images/mask.png'+' -alpha Off -compose Copy_Opacity -composite '+self.attachment.path(:thumb)
     cmd = "'#{self.attachment.path(:masked)}'" + ' -alpha set -gravity center -extent 135x80'
     cmd += ' '+"'"+Rails.root.to_s+'/public/images/mask2.png'+"'"+' -compose DstIn -composite '
-    cmd += "'"+self.attachment.path(:masked)+".png"+"'"
+    cmd += "'"+self.attachment.path(:masked)+"'"
 #    logger.info cmd
 #    puts cmd
     
