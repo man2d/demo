@@ -10,13 +10,15 @@ class Item::Image < Asset
 
 #    cmd = self.attachment.path(:thumb)+' '+Rails.root.to_s+
 #        '/public/images/mask.png'+' -alpha Off -compose Copy_Opacity -composite '+self.attachment.path(:thumb)
-    cmd = "'#{self.attachment.path(:masked)}'" + ' -alpha set -gravity center -extent 135x80'
-    cmd += ' '+"'"+Rails.root.to_s+'/public/images/mask2.png'+"'"+' -compose DstIn -composite '
-    cmd += "'"+self.attachment.path(:masked)+"'"
+    if self.attachment && self.attachment.path(:masked) && File::exists?(self.attachment.path(:masked))
+      cmd = "'#{self.attachment.path(:masked)}'" + ' -alpha set -gravity center -extent 135x80'
+      cmd += ' '+"'"+Rails.root.to_s+'/public/images/mask2.png'+"'"+' -compose DstIn -composite '
+      cmd += "'"+self.attachment.path(:masked)+"'"
 #    logger.info cmd
 #    puts cmd
     
-    Paperclip.run 'convert', cmd
+      Paperclip.run 'convert', cmd
+    end
   end
 end
 #/Users/macuser/Project/yahtus/public/system/attachments/2/thumb/grand_ext_4.jpg -alpha set -gravity center -extent 128x80 /Users/macuser/Project/yahtus/public/images/mask.png -compose DstIn -composite /Users/macuser/Project/yahtus/public/system/attachments/2/thumb/grand_ext_4.jpg

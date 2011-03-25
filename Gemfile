@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 source 'http://gems.github.com'
-
+#source 'http://gemcutter.org'
 gem 'rails', '3.0.5'
 
 # Bundle edge Rails instead:
@@ -22,8 +22,10 @@ gem 'sortable'
 
 # Stuff
 #gem 'searchlogic'
-#gem 'paperclip', '~> 2.3.8'
+gem 'paperclip', '~> 2.3.8'
 #gem 'spawn'
+gem 'delayed_job'
+gem 'delayed_paperclip'
 gem 'jrails'
 #gem 'ckeditor', :git => 'git://github.com/galetahub/rails-ckeditor.git', :branch => 'rails3'
 gem 'ckeditor', '3.4.2.pre'

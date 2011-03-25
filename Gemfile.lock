@@ -65,7 +65,13 @@ GEM
     cucumber-rails (0.3.2)
       cucumber (>= 0.8.0)
     culerity (0.2.15)
+    daemons (1.1.0)
     database_cleaner (0.6.4)
+    delayed_job (2.1.4)
+      activesupport (~> 3.0)
+      daemons
+    delayed_paperclip (0.6.5)
+      paperclip (>= 2.3.0)
     devise (1.1.7)
       bcrypt-ruby (~> 2.1.2)
       warden (~> 1.0.2)
@@ -121,6 +127,9 @@ GEM
     net-ssh-gateway (1.0.1)
       net-ssh (>= 1.99.1)
     nokogiri (1.4.4)
+    paperclip (2.3.8)
+      activerecord
+      activesupport
     polyglot (0.3.1)
     populator (1.0.0)
     prawn (0.8.4)
@@ -198,6 +207,8 @@ DEPENDENCIES
   ckeditor (= 3.4.2.pre)
   cucumber-rails
   database_cleaner
+  delayed_job
+  delayed_paperclip
   devise
   email_spec
   factory_girl_rails
@@ -212,6 +223,7 @@ DEPENDENCIES
   launchy
   mysql2
   nokogiri (>= 1.4.1)
+  paperclip (~> 2.3.8)
   populator
   prawn
   rails (= 3.0.5)
