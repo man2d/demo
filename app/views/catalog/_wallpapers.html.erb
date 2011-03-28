@@ -1,0 +1,14 @@
+<div class="wallpapers">
+<ul>
+<% @item.wallpapers.each do |wallpaper| %>
+<% 2.times do %>
+<li>
+<a href="<%= wallpaper.url %>"><img src="<%= wallpaper.url(:thumb) %>" alt="" /></a><br/>
+<a href="<%= wallpaper.url(:small) %>">1024x768</a><br/>
+<a href="<%= wallpaper.url(:medium) %>">1280x800</a><br/>
+<a href="<%= wallpaper.url(:big) %>">1280x1024</a><br/>
+</li>
+<% end %>
+<% end %>
+</ul>
+</div>
