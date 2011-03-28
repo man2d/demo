@@ -7,7 +7,7 @@
 	<li><a href="<%= child_page.url %>"><%= child_page.title %></a>
 		<% if child_page.items.size > 0 && child_page.slug != 's_probegom' %><span class="arrow"></span>
 		<ul class="sub2">
-			<% child_page.items.each do |item| %>
+			<% child_page.items.order(:position).each do |item| %>
 			  <li class="yaht_load" id="<%=dom_id(item)%>"><a href="<%= item.url %>"><%= item.lgth.to_s + ' ' + item.title %></a><span class="arrow"></span>
 				<%= render 'items/show', :item => item %>
 				</li>

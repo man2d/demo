@@ -19,7 +19,7 @@ module Navigator2
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
-    # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
+     #config.plugins = [ :exception_notification, :all ]
 
     # Activate observers that should always be running.
     # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
@@ -35,7 +35,7 @@ module Navigator2
     # JavaScript files you want as :defaults (application.js is always included).
     # config.action_view.javascript_expansions[:defaults] = %w(jquery rails)
     config.action_view.javascript_expansions[:defaults] = %w(jquery rails)
-    
+   # config.action_view.javascript_expansions[:ckeditor] = %w(ckeditor)
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"

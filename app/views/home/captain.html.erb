@@ -2,11 +2,6 @@
 		<%= render 'shared/breadcrumbs' %>
 		<div class="left">
 			<%= render 'shared/left_menu' %>
-			<div class="leftBlueBox">
-				<div class="resumePic"><a href="#">Резюме капитанов</a></div>
-				<div class="clear"></div>
-				<div class="servisPic"><a href="#">Заявка на сервисное обслуживание яхты</a></div>
-			</div>
 		</div>
 		<div class="right">
 			<div class="left col_2 ">
@@ -32,23 +27,9 @@
 			</div>
 			<div class="col_2 right">
 				<h2>Погода</h2>
+				<%=raw open('http://www.yandex.ru/wy/weather.xml').read %>
+				
 			</div>
-			<div class="split_line"></div>
-			<div class="col_2 left">
-				<h2>Законы и правила</h2>
-				<div class="file doc"><a href="#">Водный кодекс РФ, ДОКкодекс РФ, ДОКкодекс РФ, ДОКкодекс РФ, ДОК</a></div>
-				<div class="file pdf"><a href="#">Регистрационный номер и имя судна, ДОК </a></div>
-				<div class="file ppt" style="clear: left;"><a href="#">ВодныйРегистрационный номер и имя судна, Дмер и имя судна, Дмер и имудна, Дмер и имя судна, Дмер и имудна, Дмер и имя судна, Дмер и имя судна, Д</a></div>
-				<div class="file doc"><a href="#">Водный кодекс РФ, ДОК</a></div>
-				<div class="file doc"><a href="#">Водный кодекс РФ, ДОК</a></div>
-			</div>
-			<div class="col_2 right">
-				<h2>Бланки</h2>
-				<div class="file doc"><a href="#">Водный кодекс РФ, ДОК</a></div>
-				<div class="file doc"><a href="#">Водный кодекс РФ, ДОК</a></div>
-				<div class="file doc"><a href="#">ВодФ, ДОК</a></div>
-				<div class="file doc"><a href="#">Водный кодекс РФ, ДОК</a></div>
-				<div class="file doc"><a href="#">Водный кодекс РФ, ДОК</a></div>
-			</div>
+<%= render 'pages/attachments'%>
 		</div>
 	</div>

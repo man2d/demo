@@ -28,6 +28,7 @@
 		.news a:hover {color: #c80009;}
 
 .blueBg {background-image: url("../images/bluebg.png"); position: relative; float: left; clear: both; width: 100%;}
+.whiteBg {background-image: url("../images/content_bg.png"); background: white; position: relative; float: left; clear: both; width: 100%;}
 .filters {padding-top: 15px; margin-top: 10px;}
 	.filters h2 { color: black; margin: 0px;}
 	.filters ul.f1 {display: inline; float: left; clear: both; margin-bottom: 15px; margin-top: 7px;}
@@ -112,15 +113,16 @@
 			position: absolute; top: 4px; right: 0px; overflow: hidden; margin: 0px;
 		}
 		.compare .compare_items .close:hover {background-position: 0px -15px;}
-	.compare .button, .resume .button { display: inline-block; border: solid 1px #8da0a8; height: 18px; line-height: 17px; font-size: 12px; text-decoration: none; padding: 0px 6px; margin: 5px auto; margin-bottom: 10px;
+	.compare .button, .resume .button, form .button { display: inline-block; border: solid 1px #8da0a8; height: 18px; line-height: 17px; font-size: 12px; text-decoration: none; padding: 0px 6px; margin: 5px auto; margin-bottom: 10px;
 		-moz-border-radius: 7px;
 			-webkit-border-radius: 7px;
 			-khtml-border-radius: 7px;
 			border-radius: 7px;
 			behavior: url('js/PIE-1.0beta3/PIE.htc');
 	}
-	.compare .button:hover, .resume .button:hover {behavior: url('js/PIE-1.0beta3/PIE.htc');}
+	.compare .button:hover, .resume .button:hover, form .button:hover {behavior: url('js/PIE-1.0beta3/PIE.htc');}
 	.resume .button {height: 30px; line-height: 29px; padding: 0px 30px;}
+	form .button {height: 28px; line-height: 29px; padding: 0px 20px; margin: 0px; float: right;}
 		
 .compare_result {margin-left: -15px; display: inline; margin-bottom: 10px; padding-top: 7px; float: left; clear: both; position: relative; width: 100%;}
 	.compare_result .next, .compare_result .prev {width: 36px; height: 36px; display: block; position: absolute; top: 37px; overflow: hidden;
@@ -150,10 +152,12 @@
 	.compare_result .close {display: block; position: absolute; top: -9px; right: -9px; width: 20px; height: 20px; background-image: url("../images/compareResult_x.png"); z-index: 10; overflow: hidden;}
 	.compare_result .close:hover {background-position: 0px -20px;}
 
-.tree {margin-bottom: 5px; float: left; border: solid 1px #a8bac1; position: relative; height: 22px; padding: 0px 15px; border-right: none; display: block;}
+.tree {margin-bottom: 20px; float: left; border: solid 1px #a8bac1; position: relative; height: 22px; padding: 0px 15px; border-right: none; display: block; cursor: default;}
 	.tree, .tree p, .tree a {color: #165e80; font-size: 13px; line-height: 21px;}
 	.tree a:hover {color: #c80009;}
-	.tree .arrow {background-image: url("../images/treeArrow.gif"); width: 11px; height: 24px; position: absolute; top: -1px; right: -10px;}
+	.tree .arrow {background-image: url("../images/treeArrow.png"); width: 11px; height: 24px; position: absolute; top: -1px; right: -10px;}
+	.transparent .tree {background-color: white; border-color: white;}
+	.transparent .tree .arrow { background-position: 0px -24px;}
 	
 .sort, .sort a, .sort b {font-size: 14px; line-height: 22px; height: 22px;}
 	.sort a, .sort b {margin: 0px 5px;}
@@ -171,7 +175,9 @@ h1, h1 a {font-size: 40px; line-height: 43px; font-weight: normal; font-family: 
 
 h2, h2 a {font-size: 21px; line-height: 27px; font-weight: normal; font-family: 'HeliosLightRegular', sans-serif;
 	position: relative; margin-bottom: 7px; clear: both;}
-	h2 {color: #666666;}
+	h2 {color: #666666; position: relative;}
+	noindex:-o-prefocus, /* opera hack */
+	h2 a {display: inline-block;} 
 	
 h3, h3 a {font-size: 16px; line-height: 18px; font-weight: normal; font-family: "Arial", "Helvetica", sans-serif;
 	position: relative; margin-bottom: 10px; clear: both;}
@@ -180,9 +186,11 @@ h3, h3 a {font-size: 16px; line-height: 18px; font-weight: normal; font-family: 
 .actions {float: right; margin-top: 5px; z-index: 1500; width: 140px;}
 	.presence {font-size: 10px; line-height: 11px; margin-bottom: 20px; position: relative; display: block; float: left;} 
 	.presence .point {font-size: 23px; line-height: 11px; overflow: hidden; position: absolute; top: 0px; right: -13px; display: block; color: #0093c6;
-	*top: 2px;
+	*top: 1px;
 	}
-	.actions a {text-decoration: none; border-bottom: dashed 1px; display: block; float: left; clear: both; margin-bottom: 5px; font-size: 13px; line-height: 16px;}
+	.actions a {text-decoration: none; border-bottom: dashed 1px; display: block; float: left; margin-bottom: 5px; font-size: 13px; line-height: 16px;}
+h2 .actions {width: auto; position: absolute; top: 0px; right: 0px; z-index: 6000;}
+h2 .actions a {line-height: 15px; margin-top: 1px;}
 
 
 .sProbegom {float: left; clear: both; border: solid 0px; width: 100%; display: inline;}
@@ -195,6 +203,22 @@ h3, h3 a {font-size: 16px; line-height: 18px; font-weight: normal; font-family: 
 	.sProbegom .info { font-size: 12px; line-height: 17px; padding-top: 3px;}
 	.sProbegom .price {color: #0093c6; font-size: 17px; font-weight: bold;}
 		.sProbegom .price i { font-weight: normal;}
+		
+.sProbegom_full {}
+	.sProbegom_full .left {width: 580px;}
+	.sProbegom_full .right {width: 300px;}
+	.sProbegom_full .price { font-size: 27px; line-height: 45px; padding:0px; margin-bottom: 10px; color: white; background-image: url("../images/bluebg.png"); text-align: center;}
+	.sProbegom_full .mainInfo {  width: 100%; margin-bottom: 10px; }
+	.sProbegom_full .mainInfo th { text-align: left; font-size: 16px; line-height: 24px; font-weight: normal;}
+	.sProbegom_full .mainInfo td { font-size: 19px; font-weight: normal; line-height: 24px;}
+	
+	.photo {width: 578px; float: left; clear: both;}
+	.photo img {float: left; clear: both;}
+	.photo .big {width: 100%; height: 430px; float: left; clear: both; overflow: hidden; margin-bottom: 7px;}
+	.photo .small {width: 102%; float: left; clear: both; padding-bottom: 10px;}
+	.photo .small li {float: left; padding-bottom: 7px; padding-right: 7px;}
+	.photo .small li a {float: left; clear: both; width: 110px; height: 82px; overflow: hidden; z-index: 1000;}
+	.photo .small li a:hover {outline: solid 4px #66b6db;}
 
 .main_banner {position: relative; margin-bottom: 20px; float: left; width: 100%; overflow: hidden;}
 	.main_banner .images {width: 100%; height: 400px; overflow: hidden;}
@@ -241,3 +265,28 @@ h3, h3 a {font-size: 16px; line-height: 18px; font-weight: normal; font-family: 
 	.resume li .blog {background-image: url("../images/blog.png"); background-repeat: no-repeat; font-size: 11px; padding-left: 18px; line-height: 16px;}
 	.resume li .ship {font-size: 14px; line-height: 28px; color: #1a1a1a;}
 	.resume li .ship span {color: #808080;}
+	
+.blog_postInfo { float: left; clear: both; width: 100%; padding: 10px 0px; padding-bottom: 30px;}
+	.blog_postInfo .split_line { margin: 4px 0px; margin-top: 8px;}
+	.blog_postInfo a {font-size: 13px; line-height: 15px;}
+	.blog_postInfo .readMore {text-decoration: none; font-size: 17px;}
+	.blog_postInfo .readMore span {text-decoration: underline;}
+	.blog_postInfo .poster { float: right; padding-right: 50px; padding-top: 8px;}
+		.blog_postInfo .poster img { margin-right: 10px; float: left; max-height: 31px; max-width: 31px;}
+		.blog_postInfo .poster a { line-height: 29px;}
+	.blog_postInfo .date {float: left; clear: both; font-size: 11px; line-height: 16px; color: #808080;}
+	.blog_postInfo .tags {float: left; clear: both; padding-left: 22px; background: no-repeat 0px 5px url("../images/tagsPic.png"); line-height: 21px; padding-bottom: 5px;}
+		.blog_postInfo .tags a {color: #808080;}
+		.blog_postInfo .tags a:hover {color: #c80009;}
+	.blog_postInfo .comments {float: left; padding-left: 20px;}
+	
+.pagination {color: white; background: url("../images/bluebg.png"); float: left; clear: both; width: 100%; text-align: center; padding: 0px; cursor: default; display: inline-block;}
+	.pagination * {color: white; font-size: 17px; display: inline-block;}
+	.pagination span, .pagination em, .pagination a {width: 28px; height: 28px; display: inline-block; line-height: 29px; margin: 10px 0px; overflow: hidden;}
+	.pagination .nums { float: none; width: 200px; margin: 0px; border: solid 1px red; margin: 0 auto;}
+	.pagination em {background-color: #ffff37; font-style: normal; background: url("../images/pagesPic.png"); cursor: default;}
+	.pagination a {}
+	.pagination a:hover, .pagination a:hover * {color: #165e80;}
+	.pagination .next_page, .pagination .previous_page {float: left; width: auto; text-decoration: none; margin-left: 10px;}
+	.pagination .next_page {float: right; margin-right: 10px;}
+	.pagination .disabled { display: none;}

@@ -11,14 +11,14 @@
 <div class="w910 index">
     	<div class="left">
         	<p class="about"><span></span><%= raw @page.body %>
-            <h3>Яхты в <a href="/catalog">наличии</a></h3>
+            <h3>Яхты в <a href="/catalog">каталоге</a></h3>
             <ul class="cols_3">
 	        <% @items.each do |item| %>
             <li>
-            	<% if item.image %><a href="#"><img src="<%= item.image.url(:thumb) %>" alt="" /></a><% end %>
+            	<% if item.image %><a href="<%= item.url %>"><img src="<%= item.image.url(:thumb) %>" alt="" /></a><% end %>
                 <p><a href="<%= item.item_url %>"><%= item.title %></a><br />
-                	Пробег: <%= item.mileage %> миль<br />
-					Год выпуска: <%= item.year %></p>
+                	Длина: <%= item.lgth %> <%=Russian::p(item.lgth.to_i, "фут", "фута", "футов") %><br />
+					<% if item.item_properties.where(:property_id => 6).first %>Количество мест: <%= item.item_properties.where(:property_id => 6).first.value  %><% end %></p>
             </li>
  			<% end %>
             </ul>

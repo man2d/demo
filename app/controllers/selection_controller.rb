@@ -1,4 +1,7 @@
 class SelectionController < ApplicationController
+  def index
+    @page = Page.find_by_slug('filter')
+  end
   def list
     
     params[:search].delete("item_assign_id") unless params[:search][:item_assign_id] && params[:search][:item_assign_id].to_i > 0

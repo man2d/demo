@@ -100,9 +100,13 @@ $(document).ready(function(){
   $('form#filterForm').submit();
 });*/
 $('.f1 a').live('click', function() {
+  $(this).parents('ul').children('li').removeClass('current');
+  $(this).parents('li').addClass('current');	
   $.get('/filter/do?search[item_assign_id]='+$(this).attr('data'));
 });
 $('.f2 a').live('click', function() {
+  $(this).parents('ul').children('li').removeClass('current');
+  $(this).parents('li').addClass('current');
   $.get('/filter/do?search[lgth]='+$(this).attr('data'));
 });
 
@@ -148,6 +152,16 @@ $('.compare_result .next').live('click', function(){
 $('.toggle').live('click', function() {
   $('#'+$(this).attr('rel')).slideToggle();
 });
+
+/** Подсказоньки **/
+
+$('a.hint').live('click', function(){
+  var word = $(this).text();
+  //$.get('/hints/'+word, function(data) {
+	
+  //});	
+});
+
 
 /*$('.yaht_load').live('mouseenter', function(){
   var el = $(this);  

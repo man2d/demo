@@ -18,7 +18,7 @@ Navigator2::Application.routes.draw do
         get 'hide'
       end
     end
-    resources :items, :used_items do
+    resources :items, :used_items, :hints, :users, :blogs do
       member do
         get 'menu'
       end
@@ -89,6 +89,9 @@ Navigator2::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
 #  match ':controller(/:action(/:id(.:format)))'
   resources :posts
+  resources :users do
+    resources :blogs, :resumes
+  end
   resources :pages, :controller => :home
 #  match '/javascripts/*path' => Sprockets
 #  match '/gallery' => 'gallery#index'
@@ -118,7 +121,16 @@ Navigator2::Application.routes.draw do
     end
   end
 =end
-  match 'ckeditor/:action(/:id(.:format))' => 'ckeditor'
+#  match 'ckeditor/:action(/:id(.:format))' => 'ckeditor'
+  namespace :ckeditor do
+    resources :pictures, :only => [:index, :create, :destroy]
+    resources :attachments, :only => [:index, :create, :destroy]
+  end
+  
+  namespace :about do
+    resources :posts
+  end
+
   match '*path' => 'redirect#index'
   match ':controller/:action(/:id(.:format))'
 

@@ -1,5 +1,6 @@
 html, body {
-	width: 100%;	height: 100%;
+	width: 100% !important;
+	height: 100% !important;
 	margin: 0px;	padding: 0px;
 }
 body {
@@ -11,10 +12,10 @@ body {
 	color: #1a1a1a;
 	position: relative;
 }
-div, p, img, ul, li, table, tr, td, a, span, h1, h2, h3, h4, h5, pre {margin: 0px;	padding: 0px; position: relative;}
+div, p, img, ul, li, table, tr, td, th, a, span, h1, h2, h3, h4, h5, pre {margin: 0px;	padding: 0px; position: relative;}
 ul, li {list-style-type: none; position: relative;}
 img {border: none; position: relative;}
-table, tr, td, th {vertical-align: top;}
+table, tr, td, th {vertical-align: top; border-collapse:collapse;}
 div {border: solid 0px red;}
 p, a {
 	font-family: "Arial", "Helvetica", sans-serif;
@@ -31,6 +32,7 @@ a:hover {color: #c80009;}
 .color_gray_d {color: #333333;}
 
 .color_blue {color: #165e80;}
+.color_a {color: #165e80;}
 .color_red {color: #c80009;}
 
 .split_line {
@@ -50,8 +52,8 @@ a:hover {color: #c80009;}
 .clear {clear: both !important;}
 .noclear {clear: none !important;}
 
-.hide {display: none;}
-.hidden {display: none;}
+.hide {display: none !important;}
+.hidden {display: none !important;}
 .show {display: block;}
 .overflow {overflow: hidden;}
 
@@ -64,22 +66,23 @@ a:hover {color: #c80009;}
 }
 .contMargin {
 	margin: 8px;
-	position: relative;
-	clear: both;
+	margin-top: 0px;
 	-khtml-user-select: auto;
 	-webkit-user-select: auto;
 }
 .contMargin.bg {
+	margin-bottom: 0px;
+	margin-top: 8px;
 	background-image: url("../images/mainBG.gif");
 	background-repeat: repeat-x;
 	background-color: white;
 }
-.wrap {width: 100%; min-width: 950px; background-image: url("../images/gradient.gif"); background-repeat: repeat-x; float:left; clear: both; position: relative;}
-.mapBg {background-image: url("../images/map.gif"); background-position: 50% 0%; background-repeat: no-repeat; position: absolute; left: 0px; width: 100%; height: 1338px;}
+.wrap {width: 100%; min-width: 950px; background: repeat-x 100% 100% url("../images/gradient.gif"); float:left; clear: both; position: relative;}
+.mapBg {background-image: url("../images/map.gif"); background-position: 50% 100%; background-repeat: no-repeat; position: absolute; left: 0px; width: 100%; height: 1338px; height: 100%; bottom: 0px;}
 	.mapBg img {display: none;}
 	.mapBg.bottom {bottom: 0px;}
 	.transparent .mapBg img {display: block;}
-.bgPic {background-image: url("../images/mainBG_pic.gif"); background-position: 0% 100%; background-repeat: no-repeat; position: absolute; bottom: 0px; left: 0px; width: 550px; height: 1025px;
+.bgPic {background-image: url("../images/mainBG_pic.gif"); position: absolute; bottom: 0px; left: 0px; width: 550px; height: 1025px; overflow: hidden;
 filter:alpha(opacity=10);
 -moz-opacity: 0.1;
 -khtml-opacity: 0.1;
@@ -91,11 +94,11 @@ opacity: 0.1;
 	width: 910px;
 	width: 100%;
 	margin: 0 auto;
-	position: relative;
 	clear: both;
+	position: relative;
 }
 
-.head {z-index: 4; margin: 0px; padding: 0px;}
+.head {margin: 0px; padding: 0px; z-index: 5000;}
 	.phone {float: left; margin-top: 23px; clear: both;}
 	.phone, .phone a {font-size: 29px; font-family: 'HeliosLightRegular', sans-serif;}
 	.phone a { text-decoration: none; border-bottom: dashed 1px; line-height: 25px;}
@@ -105,25 +108,28 @@ opacity: 0.1;
 	.home {background-position: 0px 0px;}
 	.mail {background-position: -16px 0px;}
 	.sitemap {background-position: -32px 0px;}
-	.client {z-index: 100; float: left; background-color: #165e80; margin-left: 20px; margin-top: 18px; padding: 8px 15px;}
-		.client, .client p, .client a {color: white; text-decoration: none; position: relative;
+	.client {float: left; background-color: #165e80; margin-left: 20px; margin-top: 18px; padding: 8px 15px;}
+		.client, .client p, .client a {color: white; text-decoration: none; position: relative;}
+		.client a {border-bottom: solid 1px;}
+		.client .enter {border-bottom: dashed 1px; z-index: 231;
 			-moz-user-select: none;
 			-khtml-user-select: none;
 			-webkit-user-select: none;
 		}
-		.client a {border-bottom: solid 1px;}
-		.client .enter {border-bottom: dashed 1px; z-index: 231;}
 		.client a:hover {color: #58c9ff;}
 		.client .enter:hover {color: #58c9ff;}
 		.client .active {color: #58c9ff; border: none;}
 		.client .active:hover  {color: #58c9ff;}
+		.client .name {background: no-repeat 0px 6px url("../images/man.gif"); padding-left: 20px; margin-right: 35px; border: none; float: left;}
+		.client .name span { border-bottom: solid 1px;}
 
-.main_menu {z-index: 3;}
+.main_menu {}
 
 .w910 {width: 910px;}
-#content { z-index: 2; padding-top: 10px; overflow: hidden;}
+#content {padding-top: 15px; overflow: hidden; z-index: 4000;}
 	.typical .left {float: left; width: 200px; margin-right: -225px; display: inline;}
 	.typical .right {float: left !important; margin-left: 225px; display: inline;}
+	.typical .right .right {float: right !important;}
 	.typical .right img {max-width: 670px;}
 	.contentWrap {margin: 30px 50px; clear:both; margin-right: 60px;}
 	.col_2 {width: 48% !important; margin: 0px !important;}
@@ -137,19 +143,19 @@ opacity: 0.1;
 	.foot .copyright {float: left; text-indent: -11px; margin-right: 80px; padding-left: 12px; margin-left: -12px;}
 	.foot .smap {margin-left: 9px; float: left; clear: both;}
 	.search {float: left; clear: both; display: inline; height: 22px; margin-top: 18px; position: relative; margin-left: 9px;}
-		.search input {border: none; outline: 0 none; background-image: url("../images/search_m.gif"); border:0;  line-height: 22px;
-			margin: 0px; padding: 0px; height: 22px; width: 225px; color: #808080; font-size: 11px;float: left; clear: both;}
+		.search input {border: none; outline: 0 none; background-image: url("../images/search_m.gif"); border:0; position: relative;
+			margin: 0px; padding: 0px; height: 22px; width: 225px; color: #808080; font-size: 11px; line-height: 12px; float: left; clear: both;}
 		.search input:focus {border: none; outline: 0 none; color: black;}
 		.search .ico {background-image: url("../images/search_ico.gif"); width: 17px; height: 16px; position: absolute; top: 3px; right: -5px;}
 			.search .ico:hover {background-position: 0px -16px;}
 		.search .l, .search .r {background-image: url("../images/search_rounds.png"); width: 12px; height: 22px; position: absolute; top: 0px; border:0; overflow: hidden;}
-		.search .l {left: -11px;}
-		.search .r {background-position: -12px 0px; right: -11px;}
+		.search .l {left: -12px;}
+		.search .r {background-position: -12px 0px; right: -12px;}
 	.yacht {height: 35px; clear: both; position: relative; background-image: url('../images/yacht.png'); background-repeat: no-repeat; background-position: 95% 1px;}
 	.yacht .water {background-color: #00558e; width: 100%; height: 9px; position: absolute; bottom: -1px; left: 0px;
 		filter:alpha(opacity=50);	-moz-opacity: 0.5;	-khtml-opacity: 0.5; opacity: 0.5; overflow: hidden;
 	}
-		
+	.transparent .yacht { background: none;}
 .transparent {background: none;}
 	.transparent .contMargin.bg {background: none;}
 	.transparent .head { background-image: url('../images/head_bg.png'); background-repeat: repeat;}

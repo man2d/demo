@@ -12,7 +12,7 @@
 	<li id="item_on_hand_input" class="boolean optional"><label for="item_on_hand">Есть в наличии</label><%= f.check_box :on_hand %></li>
 	<li id="item_description_input" class="string optional">
 		<label for="item_description">Описание</label>
-		<div class="left"><%= f.ckeditor_textarea :item, :description %></div>
+		<div class="left"><%= ckeditor_textarea :item, :description %></div>
 	</li>
 
 	<%= f.inputs do  %>
@@ -56,6 +56,21 @@
      <%#= render 'item_property_fields', :f => item_properties %>
 	<% end %>
 	<%= link_to_add_fields "Добавить", f, :exterior_images %>
+	</div>
+   <% end %>
+
+   <%= f.inputs do %>
+	<a class="collapse" href="javascript:void();" rel="wallpaper_block">Обои</a>
+	<div class="wallpaper_block hidden">
+	<% if @item.wallpapers %>
+	  <% @item.wallpapers.each do |image| %>
+	    <div id="<%= dom_id(image) %>"><%= image_tag image.url(:thumb) %> <%= link_to "Удалить", admin_asset_path(image, :js), :method => :delete, :confirm => "Удалить файл?", :remote => true %></div>
+	  <% end %>
+	<% end %>
+	<% f.semantic_fields_for :wallpapers do |wallpapers| %>
+     <%#= render 'item_property_fields', :f => item_properties %>
+	<% end %>
+	<%= link_to_add_fields "Добавить", f, :wallpapers %>
 	</div>
    <% end %>
 

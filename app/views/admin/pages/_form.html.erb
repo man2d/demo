@@ -29,10 +29,49 @@
 <% if resource.resource == 'catalog/index' %>
    <%= f.inputs do %>
 	<%= f.input :image, :as => :file, :label => "Картинка" %>
-	<%= f.input :pdf, :as => :file %>
+	<%= f.input :pdf, :as => :file, :label => "PDF" %>
 	<%= f.input :description, :as => :text %>
    <% end %>
 <% end %>
+
+<%= f.inputs do %>
+<%= f.semantic_fields_for :pdf do |pdf| %>
+  <%= @page.pdf.url if @page.pdf %>
+  <%= pdf.input :attachment, :as => :file %>
+  <%#= f.input :remove_image, :as => :boolean, :label => "Удалить картинку" %>
+   <%= link_to_remove_fields "Удалить", pdf %>
+<% end %>
+<% end %>
+
+<%= f.inputs do %>
+	<a class="collapse" href="javascript:void();" rel="blanks_block">Бланки</a>
+	<div class="blanks_block hidden">
+	<% if @page.blanks %>
+	  <% @page.blanks.each do |file| %>
+	    <div id="<%= dom_id(file) %>"><%= image_tag file.url(:thumb) %> <%= link_to "Удалить", admin_asset_path(file, :js), :method => :delete, :confirm => "Удалить файл?", :remote => true %></div>
+	  <% end %>
+	<% end %>
+	<% f.semantic_fields_for :blanks do |file| %>
+  <%#= render 'item_property_fields', :f => item_properties %>
+	<% end %>
+	<%= link_to_add_fields "Добавить", f, :blanks %>
+	</div>
+<% end %>
+<%= f.inputs do %>
+	<a class="collapse" href="javascript:void();" rel="rules_block">Законы и правила</a>
+	<div class="rules_block hidden">
+	<% if @page.rules %>
+	  <% @page.rules.each do |file| %>
+	    <div id="<%= dom_id(file) %>"><%= image_tag file.url(:thumb) %> <%= link_to "Удалить", admin_asset_path(file, :js), :method => :delete, :confirm => "Удалить файл?", :remote => true %></div>
+	  <% end %>
+	<% end %>
+	<% f.semantic_fields_for :rules do |file| %>
+  <%#= render 'item_property_fields', :f => item_properties %>
+	<% end %>
+	<%= link_to_add_fields "Добавить", f, :rules %>
+	</div>
+<% end %>
+
   <% f.inputs do %>
     <a class="collapse" href="javascript:void();" rel="seo_block">SEO поля</a>
     <div class="seo_block hidden">

@@ -1,6 +1,5 @@
-﻿
-/*
-Copyright (c) 2003-2010, CKSource - Frederico Knabben. All rights reserved.
+﻿/*
+Copyright (c) 2003-2011, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.html or http://ckeditor.com/license
 */
 
@@ -69,7 +68,7 @@ CKEDITOR.ajax = (function()
 		if ( !xhr )
 			return null;
 
-		xhr.open('GET', url, async );
+		xhr.open( 'GET', url, async );
 
 		if ( async )
 		{

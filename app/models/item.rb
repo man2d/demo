@@ -29,7 +29,7 @@ class Item < ActiveRecord::Base
   has_one :image, :as => :assetable, :class_name => "Item::Image", :dependent => :destroy
   
   
-  accepts_nested_attributes_for :exterior_images, :interior_images, :gallery_images, :specification_images, :videos, :image, :allow_destroy => true
+  accepts_nested_attributes_for :exterior_images, :interior_images, :wallpapers, :gallery_images, :specification_images, :videos, :image, :allow_destroy => true
 #  accepts_nested_attributes_for :image,  :allow_destroy => true
 
   

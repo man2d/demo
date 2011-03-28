@@ -1,4 +1,5 @@
 .formWrap {width: 100%; float: left; clear: both; margin: 0 auto; padding: 0px;}
+form .blueBg { padding: 15px 0px;}
 form { display: inline; margin: 0px; padding: 0px;}
 	form, form a {color: white; font-family: "Arial", "Helvetica", sans-serif; font-size: 16px; line-height: 19px;}
 	form a:hover {color: #165e80;}
@@ -7,17 +8,17 @@ form { display: inline; margin: 0px; padding: 0px;}
 	form textarea {overflow: auto;}
 	form label {float: left; clear: both;}
 	form input {float: left; clear: both; padding: 0px; margin: 0px; }
-	form .radio {float: left; clear: both; padding: 20px 0px;}
+	form .radio {float: left; clear: both; padding: 7px 0px; padding-bottom: 15px; display: inline;}
 		form .radio label { margin-bottom: 7px;}
-		form .radio input {width: 19px; height: 19px; margin-right: 2px;}
-	form .text {padding-bottom: 20px; float:left; clear: both; width: 100%;}
-		form .text input, form .text textarea {width: 430px; height: 40px; margin-left: -3px; position:relative; font-family: "Arial", "Helvetica", sans-serif;
-			background-color: #FFF;
+		form .radio input {width: 19px; height: 19px; margin-right: 5px;}
+	form .text {padding-bottom: 20px; float:left; clear: both; width: 430px; padding-right: 20px; display: inline;}
+		form .text input, form .text textarea {height: 40px; margin-left: -3px; font-family: "Arial", "Helvetica", sans-serif;
+			background-color: #FFF; width: 100%; position: relative;
 			background-image: url("../images/form_input_bg.gif");
 			background-repeat: repeat-x;
 			border: solid 1px #999999;
 			font-size: 23px;
-			line-height: 40px;
+			line-height: 25px;
 			padding: 0px 10px;
 			outline: 0 none;
 			-moz-border-radius: 4px;
@@ -26,23 +27,78 @@ form { display: inline; margin: 0px; padding: 0px;}
 			border-radius: 4px;
 			behavior: url('js/PIE-1.0beta3/PIE.htc');
 			}
+			form .text textarea { height: 280px; padding-top: 10px; display: inline;}
 			form .text .error {border: solid 1px #c80009; outline: solid 0px #c80009; background-image: url("../images/form_input_bg_err.gif");}
-		form .not_ready, form .ready {float: left; background-repeat: no-repeat; background-position: 50% 50%; width: 50px; height: 37px;}
+		form .not_ready, form .ready {float: left; background-repeat: no-repeat; background-position: 65% 50%; width: 40px; height: 37px; margin-top: 22px;}
 			form .ready { background-image: url("../images/reg_v.gif");}
-		form .example {float: left; clear: both; font-family: "Georgia", serif; font-style: italic; color: #d7ecf5; font-size: 12px; min-height: 20px; width: 430px;}
-		form .info {float: left; font-family: "Georgia", serif; font-style: italic; font-size: 11px; line-height: 15px; width: 300px; margin-top: -2px;}
+		form .example {float: left; clear: both; font-family: "Georgia", serif; font-style: italic; color: #d7ecf5; font-size: 12px; width: 100%; overflow: hidden;}
+		form .info {float: left; font-family: "Georgia", serif; font-style: italic; font-size: 11px; line-height: 15px; width: 260px; margin-top: 18px; display: inline; margin-left: 7px;}
 	form .text label { margin-bottom: 1px; width: 100%;}
-	form .errorInfo {font-family: "Georgia", serif; font-style: italic; color: #c80009; font-size: 18px; line-height: 19px; width: 750px; padding: 10px 0px;}
-	form .submit {background-color: #cccccc; color: white; font-size: 18px; text-decoration: none; line-height: 50px; padding: 0px 30px; display: inline-block;
-			-moz-border-radius: 4px; border: none; cursor: pointer; height: 50px; outline: 0 none; margin-left: -3px; z-index: 200;
+	form .errorInfo {font-family: "Georgia", serif; font-style: italic; color: #c80009; font-size: 18px; line-height: 19px; width: auto; padding: 10px 0px;}
+	form .text .errorInfo { font-size: 18px; float: left; clear: both; width: 100%; padding: 0px; overflow: hidden;}
+	.submit {background-color: #cccccc; color: white !important; font-size: 18px; text-decoration: none; line-height: 50px; padding: 0px 30px; display: inline-block;
+			-moz-border-radius: 4px; border: none; cursor: pointer; height: 50px; outline: 0 none; margin-left: -3px; z-index: 200; text-align: center;
 			-webkit-border-radius: 4px;
 			-khtml-border-radius: 4px;
 			border-radius: 4px;
 			behavior: url('js/PIE-1.0beta3/PIE.htc');
 	}
+	.submit:hover { color: white; behavior: url('js/PIE-1.0beta3/PIE.htc');}
 	form .formReady {background-color: #165e80; color: white; behavior: url('js/PIE-1.0beta3/PIE.htc');}
 	form .showPass {text-decoration: none; border-bottom: dashed 1px; font-size: 12px; line-height: 14px; margin-top: 2px; font-style: normal; display: block; float: left;}
 	form .showPass:hover {color: #165e80;}
+	fieldset .text, fieldset .radio, fieldset .submit, fieldset .errorInfo, fieldset .more {clear: none; margin: 0px 30px;}
+	form fieldset {border: solid 1px #d6d6d6; display: inline; overflow: hidden; width: 100%; margin: 0px; padding: 20px 0px; padding-bottom: 10px; margin-bottom: 30px;
+		-moz-border-radius: 6px; float: left; clear: both; position: relative;
+		-webkit-border-radius: 6px;
+		-khtml-border-radius: 6px;
+		border-radius: 6px;
+		behavior: url('js/PIE-1.0beta3/PIE.htc');
+	}
+	form fieldset.noBorder { border: none; margin-bottom: 0px;}
+	form fieldset .split_line {background-color: #d6d6d6; margin: 0px; margin-bottom: 20px; clear: both; width: 100%;}
+	form fieldset.gray_bg { background: repeat-x 100% 100% url("../images/fieldsetBG.gif"); padding-bottom: 0px; margin-bottom: 0px;}
+	form .files {float: left; display: inline;}
+	form .files li {float: left; width: 23%; margin-right: 1%; margin-bottom: 15px; display: inline; min-height: 60px;}
+	form .files a {float: left; clear: both; display: inline-block; font-size: 12px; line-height: 15px; margin-bottom: 5px;}
+	form .files img {margin-bottom: 3px;}
+	form .files .remove { border-bottom: dashed 1px; color: #666666; font-size: 12px; line-height: 13px; margin-top:3px; text-decoration: none;}
+	form .files input { width: auto !important; height: auto !important; font-size: 12px; line-height: 13px;}
+	form .addFile {clear: both;}
+	form .loading { background: no-repeat -9px 0px url("../images/ajax_loader.gif"); line-height: 50px; text-indent: 40px; font-size: 12px; font-style: italic; color: #666;}
+	form .loading img { float: left;}
+	form fieldset ul { margin: 0px 30px;}
+	form .more {float: left; clear: both; border-bottom: dashed 1px; text-decoration: none; margin-bottom: 10px;}
+	
+.personal {color: #1a1a1a; margin: 0 auto; clear: both; display: block; width: 100%;}
+	.personal .text .errorInfo { margin: 0px;}
+	.personal .avatar { width: 300px; float: right !important;}
+		.personal .avatar img {float: left; clear: both; margin-bottom: 10px;}
+		.personal .avatar .submit{width: 116px; margin: 0px; padding: 0px; clear: both; font-size: 12px; line-height: 27px; height: 27px; margin-bottom: 10px;}
+		.personal .newPhoto {float: left; clear: both; font-size: 12px; line-height: 15px; border-bottom: dashed 1px; text-decoration: none; margin-left: 30px; position: relative; white-space: nowrap;}
+		.personal .newPhoto span {background: no-repeat url("../images/photoPic.gif"); width: 25px; height: 16px; display: block; position: absolute; top: 1px; left: -25px;}
+	.personal .not_ready, .personal .ready { margin-left: -30px; display: inline;}
+	.personal .ready {  background-image: url("../images/reg_v2.gif");}
+	.personal a {color: #165e80;}
+	.personal a:hover {color: #c80009;}
+	.personal .blueBg { padding: 0px;}
+	.personal .text  {clear: none;}
+	.personal label {color: #1a1a1a;}
+	.personal .blueBg {height: 6px; overflow: hidden;}
+	.personal .submit { width: 100px; height: 45px; line-height: 45px; clear: none; float: left; margin-right: 15px;}
+	.personal .add { width: 100px; height: 34px; line-height: 34px; font-size: 15px; clear: none; float: left; margin-right: 15px; padding: 0px 10px; clear: both; margin-bottom: 17px; margin-top: 20px;}
+	.personal .radio {padding-bottom: 10px;}
+	.personal .radio label {margin-bottom: 13px;}
+	.personal .example {color: #4d4d4d;}
+	.personal h2 {margin-left: 30px; color: #1a1a1a;}
+	.period {}
+	.period label {clear: none; width: auto !important; margin-right: 10px; line-height: 28px;}
+	.period input {clear: none; width: 60px !important; height: 28px !important; margin-right: 10px; font-size: 16px !important; line-height: 28px !important;}
+	.skins { float: left; margin: 0px 30px; padding: 30px 0px; display: inline;}
+		.skins li {float: left; width: 25%; margin-bottom: 20px;}
+		.skins a { border: solid 1px #66b8dd; float: left;}
+		.skins li.current a {border: solid 1px #c80009;}
+		.skins a:hover {border: solid 1px #c80009; outline: double 4px #66b8dd;}
 	
 .shadow, .shadow .b, .shadow .r, .shadow .bl, .shadow .br, .shadow .tr { float: left; clear: both; display: inline; position: relative; z-index: 100;}
 	.shadow {float: left; clear: both; padding-right: 12px; background-image: url("../images/shadow_corner_br.png"); background-position: 100% 100%; background-repeat: no-repeat;}
@@ -53,25 +109,43 @@ form { display: inline; margin: 0px; padding: 0px;}
 	.shadow .r {background: repeat-y 100% 100% url("../images/shadow_r.png"); position: absolute; top: 12px; right: 0px; width: 12px; height: 1000px;}
 	.shadow .bl {background-image: url("../images/shadow_corner_bl.png"); bottom: 0px; left: -12px;}
 	.shadow .dataShadowWrap {display: block !important; color: black; margin-right: 12px;}
-	.shadow .arrow {background-image: url("../images/formArrow.gif"); width: 11px; height: 21px; display: block; overflow: hidden;
-		 position: absolute; top: 35px; right: 2px; display: block; z-index: 500; float: left; clear: both;
+	.shadow .arrow {background: url("../images/formArrow.gif"); width: 11px; height: 21px; display: block; overflow: hidden;
+		 position: absolute; top: 35px; right: 2px; z-index: 200; float: left; clear: both;
 	}
+
+.smallForm {}
+	.smallForm label {color: #808080; font-size: 12px; clear: both;}
+	.smallForm .text {padding-bottom: 5px;}
+	.smallForm .text input, .smallForm .text textarea {width: 242px; height: 30px; line-height: 17px; font-size: 15px; position: relative;}
+	.smallForm .text textarea { width: 97%; height: 193px; padding: 0px 5px; padding-top: 7px;}
+	.smallForm .error {color: #c80009; font-size: 12px; line-height: normal; float: left; width: 120px; margin-top: 7px; padding: 0px;}
+	.smallForm .submit {width: 120px; height: 30px; padding: 0px; font-size: 14px; line-height: 14px; margin-top: 7px; margin-right: 15px; float: left; clear: both;}
 	
 .enterFormPos {position: absolute; top: 6px; right: 155px; z-index: 230;}
 .enterForm {border: solid 1px #acacac; background-color: white; width: 260px; padding: 17px; display: block; overflow: hidden; position: relative;}
-	.enterForm label {color: #808080; font-size: 12px; clear: both;}
-	.enterForm .text {padding-bottom: 5px;}
-	.enterForm .text input {width: 242px; height: 30px; line-height: 17px; font-size: 15px; position: relative;}
-	.enterForm .error {color: #c80009; font-size: 12px; line-height: normal; float: left; width: 120px; margin-top: 7px; padding: 0px;}
-	.enterForm .submit {width: 120px; height: 30px; padding: 0px; font-size: 14px; line-height: 14px; margin-top: 7px; margin-right: 15px; float: left; clear: both;}
+	.enterForm .text input {width: 242px;}
 	
 .sendOrderPos {position: absolute; top: -38px; right: 100%; z-index: 1230;}
 .sendOrderForm {border: solid 1px #acacac; width: 525px; padding: 25px; display: block; overflow: hidden; position: relative; z-index: 1231;
 	background: repeat-x -7px 0px url("../images/formTopLine.gif"); background-color: white;
 }
-	.sendOrderForm label {color: #808080; font-size: 12px; clear: both;}
-	.sendOrderForm .text {padding-bottom: 5px;}
-	.sendOrderForm .text input, .sendOrderForm .text textarea  {width: 60%; height: 30px; line-height: 17px; font-size: 15px; position: relative;}
-	.sendOrderForm .text textarea { width: 97%; height: 193px; padding-top: 7px;}
-	.sendOrderForm .error {color: #c80009; font-size: 12px; line-height: normal; float: left; width: 70%; margin-top: 7px; padding: 0px;}
-	.sendOrderForm .submit {width: 120px; height: 30px; padding: 0px; font-size: 14px; line-height: 14px; margin-top: 7px; margin-right: 15px; float: left; clear: both;}
+	.sendOrderForm .text input, .sendOrderForm .text textarea  {width: 60%;}
+	.sendOrderForm .text textarea { width: 97%; height: 193px}
+	.sendOrderForm .error {width: 370px;}
+	
+.mapPos {position: absolute; top: 39px; right: -143px; z-index: 1000;}
+.map {border: solid 1px #acacac; padding: 24px; display: block; overflow: hidden; position: relative; width:635px; height: 410px;
+	background: no-repeat 21px 77px url("../images/nevaMap.gif"); background-color: white; padding-top: 10px;
+}
+	.map .phone {font-size: 48px; line-height: 51px; color: #225d7f; width: 100%; text-align: center; padding: 0px; margin: 0px;}
+	.map .text textarea { width: 98%; height: 105px;}
+	.map form {float: right; width: 285px;}
+	.map form p, .map form a {font-family: "Verdana", "Geneva", sans-serif; font-size: 12px; line-height: 15px; border: none;}
+	.map form a { color: #165e80; text-decoration: underline;}
+	.map form a:hover { color: #c80009;}
+	.map .error {width: 145px;}
+	.mapPos .arrow {background: url("../images/formArrow2.gif"); width: 21px; height: 11px;
+		 top: -10px; right: 240px;
+	}
+	.map .close { width: 18px; height: 18px; background: url("../images/mapClose.gif"); position: absolute; top: 10px; right: 10px; border: none; overflow: hidden;}
+	.map .close:hover { background-position: 0px -18px;}

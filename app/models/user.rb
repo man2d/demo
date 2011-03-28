@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :user_type
   validates_presence_of :user_type
+  has_many :attachments, :as => :assetable, :class_name => "User::Attachments", :dependent => :destroy
   
   has_many :blog_posts
   has_many :items

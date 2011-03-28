@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110324153938) do
+ActiveRecord::Schema.define(:version => 20110328125849) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
@@ -63,6 +63,21 @@ ActiveRecord::Schema.define(:version => 20110324153938) do
     t.datetime "updated_at"
   end
 
+  create_table "blog_posts", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "user_id"
+    t.integer  "blog_topic_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "blog_topics", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "carrierwave_assets", :force => true do |t|
     t.string   "filename"
     t.integer  "item_id"
@@ -105,6 +120,13 @@ ActiveRecord::Schema.define(:version => 20110324153938) do
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
+
+  create_table "hints", :force => true do |t|
+    t.string   "word"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "item_assigns", :force => true do |t|
     t.string   "title"
@@ -171,6 +193,34 @@ ActiveRecord::Schema.define(:version => 20110324153938) do
 
   create_table "properties", :force => true do |t|
     t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "resume_educations", :force => true do |t|
+    t.integer  "edu_type"
+    t.integer  "status"
+    t.string   "title"
+    t.string   "speciality"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "resume_jobs", :force => true do |t|
+    t.date     "started_at"
+    t.date     "finished_at"
+    t.string   "title"
+    t.string   "job"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "resumes", :force => true do |t|
+    t.string   "fio"
+    t.string   "email"
+    t.date     "birthdate"
+    t.string   "phone"
+    t.text     "more"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
