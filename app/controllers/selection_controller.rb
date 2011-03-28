@@ -8,7 +8,7 @@ class SelectionController < ApplicationController
     params[:search].delete("lgth") unless params[:search][:lgth] && params[:search][:lgth].to_i > 0
 
     
-    @items = Item.where(params[:search]).all
+    @items = Item.brand_new.where(params[:search]).all
     respond_to do |wants|
       wants.js {
         render :update do |page|

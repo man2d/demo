@@ -15,7 +15,7 @@
             <ul>
 
             	<li class="number"><p><%= length.lgth %></p></li>
-<% @page.items.find_all_by_lgth(length.lgth).each do |item| %>
+<% @page.items.order(:position).find_all_by_lgth(length.lgth).each do |item| %>
                 <li>
                 <a href="<%= item.item_url %>"><% if item.image %><img alt="" src="<%= item.image.url(:masked) %>"><% end %></a>
                 <a href="<%= item.item_url %>" class="name"><%= item.title %></a>
@@ -27,7 +27,7 @@
 				<% end %>
                 </li>
 <% end %>
-
+			<li class="last"></li>
 
             </ul>
 <% end %>

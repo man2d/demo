@@ -57,7 +57,31 @@
             </div>
             <div class="right clear">
 
-        		<p class="phone color_gray_l">(812) <a href="#">320-63-00</a></p>
+        		<div class="phone color_gray_l">(812) <a onclick="$('.mapPos').toggleClass('hidden');">320-63-00</a>
+					<div class="shadow mapPos hidden"><div class="b"><div class="bl"></div><div class="tr"><div class="r"></div>
+										<div class="dataShadowWrap smallForm map" style="width: 636px; ">
+												<p class="phone">(812) 321-60-30</p>
+												<form>
+													<h2 class="color_a">Центральный офис</h2>
+													<p>
+														194156, Россия, Санкт-Петербург,<br>ул. Зеленогорская, д. 4, лит. А<br><br>
+
+														Мы работаем с понедельника<br>
+														по субботу с 9:00 до 18:30<br><br>
+
+														Тел.: (812) 321-60-30,<br>
+														факс:  (812) 321-60-30,<br>
+														эл. почта: <a href="mailot:president@powercity.ru">president@powercity.ru</a>
+													</p>
+													<div class="text">
+														<label>Сообщение:</label>
+														<div class="clear"></div>
+														<textarea></textarea>
+													</div>
+													<input class="submit" value="Отправить" type="submit"><p class="error">Неверный пароль или эл. почта</p>
+												</form>
+										<a class="close" onclick="$('.mapPos').addClass('hidden');"></a></div></div></div><div class="arrow"></div></div>
+				</div>
 				<% unless current_user %>
 				<div class="client"><a class="enter" href="/login" onclick="return false;">Войдите</a> или <a href="/register">зарегистрируйтесь</a>.
 					<div class="shadow enterFormPos" style="display:none;"><div class="b"><div class="bl"></div><div class="tr"><div class="r"></div>

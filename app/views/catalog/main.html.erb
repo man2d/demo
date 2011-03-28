@@ -11,7 +11,7 @@
 		<div class="w910">
 			<% @brands.each do |brand|%>
         	<div class="col_2 <%='left' if brand == @brands.first%><%='right' if brand == @brands.last%>">
-				<% if brand.image %><img src="<%= brand.image.url %>" /><br /><br /><% end %>
+				<% if brand.image %><a href="<%= brand.url %>"><img src="<%= brand.image.url %>" /></a><br /><br /><% end %>
 				<%= brand.description %>
             </div>
 			<% end %>

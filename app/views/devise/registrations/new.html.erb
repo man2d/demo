@@ -4,31 +4,30 @@
 	<div class="blueBg">
 		<div class="w910">
 				<div class="radio">
-					<label><%= f.radio_button :user_type, "captain" %>Капитан</label>
-					<label><%= f.radio_button :user_type, "owner" %>Судовладелец</label>
+					<label><%= radio_button_tag :user, :user_type, "captain" %>Капитан</label>
+					<label><%= radio_button_tag :user, :user_type, "owner" %>Судовладелец</label>
 				</div>
 				<div class="text">
 					<label for="name">Имя</label>
-					<div class="left clear">
 						<%= f.text_field :name %>
 						<div class="example">Пример: Имя</div>
-					</div><div class="not_ready" id="user_name_status"></div><div class="info"></div>
-				</div>
+				</div><div class="not_ready" id="user_name_status"></div><div class="info"></div>
+<div class="clear"></div>
 				<div class="text">
 					<label for="mail">Электронная почта</label>
-					<div class="left clear">
 						<%= f.text_field :email %>
 						<div class="example">Пример: почта@почта</div>
 					</div><div class="not_ready" id="user_email_status"></div><div class="info">Адрес электронной почты будет логином для авторизации на сайте.
 Адрес нигде не публикуется и не достанется спамерам.</div>
-				</div>
+
+				<div class="clear"></div>
 				<div class="text">
 					<label for="pass">Пароль</label>
-					<div class="left clear">
+					
 						<%= f.password_field :password, :id => "user_password_password" %>
 						<div class="example pass"></div>
 					  </div><div class="not_ready" id="user_password_status"></div><div class="info"></div>
-				</div>
+<div class="clear"></div>
 		</div>
 	</div>
 	<div class="w910">

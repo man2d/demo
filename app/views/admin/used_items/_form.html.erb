@@ -29,7 +29,21 @@
     <% #f.inputs :for => :assets %>
    <% end %>
 
-      
+    <%= f.inputs do %>
+	<a class="collapse" href="javascript:void();" rel="gallery_block">Галерея</a>
+	<div class="gallery_block hidden">
+	<% if @item.gallery_images %>
+	 <% @item.gallery_images.each do |image| %>
+	    <div id="<%= dom_id(image) %>"><%= image_tag image.url(:thumb) %> <%= link_to "Удалить", admin_asset_path(image, :js), :method => :delete, :confirm => "Удалить файл?", :remote => true %></div>
+	  <% end %>
+	<% end %>
+	<% f.semantic_fields_for :gallery_images do |gallery_images| %>
+     <%#= render 'interior_images', :f => interior_images %>
+	<% end %>
+	<%= link_to_add_fields "Добавить", f, :gallery_images %>
+	</div>
+   <% end %>
+
    <%= f.inputs do %>
 	<a class="collapse" href="javascript:void();" rel="properties_block">Характеристики</a>
 	<div class="properties_block hidden">

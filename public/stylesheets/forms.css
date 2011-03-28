@@ -9,7 +9,7 @@ form { display: inline; margin: 0px; padding: 0px;}
 	form label {float: left; clear: both;}
 	form input {float: left; clear: both; padding: 0px; margin: 0px; }
 	form .radio {float: left; clear: both; padding: 7px 0px; padding-bottom: 15px; display: inline;}
-		form .radio label { margin-bottom: 7px;}
+		form .radio label, form .radio .field_with_errors { margin-bottom: 7px;}
 		form .radio input {width: 19px; height: 19px; margin-right: 5px;}
 	form .text {padding-bottom: 20px; float:left; clear: both; width: 430px; padding-right: 20px; display: inline;}
 		form .text input, form .text textarea {height: 40px; margin-left: -3px; font-family: "Arial", "Helvetica", sans-serif;
@@ -28,7 +28,9 @@ form { display: inline; margin: 0px; padding: 0px;}
 			behavior: url('js/PIE-1.0beta3/PIE.htc');
 			}
 			form .text textarea { height: 280px; padding-top: 10px; display: inline;}
-			form .text .error {border: solid 1px #c80009; outline: solid 0px #c80009; background-image: url("../images/form_input_bg_err.gif");}
+
+			form .text .error, form .text .field_with_errors input {border: solid 1px #c80009; outline: solid 0px #c80009; background-image: url("../images/form_input_bg_err.gif");}
+			
 		form .not_ready, form .ready {float: left; background-repeat: no-repeat; background-position: 65% 50%; width: 40px; height: 37px; margin-top: 22px;}
 			form .ready { background-image: url("../images/reg_v.gif");}
 		form .example {float: left; clear: both; font-family: "Georgia", serif; font-style: italic; color: #d7ecf5; font-size: 12px; width: 100%; overflow: hidden;}

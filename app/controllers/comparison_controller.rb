@@ -4,13 +4,12 @@ class ComparisonController < ApplicationController
   end
   
   def add
-
     session[:comparison] ||= []
     @id = params[:id].to_i
     unless session[:comparison].include? @id
       session[:comparison] << @id
     else
-      session[:comparison].delete @id
+      session[:comparison].delete @id if session[:comparison].size > 1
     end
     respond_to do |format|
       format.js
