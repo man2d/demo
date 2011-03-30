@@ -140,11 +140,11 @@
 	.compare_result tr.first:hover {background-color: transparent;}
 	.compare_result tr.first th {font-weight: normal;}
 	.compare_result tr.first .name {width: 100%;}
-	.compare_result th, .compare_result td, .compare_result a {font-family: "Arial", "Helvetica", sans-serif; line-height: 15px;}
+	.compare_result th, .compare_result td, .compare_result a {font-family: "Arial", "Helvetica", sans-serif; font-size: 13px; line-height: 15px;}
 	.compare_result th, .compare_result td {padding: 9px 0px; line-height: 15px; float: left;}
 	.compare_result th {width: 210px; text-align: left; font-size: 12px; color: #666666; padding-left: 15px;}
 	.compare_result td {width: 136px; font-size: 15px; overflow: hidden;}
-	.compare_result th a { text-decoration: none; border-bottom: dashed 1px;}
+	.compare_result th a { text-decoration: none; border-bottom: dotted 1px; display: inline-block;}
 	.compare_result tr.first th a {font-weight: normal; border: none;}
 	.compare_result td a {position: relative; font-size: 13px; display: inline-block; float:left; clear: both;}
 	.compare_result td span {float: left; margin-bottom: 5px;}
@@ -290,3 +290,35 @@ h2 .actions a {line-height: 15px; margin-top: 1px;}
 	.pagination .next_page, .pagination .previous_page {float: left; width: auto; text-decoration: none; margin-left: 10px;}
 	.pagination .next_page {float: right; margin-right: 10px;}
 	.pagination .disabled { display: none;}
+	
+.resumeMainInfo { margin-bottom: 15px; float: left; width: 100%;}
+	.resumeMainInfo .info { width: 300px; float: left;}
+	.resumeMainInfo img { margin-top: 4px; margin-right: 10px; float: left; clear: none;}
+	.resumeMainInfo h2 { color: #66b8dd; line-height: 25px; float: left; clear: both; margin-bottom: 6px;}
+	.resumeMainInfo p { color: #4d4d4d; font-size: 14px; line-height: 16px; float: left; clear: both; padding: 0px; display: block; width: 100%;}
+	.resumeMainInfo .submit { font-size: 14px; height: 30px; line-height: 30px; padding: 0px 20px; float: left; margin-top: 30px;}
+
+.personalInfo {}
+	.personalInfo .submit { font-size: 12px; line-height: 30px; height: 30px; margin-top: 3px; padding-left: 31px; padding-right: 13px;}
+	.personalInfo .edit {background-image: url("../images/personal_editPic.gif"); background-repeat: no-repeat; background-position: 11px 7px;}
+	.personalInfo .add {background-image: url("../images/personal_addPic.gif"); background-repeat: no-repeat; background-position: 11px 8px;}
+	.pblogList { float: left; padding-bottom: 10px;}
+		.pblogList li a {font-size: 14px; line-height: 15px;}
+		.pblogList li { padding-bottom: 12px; line-height: 15px;}
+		.pblogList .all a { line-height: 16px; background: no-repeat url("../images/tagsPic.png"); padding-left: 20px;}
+		.pblogList .all { padding-top: 10px;}
+		
+.forSale { border: solid 1px #2984bb; background-color: white; padding: 5px 12px; padding-bottom: 9px; text-decoration: none; display: inline-block;}
+	.forSale span { border-bottom: dashed 1px;}
+	
+.tip { text-decoration: none; border-bottom: dotted 1px;}
+.tip_container {position: absolute !important; top: 50px; left: 50%; z-index: 10000 !important;}
+.tip_data {border: solid 1px #acacac; padding: 45px; padding-top: 34px; padding-bottom: 40px; max-width: 310px; display: block; overflow: hidden; position: relative; background-color: white; margin: 0px;}
+	.tip_data img { margin-bottom: 8px; display: inline;}
+	.tip_data p, .tip_data a { font-size: 11px; line-height: 16px; font-family: "Verdana", "Geneva", sans-serif;}
+	.tip_data p { color: #666666;}
+	.tip_data .close { width: 20px; height: 20px; background: url("../images/compareResult_x.png"); position: absolute; top: 10px; right: 10px; border: none; overflow: hidden;}
+	.tip_data .close:hover { background-position: 0px -20px;}
+	
+
+	

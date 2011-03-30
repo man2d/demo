@@ -37,6 +37,7 @@ GEM
       activemodel (= 3.0.5)
       activesupport (= 3.0.5)
     activesupport (3.0.5)
+    acts-as-taggable-on (2.0.6)
     arel (2.0.9)
     bcrypt-ruby (2.1.4)
     builder (2.1.2)
@@ -207,6 +208,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts-as-taggable-on
   capistrano
   capybara
   carrierwave

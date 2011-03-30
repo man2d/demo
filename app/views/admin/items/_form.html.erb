@@ -4,9 +4,9 @@
     <b><%= field %> <%= error %></b><br/>
   <% end %>
   <%= f.inputs do %>
-    <li class="select optional" id="item_page_input"><label for="item_page_id">Категория</label><%= f.select :page_id, nested_set_options(Page.find_by_slug("catalog")) {|i| "#{'-'*i.level} #{i.title}"}, :include_blank => true %></li>
+    <li class="select optional" id="item_page_input"><label for="item_page_id">Категория</label><%= f.select :page_id, nested_set_options(Page.where("title != 'С пробегом'").find_all_by_parent_id(3)) {|i| "#{'-'*i.level} #{i.title}"}, :include_blank => true %></li>
 	<%= f.input :title %>
-	<%= f.input :price %> <%= f.input :currency %>
+	<%= f.input :price %> <%= f.input :currency, :label => "Валюта" %>
 	<%= f.input :item_assign, :as => :select, :label => "Назначение" %>
 	<%= f.input :lgth, :label => "Длина" %>
 	<li id="item_on_hand_input" class="boolean optional"><label for="item_on_hand">Есть в наличии</label><%= f.check_box :on_hand %></li>
@@ -15,16 +15,15 @@
 		<div class="left"><%= ckeditor_textarea :item, :description %></div>
 	</li>
 
-	<%= f.inputs do  %>
-      <%= f.input :mileage %>
-      <%= f.input :year %>
-    <% end %>
+      <%= f.input :mileage, :label => "Пробег" %>
+      <%= f.input :year, :label => "Год выпуска" %>
 
 	<%= f.semantic_fields_for :image do |image_form| %>
-	  <%= image_tag @item.image.url(:thumb) if @item.image %>
+	  <span><%= image_tag @item.image.url(:thumb) if @item.image %>
+	  <%= link_to_remove_fields "Удалить", image_form %></span>
 	  <%= image_form.input :attachment, :as => :file %>
       <%#= f.input :remove_image, :as => :boolean, :label => "Удалить картинку" %>
-       <%= link_to_remove_fields "Удалить", image_form %>
+
     <% end %>
     <% #f.inputs :for => :assets %>
    <% end %>
@@ -33,13 +32,16 @@
 	<a class="collapse" href="javascript:void();" rel="interior_block">Интерьер</a>
 	<div class="interior_block hidden">
 	<% if @item.interior_images %>
+	<div class="docs">
 	 <% @item.interior_images.each do |image| %>
-	    <div id="<%= dom_id(image) %>"><%= image_tag image.url(:thumb) %> <%= link_to "Удалить", admin_asset_path(image, :js), :method => :delete, :confirm => "Удалить файл?", :remote => true %></div>
+	    <div id="<%= dom_id(image) %>"><span><%= image_tag image.url(:thumb) %> <%= link_to "Удалить", admin_asset_path(image, :js), :method => :delete, :confirm => "Удалить файл?", :remote => true, :class => :delete %></span></div>
 	  <% end %>
+	</div>
 	<% end %>
 	<% f.semantic_fields_for :interior_images do |interior_images| %>
      <%#= render 'interior_images', :f => interior_images %>
 	<% end %>
+	<div class="clear"></div>
 	<%= link_to_add_fields "Добавить", f, :interior_images %>
 	</div>
    <% end %>
@@ -48,13 +50,17 @@
 	<a class="collapse" href="javascript:void();" rel="exterior_block">Экстерьер</a>
 	<div class="exterior_block hidden">
 	<% if @item.exterior_images %>
+	<div class="docs">
 	  <% @item.exterior_images.each do |image| %>
-	    <div id="<%= dom_id(image) %>"><%= image_tag image.url(:thumb) %> <%= link_to "Удалить", admin_asset_path(image, :js), :method => :delete, :confirm => "Удалить файл?", :remote => true %></div>
+	    <div id="<%= dom_id(image) %>"><span><%= image_tag image.url(:thumb) %> <%= link_to "Удалить", admin_asset_path(image, :js), :method => :delete, :confirm => "Удалить файл?", :remote => true, :class => :delete %></span></div>
 	  <% end %>
+	</div>
 	<% end %>
+	<div class="clear"></div>
 	<% f.semantic_fields_for :exterior_images do |exterior_images| %>
      <%#= render 'item_property_fields', :f => item_properties %>
 	<% end %>
+	<div class="clear"></div>
 	<%= link_to_add_fields "Добавить", f, :exterior_images %>
 	</div>
    <% end %>
@@ -63,10 +69,13 @@
 	<a class="collapse" href="javascript:void();" rel="wallpaper_block">Обои</a>
 	<div class="wallpaper_block hidden">
 	<% if @item.wallpapers %>
+	<div class="docs">
 	  <% @item.wallpapers.each do |image| %>
-	    <div id="<%= dom_id(image) %>"><%= image_tag image.url(:thumb) %> <%= link_to "Удалить", admin_asset_path(image, :js), :method => :delete, :confirm => "Удалить файл?", :remote => true %></div>
+	    <div id="<%= dom_id(image) %>"><span><%= image_tag image.url(:thumb) %> <%= link_to "Удалить", admin_asset_path(image, :js), :method => :delete, :confirm => "Удалить файл?", :remote => true, :class => :delete %></span></div>
 	  <% end %>
+	</div>
 	<% end %>
+		<div class="clear"></div>
 	<% f.semantic_fields_for :wallpapers do |wallpapers| %>
      <%#= render 'item_property_fields', :f => item_properties %>
 	<% end %>
@@ -78,10 +87,13 @@
 	<a class="collapse" href="javascript:void();" rel="specification_block">Спецификация</a>
 	<div class="specification_block hidden">
 	<% if @item.specification_images %>
+	<div class="docs">
 	  <% @item.specification_images.each do |image| %>
-	    <div id="<%= dom_id(image) %>"><%= image_tag image.url(:thumb) %> <%= link_to "Удалить", admin_asset_path(image, :js), :method => :delete, :confirm => "Удалить файл?", :remote => true %></div>
+	    <div id="<%= dom_id(image) %>"><span><%= image_tag image.url(:thumb) %> <%= link_to "Удалить", admin_asset_path(image, :js), :method => :delete, :confirm => "Удалить файл?", :remote => true, :class => :delete %></span></div>
 	  <% end %>
+	</div>
 	<% end %>
+		<div class="clear"></div>
 	<% f.semantic_fields_for :specification_images do |specification_images| %>
      <%#= render 'item_property_fields', :f => item_properties %>
 	<% end %>
@@ -93,10 +105,13 @@
 	<a class="collapse" href="javascript:void();" rel="video_block">Видео</a>
 	<div class="video_block hidden">
 	<% if @item.videos %>
+	<div class="docs">
 	  <% @item.videos.each do |video| %>
 	    <div id="<%= dom_id(video) %>"><%= video.id %> <%= link_to "Удалить" %></div><% %>
 	  <% end %>
+	</div>
 	<% end %>
+		<div class="clear"></div>
 	<% f.semantic_fields_for :videos do |videos| %>
      <%#= render 'item_property_fields', :f => item_properties %>
 	<% end %>
@@ -111,7 +126,7 @@
 	<%= f.semantic_fields_for :item_properties do |item_properties| %>
       <%= render 'item_property_fields', :f => item_properties %>
 	<% end %>
-	
+		<div class="clear"></div>
 	<%= link_to_add_fields "Добавить", f, :item_properties %>
 	</div>
    <% end %>

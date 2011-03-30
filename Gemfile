@@ -27,6 +27,7 @@ gem 'paperclip', '~> 2.3.8'
 gem 'delayed_job'
 gem 'delayed_paperclip'
 gem 'jrails'
+gem 'acts-as-taggable-on'
 gem 'ckeditor', :git => 'git://github.com/galetahub/rails-ckeditor.git', :branch => 'rails3'
 #gem 'ckeditor', '3.4.2.pre'
 

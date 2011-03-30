@@ -31,11 +31,14 @@ form .docs {float: left; clear: both; width: 780px;}
 form .docs div {width: 25%; float: left; margin-bottom: 20px; color: #868686; font-family: "Verdana", "Geneva", sans-serif; font-size: 14px;}
 form .docs div a {font-family: "Verdana", "Geneva", sans-serif; font-size: 14px; line-height: 16px;}
 form .docs div span {float: left; clear: both; position: relative; margin-top: 10px;}
-form .docs div span a.delete { display: block; position: absolute; top: -15px; left: -15px; margin-left: 100%;
+ a.delete { display: block; position: absolute; top: -15px; left: -15px; margin-left: 100%;
 	font-size: 12px; line-height: 27px; background-image: url('/images/admin/delete.png'); height: 31px; padding-left: 35px;
 	background-repeat: no-repeat;
 }
-form .docs div span a.delete:hover {background-image: url('/images/admin/delete_over.png');}
+.inputs a.delete {display: block; position: absolute; top: -15px; left: -15px; margin-left: 100%;
+	font-size: 12px; line-height: 27px; background-image: url('/images/admin/delete.png'); height: 31px; padding-left: 35px;
+	background-repeat: no-repeat;}
+a.delete:hover {background-image: url('/images/admin/delete_over.png');}
 form .addDocs {float:left; clear: both; background-color: #f3f3f3; margin-top: 10px; width: 760px; padding: 10px;
 	font-family: "Verdana", "Geneva", sans-serif; font-size: 14px;
 }
@@ -76,3 +79,4 @@ form .addDocs a.addMore { display: block; float: left; clear: both; border-botto
 	border-radius: 5px;
 }
 .buttons .confirm_button { margin-top: 15px;}
+.fields { float: left; clear: both;}

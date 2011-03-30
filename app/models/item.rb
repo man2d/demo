@@ -16,7 +16,8 @@ class Item < ActiveRecord::Base
 
   belongs_to :item_assign
   belongs_to :page
-
+  belongs_to :user
+  
   has_many :item_properties
   has_many :properties, :through => :item_properties    
   has_many :exterior_images, :as => :assetable, :class_name => "Item::ExteriorImage", :dependent => :destroy

@@ -5,7 +5,7 @@ class Admin::UsedItemsController < Admin::BaseController
  
   def new
     @item = Item.new
-    @item.assets.build
+#    @item.assets.build
     @item.item_properties.build
   end
   

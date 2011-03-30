@@ -14,6 +14,17 @@ class Admin::UsersController < Admin::BaseController
     render :partial => 'admin/shared/menu'
   end
   
+  def notification
+    
+  end
+  
+  def send_notification
+    @users = User.find(params[:users])
+    @users.each do |user|
+      NotificationMailer.deliver_notification(user)
+    end
+  end
+  
   protected
   
   def object

@@ -18,10 +18,12 @@
 	<li id="page_menu_input" class="boolean optional"><input type="hidden" value="0" name="page[menu]"><label for="page_menu">Показывать в меню</label><%= f.check_box :menu %></li>
 
 	<%= f.semantic_fields_for :image do |image_form| %>
-	  <%= image_tag @page.image.url if @page.image %>
+	  
+	  <span><%= image_tag @page.image.url if @page.image %>
+      <%= link_to_remove_fields "Удалить", image_form %></span>
 	  <%= image_form.input :attachment, :as => :file %>
       <%#= f.input :remove_image, :as => :boolean, :label => "Удалить картинку" %>
-       <%= link_to_remove_fields "Удалить", image_form %>
+       
     <% end %>
     <% #f.inputs :for => :assets %>
 
@@ -34,14 +36,14 @@
    <% end %>
 <% end %>
 
-<%= f.inputs do %>
+<!--<%= f.inputs do %>
 <%= f.semantic_fields_for :pdf do |pdf| %>
   <%= @page.pdf.url if @page.pdf %>
   <%= pdf.input :attachment, :as => :file %>
   <%#= f.input :remove_image, :as => :boolean, :label => "Удалить картинку" %>
    <%= link_to_remove_fields "Удалить", pdf %>
 <% end %>
-<% end %>
+<% end %>-->
 
 <%= f.inputs do %>
 	<a class="collapse" href="javascript:void();" rel="blanks_block">Бланки</a>
@@ -75,8 +77,8 @@
   <% f.inputs do %>
     <a class="collapse" href="javascript:void();" rel="seo_block">SEO поля</a>
     <div class="seo_block hidden">
-	  <%= f.input :meta_keywords, :as => :text, :hint => 'Ключевые слова через запятую' %>
-	  <%= f.input :meta_description, :as => :text %>
+	  <%= f.input :meta_keywords, :as => :text, :hint => 'Ключевые слова вводятся последовательно через запятую.' %>
+	  <%= f.input :meta_description, :as => :text, :hint => 'Краткое описание сути страницы для поисковиков.' %>
 	</div>
   <% end %>
 

@@ -4,9 +4,9 @@
     <b><%= field %> <%= error %></b><br/>
   <% end %>
   <%= f.inputs do %>
-    <li class="select optional" id="item_page_input"><label for="item_page_id">Категория</label><%= f.select :page_id, nested_set_options(Page.find_by_slug("catalog")) {|i| "#{'-'*i.level} #{i.title}"}, :include_blank => true %></li>
+    <%= f.input :page_id, :value => Page.find_by_slug("s_probegom").id, :as => :hidden %>
 	<%= f.input :title %>
-	<%= f.input :price %> <%= f.input :currency %>
+	<%= f.input :price %> <%= f.input :currency, :label => "Валюта" %>
 	<%= f.input :item_assign, :as => :select, :label => "Назначение" %>
 	<%= f.input :lgth, :label => "Длина" %>
 	<li id="item_on_hand_input" class="boolean optional"><label for="item_on_hand">Есть в наличии</label><%= f.check_box :on_hand %></li>
@@ -15,10 +15,8 @@
 		<div class="left"><%= f.ckeditor_textarea :item, :description %></div>
 	</li>
 
-	<%= f.inputs do  %>
-      <%= f.input :mileage %>
-      <%= f.input :year %>
-    <% end %>
+      <%= f.input :mileage, :label => "Пробег" %>
+      <%= f.input :year, :label => "Год выпуска" %>
 
 	<%= f.semantic_fields_for :image do |image_form| %>
 	  <%= image_tag @item.image.url(:thumb) if @item.image %>

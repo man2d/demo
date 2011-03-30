@@ -1,0 +1,6 @@
+<ul class="tabs blue">
+	<li class='current'><a href="<%= edit_registration_path(current_user) %>">Основное</a></li>
+	<% if current_user.owner? %><li><a href="<%= sell_yacht_user_path(current_user) %>">Моя яхта</a></li><% end %>
+	<% if current_user.captain? %><li><a href="<%= sell_yacht_user_path(current_user) %>">Мое резюме</a></li><% end %>
+	<li class="last"></li>
+</ul>

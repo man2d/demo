@@ -1,0 +1,38 @@
+<div class="w910 typical">
+	<div class="tree"><a href="#">Главная</a> / <b>Блог</b> <div class="arrow"></div></div>
+	<div class="clear"></div>
+	<div class="left">
+		<ul class="leftMenu">
+		<li class="current"><p>Все записи<span>→</span></p></li>
+		<li><a href="#">Записи администрации<span>→</span></a></li>
+		<li><a href="#">Записи членов клуба<span>→</span></a></li>
+		</ul>
+		<div class="clear"><br /></div>
+		<h2>Категории</h2>
+		<ul class="leftMenu">
+			<% BlogTopic.all.each do |topic| %>
+		<li<%=raw ' class="current"' if params[:topic] == 'topic' %>><a href="<%= blogs_path(:topic => topic.id) %>"><%= topic.title %><span>→</span></a></li>
+		    <% end %>
+		</ul>
+		<div class="leftBlueBox">
+			<div class="resumePic"><a href="<%= new_blog_path %>">Добавить запись в личный блог</a></div>
+		</div>
+	</div>
+	<div class="right">
+		<% @posts.each do |post| %>
+		<h1><a href="<%= blog_url(post) %>"><%= post.title %></a></h1>
+		<%= raw post.announce %>
+			<a class="readMore" href="<%= blog_url(post) %>"><span>Читать дальше</span> →</a>
+			<div class="split_line"></div><div class="clear"></div>
+			<div class="left clear">
+				<div class="tags"><a href="#">яхта</a>, <a href="#">море</a>, <a href="#">альпы</a></div>
+				<div class="date">7 марта 2011</div>
+				<div class="comments"><a href="<%=blog_url(post) %>#comments">10 комментариев</a></div>
+			</div>
+			<div class="poster"><a href="#"><% if post.user %><img src="<%= post.user.avatar.url(:normal) %>" /><%= post.user.name %><% end %></a></div>
+		</div>
+		<% end %>
+		
+		<%= will_paginate @posts %>
+		<p class="pagination"><span class="previous_page disabled">← Предыдущие записи</span> <a href="#" rel="next">1</a> <em>2</em> <a href="#">3</a> <a href="#">4</a> <a href="#">5</a> <span class="gap">…</span> <a href="#">25</a> <a href="#" rel="next" class="next_page">Следующие записи →</a></div>
+		</p>

@@ -5,7 +5,7 @@
 <title><%=(@title?@title:raw('Яхт-клуб &laquo;Президент Нева&raquo;'))%></title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-<%= stylesheet_link_tag "common", "content", "fonts", "forms", "mainMenu", "otherMenu", "tabs", "catalog" %>
+<%= stylesheet_link_tag "common", "content", "fonts", "forms", "mainMenu", "otherMenu",  "catalog" %>
 <%#= stylesheet_link_tag :all %>
 <!--[if IE]><link rel="stylesheet" href="/stylesheets/ie/IE.css" type="text/css" /><![endif]-->
 <!--[if lte IE 6]>
@@ -38,9 +38,9 @@
 <link rel="stylesheet" href="/stylesheets/application.css" />
 <script type="text/javascript" src="/javascripts/flowplayer-3.2.6.min.js"></script>
 </head>
-<body>
+<body <%=raw 'class="transparent"' if @template == 2 %>>
 	<%#= current_user.to_xml if current_user %>
-<div class="wrap"><div class="mapBg"></div>
+<div class="wrap"><div class="mapBg"><%=raw '<img id="qwe2" src="/images/sunset.jpg" alt="">' if @template == 2 %></div>
 <div id="main_container"><div class="contMargin bg"><div class="bgPic"></div>
 	<div class="head">
 		<div class="w910">
@@ -80,7 +80,7 @@
 													</div>
 													<input class="submit" value="Отправить" type="submit"><p class="error">Неверный пароль или эл. почта</p>
 												</form>
-										<a class="close" onclick="$('.mapPos').addClass('hidden');"></a></div></div></div><div class="arrow"></div></div>
+										<a class="close" onclick="$('.mapPos').slideToggle();"></a></div></div></div><div class="arrow"></div></div>
 				</div>
 				<% unless current_user %>
 				<div class="client"><a class="enter" href="/login" onclick="return false;">Войдите</a> или <a href="/register">зарегистрируйтесь</a>.
@@ -113,7 +113,7 @@
 			<ul class="main_menu" style="height: 30px;">
 			<%= render 'shared/menu' %>
 
-		        <li style="z-index: 24;" class="blog"><a href="#">БЛОГ</a><span></span></li>
+		        <li style="z-index: 24;" class="blog"><a href="/blogs/"<%=raw ' class="current"' if params[:controller] == 'blogs' %>>БЛОГ</a><span></span></li>
 		    </ul>
 		</div>
     </div>

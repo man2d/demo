@@ -19,3 +19,7 @@ form fieldset {padding-bottom: 20px;}
 form fieldset.noBorder {padding-bottom: 20px;}
 
 form fieldset.gray_bg{padding-bottom: 20px;}
+
+.sendMsg {display: none;}
+#sendMsg {display: inline; width: 100%; margin: 0px; padding: 0px;}
+.map .phone { margin: 0px;}

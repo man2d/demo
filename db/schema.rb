@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110328125849) do
+ActiveRecord::Schema.define(:version => 20110330150414) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(:version => 20110328125849) do
     t.integer  "blog_topic_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "announce"
   end
 
   create_table "blog_topics", :force => true do |t|
@@ -105,6 +106,21 @@ ActiveRecord::Schema.define(:version => 20110328125849) do
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], :name => "fk_assetable"
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_assetable_type"
   add_index "ckeditor_assets", ["user_id"], :name => "fk_user"
+
+  create_table "comments", :force => true do |t|
+    t.string   "title",            :limit => 50, :default => ""
+    t.text     "comment"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.integer  "user_id"
+    t.string   "role",                           :default => "comments"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["commentable_id"], :name => "index_comments_on_commentable_id"
+  add_index "comments", ["commentable_type"], :name => "index_comments_on_commentable_type"
+  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
@@ -159,6 +175,7 @@ ActiveRecord::Schema.define(:version => 20110328125849) do
     t.integer  "mileage"
     t.integer  "year"
     t.string   "currency"
+    t.integer  "user_id"
   end
 
   create_table "pages", :force => true do |t|
@@ -234,6 +251,23 @@ ActiveRecord::Schema.define(:version => 20110328125849) do
     t.integer  "position"
   end
 
+  create_table "taggings", :force => true do |t|
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.integer  "tagger_id"
+    t.string   "tagger_type"
+    t.string   "context"
+    t.datetime "created_at"
+  end
+
+  add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], :name => "index_taggings_on_taggable_id_and_taggable_type_and_context"
+
+  create_table "tags", :force => true do |t|
+    t.string "name"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "email",                                     :default => "", :null => false
     t.string   "encrypted_password",         :limit => 128, :default => "", :null => false
@@ -254,6 +288,13 @@ ActiveRecord::Schema.define(:version => 20110328125849) do
     t.datetime "confirmation_token_sent_at"
     t.datetime "confirmation_sent_at"
     t.string   "user_type"
+    t.datetime "locked_at"
+    t.integer  "failed_attempts"
+    t.string   "unlock_token"
+    t.text     "about"
+    t.string   "city"
+    t.string   "phone"
+    t.boolean  "receive_comments"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

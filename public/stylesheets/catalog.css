@@ -16,14 +16,14 @@
 	}
 
 .brand {position: relative;}
-	.brand ul {float: left; clear: both; position: relative; margin-bottom: 20px; width: 100%; margin-left: 75px; width: 700px; display: inline;}
-	.brand li {float: left; margin-right: 35px; margin-bottom: 15px;}
-	.brand li.number {padding-left: 45px; margin-left: -125px; margin-top: 23px; display: block;
+	.brand ul {float: left; clear: both; position: relative; margin-bottom: 20px; width: 100%; margin-left: 75px; width: 800px;}
+	.brand li {float: left; margin-right: 42px; margin-bottom: 15px; width: 154px;}
+	.brand li.number {padding-left: 45px; width: 40px; margin-left: -125px; margin-top: 23px; display: block;
 			background-image: url("../images/catalogLine.gif"); background-repeat: no-repeat; background-position: 0px 11px;
 	}
 	.brand li.number p {font-family: 'HeliosLightRegular', sans-serif; color: #a6a6a6; font-size: 39px;}
-	.brand li a {display: block; float:left; clear: both; margin-bottom: 5px;}
-		.brand li a.add, .brand li a.remove {font-family: "Arial", "Helvetica", sans-serif; text-decoration: none;
+	.brand li a {display: block; float:left; margin-bottom: 5px;}
+		.brand li a.add, .brand li a.remove {font-family: "Arial", "Helvetica", sans-serif; text-decoration: none; white-space: nowrap;
 			border-bottom: dashed 1px; font-size: 12px; line-height: 13px; color: #165e80;}
 		.brand li a.remove {color: #808080;}
 		.brand li a.name {font-family: 'HeliosLightRegular', sans-serif; font-size: 16px;
@@ -44,7 +44,8 @@
 		.videoButton span {position: absolute; background-image: url("../images/video_ico.gif"); display: block; width: 17px; height: 18px; left: -23px; top: -1px;}
 
 .spec {float: left; clear: both; width: 100%; margin-bottom: 10px;}
-	.spec .right {width: 380px;}
+	.spec table {width: 100%;}
+	.spec .right {width: 400px;}
 	.spec p, .spec a {font-family: "Arial", "Helvetica", sans-serif; font-size: 12px; line-height: 15px;}
 	.spec a {text-decoration: none; border-bottom: dotted 1px;}
 		noindex:-o-prefocus, /* opera hack */
@@ -53,3 +54,11 @@
 	.spec .name {overflow: hidden; padding-right: 20px;}
 	.spec .points {position: absolute; width: 1000px; margin-right: -1000px; height: 0px; border-bottom: dotted 1px #b3b3b3; margin-left: 4px; bottom: 7px;}
 	.spec .value {display: block; margin-top: -20px;}
+	
+.wallpapers {}
+	.wallpapers li { line-height: 17px; float: left; width: 16%; margin: 0px 2%; margin-bottom: 20px; text-align: center;
+		background:#f9f9f9;
+	}
+	.wallpapers li span { border: solid 5px #f1f1f1; display: block; padding-bottom: 10px;}
+	.wallpapers li img { margin-bottom: 10px; margin-top: 5px;}
+	.wallpapers li a { font-size: 12px; line-height: 17px;}

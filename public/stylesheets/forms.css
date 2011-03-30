@@ -9,11 +9,11 @@ form { display: inline; margin: 0px; padding: 0px;}
 	form label {float: left; clear: both;}
 	form input {float: left; clear: both; padding: 0px; margin: 0px; }
 	form .radio {float: left; clear: both; padding: 7px 0px; padding-bottom: 15px; display: inline;}
-		form .radio label, form .radio .field_with_errors { margin-bottom: 7px;}
+		form .radio label { margin-bottom: 7px;}
 		form .radio input {width: 19px; height: 19px; margin-right: 5px;}
 	form .text {padding-bottom: 20px; float:left; clear: both; width: 430px; padding-right: 20px; display: inline;}
 		form .text input, form .text textarea {height: 40px; margin-left: -3px; font-family: "Arial", "Helvetica", sans-serif;
-			background-color: #FFF; width: 100%; position: relative;
+			background-color: #FFF; width: 100%; position: relative; margin-bottom: 3px;
 			background-image: url("../images/form_input_bg.gif");
 			background-repeat: repeat-x;
 			border: solid 1px #999999;
@@ -27,13 +27,12 @@ form { display: inline; margin: 0px; padding: 0px;}
 			border-radius: 4px;
 			behavior: url('js/PIE-1.0beta3/PIE.htc');
 			}
+			form .text input:focus {border: solid 1px #999999;behavior: url('js/PIE-1.0beta3/PIE.htc');}
 			form .text textarea { height: 280px; padding-top: 10px; display: inline;}
-
-			form .text .error, form .text .field_with_errors input {border: solid 1px #c80009; outline: solid 0px #c80009; background-image: url("../images/form_input_bg_err.gif");}
-			
+			form .text .field_with_errors {border: solid 1px #c80009; outline: solid 0px #c80009; background-image: url("../images/form_input_bg_err.gif");}
 		form .not_ready, form .ready {float: left; background-repeat: no-repeat; background-position: 65% 50%; width: 40px; height: 37px; margin-top: 22px;}
 			form .ready { background-image: url("../images/reg_v.gif");}
-		form .example {float: left; clear: both; font-family: "Georgia", serif; font-style: italic; color: #d7ecf5; font-size: 12px; width: 100%; overflow: hidden;}
+		form .example {float: left; clear: both; font-family: "Georgia", serif; font-style: italic; color: #d7ecf5; font-size: 12px; line-height: 16px; width: 100%; overflow: hidden;}
 		form .info {float: left; font-family: "Georgia", serif; font-style: italic; font-size: 11px; line-height: 15px; width: 260px; margin-top: 18px; display: inline; margin-left: 7px;}
 	form .text label { margin-bottom: 1px; width: 100%;}
 	form .errorInfo {font-family: "Georgia", serif; font-style: italic; color: #c80009; font-size: 18px; line-height: 19px; width: auto; padding: 10px 0px;}
@@ -46,7 +45,7 @@ form { display: inline; margin: 0px; padding: 0px;}
 			behavior: url('js/PIE-1.0beta3/PIE.htc');
 	}
 	.submit:hover { color: white; behavior: url('js/PIE-1.0beta3/PIE.htc');}
-	form .formReady {background-color: #165e80; color: white; behavior: url('js/PIE-1.0beta3/PIE.htc');}
+	.formReady {background-color: #165e80; color: white; behavior: url('js/PIE-1.0beta3/PIE.htc');}
 	form .showPass {text-decoration: none; border-bottom: dashed 1px; font-size: 12px; line-height: 14px; margin-top: 2px; font-style: normal; display: block; float: left;}
 	form .showPass:hover {color: #165e80;}
 	fieldset .text, fieldset .radio, fieldset .submit, fieldset .errorInfo, fieldset .more {clear: none; margin: 0px 30px;}
@@ -114,6 +113,7 @@ form { display: inline; margin: 0px; padding: 0px;}
 	.shadow .arrow {background: url("../images/formArrow.gif"); width: 11px; height: 21px; display: block; overflow: hidden;
 		 position: absolute; top: 35px; right: 2px; z-index: 200; float: left; clear: both;
 	}
+	.shadow .rArrow {background: url("../images/formArrow3.gif"); left: -10px;}
 
 .smallForm {}
 	.smallForm label {color: #808080; font-size: 12px; clear: both;}
@@ -132,15 +132,18 @@ form { display: inline; margin: 0px; padding: 0px;}
 	background: repeat-x -7px 0px url("../images/formTopLine.gif"); background-color: white;
 }
 	.sendOrderForm .text input, .sendOrderForm .text textarea  {width: 60%;}
-	.sendOrderForm .text textarea { width: 97%; height: 193px}
+	.sendOrderForm .text { width: 100%;}
+	.sendOrderForm .text textarea { width: 98%; height: 193px}
 	.sendOrderForm .error {width: 370px;}
 	
 .mapPos {position: absolute; top: 39px; right: -143px; z-index: 1000;}
-.map {border: solid 1px #acacac; padding: 24px; display: block; overflow: hidden; position: relative; width:635px; height: 410px;
+.map {border: solid 1px #acacac; padding: 24px; display: block; overflow: hidden; position: relative; width:635px; min-height: 400px;
 	background: no-repeat 21px 77px url("../images/nevaMap.gif"); background-color: white; padding-top: 10px;
 }
-	.map .phone {font-size: 48px; line-height: 51px; color: #225d7f; width: 100%; text-align: center; padding: 0px; margin: 0px;}
-	.map .text textarea { width: 98%; height: 105px;}
+	.map .phone {font-size: 48px; line-height: 51px; color: #225d7f; width: 100%; text-align: center; padding: 0px; margin: 0px; margin-bottom: 40px;}
+	.map .text { width: 100%; }
+	.map .text textarea {height: 95px; width: 275px;}
+	.map .text input {width: 265px;}
 	.map form {float: right; width: 285px;}
 	.map form p, .map form a {font-family: "Verdana", "Geneva", sans-serif; font-size: 12px; line-height: 15px; border: none;}
 	.map form a { color: #165e80; text-decoration: underline;}
@@ -151,3 +154,21 @@ form { display: inline; margin: 0px; padding: 0px;}
 	}
 	.map .close { width: 18px; height: 18px; background: url("../images/mapClose.gif"); position: absolute; top: 10px; right: 10px; border: none; overflow: hidden;}
 	.map .close:hover { background-position: 0px -18px;}
+	.sendMsg {display: inline-block; float:left; clear: both; margin-bottom: 8px; margin-top: 15px;}
+	#sendMsg { padding-left: 3px; margin-left: -3px; float:left; display: none;}
+
+.fullSitemap {}
+	.fullSitemap .col_4 { width: 23% !important; margin-right: 2% !important;}
+	.fullSitemap label { margin: 0px; padding: 0px;}
+	.fullSitemap .text { width: 540px; float: left; clear: none; margin-bottom: 15px; margin-left: 100px; display: inline;}
+	.fullSitemap .submit {height: 41px; width: 50px; line-height: 41px; float: right; clear: none; margin-right: 100px;}
+	.fullSitemap ul a, .fullSitemap ul p { font-size: 17px; line-height: 18px !important; font-weight: bold; float: left; display: inline;}
+	.fullSitemap ul li { padding-bottom: 10px;}
+	.fullSitemap ul p {background: no-repeat 100% 2px url("../images/smap.gif"); padding-right: 64px;}
+	.fullSitemap ul { padding-top:8px; float: left; clear: both; display: inline;}
+	.fullSitemap ul li { float: left; clear: both; display: inline;}
+	.fullSitemap ul ul ul { margin-left: 20px; clear: both; width: auto; display: inline;}
+	.fullSitemap ul ul a { font-size: 14px; line-height: 15px !important; font-weight: normal;}
+	.fullSitemap ul ul ul a { font-size: 12px; line-height: 13px !important; font-weight: normal; font-style: italic;}
+	.mainPage {font-size: 14px; color: #808080; float: left; display: block; position: relative; margin-bottom: 10px; display: inline;}
+	.mainPage span { background: url("../images/hms_ico.gif"); width: 16px; height: 12px; overflow: hidden; display: block; position: absolute; top: 5px; left: -20px;}

@@ -11,7 +11,7 @@
 	.blue li.current {border: none; background: url("../images/bluebg.png");}
 	.blue li.current a, .blue li.current p {color: white;}
 	
-.leftMenu {}
+.leftMenu { margin-bottom: 20px;}
 	.leftMenu * {font-size: 15px; line-height: 18px; border: solid 0px;}
 	.leftMenu li { padding: 6px 0px;}
 	.leftMenu li * {display: inline; margin: 0px; padding: 0px;}
