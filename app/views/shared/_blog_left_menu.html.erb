@@ -1,0 +1,27 @@
+	<ul class="leftMenu">
+	<% if params[:action] == 'index' %>
+	<li class="current"><p>Все записи<span>→</span></a></li>
+	<% else %>
+	<li><a href="/blogs/">Все записи<span>→</span></a></li>
+	<% end %>
+	<% if params[:action] == 'admin_posts' %>
+	<li class="current"><p>Записи администрации<span>→</span></a></li>
+	<% else %>	
+	<li><a href="/blogs/admin_posts">Записи администрации<span>→</span></a></li>
+	<% end %>
+	<% if params[:action] == 'member_posts'%>
+	<li class="current"><p>Записи членов клуба<span>→</span></a></li>
+	<% else %>
+	<li><a href="">Записи членов клуба<span>→</span></a></li>
+	<% end %>
+	</ul>
+	<div class="clear"><br /></div>
+	<h2>Категории</h2>
+	<ul class="leftMenu">
+		<% BlogTopic.all.each do |topic| %>
+	<li<%=raw ' class="current"' if params[:topic] == 'topic' %>><a href="/blogs/topics/<%= topic.id %>"><%= topic.title %><span>→</span></a></li>
+	    <% end %>
+	</ul>
+	<div class="leftBlueBox">
+		<div class="blogPic"><a href="<%= new_blog_path %>">Добавить запись в личный блог</a></div>
+	</div>

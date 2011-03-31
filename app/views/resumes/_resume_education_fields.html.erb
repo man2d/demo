@@ -1,0 +1,25 @@
+
+<div class='clear'></div>
+
+	<div class="radio">
+		<label><%= f.radio_button :edu_type, "Среднее" %>Среднее</label>
+		<label><%= f.radio_button :edu_type, "Среднее специальное" %>Среднее специальное</label>
+		<label><%= f.radio_button :edu_type, "Незаконченное высшее" %>Незаконченное высшее</label>
+		<label><%= f.radio_button :edu_type, "Высшее" %>Высшее</label>
+		<label><%= f.radio_button :edu_type, "Послевузовское" %>Послевузовское</label>
+		<label><%= f.radio_button :edu_type, "Дополнительное" %>Дополнительное</label>
+	</div>
+	<div class="text right" style="padding-bottom: 4px;">
+		<label for="eduName">Наименование образовательного учреждения</label>
+		<%= f.text_field :title %>
+		<div class="example"></div>
+		<div class="errorInfo"></div>
+	</div>
+	<div class="text right">
+		<label for="specialty">Специальность</label>
+		<%= f.text_field :speciality %>
+		<div class="example"></div>
+		<div class="errorInfo"></div>
+	</div>
+
+<div class="split_line"></div>

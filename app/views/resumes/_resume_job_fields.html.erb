@@ -1,0 +1,25 @@
+<div class="fields">
+<div class="text period clear">
+	<label for="ship">Период</label>
+	<label for="from">с</label>
+	<%= f.text_field :started_at, :class => :date %>
+	<label for="to">по</label>
+	<%= f.text_field :finished_at, :class => :date %>
+<%= link_to_remove_fields("Удалить", f, "button") %>
+	<div class="example"></div>
+	<div class="errorInfo"></div>
+</div>
+<div class="text clear">
+	<label for="ship">Название организации или судна</label>
+	<%= f.text_field :title %>
+	<div class="example"></div>
+	<div class="errorInfo"></div>
+</div>
+<div class="text clear">
+	<label for="position">Должность</label>
+	<%= f.text_field :job %>
+	<div class="example"></div>
+	<div class="errorInfo"></div>
+</div>
+<div class="split_line"></div>
+</div>

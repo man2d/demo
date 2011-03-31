@@ -1,0 +1,24 @@
+<%= f.fields_for :resume_educations, @education do |edu| %>
+<div class='clear'></div>
+
+	<div class="radio">
+
+		<label><%= edu.radio_button :status, "Среднее" %>Среднее</label>
+		<label><%= edu.radio_button :status, "Среднее специальное" %>Среднее специальное</label>
+		<label><%= edu.radio_button :status, "Незаконченное высшее" %>Незаконченное высшее</label>
+		<label><%= edu.radio_button :status, "Высшее" %>Высшее</label>
+
+	</div>
+	<div class="text right" style="padding-bottom: 4px;">
+		<label for="eduName">Наименование образовательного учреждения</label>
+		<%= edu.text_field :title %>
+		<div class="example"></div>
+		<div class="errorInfo"></div>
+	</div>
+	<div class="text right">
+		<label for="specialty">Специальность</label>
+		<%= edu.text_field :speciality %>
+		<div class="example"></div>
+		<div class="errorInfo"></div>
+	</div>
+<% end %>
