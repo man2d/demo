@@ -7,12 +7,34 @@
         <div class="actions">
 	
         	<p class="presence"><span>Наличие:</span> 
-				<% if @item.on_hand %>Есть на складе <span class="point">•</span></p><% else %>Нет на складе <span class="point" style="color:#808080;">•</span></p><% end %>
-        	<a href="#">Отправить заявку</a>
+				<% if @item.on_hand %>Есть на складе <span class="point">•</span></p><% else %>На заказ <span class="point" style="color:#808080;">•</span></p><% end %>
+        	<span class="actions"><a href="#" class="sendOrder">Отправить заявку</a>
+				<div class="shadow sendOrderPos" style="display:none;"><div class="b"><div class="bl"></div><div class="tr"><div class="r"></div>
+									<div class="dataShadowWrap smallForm sendOrderForm">
+											<form>
+												<div class="text">
+													<label for="name">Представьтесь, пожалуйста</label>
+													<div class="clear"></div>
+													<input type="text" id="name" value="Петр Иванович">
+												</div>
+												<div class="text">
+													<label for="mail">Эл. почта</label>
+													<div class="clear"></div>
+													<input type="text" id="mail" value="email@post.com">
+												</div>
+												<div class="text">
+													<label>&nbsp;</label>
+													<div class="clear"></div>
+													<textarea></textarea>
+												</div>
+												<input class="submit" value="Отправить" type="submit"><p class="error">Неверный пароль или эл. почта</p>
+											</form>
+									</div></div></div><div class="arrow"></div></div>
+			</span>
 			<% if session[:comparison] && session[:comparison].include?(@item.id)%>
-        	<a href="/comparison/<%= @item.id %>" class="remove comparison" data-remote="true">Убрать из сравнения</a>
+        	<a href="/comparison/<%= @item.id %>" class="remove comparison" data-remote="true" id="comparison_<%= @item.id %>">Убрать из сравнения</a>
 			<% else %>
-        	<a href="/comparison/<%= @item.id %>" class="add comparison" data-remote="true">Добавить к сравнению</a>
+        	<a href="/comparison/<%= @item.id %>" class="add comparison" data-remote="true" id="comparison_<%= @item.id %>">Добавить к сравнению</a>
 			<% end %>
         </div>
         

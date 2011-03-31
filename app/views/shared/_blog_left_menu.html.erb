@@ -12,14 +12,15 @@
 	<% if params[:action] == 'member_posts'%>
 	<li class="current"><p>Записи членов клуба<span>→</span></a></li>
 	<% else %>
-	<li><a href="">Записи членов клуба<span>→</span></a></li>
+	<li><a href="/blogs/member_posts">Записи членов клуба<span>→</span></a></li>
 	<% end %>
 	</ul>
 	<div class="clear"><br /></div>
 	<h2>Категории</h2>
 	<ul class="leftMenu">
 		<% BlogTopic.all.each do |topic| %>
-	<li<%=raw ' class="current"' if params[:topic] == 'topic' %>><a href="/blogs/topics/<%= topic.id %>"><%= topic.title %><span>→</span></a></li>
+
+	<li<%=raw ' class="current"' if params[:topic_id].to_i == topic.id %>><a href="/blogs/topics/<%= topic.id %>"><%= topic.title %><span>→</span></a></li>
 	    <% end %>
 	</ul>
 	<div class="leftBlueBox">

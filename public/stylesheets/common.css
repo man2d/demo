@@ -80,7 +80,7 @@ a:hover {color: #c80009;}
 }
 .wrap {width: 100%; min-width: 950px; background: repeat-x 0% 0% url("../images/gradient.gif"); float:left; clear: both; position: relative;}
 .mapBg {background-image: url("../images/map.gif"); background-position: 50% 0%; background-repeat: no-repeat; position: absolute; left: 0px; width: 100%; height: 100%; bottom: 0px;}
-	.mapBg img {display: none;}
+	.mapBg img {display: none; position: fixed; top: 0px; left: 0px;}
 	.mapBg.bottom {bottom: 0px;}
 	.transparent .mapBg img {display: block;}
 .bgPic {background-image: url("../images/mainBG_pic.gif"); position: absolute; bottom: 0px; left: 0px; width: 550px; height: 1025px; overflow: hidden;
@@ -129,8 +129,8 @@ opacity: 0.1;
 .w910 {width: 910px;}
 #content {padding-top: 15px; overflow: hidden; z-index: 4000;}
 	.typical .left {float: left; width: 200px; margin-right: -225px; display: inline;}
-	.typical .right {float: left !important; margin-left: 225px; display: inline;}
-	.typical .right .right {float: right !important; width: auto;}
+	.typical .right {float: left !important; margin-left: 225px; min-width: 600px; display: inline;}
+	.typical .right .right {float: right !important; width: auto; min-width: 0px;}
 	.typical .right .left {float: left !important; width: auto;}
 	.typical .right img {max-width: 670px; width: auto;}
 	.typical .left img {max-width: 195px; width: auto;}

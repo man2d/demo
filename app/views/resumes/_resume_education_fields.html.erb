@@ -1,6 +1,6 @@
 
 <div class='clear'></div>
-
+<div class="fields">
 	<div class="radio">
 		<label><%= f.radio_button :edu_type, "Среднее" %>Среднее</label>
 		<label><%= f.radio_button :edu_type, "Среднее специальное" %>Среднее специальное</label>
@@ -18,8 +18,8 @@
 	<div class="text right">
 		<label for="specialty">Специальность</label>
 		<%= f.text_field :speciality %>
-		<div class="example"></div>
+		<div class="example"><%= link_to_remove_fields("Удалить", f, "button") %></div>
 		<div class="errorInfo"></div>
 	</div>
-
-<div class="split_line"></div>
+	<div class="split_line"></div>
+</div>

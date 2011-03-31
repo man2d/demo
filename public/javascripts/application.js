@@ -2,7 +2,7 @@
 
 /** Регистрация **/
 $(document).ready(function(){
-	$('.date').datepicker();
+	$('.datepicker').datepicker();
 	/*var options = {
     	    target: "#output",
 		    timeout: 3000 // тайм-аут
@@ -12,33 +12,6 @@ $(document).ready(function(){
 		
 	});
 	
-	/*$("#user_new").validate({
-		submitHandler: function(form) {
-			      $(form).ajaxSubmit(options);
-			    },
-		  rules: {
-		    field: {
-		      required: true,
-		      url: true
-		    }
-	  }, 	
-	messages: {
-		      Name: {
-		        required: "Укажите свое имя!",
-		        minlength: "Не менее 2 символов",
-		        maxlength: "Не более 12 символов"
-		      },
-		      Email: {
-		        required: "Нужно указать email адрес",
-		        email: "Нужен корректный email адрес!"
-		      }
-		},	
-	  errorPlacement: function(error, element) {
-				      var er = element.attr("name");
-				      error.appendTo( element.parent().find("label[@for=" + er + "]").find("em") );
-				    }
-	
-	 });*/
 		
 	$('#user_password_password').showPassword({
 	 linkClass: 'showPass',

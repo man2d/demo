@@ -37,7 +37,7 @@ form { display: inline; margin: 0px; padding: 0px;}
 	form .text label { margin-bottom: 1px; width: 100%;}
 	form .errorInfo {font-family: "Georgia", serif; font-style: italic; color: #c80009; font-size: 18px; line-height: 19px; width: auto; padding: 10px 0px;}
 	form .text .errorInfo { font-size: 18px; float: left; clear: both; width: 100%; padding: 0px; overflow: hidden;}
-	.submit {background-color: #cccccc; color: white !important; font-size: 18px; text-decoration: none; line-height: 50px; padding: 0px 30px; display: inline-block;
+	.submit {background-color: #cccccc; color: white !important; font-size: 18px; text-decoration: none; line-height: 50px; display: inline-block; padding: 0px 30px;
 			-moz-border-radius: 4px; border: none; cursor: pointer; height: 50px; outline: 0 none; margin-left: -3px; z-index: 200; text-align: center;
 			-webkit-border-radius: 4px; position: relative; overflow: hidden;
 			-khtml-border-radius: 4px;
@@ -92,7 +92,7 @@ form { display: inline; margin: 0px; padding: 0px;}
 	.personal .text  {clear: none;}
 	.personal label {color: #1a1a1a;}
 	.personal .blueBg {height: 6px; overflow: hidden;}
-	.personal .submit { width: 100px; height: 45px; line-height: 45px; clear: none; float: left; margin-right: 15px;}
+	.personal .submit { width: 160px; height: 45px; line-height: 45px; clear: none; float: left; margin-right: 15px;}
 	.personal .add { width: 100px; height: 34px; line-height: 34px; font-size: 15px; clear: none; float: left; margin-right: 15px; padding: 0px 10px; clear: both; margin-bottom: 17px; margin-top: 20px;}
 	.personal .radio {padding-bottom: 10px;}
 	.personal .radio label {margin-bottom: 13px;}
@@ -137,15 +137,18 @@ form { display: inline; margin: 0px; padding: 0px;}
 .sendOrderForm {border: solid 1px #acacac; width: 525px; padding: 25px; display: block; overflow: hidden; position: relative; z-index: 1231;
 	background: repeat-x -7px 0px url("../images/formTopLine.gif"); background-color: white;
 }
-	.sendOrderForm .text input, .sendOrderForm .text textarea  {width: 60%;}
+	.sendOrderForm label { white-space: nowrap;}
+	.sendOrderForm .text input, .sendOrderForm .text textarea  {width: 60%;width: 315px;}
 	.sendOrderForm .text { width: 100%;}
-	.sendOrderForm .text textarea { width: 98%; height: 193px}
+	.sendOrderForm .text textarea { width: 515px; height: 193px}
 	.sendOrderForm .error {width: 370px;}
 	
-.mapPos {position: absolute; top: 39px; right: -143px; z-index: 1000;}
+.mapPos {position: absolute; top: 29px; right: -143px; z-index: 1000;}
 .map {border: solid 1px #acacac; padding: 24px; display: block; overflow: hidden; position: relative; width:635px; min-height: 400px;
-	background: no-repeat 21px 77px url("../images/nevaMap.gif"); background-color: white; padding-top: 10px;
+	background: no-repeat 21px 77px url("../images/nevaMap.gif"); background-color: white; padding-top: 10px; margin-top: 10px;
 }
+	.mapPos .tr {background-position: 100% 10px;}
+	.mapPos .r {top: 22px;}
 	.map .phone {font-size: 48px; line-height: 51px; color: #225d7f; width: 100%; text-align: center; padding: 0px; margin: 0px; margin-bottom: 40px;}
 	.map .text { width: 100%; }
 	.map .text textarea {height: 95px; width: 275px;}
@@ -156,7 +159,7 @@ form { display: inline; margin: 0px; padding: 0px;}
 	.map form a:hover { color: #c80009;}
 	.map .error {width: 145px;}
 	.mapPos .arrow {background: url("../images/formArrow2.gif"); width: 21px; height: 11px;
-		 top: -10px; right: 240px;
+		 top: 0px; right: 240px;
 	}
 	.map .close { width: 18px; height: 18px; background: url("../images/mapClose.gif"); position: absolute; top: 10px; right: 10px; border: none; overflow: hidden;}
 	.map .close:hover { background-position: 0px -18px;}
@@ -167,7 +170,7 @@ form { display: inline; margin: 0px; padding: 0px;}
 	.fullSitemap .col_4 { width: 23% !important; margin-right: 2% !important;}
 	.fullSitemap label { margin: 0px; padding: 0px;}
 	.fullSitemap .text { width: 540px; float: left; clear: none; margin-bottom: 15px; margin-left: 100px; display: inline;}
-	.fullSitemap .submit {height: 41px; width: 70px; padding: 0px 27px; padding-right: 11px; line-height: 41px; float: right; clear: none; margin-right: 100px;}
+	.fullSitemap .submit {height: 41px; width: 110px; line-height: 41px; float: right; clear: none; margin-right: 100px;}
 	.fullSitemap ul a, .fullSitemap ul p { font-size: 17px; line-height: 18px !important; font-weight: bold; float: left; display: inline;}
 	.fullSitemap ul li { padding-bottom: 10px;}
 	.fullSitemap ul p {background: no-repeat 100% 2px url("../images/smap.gif"); padding-right: 64px;}
@@ -178,3 +181,10 @@ form { display: inline; margin: 0px; padding: 0px;}
 	.fullSitemap ul ul ul a { font-size: 12px; line-height: 13px !important; font-weight: normal; font-style: italic;}
 	.mainPage {font-size: 14px; color: #808080; float: left; display: block; position: relative; margin-bottom: 10px; display: inline;}
 	.mainPage span { background: url("../images/hms_ico.gif"); width: 16px; height: 12px; overflow: hidden; display: block; position: absolute; top: 5px; left: -20px;}
+	
+.addPhoto {}
+	.addPhoto a { font-size: 13px; line-height: 15px;}
+	.addPhoto .text { padding-bottom: 0px;}
+	.addPhoto ul {margin-right: 10px;}
+	.addPhoto ul li { float: left; width: 33%; margin: 0px; padding: 0px; margin-bottom: 15px; overflow: hidden;}
+	.addPhoto ul li.addFile { width: 80%;}

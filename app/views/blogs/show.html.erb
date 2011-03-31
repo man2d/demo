@@ -6,7 +6,7 @@
 	</div>
 	<div class="right">
 		<h1><%= @post.title %></h1>
-<%= raw @post.content %>
+		<%= raw @post.content %>
 		<div class="blog_postInfo">
 			
 			<div class="split_line"></div><div class="clear"></div>
@@ -15,7 +15,7 @@
 				<div class="date"><%= Russian::strftime(@post.created_at, "%d %B %Y")%></div>
 				<div class="comments"><a href="#comments"><%= @post.comments.size %> <%= Russian::p(@post.comments.size, "комментарий", "комментария", "комментариев")%></a></div>
 			</div>
-			<% if @post.user %><div class="poster"><a href="#"><img src="<%= @post.user.avatar.url(:normal) %>" /><%= @post.user.name %></a></div><% end %>
+			<% if @post.user %><div class="poster"><a href="#"><img src="<%= @post.user.avatar.url(:thumb) %>" /><%= @post.user.name %></a></div><% end %>
 		</div>
 		<div class="blog_comments">
 			<h2 class="left"><a name="comments">Комментарии</a></h2>

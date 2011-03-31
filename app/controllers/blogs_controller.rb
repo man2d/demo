@@ -14,6 +14,20 @@ class BlogsController < ApplicationController
     end
   end
   
+  def edit
+    @post = current_user.blog_posts.find(params[:id])
+  end
+  
+  def update
+    @post = current_user.blog_posts.find(params[:id])
+    if @post.update_attributes(params[:blog_post])
+      flash[:notice] = "Запись сохранена"
+      redirect_to blog_path(@post)
+    else
+      render 'edit'
+    end
+  end
+  
   def admin_posts
     @posts = BlogPost.joins(:user).where("users.user_type = 'admin'").paginate(:page => params[:page])
     render 'index'
@@ -25,12 +39,12 @@ class BlogsController < ApplicationController
   end
   
   def tags
-    @posts = BlogPost.find_tagged_with(params[:tag])
+    @posts = BlogPost.tagged_with(params[:tag]).paginate(:page => params[:page])
     render 'index'
   end
   
   def topics
-    @post = BlogPost.joins(:blog_topic).where("blog_topics.title = ?", params[:topic_id])
+    @posts = BlogPost.where(:blog_topic_id => params[:topic_id]).paginate(:page => params[:page])
     render 'index'
   end
   

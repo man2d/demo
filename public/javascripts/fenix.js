@@ -1,7 +1,7 @@
-onload=function() {
+//onload=function() {
 //var divh = document.getElementById('qwe').offsetHeight;
 //document.getElementById('qwe2').style.height = divh + 'px';
-}
+//}
  jQuery(document).ready(function() {
 	 
 	//узнаем ие6
@@ -35,30 +35,32 @@ onload=function() {
 		});
 		//ie6_fix для tags
 		jQuery(".blog_postInfo .tags").after('<div class="clear"></div');
+		//file ie6_fix
+		jQuery.each(jQuery(".file"), function() {
+			jQuery(this).css("clear","none").after('<div class="clear"></div>');
+			if (jQuery(this).height() < 30) jQuery(this).height(30);
+		});
 	}
 
 	/*jQuery(".sProbegom").click(function() {
 		alert("Hello world!");
 	});*/
-	//настраиваем фоны
-	//jQuery(':css(position,absolute)').css("background","red");
-//	jQuery.each(jQuery("*"), function() {
-//		if (jQuery(this).css("position") == "absolute")
-//			jQuery(this).css("border", "solid 1px red")//.css("background-color","red");
-//	});
 	
+	//sendOrder
+	jQuery('.sendOrder').click(sendOrderAnim);
+	function sendOrderAnim() {
+		jQuery('.sendOrderPos').find('.sendOrderForm, .arrow').animate({opacity: "toggle"}, 300);
+		jQuery('.sendOrderPos').animate({height: "toggle"}, 300);
+	}
 	
-	
-	
-	
-	//file ie6_fix
-	jQuery.each(jQuery(".file"), function() {
-		jQuery(this).css("clear","none").after('<div class="clear"></div>');
-		if (jQuery(this).height() < 30) jQuery(this).height(30);
-	});
-	
-	
-	
+	//phone map
+	jQuery('.mapPos').css("display", "none");
+	jQuery('.phone').children('a').click(mapAnim);
+	jQuery('.map .close').click(mapAnim);
+	function mapAnim() {
+		jQuery('.phone').find('.map, .arrow').animate({opacity: "toggle"}, 400);
+		jQuery('.phone').find('.mapPos').animate({height: "toggle"}, 400);
+	}
 	
 	//enter 
 	jQuery('.enterFormPos').css("display", "none");
@@ -68,17 +70,16 @@ onload=function() {
 		jQuery('body').bind('click', formsHandler);
 	}).mouseenter(function() {
 		state = "in";
-		jQuery('body').unbind();
+		jQuery('body').unbind('click', formsHandler);
 	});
 	function formsHandler() {
-		eFormAnim();
+		formAnim();
 		state = "x";
-		jQuery('body').unbind();
 	};
-	jQuery(".enter").click(eFormAnim);
-	function eFormAnim() {
+	jQuery(".enter").click(formAnim);
+	function formAnim(animatedObj) {
 		state = "x";
-		jQuery('body').unbind();
+		jQuery('body').unbind('click', formsHandler);
 		if (jQuery(".enter").hasClass("active")) {
 			jQuery(".enter").removeClass("active");
 		} else {
@@ -88,13 +89,9 @@ onload=function() {
 		jQuery('.enterFormPos').animate({
 			height: "toggle"
 		}, 300, function() {
+			jQuery('body').unbind('click', formsHandler);
 			if (jQuery(".enter").hasClass("active")) {
-				if (state == "out" || state == "x") {
-					jQuery('body').unbind();
-					jQuery('body').bind('click', formsHandler);
-				} else {
-					jQuery('body').unbind();
-				}
+				if (state != "in") jQuery('body').bind('click', formsHandler);
 			}
 		});
 	}
@@ -141,6 +138,19 @@ onload=function() {
 		jQuery(".wrap").css("background-position", "100% 100%");
 		jQuery(".mapBg").css("background-position", "50% 100%");
 	}
+	jQuery(".mapBg img").load(function () {	updateWallpaper(); });
+	jQuery(window).resize(function () {	updateWallpaper(); });
+	function updateWallpaper() {
+		var z1 = jQuery("body").width() / jQuery("body").height();
+		var z2 = jQuery(".mapBg img").width() / jQuery(".mapBg img").height();
+		if (z1 > z2) {
+			jQuery(".mapBg img").width("100%");
+			jQuery(".mapBg img").height("auto");
+		} else {
+			jQuery(".mapBg img").width("auto");
+			jQuery(".mapBg img").height("100%");
+		}
+	}
 	
 	//tip
 	var tipVisible = false;
@@ -149,7 +159,7 @@ onload=function() {
 	function setTipPos(tipObj) {
 		jQuery(".tip_data").css("height","auto");
 		if (isIE6) {
-			jQuery(".tip_data").width(310)//.height(jQuery(".tip_data").height()+1); //ie6_fix
+			jQuery(".tip_data").width(310);
 		}
 		//alert(jQuery(".tip_data").height());
 		//получаем позицию подсказки

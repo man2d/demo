@@ -13,8 +13,7 @@
 				<div class="text avatar" style="width: 300px;">
 					<label for="avatar">Аватар</label>
 					<img src="<%= current_user.avatar.url %>" alt="Аватар" />
-					<a class="submit formReady">Выбрать фото</a>
-					<input type="file" id="avatar_upload" />
+					<a class="submit formReady" style="position: relative;">Выбрать фото<%= f.fields_for :avatar do |avatar| %><%= avatar.file_field :attachment %></a>
 				</div>
 				<div class="text left">
 					<label for="name">Ф.И.О.</label>
@@ -64,7 +63,7 @@
 	</div>
 	<div class="w910">
 		<fieldset class="noBorder">
-			<div class="errorInfo">Введите корректный адрес электронной почты</div>
+			<div class="errorInfo"></div>
 			<input type="submit" class="submit formReady" value="Сохранить" href="#"><input class="submit formReady" value="Отмена" href="#">
 		</fieldset>
 	</div>

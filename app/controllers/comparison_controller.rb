@@ -8,9 +8,10 @@ class ComparisonController < ApplicationController
     @id = params[:id].to_i
     unless session[:comparison].include? @id
       session[:comparison] << @id
+      @action = "add"
     else
       session[:comparison].delete @id
-        
+      @action = "delete"      
     end
     respond_to do |format|
       format.js

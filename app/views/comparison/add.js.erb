@@ -3,3 +3,9 @@ $('#compare_container').html('<%= render :partial => 'comparison/list' %>');
 <% if session[:comparison] && session[:comparison].size > 0 %>
 	$('#compare_items').show();
 <% end %>
+
+<% if @action == 'delete' %>
+$('#comparison_<%=@id%>').toggleClass("add").toggleClass("remove").text("Добавить к сравнению");
+<% else %>
+$('#comparison_<%=@id%>').toggleClass("add").toggleClass("remove").text("Убрать из сравнения");
+<% end %>

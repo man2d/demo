@@ -5,6 +5,7 @@
 		<%= render 'shared/blog_left_menu' %>
 	</div>
 	<div class="right">
+		<% if @posts %>
 		<% @posts.each do |post| %>
 		<h1><a href="<%= blog_url(post) %>"><%= post.title %></a></h1>
 		<%= raw post.announce %>
@@ -15,12 +16,15 @@
 				<div class="date"><%= Russian::strftime(post.created_at, "%d %B %Y")%></div>
 				<div class="comments"><a href="<%=blog_url(post) %>#comments"><%= post.comments.size %> <%= Russian::p(post.comments.size, "комментарий", "комментария", "комментариев")%></a></div>
 			</div>
-			<div class="poster"><a href="<%= user_path(post.user) %>"><% if post.user %><img src="<%= post.user.avatar.url(:normal) %>" /><%= post.user.name %><% end %></a></div>
+			<div class="poster"><a href="<%= user_path(post.user) %>"><% if post.user %><img src="<%= post.user.avatar.url(:thumb) %>" /><%= post.user.name %><% end %></a></div>
 		</div>
+		<% end %>
+		<% else %>
+		Не найдено ни одной записи.
 		<% end %>
 		
 		<%= will_paginate @posts %>
-		<p class="pagination"><span class="previous_page disabled">← Предыдущие записи</span> <a href="#" rel="next">1</a> <em>2</em> <a href="#">3</a> <a href="#">4</a> <a href="#">5</a> <span class="gap">…</span> <a href="#">25</a> <a href="#" rel="next" class="next_page">Следующие записи →</a>
-		</p>
+<!--		<p class="pagination"><span class="previous_page disabled">← Предыдущие записи</span> <a href="#" rel="next">1</a> <em>2</em> <a href="#">3</a> <a href="#">4</a> <a href="#">5</a> <span class="gap">…</span> <a href="#">25</a> <a href="#" rel="next" class="next_page">Следующие записи →</a>
+		</p>-->
 		</div>
 	</div>

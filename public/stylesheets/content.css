@@ -221,8 +221,8 @@ h2 .actions a {line-height: 15px; margin-top: 1px;}
 	.photo .big {width: 100%; height: 430px; float: left; clear: both; overflow: hidden; margin-bottom: 7px;}
 	.photo .small {width: 102%; float: left; clear: both; padding-bottom: 10px;}
 	.photo .small li {float: left; padding-bottom: 7px; padding-right: 7px;}
-	.photo .small li a {float: left; clear: both; width: 110px; height: 82px; overflow: hidden; z-index: 1000;}
-	.photo .small li a:hover {outline: solid 4px #66b6db;}
+	.photo .small li a {float: left; clear: both; width: 108px; height: 82px; overflow: hidden; z-index: 1000; border: solid 1px #165e80;}
+	.photo .small li a:hover {outline: solid 4px #66b6db; border: solid 1px #66b6db;}
 
 .main_banner {position: relative; margin-bottom: 20px; width: 100%; overflow: hidden;}
 	.main_banner .images {width: 100%; height: 400px; overflow: hidden;}

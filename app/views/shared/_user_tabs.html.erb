@@ -1,5 +1,5 @@
 <ul class="tabs blue">
-	<li<%=raw ' class="current"' if (params[:action] == 'show' || params[:action] == 'edit') && params[:controller] == 'users' %>><a href="<%= edit_registration_path(current_user) %>">Основное</a></li>
+	<li<%=raw ' class="current"' if (params[:action] == 'show' || params[:action] == 'edit') && (params[:controller] == 'registrations' || params[:controller] == 'users') %>><a href="<%= edit_registration_path(current_user) %>">Основное</a></li>
 	<% if current_user.owner? %><li<%=raw ' class="current"' if params[:action] == 'sell_yacht' %>><a href="<%= sell_yacht_user_path(current_user) %>">Моя яхта</a></li><% end %>
 	<% if current_user.captain? %>
 	<% if current_user.resume %><li<%=raw ' class="current"' if params[:controller] == 'resumes' %>><a href="<%= user_resume_path(current_user, current_user.resume) %>">Мое резюме</a></li>

@@ -5,7 +5,7 @@
 	<%= render 'shared/user_tabs' %>
 </div>
 <div class="formWrap">
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => :personal}) do |f| %>
+<%= form_for(@user, :as => "user", :url => registration_path("user"), :html => { :method => :put, :class => :personal}) do |f| %>
 	<div class="blueBg"></div>
 	<div class="whiteBg">
 		<div class="w910">
@@ -13,8 +13,7 @@
 				<div class="text avatar" style="width: 300px;">
 					<label for="avatar">Аватар</label>
 					<img src="<%= current_user.avatar.url %>" alt="Аватар" />
-					<a class="submit formReady">Выбрать фото</a>
-					<input type="file" id="avatar_upload" />
+						<a class="submit formReady" style="position: relative;">Выбрать фото<%= f.fields_for :avatar do |avatar| %><%= avatar.file_field :attachment %><% end %></a>
 				</div>
 				<div class="text left">
 					<label for="name">Ф.И.О.</label>
@@ -31,12 +30,12 @@
 				</div>
 				<div class="text">
 					<label for="pass">Пароль</label>
-				    <%#= f.password_field :password %>
+				    <%= f.password_field :password %>
 					<div class="example"></div>
 				</div>
 				<div class="radio clear">
-					<label><%= radio_button_tag 'user[user_type]', "captain" %>Капитан</label>
-					<label><%= radio_button_tag 'user[user_type]', "owner" %>Судовладелец</label>
+					<label><%= f.radio_button :user_type, "captain" %>Капитан</label>
+					<label><%= f.radio_button :user_type, "owner" %>Судовладелец</label>
 				</div>
 				<div class="text clear">
 					<label for="city">Город</label>
@@ -64,8 +63,8 @@
 	</div>
 	<div class="w910">
 		<fieldset class="noBorder">
-			<div class="errorInfo">Введите корректный адрес электронной почты</div>
-			<input type="submit" class="submit formReady" value="Сохранить" href="#"><input class="submit formReady" value="Отмена" href="#">
+			<div class="errorInfo"></div>
+			<input type="submit" class="submit formReady" value="Сохранить"><input class="submit formReady" value="Отмена" onclick="window.history.go(-1);">
 		</fieldset>
 	</div>
 <% end %>

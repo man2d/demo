@@ -37,6 +37,8 @@
 <script type="text/javascript" src="/javascripts/jquery.validation/additional-methods.js"></script>
 <link rel="stylesheet" href="/stylesheets/application.css" />
 <link rel="stylesheet" href="/stylesheets/datepicker.css" />
+<script type="text/javascript" src="/javascripts/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="/javascripts/jquery.easing.compability.js"></script>
 <script type="text/javascript" src="/javascripts/flowplayer-3.2.6.min.js"></script>
 <script type="text/javascript" src="/javascripts/jquery.datepicker.js"></script>
 </head>
@@ -59,35 +61,47 @@
             </div>
             <div class="right clear">
 
-        		<div class="phone color_gray_l">(812) <a onclick="$('.mapPos').slideToggle();">321-60-30</a>
-					<div class="shadow mapPos" style="display: none;"><div class="b"><div class="bl"></div><div class="tr"><div class="r"></div>
-										<div class="dataShadowWrap smallForm map" style="width: 636px; ">
-												<p class="phone">(812) 321-60-30</p>
-												<form>
-													<h2 class="color_a">Центральный офис</h2>
-													<p>
-														194156, Россия, Санкт-Петербург,<br>ул. Зеленогорская, д. 4, лит. А<br><br>
+        			<div class="phone color_gray_l">(812) <a href="#">320-63-00</a>
+						<div class="shadow mapPos"><div class="b"><div class="bl"></div><div class="tr"><div class="r"></div>
+						<div class="dataShadowWrap smallForm map">
+								<p class="phone">(812) 321-60-30</p>
+								<form>
+									<h2 class="color_a">Центральный офис</h2>
+									<p>
+										194156, Россия, Санкт-Петербург,<br />ул. Зеленогорская, д. 4, лит. А<br /><br />
 
-														Мы работаем с понедельника<br>
-														по субботу с 9:00 до 18:30<br><br>
+										Мы работаем с понедельника<br />
+										по субботу с 9:00 до 18:30<br /><br />
 
-														Тел.: (812) 321-60-30,<br>
-														факс:  (812) 321-60-30,<br>
-														эл. почта: <a href="mailot:president@powercity.ru">president@powercity.ru</a>
-													</p>
-													<div class="text">
-														<label>Сообщение:</label>
-														<div class="clear"></div>
-														<textarea style="width:242px;"></textarea>
-													</div>
-													<input class="submit" value="Отправить" type="submit"><p class="error">Неверный пароль или эл. почта</p>
-												</form>
-										<a class="close" onclick="$('.mapPos').slideToggle();"></a></div></div></div><div class="arrow"></div></div>
-				</div>
+										Тел.: (812) 321-60-30,<br />
+										факс:  (812) 321-60-30
+									</p>
+									<a class="psevdo sendMsg" href="#" onclick="$('#sendMsg').slideToggle();">Отправить сообщение</a>
+									<div id="sendMsg">
+										<div class="text">
+											<label for="name">Представьтесь, пожалуйста</label>
+											<div class="clear"></div>
+											<input type="text" id="name" value="Петр Иванович" />
+										</div>
+										<div class="text">
+											<label for="mail">Эл. почта</label>
+											<div class="clear"></div>
+											<input type="text" id="mail" value="email@post.com" />
+										</div>
+										<div class="text">
+											<label>Сообщение:</label>
+											<div class="clear"></div>
+											<textarea></textarea>
+										</div>
+										<input class="submit" value="Отправить" type="submit" /><p class="error"></p>
+									</div>
+								</form>
+						<a class="close"></a></div></div></div><div class="arrow"></div></div>
+					</div>
 				<% unless current_user %>
-				<div class="client"><a class="enter" href="/login" onclick="return false;">Войдите</a> или <a href="/register">зарегистрируйтесь</a>.
+				<div class="client" style="z-index:2000;"><a class="enter" href="/login" unselectable="on" onclick="return false;">Войдите</a> или <a href="/register">зарегистрируйтесь</a>.
 					<div class="shadow enterFormPos" style="display:none;"><div class="b"><div class="bl"></div><div class="tr"><div class="r"></div>
-					<div class="dataShadowWrap enterForm">
+					<div class="dataShadowWrap enterForm smallForm">
 	<%= form_tag("/users/sign_in", :class => [:validatable]) do |f| %>
 								<div class="text">
 									<label for="mail">Эл. почта</label>
