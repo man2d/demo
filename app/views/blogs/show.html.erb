@@ -34,7 +34,7 @@
 			<% unless comment.new_record? %>
 			<li>
 				<p class="date">7 марта 2011</p>
-				<a class="poster" href="<%= user_path(comment.user) %>"><img src="<%= comment.user.avatar.url(:normal) %>" /><%= comment.user.name %></a>
+				<a class="poster" href="<%= user_path(comment.user) %>"><img src="<%= comment.user.avatar.url(:thumb) %>" /><%= comment.user.name %></a>
 				<p class="post"><%= comment.comment %></p>
 			</li>
 			<% end %>
