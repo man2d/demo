@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   validates_presence_of :user_type, :message => "^Выберите тип акккаунта"
   has_many :attachments, :as => :assetable, :class_name => "User::Attachment", :dependent => :destroy
   has_one :avatar, :as => :assetable, :class_name => "User::Avatar", :dependent => :destroy
-  
+  has_one :resume  
 
   
   has_many :blog_posts

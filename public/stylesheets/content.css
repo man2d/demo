@@ -75,14 +75,18 @@
 .list1 { margin-left: 60px; padding-bottom: 12px; padding-top: 5px;}
 	.list1 li { margin-bottom: 7px;}
 	.list1 * {color: #666666; text-indent: -18px; padding: 0px;}
-.leftBlueBox { background-image: url('../images/bluebg.png'); padding: 20px 0px; padding-left: 200px; margin-left: -200px; margin-top: 25px; color: white; width: 100%;}
-	.leftBlueBox * {color: white;}
-	.leftBlueBox div {padding: 7px 0px; padding-left: 42px; background-repeat: no-repeat; background-position: 0% 50%;}
-	.leftBlueBox a { text-decoration: none; border-bottom: dashed 1px; display: inline; clear: both; line-height: 15px;}
+.leftBlueBox { background-image: url('../images/bluebg.png'); padding: 20px 0px; padding-bottom: 0px; padding-left: 200px; margin-left: -200px; margin-top: 25px; color: white; float: left; clear: both; width: 100%; display: inline;}
+	.leftBlueBox div { padding-left: 34px; display: block; float:left; width: 150px; clear: both; line-height: 15px; min-height: 15px; position: relative; margin-bottom: 20px;}
+	.leftBlueBox a {color: white; display: inline-block; float: left; clear: both; line-height: 17px; text-decoration: none;}
+	.leftBlueBox a span {border-bottom: solid 1px; width: auto; height: auto; position: relative; display: inline; background: none;}
 	.leftBlueBox a:hover {color: #165e80;}
-	.resumePic {background-image: url('../images/resumePic.gif'); background-position: 0px 6px !important;}
-	.servisPic {background-image: url('../images/servisPic.gif');}
-	.joinPic {background-image: url('../images/joinPic.gif'); background-position: 4px 5px !important;}
+	.leftBlueBox span { background-image: url("../images/icons_blue.gif"); width: 30px; height: 22px; position: absolute; display: block; top: -2px; left: 0px;}
+		.joinPic 	{background-position: 0px 0px;}
+		.resumePic 	{background-position: 0px -22px;}
+		.blogPic 	{background-position: 0px -44px;}
+		.exitPic 	{background-position: 0px -66px;}
+		.servisPic 	{background-position: 0px -88px;}
+	
 .contactInfo, .contactInfo * { font-size: 13px; line-height: 17px;}
 
 .compare {position: absolute; top: 0px; left: 220px; z-index: 300;}
@@ -220,7 +224,7 @@ h2 .actions a {line-height: 15px; margin-top: 1px;}
 	.photo .small li a {float: left; clear: both; width: 110px; height: 82px; overflow: hidden; z-index: 1000;}
 	.photo .small li a:hover {outline: solid 4px #66b6db;}
 
-.main_banner {position: relative; margin-bottom: 20px; float: left; width: 100%; overflow: hidden;}
+.main_banner {position: relative; margin-bottom: 20px; width: 100%; overflow: hidden;}
 	.main_banner .images {width: 100%; height: 400px; overflow: hidden;}
 	.main_banner .images img {position: absolute; top: 0px; left: 0px;}
 	.main_banner .nivo-caption {position: absolute; bottom: 68px; right: -2px; overflow: hidden; background-image: url("../images/bluebg.png");}
@@ -280,6 +284,29 @@ h2 .actions a {line-height: 15px; margin-top: 1px;}
 		.blog_postInfo .tags a:hover {color: #c80009;}
 	.blog_postInfo .comments {float: left; padding-left: 20px;}
 	
+.blog_comments { float: left; clear: both; width: 100%;}
+	.blog_comments ul { float: left; clear: both; padding-top: 10px; padding-bottom: 20px;}
+	.blog_comments ul li {border: solid 1px #d6d6d6; display: inline; overflow: hidden; width: 100%; margin: 0px; padding: 20px 0px; padding-top: 23px;
+		margin-bottom: 20px; float: left; clear: both; position: relative;
+		-moz-border-radius: 6px;
+		-webkit-border-radius: 6px;
+		-khtml-border-radius: 6px;
+		border-radius: 6px;
+		behavior: url('js/PIE-1.0beta3/PIE.htc');
+	}
+	.blog_comments .date, .blog_comments .poster, .blog_comments .post {margin: 0px 25px; margin-left: 68px;}
+	.blog_comments ul li .date {float: right; font-size: 11px; color: #808080;}
+	.blog_comments ul li .poster {font-size: 13px; display: inline-block; white-space: nowrap; margin-bottom: 10px; position: relative; display: inline-block;}
+	.blog_comments ul li .poster img { position: absolute; left: -43px; top: 5px; float: left; margin: 0px;}
+	.blog_comments ul li .post { display: inline-block;}
+	.blog_comments ul .addComment { padding: 0px; border: none; display: none;}
+	.blog_comments .text, .blog_comments h2, .blog_comments .showCommentForm, .blog_comments .submit {margin: 0px 25px;}
+	.blog_comments .showCommentForm { text-decoration: none; font-size: 15px; line-height: 27px; float: right;}
+	.blog_comments .showCommentForm span { border-bottom: dashed 1px;}
+	.blog_comments .text { width: 91%; margin: 0px; padding-left: 25px; padding-bottom: 10px;}
+	.blog_comments .text textarea { width: 100%; height: 110px; font-size: 17px;}
+	.blog_comments .submit {margin: 0px 22px; height: 33px; line-height: 33px; font-size: 15px; padding: 0px 20px; display: inline-block;}
+	
 .pagination {color: white; background: url("../images/bluebg.png"); float: left; clear: both; width: 100%; text-align: center; padding: 0px; cursor: default; display: inline-block;}
 	.pagination * {color: white; font-size: 17px; display: inline-block;}
 	.pagination span, .pagination em, .pagination a {width: 28px; height: 28px; display: inline-block; line-height: 29px; margin: 10px 0px; overflow: hidden;}
@@ -320,5 +347,17 @@ h2 .actions a {line-height: 15px; margin-top: 1px;}
 	.tip_data .close { width: 20px; height: 20px; background: url("../images/compareResult_x.png"); position: absolute; top: 10px; right: 10px; border: none; overflow: hidden;}
 	.tip_data .close:hover { background-position: 0px -20px;}
 	
-
+.newsList {float: left; clear: both;}
+	.newsList li { padding-bottom: 12px; width: 100%;}
+	.newsList li, .newsList li span {float: left; clear: both;}
+	.newsList li span {font-style: italic; font-size: 12px; line-height: 16px; color: #808080;}
+	.newsList li a { font-size: 14px; line-height: 17px; float: left; clear: both;}
+	
+	
+.errorPage { background: no-repeat 50% -200px url("../images/bg_404.gif"); background-color: white;}
+	.errorPage * { float: none; clear: none; padding: 0px; margin: 0 auto; text-align: center;}
+	.errorPage #content { height: 745px; width: 500px; position: relative; overflow: visible !important; padding: 0px; margin: 0 auto;}
+	.errorPage .pages {position: absolute; top: 255px; left: 50%;}
+	.errorPage .pages a {position: absolute; top: 0px; white-space: nowrap; font-family: "Times New Roman", serif; font-size: 20px; font-style: italic; display: inline;}
+	.errorPage .logo {margin-top: 30px; margin-bottom: 30px;}
 	

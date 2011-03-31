@@ -1,0 +1,28 @@
+		<div class="w910 typical">
+			<div class="left">
+<%#= render 'shared/left_menu', :page => Page.find_by_slug('about') %>
+			</div>
+			<div class="right">
+				<div class="resumeMainInfo">
+					<% if @resume.user.avatar %><img src="<%= @resume.user.avatar.url(:normal) %>" /><% end %>
+					<div class="info">
+						<h2><%= @resume.fio %></h2>
+						<p><% if @resume.phone %>Тел.: <%= @resume.phone %><br /><% end %><% if @resume.email %>Эл. почта: <%= @resume.email %><% end %></p>
+					</div>
+					<% if current_user.captain? %><a href="<%= edit_user_resume_path(current_user, @resume) %>" class="submit formReady">Редактировать</a>
+					<% else %><a href="#" class="submit formReady">Пригласить капитана</a><% end %>
+				</div>
+				<h2>Опыт</h2>
+<p><%= @resume.more %></p>
+<% if @resume.resume_jobs %>
+<% @resume.resume_jobs.each do |job| %>
+<p><%= Russian::strftime(job.started_at, "%B %Y") if job.started_at %>–<%= Russian::strftime(job.finished_at, "%B %Y") if job.finished_at %> <%= job.title %>, <%= job.job %></p>
+<% end %>
+<% end %>
+<% if @resume.resume_educations %>
+<h2>Образование</h2>
+<% @resume.resume_educations.each do |edu| %>
+<% end %>
+<% end %>
+			</div>
+		</div>

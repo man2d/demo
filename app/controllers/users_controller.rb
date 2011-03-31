@@ -1,7 +1,21 @@
+#coding: utf-8
 class UsersController < ApplicationController
-  before_filter :set_template, :create_avatar, :authenticate_user!
+  before_filter :set_template 
+  before_filter :create_avatar, :authenticate_user!, :except => [:show]
     
+  def update
+    @user = current_user
+    if @user.update_attributes(params[:user])
+      flash[:notice] = "Профиль сохранен"
+      redirect_to after_update_path_for(@user)
+    else
+      clean_up_passwords(resource)
+      render_with_scope :edit
+    end
+  end
+  
   def show
+    @user = User.find(params[:id])
   end
   
   def sell_yacht

@@ -12,8 +12,7 @@
 				<div class="text avatar" style="width: 300px;">
 					<label for="avatar">Аватар</label>
 					<img src="<%= current_user.avatar.url %>" alt="Аватар" />
-					<a class="submit formReady">Выбрать фото</a>
-					<input type="file" id="avatar_upload" />
+						<a class="submit formReady" style="position: relative;" href="#">Выбрать фото<%= f.fields_for :avatar do |avatar| %><%= avatar.file_field :attachment %><% end %></a>
 				</div>
 				<div class="text left">
 					<label for="name">Ф.И.О.</label>
@@ -34,8 +33,8 @@
 					<div class="example"></div>
 				</div>
 				<div class="radio clear">
-					<label><%= radio_button_tag :user, :user_type, "captain" %>Капитан</label>
-					<label><%= radio_button_tag :user, :user_type, "owner" %>Судовладелец</label>
+					<label><%= f.radio_button "user_type", "captain" %>Капитан</label>
+					<label><%= f.radio_button "user_type", "owner" %>Судовладелец</label>
 				</div>
 				<div class="text clear">
 					<label for="city">Город</label>

@@ -1,2 +1,3 @@
 class ResumeJob < ActiveRecord::Base
+  belongs_to :resume
 end

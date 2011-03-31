@@ -1,4 +1,4 @@
-.formWrap {width: 100%; float: left; clear: both; margin: 0 auto; padding: 0px;}
+.formWrap {width: 100%; clear: both; margin: 0 auto; padding: 0px;}
 form .blueBg { padding: 15px 0px;}
 form { display: inline; margin: 0px; padding: 0px;}
 	form, form a {color: white; font-family: "Arial", "Helvetica", sans-serif; font-size: 16px; line-height: 19px;}
@@ -39,10 +39,16 @@ form { display: inline; margin: 0px; padding: 0px;}
 	form .text .errorInfo { font-size: 18px; float: left; clear: both; width: 100%; padding: 0px; overflow: hidden;}
 	.submit {background-color: #cccccc; color: white !important; font-size: 18px; text-decoration: none; line-height: 50px; padding: 0px 30px; display: inline-block;
 			-moz-border-radius: 4px; border: none; cursor: pointer; height: 50px; outline: 0 none; margin-left: -3px; z-index: 200; text-align: center;
-			-webkit-border-radius: 4px;
+			-webkit-border-radius: 4px; position: relative; overflow: hidden;
 			-khtml-border-radius: 4px;
 			border-radius: 4px;
 			behavior: url('js/PIE-1.0beta3/PIE.htc');
+	}
+	.submit * {position: absolute; top: -40px !important; left: -40px; border: none; float: left; width: 300px !important; height: 100px !important; line-height: 100px !important;  font-size: 100px !important; cursor: pointer;
+	filter:alpha(opacity=0);
+	-moz-opacity: 0.0;
+	-khtml-opacity: 0.0;
+	opacity: 0.0;
 	}
 	.submit:hover { color: white; behavior: url('js/PIE-1.0beta3/PIE.htc');}
 	.formReady {background-color: #165e80; color: white; behavior: url('js/PIE-1.0beta3/PIE.htc');}
@@ -161,7 +167,7 @@ form { display: inline; margin: 0px; padding: 0px;}
 	.fullSitemap .col_4 { width: 23% !important; margin-right: 2% !important;}
 	.fullSitemap label { margin: 0px; padding: 0px;}
 	.fullSitemap .text { width: 540px; float: left; clear: none; margin-bottom: 15px; margin-left: 100px; display: inline;}
-	.fullSitemap .submit {height: 41px; width: 50px; line-height: 41px; float: right; clear: none; margin-right: 100px;}
+	.fullSitemap .submit {height: 41px; width: 70px; padding: 0px 27px; padding-right: 11px; line-height: 41px; float: right; clear: none; margin-right: 100px;}
 	.fullSitemap ul a, .fullSitemap ul p { font-size: 17px; line-height: 18px !important; font-weight: bold; float: left; display: inline;}
 	.fullSitemap ul li { padding-bottom: 10px;}
 	.fullSitemap ul p {background: no-repeat 100% 2px url("../images/smap.gif"); padding-right: 64px;}

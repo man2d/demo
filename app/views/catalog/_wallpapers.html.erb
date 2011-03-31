@@ -1,13 +1,6 @@
 <div class="wallpapers">
 <ul>
 <% @item.wallpapers.each do |wallpaper| %>
-<% 2.times do %>
-<li>
-<a href="<%= wallpaper.url %>"><img src="<%= wallpaper.url(:thumb) %>" alt="" /></a><br/>
-<a href="<%= wallpaper.url(:small) %>">1024x768</a><br/>
-<a href="<%= wallpaper.url(:medium) %>">1280x800</a><br/>
-<a href="<%= wallpaper.url(:big) %>">1280x1024</a><br/>
-</li>
 <li><span>
 <center><img src="<%= wallpaper.url(:thumb) %>" alt="" /><br /></center>
 <a class="name" href="<%= wallpaper.url(:big) %>" target="_blank">1280&times;1024</a><br />
@@ -15,7 +8,6 @@
 <a class="remove" href="<%= wallpaper.url(:small) %>" target="_blank">1024&times;768</a><br />
 </span></li>
 <li><span>
-<% end %>
 <% end %>
 </ul>
 </div>

@@ -1,3 +1,4 @@
+.catalog {}
 .catalog div h1 {margin-top: 15px; margin-bottom: 10px;}
 
 .catBanner {background-image: url('../images/sunset2.jpg'); margin: 20px 0px; margin-top: 10px; float: left; clear: both; width: 100%; height: 160px; overflow: hidden; position: relative;}
@@ -15,8 +16,8 @@
 		position: absolute; top: 15px; left: 50%; margin-left: -125px;
 	}
 
-.brand {position: relative;}
-	.brand ul {float: left; clear: both; position: relative; margin-bottom: 20px; width: 100%; margin-left: 75px; width: 800px;}
+.brand {position: relative; float: left;}
+	.brand ul {float: left; clear: both; position: relative; margin-bottom: 20px; width: 100%; margin-left: 75px; width: 800px; display: inline;}
 	.brand li {float: left; margin-right: 42px; margin-bottom: 15px; width: 154px;}
 	.brand li.number {padding-left: 45px; width: 40px; margin-left: -125px; margin-top: 23px; display: block;
 			background-image: url("../images/catalogLine.gif"); background-repeat: no-repeat; background-position: 0px 11px;
@@ -29,6 +30,7 @@
 		.brand li a.name {font-family: 'HeliosLightRegular', sans-serif; font-size: 16px;
 			color: #4d4d4d; border: none; text-decoration: underline;}
 		.brand li a:hover {color: #c80009;}
+	.filterResult { float: none !important;}
 	.filterResult ul { margin-left: 0px; margin-top: 30px; width: auto;}
 	
 .cat_model {float: left; clear: both; width: 100%; margin-bottom: 10px;}
@@ -45,13 +47,15 @@
 
 .spec {float: left; clear: both; width: 100%; margin-bottom: 10px;}
 	.spec table {width: 100%;}
-	.spec .right {width: 400px;}
+	.spec table th {width: 75%; font-weight: normal; text-align: left;}
+	.spec table td {width: 25%;}
+	.spec .right {width: 390px;}
 	.spec p, .spec a {font-family: "Arial", "Helvetica", sans-serif; font-size: 12px; line-height: 15px;}
 	.spec a {text-decoration: none; border-bottom: dotted 1px;}
 		noindex:-o-prefocus, /* opera hack */
 		.spec a {display: inline-block;} 
 	.spec p {color: #666666;}
-	.spec .name {overflow: hidden; padding-right: 20px;}
+	.spec .name {overflow: hidden; width: 100%;}
 	.spec .points {position: absolute; width: 1000px; margin-right: -1000px; height: 0px; border-bottom: dotted 1px #b3b3b3; margin-left: 4px; bottom: 7px;}
 	.spec .value {display: block; margin-top: -20px;}
 	

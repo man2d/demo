@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110330150414) do
+ActiveRecord::Schema.define(:version => 20110331103658) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
@@ -65,12 +65,12 @@ ActiveRecord::Schema.define(:version => 20110330150414) do
 
   create_table "blog_posts", :force => true do |t|
     t.string   "title"
-    t.text     "content"
+    t.text     "content",       :limit => 16777215
     t.integer  "user_id"
     t.integer  "blog_topic_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "announce"
+    t.text     "announce",      :limit => 16777215
   end
 
   create_table "blog_topics", :force => true do |t|
@@ -108,12 +108,12 @@ ActiveRecord::Schema.define(:version => 20110330150414) do
   add_index "ckeditor_assets", ["user_id"], :name => "fk_user"
 
   create_table "comments", :force => true do |t|
-    t.string   "title",            :limit => 50, :default => ""
-    t.text     "comment"
+    t.string   "title",            :limit => 50,       :default => ""
+    t.text     "comment",          :limit => 16777215
     t.integer  "commentable_id"
     t.string   "commentable_type"
     t.integer  "user_id"
-    t.string   "role",                           :default => "comments"
+    t.string   "role",                                 :default => "comments"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -123,10 +123,10 @@ ActiveRecord::Schema.define(:version => 20110330150414) do
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
   create_table "delayed_jobs", :force => true do |t|
-    t.integer  "priority",   :default => 0
-    t.integer  "attempts",   :default => 0
-    t.text     "handler"
-    t.text     "last_error"
+    t.integer  "priority",                       :default => 0
+    t.integer  "attempts",                       :default => 0
+    t.text     "handler",    :limit => 16777215
+    t.text     "last_error", :limit => 16777215
     t.datetime "run_at"
     t.datetime "locked_at"
     t.datetime "failed_at"
@@ -139,7 +139,7 @@ ActiveRecord::Schema.define(:version => 20110330150414) do
 
   create_table "hints", :force => true do |t|
     t.string   "word"
-    t.text     "description"
+    t.text     "description", :limit => 16777215
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -221,6 +221,7 @@ ActiveRecord::Schema.define(:version => 20110330150414) do
     t.string   "speciality"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "resume_id"
   end
 
   create_table "resume_jobs", :force => true do |t|
@@ -230,6 +231,7 @@ ActiveRecord::Schema.define(:version => 20110330150414) do
     t.string   "job"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "resume_id"
   end
 
   create_table "resumes", :force => true do |t|
@@ -237,9 +239,10 @@ ActiveRecord::Schema.define(:version => 20110330150414) do
     t.string   "email"
     t.date     "birthdate"
     t.string   "phone"
-    t.text     "more"
+    t.text     "more",       :limit => 16777215
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "slides", :force => true do |t|
@@ -269,13 +272,13 @@ ActiveRecord::Schema.define(:version => 20110330150414) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                                     :default => "", :null => false
-    t.string   "encrypted_password",         :limit => 128, :default => "", :null => false
-    t.string   "password_salt",                             :default => "", :null => false
+    t.string   "email",                                          :default => "", :null => false
+    t.string   "encrypted_password",         :limit => 128,      :default => "", :null => false
+    t.string   "password_salt",                                  :default => "", :null => false
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                             :default => 0
+    t.integer  "sign_in_count",                                  :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -291,7 +294,7 @@ ActiveRecord::Schema.define(:version => 20110330150414) do
     t.datetime "locked_at"
     t.integer  "failed_attempts"
     t.string   "unlock_token"
-    t.text     "about"
+    t.text     "about",                      :limit => 16777215
     t.string   "city"
     t.string   "phone"
     t.boolean  "receive_comments"

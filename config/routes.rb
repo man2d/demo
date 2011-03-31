@@ -40,14 +40,16 @@ Navigator2::Application.routes.draw do
   
 
   resources :posts
-#  namespace :users do
-#    member do
-#      get 'sell_yacht'
-#      get 'pagestyle'
-#      get 'personal'
-#    end
-#    resources :blogs, :resumes
-#  end
+  resources :assets
+  resources :users do
+    member do
+      get 'sell_yacht'
+      get 'pagestyle'
+      get 'personal'
+    end
+    resources :blogs
+    resources :resumes
+  end
   resources :pages, :controller => :home
 #  match '/javascripts/*path' => Sprockets
 #  match '/gallery' => 'gallery#index'
@@ -87,10 +89,15 @@ Navigator2::Application.routes.draw do
     resources :posts
   end
   resources :blogs do
-    get 'topics/:topic_id' => 'blogs#topics'
-    get 'tags/:tag' => 'blogs#tags'
-    get 'admin_posts'
-    get 'member_posts'
+#    member 'topics/:topic_id' => 'blogs#topics'
+#    member 'tags/:tag' => 'blogs#tags'
+    collection do
+      get 'topics/:topic_id' => 'blogs#topics'
+      get 'tags/:tag' => 'blogs#tags'
+      get 'admin_posts'
+      get 'member_posts'
+    end
+#    get 'member_posts'
     resources :comments
   end
   match '*path' => 'redirect#index'

@@ -2,10 +2,10 @@ body {
    behavior: url("js/csshover3.htc");
 }
 #main_container {
-	width: 970px;
+	width: 990px;
 }
 .contMargin {
-	width: 954px;
+	width: 974px;
 }
 
 .main_menu li, .sub1 li, .sub2 li{ width: auto; margin: 0px; padding: 0px; }
@@ -23,3 +23,11 @@ form fieldset.gray_bg{padding-bottom: 20px;}
 .sendMsg {display: none;}
 #sendMsg {display: inline; width: 100%; margin: 0px; padding: 0px;}
 .map .phone { margin: 0px;}
+
+.leftBlueBox { padding-bottom: 20px; padding-left: 32px; margin-left: -32px;}
+
+.blog_comments ul li .date { margin-right: 13px;}
+
+.errorPage .pages {top: 280px;}
+
+.catalog div h1 {margin-top: 5px; margin-bottom: 10px;}

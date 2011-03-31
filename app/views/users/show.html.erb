@@ -2,31 +2,32 @@
 	<div class="tree"><a href="#">Главная</a> / <b>Блог</b> <div class="arrow"></div></div>
 	<div class="clear"></div>
 	<div class="left">
-		<% if current_user.avatar %><img style="margin-right: 10px; margin-top: 5px;" class="left" src="<%= current_user.avatar.url(:normal) %>" /><% end %>
+		<% if @user.avatar %><img style="margin-right: 10px; margin-top: 5px;" class="left" src="<%= @user.avatar.url(:normal) %>" /><% end %>
 		<div class="left">
-			<h2 class="color_black noclear"><%= current_user.name %></h2>
-			<a class="submit formReady edit" href="<%= edit_user_path(current_user) %>">Редактировать</a>
+			<h2 class="color_black noclear"><%= @user.name %></h2>
+			<% if @user == @user %><a class="submit formReady edit" href="<%= edit_user_path(@user) %>">Редактировать</a><% end %>
 		</div>
 		<div class="clear"><br /></div>
 		<h2>О себе</h2>
-		<p>Я достиг в жизни практически всего. Много работал на бизнес и в конце-концов он стал работать на меня. Вот тогда я и смог осуществить свою Мечту – купить яхту. Ощущения от владения словами не передать. Это мечта! Никакой, даже самый дорогой, авто не сравнится с личной яхтой. Жизнь обрела новые оттенки.</p>
-		<h2><a href="#">Личный блог</a> (25 записей)</h2>
+		<p><%= @user.about %></p>
+		<h2><a href="<%= user_blogs_path(@user) %>">Личный блог</a> (<%= @user.blog_posts.size %> <%= Russian::p(@user.blog_posts.size, "запись", "записи", "записей")%>)</h2>
+		<% if @user.blog_posts.size > 0 %>
 		<ul class="pblogList">
-		<li><a class="color_gray_d" href="#">Прогулка по заливу</a></li>
-		<li><a class="color_gray_d" href="#">Хочу вот такую следующую!</a></li>
-		<li><a class="color_gray_d" href="#">Лучшие причалы</a></li>
-		<li><a class="color_gray_d" href="#">Первый сезон. Полет нормальныйон. Полет нормальныйон. Полет нормальныйон. Полет нормальныйон. Полет нормальный</a></li>
-		<li><a class="color_gray_d" href="#">Мелкие неполадки</a></li>
-		<li class="all"><a href="#">Все записи</a></li>
+			<% @user.blog_posts.limit(5).each do |post| %>
+		<li><a class="color_gray_d" href="<%= user_blog_path(post) %>"><%= post.title %></a></li>
+			<% end %>
+		<li class="all"><a href="<%= user_blogs_path(@user) %>">Все записи</a></li>
 		</ul>
-		
+		<% end %>
 		<a class="submit formReady add" href="<%= new_blog_path %>">Добавить запись</a>
 	</div>
 	<div class="right">
+	<% if @user.item %>
 	<h2>Моя яхта</h2>
-		<a href="#" class="imgBorder"><img src="images/contentPic2.jpg" /></a>
+		<% if @user.item.image %><a href="#" class="imgBorder"><img src="<%= @user.item.image.url(:normal) %>" /></a><% end %>
 		<div class="clear"></div>
-		<p>Отделка  корпуса лакированным тиком подчеркивает  респектабельность модели.  Как у всех моделей верфи «Colombo», в яхту заложена  особая ценность благодаря качеству материалов, точности работы и  сконцентрированности инженеров на функциональных особенностях яхты.</p>
-		<a class="forSale" href="#"><span>Продается</span></a>
+		<% if @user.item.description %><p><%= @user.item.description %></p><% end %>
+		<% if @user.item.price %><a class="forSale" href="#"><span>Продается</span></a><% end %>
+	<% end %>
 	</div>
 </div>	

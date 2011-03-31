@@ -36,7 +36,9 @@
 <script type="text/javascript" src="/javascripts/jquery.validation/jquery.validate.js"></script>
 <script type="text/javascript" src="/javascripts/jquery.validation/additional-methods.js"></script>
 <link rel="stylesheet" href="/stylesheets/application.css" />
+<link rel="stylesheet" href="/stylesheets/datepicker.css" />
 <script type="text/javascript" src="/javascripts/flowplayer-3.2.6.min.js"></script>
+<script type="text/javascript" src="/javascripts/jquery.datepicker.js"></script>
 </head>
 <body <%=raw 'class="transparent"' if @template == 2 %>>
 	<%#= current_user.to_xml if current_user %>
@@ -131,14 +133,14 @@
     <p class="author">Дизайн — студия <a href="http://logomotiv.ru/">Logomotiv</a>, 2011.<br /><a href="#">Информация</a> о проекте.</p>
     <p class="copyright">&copy; 2011 «Президент-Нева» Энергетический центр»<br /><a href="/contacts/">Контактная информация</a></p>
     <div class="left">
-        <label class="search">
+        <!--<label class="search">
             <span class="l"></span>
             <input type="text" value="Поиск" />
             <span class="r"></span>
             <a class="ico" href=""></a>
-        </label>
+        </label>-->
         <br />
-        <a class="smap" href="#">Карта сайта</a>
+        <a class="smap" href="/sitemap">Карта сайта</a>
     </div>
 <div class="clear"></div>
 </div>
