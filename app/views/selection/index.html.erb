@@ -20,7 +20,7 @@
 		<h2>Длина (футы)</h2>
 		<ul class="f2 filter_ul">
 			<% Item.select(:lgth).group(:lgth).each do |length|%>
-			<% if length.to_i > 0 %>
+			<% if length.lgth.to_i > 0 %>
 		        <li><a rel="lgth" data="<%= length.lgth %>"><%= length.lgth %></a><span></span></li>
 			<% end %>
 		    <% end %>
