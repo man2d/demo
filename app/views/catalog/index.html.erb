@@ -21,9 +21,9 @@
                 <a href="<%= item.item_url %>" class="name"><%= item.title %></a>
 
 				<% if !session[:comparison] || !session[:comparison].include?(item.id.to_i) %>
-				<%= link_to "Добавить к сравнению", "/comparison/#{item.id}", :remote => true, :class => [:add, :comparison], :id => "item_#{item.id}_comparison" %>
+				<%= link_to "Добавить к сравнению", "/comparison/#{item.id}", :remote => true, :class => [:add, :comparison], :id => "comparison_#{item.id}" %>
 				<% else %>
-				<%= link_to "Убрать из сравнения", "/comparison/#{item.id}", :remote => true, :class => [:remove, :comparison], :id => "item_#{item.id}_comparison" %>
+				<%= link_to "Убрать из сравнения", "/comparison/#{item.id}", :remote => true, :class => [:remove, :comparison], :id => "comparison_#{item.id}" %>
 				<% end %>
                 </li>
 <% end %>

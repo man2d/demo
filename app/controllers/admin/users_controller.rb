@@ -1,3 +1,4 @@
+#coding: utf-8
 class Admin::UsersController < Admin::BaseController
   inherit_resources
   respond_to :html, :xml, :json
@@ -21,8 +22,10 @@ class Admin::UsersController < Admin::BaseController
   def send_notification
     @users = User.find(params[:users])
     @users.each do |user|
-      NotificationMailer.deliver_notification(user)
+      NotificationMailer.notification(user, params[:notification]).deliver
     end
+    flash[:notice] = "Рассылка инициирована"
+    redirect_to :back
   end
   
   protected

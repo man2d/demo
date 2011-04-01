@@ -1,15 +1,30 @@
 Navigator2::Application.routes.draw do
   
-  devise_for :users, :controllers => { :registrations => "registrations" }
+  devise_for :users, :controllers => { :registrations => "registrations", :sessions => "sessions"}
+  devise_scope :user do
+    get '/register', :to => 'registrations#new'
+    get '/login', :to => 'sessions#new'
+    get '/logout', :to => 'sessions#destroy'
+    resources :sessions
+  end
 
-  devise_for :admin_users, :controllers => { :sessions => "admin/sessions" }
+  
+  #devise_scope :admin_user do
+#    resources :sessions
+  #end
 
   root :to => "home#index"
   match '/sitemap' => 'home#sitemap'  
   resources :items
   match 'admin' => 'admin::Pages#index'
   
+  devise_for :admin_users, :controllers => { :sessions => "admin/sessions" }, :path_prefix => :admin
+  devise_scope :admin_user do
+    resources :sessions, :controller => "admin/sessions"
+  end
+  
   namespace "admin" do
+    
     match 'sort/:model' => 'sort#sort'
     match 'typograph/typograph' => 'typograph#typograph'
     resources :pages do
@@ -18,13 +33,16 @@ Navigator2::Application.routes.draw do
         get 'hide'
       end
     end
-    resources :items, :used_items, :hints, :users, :blogs do
+    resources :items, :used_items, :hints, :blogs do
       member do
         get 'menu'
       end
     end
     resources :users do
       member do
+        get 'menu'
+      end
+      collection do
         get 'notification'
         post 'send_notification'
       end
@@ -40,6 +58,11 @@ Navigator2::Application.routes.draw do
   
 
   resources :posts
+  resources :hints do
+    collection do
+      get 'random'
+    end
+  end
   resources :assets
   resources :users do
     member do
@@ -53,12 +76,8 @@ Navigator2::Application.routes.draw do
   resources :pages, :controller => :home
 #  match '/javascripts/*path' => Sprockets
 #  match '/gallery' => 'gallery#index'
-  devise_for :users
-  devise_scope :user do
-    get '/register', :to => 'registrations#new'
-    get '/login', :to => 'devise/sessions#new'
-    get '/logout', :to => 'devise/sessions#destroy'
-  end
+  #devise_for :users
+  
   
   match '/catalog' => 'catalog#main'
   match '/catalog/s_probegom' => 'catalog#used'

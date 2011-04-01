@@ -1,4 +1,4 @@
-class Admin::SortController < ApplicationController
+class Admin::SortController < Admin::BaseController
   def sort
     @models = eval(params[:model].singularize.capitalize+".find(params[:"+params[:model].singularize+"])")
   #  logger.info params[:banner]

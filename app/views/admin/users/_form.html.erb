@@ -1,4 +1,12 @@
 <% semantic_form_for ["admin", resource] do |f| %>
-	<%= f.inputs %>
+	<%= f.inputs do %>
+	<%= f.input :email, :label => "E-mail" %>
+	<%= f.input :name, :label => "Имя" %>
+	<%= f.input :user_type, :as => :select, :label => "Тип пользователя" %>
+	<%= f.input :about, :as => :text, :label => "Информация" %>
+	<%= f.input :city, :label => "Город" %>
+	<%= f.input :phone, :label => "Телефон" %>
+	<%= f.input :activated, :as => :boolean, :label => "Активирован" %>
+	<% end %>
 	<%= f.buttons %>
 <% end %>

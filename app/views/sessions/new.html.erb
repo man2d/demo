@@ -1,0 +1,32 @@
+<div class="formWrap">
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => [:validatable]}) do |f| %>
+<div class="w910"><h1>Авторизация</h1></div>
+<div class="blueBg">
+		<div class="w910">
+			<div class="text">
+				<label for="mail">Электронная почта</label>
+					<%= f.text_field :email %>
+					<div class="example">Пример: почта@почта</div>
+				</div><div class="not_ready" id="user_email_status"></div>
+	<div class="text">
+		<label for="pass">Пароль</label>
+		
+			<%= f.password_field :password, :id => "user_password_password" %>
+			<div class="example pass"></div>
+		  </div><div class="not_ready" id="user_password_status"></div><div class="info"></div>
+<div class="clear"></div>
+
+  <div class="radio"><% if devise_mapping.rememberable? -%>
+    <label for="remember_me">Запомнить меня <%= f.check_box :remember_me %></label>
+  <% end -%></div>
+  <div class="w910">
+  <div class="errorInfo"><%= flash[:notice] || flash[:alert] %></div>
+  <%= f.submit "Войти", :class => :submit %>
+  </div>
+
+<% end %>
+<div class="clear"></div>
+<%= render :partial => "devise/shared/links" %>
+</div>
+</div>
+</div>

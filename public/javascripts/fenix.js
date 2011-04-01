@@ -194,7 +194,9 @@
 			top: (0 - jQuery(".tip_container").height())
 		}, 500);
 	});
-	jQuery(".tip").click(function() {
+	jQuery(".tip").live('click', function() {
+		var id = $(this).attr('title');
+		var query_string;
 		var tipObj = jQuery(this);
 		var hideSpeed = 0;
 		if (tipVisible) hideSpeed = 500;
@@ -211,16 +213,23 @@
 			prevTip = tipObj.html();
 			tipVisible = true;
 			//устанавливаем новый контент
-			jQuery(".tip_data p").html(tipObj.html());
-			//устанавливаем новое позиционирование
-			setTipPos(tipObj);
-			//проявляем подсказку
-			var offsetY = 8;
-			if (isIE6) offsetY = 0
-			jQuery(".tip_container").animate({
-				top: tipObj.offset().top - offsetY
-			}, 1500, "easeOutElastic", function() {
+			if(id) {
+				query_string = id;
+			}
+			jQuery.get("/hints/"+query_string, function(data) {
+				jQuery(".tip_data").html(data);
+				setTipPos(tipObj);
+				//проявляем подсказку
+				var offsetY = 8;
+				if (isIE6) offsetY = 0
+				jQuery(".tip_container").animate({
+					top: tipObj.offset().top - offsetY
+				}, 1500, "easeOutElastic", function() {
+				});
 			});
+			
+			//устанавливаем новое позиционирование
+			
 		});
 	});
 	

@@ -1,0 +1,28 @@
+<% content_for :helpbar do %>
+<div class="addItems_border">
+<ul class="addItems">
+	<li class="red"><%= link_to "Новая новость", new_resource_url  %></li>
+    <li><%#= link_to 'Добавить новость', new_admin_post_path, :class => "ico_addArrow" %></li>
+    
+</ul>
+</div>
+<% end %>
+<%= form_for "notification", :url => "/admin/users/send_notification", :as => :notification do %>
+<table border="0" id="main">
+	<tr>
+		<td>
+			<%= text_area_tag :notification, nil, :rows => 20, :cols => 30 %><br/>
+			<%= submit_tag "Отправить" %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<ul class="tree news">
+				<% collection.each do |resource| %>
+				<li><span><%= check_box_tag "users[]", resource.id %><p class="date"><%= resource.updated_at.to_date %></p><p class="text"><%= resource.name %></p></span></li>
+				<% end %>
+			</ul>
+		</td>
+	</tr>
+</table>
+<% end %>

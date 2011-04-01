@@ -1,7 +1,6 @@
 #coding: utf-8
-class Admin::SessionsController < Devise::SessionsController
-  layout "admin/base"
-  prepend_before_filter :require_no_authentication, :only => [ :new ]
+class SessionsController < Devise::SessionsController
+  prepend_before_filter :require_no_authentication, :only => [ :new, :create ]
 
   include Devise::Controllers::InternalHelpers
 
@@ -15,8 +14,14 @@ class Admin::SessionsController < Devise::SessionsController
   def create
 #    resource_name = "user"
     resource = warden.authenticate!(:scope => resource_name, :recall => :new)
-    set_flash_message :notice, :signed_in
-    sign_in_and_redirect(resource_name, resource)
+#s    resource = warden.set_user(resource, :scope => scope)
+#    if resource.is_a?(User) && !resource.activated?
+#      set_flash_message :notice, "Учетная запись еще не активирована"
+#      redirect_to new_session_path
+#    else
+#       render :text => resource.to_xml
+       set_flash_message :notice, :signed_in
+       sign_in_and_redirect(resource_name, resource)
 
 
   end

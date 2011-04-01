@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :lockable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :user_type, :about, :city, :phone, :receive_comments
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :user_type, :about, :city, :phone, :receive_comments, :activated
   validates_presence_of :user_type, :message => "^Выберите тип акккаунта"
   has_many :attachments, :as => :assetable, :class_name => "User::Attachment", :dependent => :destroy
   has_one :avatar, :as => :assetable, :class_name => "User::Avatar", :dependent => :destroy
@@ -20,7 +20,15 @@ class User < ActiveRecord::Base
   
   accepts_nested_attributes_for :avatar, :item
   
-
+  def after_sign_in_path_for(resource)
+    
+    if resource.is_a?(User) && !resource.activated?
+      sign_out resource
+      banned_user_path
+    else
+     super
+    end
+  end
   
   def captain?
     self.user_type == "captain"

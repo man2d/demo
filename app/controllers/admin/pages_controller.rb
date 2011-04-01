@@ -50,7 +50,9 @@ class Admin::PagesController < Admin::BaseController
   
   protected
   
-    
+  def collection
+    @pages = Page.order(:position).all
+  end    
   
 =begin
     def collection

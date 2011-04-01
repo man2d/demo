@@ -8,12 +8,14 @@
     	<table>
         	<tbody>
 <% @item.item_properties.each do |item_property| %>
-			<tr><td><p class="name"><%= item_property.property.title %><span class="points"></span></p></td><td></td></tr>
-            <tr><td></td><td><p class="value"><%= item_property.value %></p></td></tr>
+			<tr><th><p class="name"><%= raw item_property.property.title %><span class="points"></span></p></th><th></th></tr>
+            <tr><td></td><td><p class="value"><%= raw item_property.value %></p></td></tr>
 <% end %>
         </tbody></table>
     </div>
 <% end %>
 <div class="clear"></div>
 </div>
+<a class="tip" title="узлов">sadf</a><br/>
+<a class="tip" title="asdf">фыва</a>
 <% end %>

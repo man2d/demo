@@ -101,6 +101,11 @@
                 );
             }
         }
+		
+		$('.nivo-slice').click(function() {
+			document.location.href = vars.currentImage.attr('href');
+		});
+		
         
         //Create caption
         $('.nivoSlider').after(

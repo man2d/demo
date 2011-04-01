@@ -1,6 +1,6 @@
 require 'net/http'
 require 'uri'
-class Admin::TypographController < ApplicationController
+class Admin::TypographController < Admin::BaseController
   def typograph
     render :text => process_typograph(params[:text])
   end
