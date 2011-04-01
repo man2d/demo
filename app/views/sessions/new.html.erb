@@ -1,5 +1,5 @@
 <div class="formWrap">
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => [:validatable]}) do |f| %>
+<%= form_for("user", :as => "user", :url => user_session_path, :html => {:class => [:validatable]}) do |f| %>
 <div class="w910"><h1>Авторизация</h1></div>
 <div class="blueBg">
 		<div class="w910">

@@ -3,7 +3,7 @@
 <li><a<%=raw ' class="current"' if request.fullpath.to_s.include?(page.slug) %> href="<%=page.url %>"><%= page.title %></a>
   <% if page.slug == 'catalog' && page.children.menu.size > 0 %><span class="arrow"></span>
   <ul class="sub1">
-	<% page.children.menu.each do |child_page| %>
+	<% page.children.menu.order(:position).each do |child_page| %>
 	<li><a href="<%= child_page.url %>"><%= child_page.title %></a>
 		<% if child_page.items.size > 0 && child_page.slug != 's_probegom' %><span class="arrow"></span>
 		<ul class="sub2">

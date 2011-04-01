@@ -1,5 +1,6 @@
 #coding: utf-8
 class BlogsController < ApplicationController
+  before_filter :authenticate_user!, :only => [:new, :create, :edit, :update]
   def new
     @post = current_user.blog_posts.new
   end
