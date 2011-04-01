@@ -25,3 +25,17 @@ end
 	<div class="resumePic"><a href="#">Добавить запись в личный блог</a></div>
 </div>
 <% end %>
+
+<% if @page && (@page.blanks.size > 0 || @page.rules.size > 0) %>
+	<ul class="files">
+	<% if @page.blanks.size > 0 %>
+	<% @page.blanks.each do |asset| %>
+	<div class="file <%= file_extension(asset.attachment_content_type) %>"><a href="<%= asset.url %>"><%= asset.attachment_file_name %></a></div>
+	<% end %>
+	<% end %>
+	<% if @page.rules.size > 0 %>
+	<% @page.rules.each do |asset| %>
+	<div class="file <%= file_extension(asset.attachment_content_type) %>"><a href="<%= asset.url %>"><%= asset.attachment_file_name %></a></div>
+	<% end %>
+	<% end %>
+<% end %>
