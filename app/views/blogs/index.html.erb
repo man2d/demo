@@ -1,5 +1,5 @@
 <div class="w910 typical">
-	<div class="tree"><a href="#">Главная</a> / <b>Блог</b> <div class="arrow"></div></div>
+	<div class="tree"><a href="/">Главная</a> / <b>Блог</b> <div class="arrow"></div></div>
 	<div class="clear"></div>
 	<div class="left">
 		<%= render 'shared/blog_left_menu' %>
@@ -17,7 +17,7 @@
 				<div class="comments"><a href="<%=blog_url(post) %>#comments"><%= post.comments.size %> <%= Russian::p(post.comments.size, "комментарий", "комментария", "комментариев")%></a></div>
 			</div>
 			<div class="poster"><a href="<%= user_path(post.user) %>"><% if post.user %><img src="<%= post.user.avatar.url(:thumb) %>" /><%= post.user.name %><% end %></a></div>
-		</div>
+
 		<% end %>
 		<% else %>
 		Не найдено ни одной записи.
