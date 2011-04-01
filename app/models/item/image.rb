@@ -16,8 +16,10 @@ class Item::Image < Asset
       cmd += "'"+self.attachment.path(:masked)+"'"
 #    logger.info cmd
 #    puts cmd
-    
+      begin
       Paperclip.run 'convert', cmd
+      rescue
+      end
     end
   end
 end
