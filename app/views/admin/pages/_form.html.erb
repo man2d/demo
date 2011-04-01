@@ -21,7 +21,7 @@
 	  
 	  <span><%= image_tag @page.image.url if @page.image %>
       <%= link_to_remove_fields "Удалить", image_form %></span>
-	  <%= image_form.input :attachment, :as => :file %>
+	  <%= image_form.input :attachment, :as => :file, :label => "Картинка" %>
       <%#= f.input :remove_image, :as => :boolean, :label => "Удалить картинку" %>
        
     <% end %>
