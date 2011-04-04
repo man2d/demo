@@ -1,8 +1,12 @@
 class HomeController < ApplicationController
+  include ApplicationHelper
   in_place_edit_for :post, :title
   in_place_edit_for :item, :description
   in_place_edit_for :item, :announce
   in_place_edit_for :block, :content
+  
+  before_filter :find_page
+  
   def set_post_title
         post = Post.find(params[:id]) 
         post.title = params[:value] # Name of parameter is always 'value'.
@@ -10,7 +14,7 @@ class HomeController < ApplicationController
 
         # It should render a text 
         render :text => post.title
-      end
+  end
   
   def index
     @items = Item.order("RAND()").limit(3)
@@ -24,4 +28,15 @@ class HomeController < ApplicationController
     @page = Page.find_by_slug(params[:id])
     @page = Page.find(params[:id]) unless @page
   end
+  
+  def captain
+  end
+  
+  def owner
+#    render :text => 
+    @resumes = Resume.order(:created_at).limit(4).all
+#        render :text => @resumes
+  end
+
+  
 end

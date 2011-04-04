@@ -8,7 +8,7 @@ class RedirectController < ApplicationController
       unless @page.resource
         render 'pages/show'
       else
-        render @page.resource
+        render :template => @page.resource
       end
     else
       @item = Item.find_by_id(params[:path].split("/").last)

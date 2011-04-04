@@ -3,5 +3,5 @@ class ItemProperty < ActiveRecord::Base
   belongs_to :property
   
   validates :property, :presence => true
-  validates :item, :presence => true
+#  validates :item, :presence => true
 end

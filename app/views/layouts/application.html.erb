@@ -41,6 +41,7 @@
 <script type="text/javascript" src="/javascripts/jquery.easing.compatibility.js"></script>
 <script type="text/javascript" src="/javascripts/flowplayer-3.2.6.min.js"></script>
 <script type="text/javascript" src="/javascripts/jquery.datepicker.js"></script>
+<%= yield :js %>
 </head>
 <body <%=raw 'class="transparent"' if @template == 2 %>>
 	<%#= current_user.to_xml if current_user %>

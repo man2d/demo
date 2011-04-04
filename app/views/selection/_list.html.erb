@@ -3,7 +3,7 @@
 <% @items.each do |item| %>
 <li>
 <% if item.image %><a href="<%= item.url %>"><img src="<%= item.image.url(:thumb) %>" alt="" /></a><% end %>
-<a class="name" href="#"><%= item.title %></a>
+<a class="name" href="<%= item.url %>"><%= item.title %></a>
 <% if session[:comparison] && session[:comparison].include?(item.id) %>
 <a class="remove comparison" data-remote="true" href="/comparison/<%= item.id %>" id="comparison_<%= item.id %>">Убрать из сравнения</a>
 <% else %>

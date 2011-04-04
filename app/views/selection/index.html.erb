@@ -11,7 +11,7 @@
 		<ul class="f1 filter_ul">
 			<% Item.group(:item_assign_id).each do |item|%>
 			  <% if item.item_assign %>
-		<li><a<%=' class="sport"' if item.item_assign.title == "Спортивные" %> rel="item_assign_id" data="<%= item.item_assign_id %>"><span><%= raw item.item_assign.title %></span></a></li>
+		<li><a<%=raw ' class="sport"' if item.item_assign.title == "Спортивные" %> rel="item_assign_id" data="<%= item.item_assign_id %>"><span><%= raw item.item_assign.title %></span></a></li>
 			  <% end %>
 			<% end %>
 <!--		<li class="current"><a href="javascript:void(0);"><span>Для длительных прогулок<br />до нескольких дней</span></a></li> -->

@@ -7,13 +7,13 @@ CKEDITOR.editorConfig = function( config )
 {
   config.PreserveSessionOnFileBrowser = true;
   // Define changes to default configuration here. For example:
-  config.language = 'en';
+  config.language = 'ru';
   // config.uiColor = '#AADC6E';
 
   //config.ContextMenu = ['Generic','Anchor','Flash','Select','Textarea','Checkbox','Radio','TextField','HiddenField','ImageButton','Button','BulletedList','NumberedList','Table','Form'] ; 
   
   config.height = '400px';
-  config.width = '600px';
+  config.width = '700px';
   
   //config.resize_enabled = false;
   //config.resize_maxHeight = 2000;
@@ -37,5 +37,12 @@ CKEDITOR.editorConfig = function( config )
         ['Link','Unlink'],
         ['Image','Table']
     ];
+
+  config.toolbar_Blog = [
+	['Cut', 'Copy', 'Paste'],
+	['Undo','Redo','RemoveFormat','Format','Styles'],
+	['Image'],
+	['NumberedList', 'BulletedList', 'Bold', 'Italic','Subscript','Superscript']];
+	
 };
 

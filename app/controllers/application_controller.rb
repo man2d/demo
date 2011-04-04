@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 #  end
 private
 def after_sign_in_path_for(resource)
-logger.info resource.email
+
   if resource.is_a?(User) && !resource.activated?
     sign_out resource
     flash[:notice] = "Ваша учетная запись еще не активирована"
@@ -22,4 +22,9 @@ logger.info resource.email
   end
 
 end
+  
+  
+  def find_page
+    @page = Page.find_by_cached_url(query_string)
+  end
 end

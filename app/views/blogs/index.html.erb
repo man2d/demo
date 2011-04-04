@@ -9,7 +9,7 @@
 		<% @posts.each do |post| %>
 		<h1><a href="<%= blog_url(post) %>"><%= post.title %></a></h1>
 		<%= raw post.announce %>
-			<a class="readMore" href="<%= blog_url(post) %>"><span>Читать дальше</span> →</a>
+			<a class="readMore" href="<%= blog_url(post) %>"><span>Читать дальше</span> →</a> <% if current_user && post.user == current_user %><a class="readMore" href="<%= edit_user_blog_url(current_user, post) %>"><span>Редактировать</span> →</a><% end %>
 			<div class="split_line"></div><div class="clear"></div>
 			<div class="left clear">
 				<div class="tags"><% post.tags.each do |tag| %><a href="/blogs/tag/<%= tag.name %>"><%= tag.name %></a> <% end %></div>

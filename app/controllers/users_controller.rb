@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @user = current_user
     if @user.update_attributes(params[:user])
       flash[:notice] = "Профиль сохранен"
-      redirect_to after_update_path_for(@user)
+      redirect_to user_path(@user)
     else
       clean_up_passwords(resource)
       render_with_scope :edit
@@ -19,6 +19,17 @@ class UsersController < ApplicationController
   end
   
   def sell_yacht
+    unless @item
+      @item = Item.new
+      Property.all.each do |p|
+        @item.item_properties.build(:property_id => p.id)
+      end
+    else
+      @item = current_user.item
+    end
+    @item.gallery_images.build
+    
+
   end
   
   def pagestyle

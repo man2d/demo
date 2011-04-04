@@ -26,7 +26,7 @@ module ApplicationHelper
   end
   
   def link_or_span(page)
-    if page.url == "/"+params[:path]+"/"
+    if page.url == query_string
       klass = "current" 
       content_tag = "p" 
     end
@@ -45,5 +45,12 @@ module ApplicationHelper
   
   def file_extension(mime_type)
     mime_type.split('/').last
+  end
+  
+  def query_string
+    @uri = request.env['PATH_INFO']
+    if @uri.last != '/'
+      @uri += '/'
+    end
   end
 end

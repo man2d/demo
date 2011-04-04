@@ -71,20 +71,6 @@ $(document).ready(function(){
   $('form#filterForm input#'+$(this).attr('rel')).val($(this).attr('data')); 
   $('form#filterForm').submit();
 });*/
-$('.f1 a').live('click', function() {
-
-  $(this).parents('ul').children('li').removeClass('current');
-  $('.f2 li').removeClass('current');
-  if(!$(this).hasClass('all'))
-  $(this).parents('li').addClass('current');	
-  $.get('/filter/do?search[item_assign_id]='+$(this).attr('data'));
-});
-$('.f2 a').live('click', function() {
-  $(this).parents('ul').children('li').removeClass('current');
-  $('.f1 li').removeClass('current');
-  $(this).parents('li').addClass('current');
-  $.get('/filter/do?search[lgth]='+$(this).attr('data'));
-});
 
 /** Сравнение **/
 $('.compare .toggle').live('click', function() {
@@ -186,6 +172,23 @@ $('.points a').click(function(){
 
 
 jQuery(document).ready(function(){
+	$('.f1 a').live('click', function() {
+
+	  $(this).parents('ul').children('li').removeClass('current');
+	  $('.f2 li').removeClass('current');
+	  if(!$(this).hasClass('all'))
+	  $(this).parents('li').addClass('current');	
+	  $.get('/filter/do?search[item_assign_id]='+$(this).attr('data'));
+	  updateWallpaper();
+	});
+	$('.f2 a').live('click', function() {
+	  $(this).parents('ul').children('li').removeClass('current');
+	  $('.f1 li').removeClass('current');
+	  $(this).parents('li').addClass('current');
+	  $.get('/filter/do?search[lgth]='+$(this).attr('data'));
+	  updateWallpaper();
+	});
+	
 //	$('.ContentFlow a').fancybox();
   //	var hash = window.location.hash.replace('#', '');
   //	if(hash) {

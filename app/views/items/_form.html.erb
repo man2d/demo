@@ -1,0 +1,70 @@
+<div class="formWrap">
+<% form_for @item, :url => user_item_path(current_user),  :html => {:class => :personal, :multipart => true} do |f| %>
+	<div class="blueBg"></div>
+	<div class="whiteBg">
+		<div class="w910">
+			<div class="clear"><br /></div>
+			<fieldset class="right noclear addPhoto" style="width: 420px !important;">
+				<div class="text left" style="width: 320px;">
+					<label for="">Фото</label>
+				</div>
+				<ul class="addPhoto">
+					<% if @item.gallery_images.size > 0 %>
+					    <% @item.gallery_images.each do |asset| %>
+						<% unless asset.new_record? %>
+						<li><a class="file <%= file_extension(asset.attachment_content_type) %>" href="<%= asset.url %>"><%= image_tag asset.url(:thumb) %></a><%= link_to 'Удалить', asset_path(asset), :method => :delete, :class => :delete, :confirm => "Удалить фото?" %></a></li>
+						<% end %>
+						<% end %>
+					<% end %>
+					<li class="addFile"><label><%= link_to_add_resume_job("+ Добавить", f, :gallery_images) %></label></li>
+				</ul>
+			</fieldset>
+			<fieldset class="left noclear noBorder" style="width:480px;">
+				<div class="text clear" style="width: 405px;">
+					<label for="speed">Название</label>
+					<%= f.text_field :title %>
+					<div class="example"></div>
+					<div class="errorInfo"></div>
+				</div>
+				<div class="text clear" style="width: 405px;">
+					<label for="speed">Пробег, км</label>
+					<%= f.text_field :mileage %>
+					<div class="example"></div>
+					<div class="errorInfo"></div>
+				</div>
+				<div class="text clear" style="width: 405px;">
+					<label for="speed">Год выпуска</label>
+					<%= f.text_field :year %>
+					<div class="example"></div>
+					<div class="errorInfo"></div>
+				</div>
+				<div class="text left" style="width: 405px;">
+					<label for="descr">Описание</label>
+
+					<%= f.text_area :description, :style => "height: 135px;" %>
+					<div class="example"></div>
+					<div class="errorInfo"></div>
+				</div>
+				<% f.fields_for :item_properties do |prop| %>
+				<%= prop.hidden_field :property_id, :value => prop.object.property.id %>
+				<div class="text" style="width: 405px;">
+					<label for="width"><%= raw prop.object.property.title %></label>
+					<%= prop.text_field :value  %>
+					<div class="example"></div>
+					<div class="errorInfo"><%= f.error_messages %></div>
+				</div>
+				<% end %>
+			
+
+
+			</fieldset>
+		</div>
+	</div>
+	<div class="w910">
+		<fieldset class="noBorder">
+			<div class="errorInfo"></div>
+			<input class="submit formReady" value="Сохранить" type="submit"><input class="submit formReady" value="Отмена" onclick="window.history.go(-1);" />
+		</fieldset>
+	</div>
+<% end %>
+</div>

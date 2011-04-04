@@ -1,4 +1,26 @@
-<% form_for(@post, :as => "blog_post", :url => blogs_path, :html => {:class => [ :validatable]}) do |f| %>
+<% content_for :js do %>
+<%= javascript_include_tag :ckeditor %>
+<script type="text/javascript"> 
+//<![CDATA[
+$(document).ready(function() {
+if (CKEDITOR.instances['blog_post_announce']) { 
+        CKEDITOR.remove(CKEDITOR.instances['blog_post_announce']);}
+        CKEDITOR.replace('blog_post_announce', { width: '600px',height: '100%',language: 'ru',toolbar: 'Blog',filebrowserUploadUrl: '/ckeditor/attachments',filebrowserImageUploadUrl: '/ckeditor/pictures' });
+
+		if (CKEDITOR.instances['blog_post_content']) { 
+		        CKEDITOR.remove(CKEDITOR.instances['blog_post_content']);}
+		        CKEDITOR.replace('blog_post_content', { width: '600px',height: '100%',language: 'ru',toolbar: 'Blog',filebrowserUploadUrl: '/ckeditor/attachments',filebrowserImageUploadUrl: '/ckeditor/pictures' });
+
+});
+//]]>
+</script>
+<% end %>
+<% if @post.new_record?
+ @url = user_blogs_path(current_user)
+else
+ @url = user_blog_path(current_user, @post)
+end %>
+<% form_for([@post], :as => :blog_post, :url => @url, :html => {:class => [ :validatable]}) do |f| %>
 	<div class="w910"><h1>Блог - Создать пост</h1></div>
 	<div class="blueBg">
 		<div class="w910">
@@ -6,31 +28,34 @@
 					<label for="name">Заголовок</label>
 						<%= f.text_field :title %>
 						<div class="example"></div>
-				</div><div class="not_ready" id="user_name_status"></div><div class="info"></div>
+				</div><div class="info"></div>
 <div class="clear"></div>
 				<div class="text">
 					<label for="name">Список тегов</label>
 						<%= f.text_field :tag_list %>
 						<div class="example"></div>
-				</div><div class="not_ready" id="user_name_status"></div><div class="info"></div>
+				</div><div class="info"></div>
 <div class="clear"></div>
 				<div class="text">
 					<label for="name">Категория</label>
 						<%= select_tag "post", options_from_collection_for_select(BlogTopic.all, "id", "title"), :include_blank => true %>
 						<div class="example"></div>
-				</div><div class="not_ready" id="user_name_status"></div><div class="info"></div>
+				</div><div class="info"></div>
 <div class="clear"></div>
 				<div class="text">
 					<label for="name">Анонс</label>
+						<div class="clear"></div>
 						<%= f.text_area :announce %>
 						<div class="example"></div>
-				</div><div class="not_ready" id="user_name_status"></div><div class="info"></div>
+						
+				</div><div class="info"></div>
 <div class="clear"></div>
 				<div class="text">
 					<label for="name">Содержание</label>
-						<%= f.text_area :content %>
+  					<div class="clear"></div>
+					<%= f.text_area :content %>
 						<div class="example"></div>
-				</div><div class="not_ready" id="user_name_status"></div><div class="info"></div>
+				</div><div class="info"></div>
 <div class="clear"></div>				
 		</div>
 	</div>

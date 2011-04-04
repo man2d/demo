@@ -14,7 +14,7 @@
             <h3>Яхты в <a href="/catalog">каталоге</a></h3>
             <ul class="cols_3">
 	        <% @items.each do |item| %>
-            <li>
+            <li id="item_<%= item.id %>">
             	<% if item.image %><a href="<%= item.url %>"><img src="<%= item.image.url(:thumb) %>" alt="" /></a><% end %>
                 <p><a href="<%= item.item_url %>"><%= item.title %></a><br />
                 	Длина: <%= item.lgth %> <%=Russian::p(item.lgth.to_i, "фут", "фута", "футов") %><br />
@@ -29,16 +29,16 @@
         		<img src="images/ship.gif" alt="" /><a href="/about/sudovladelcu">Судовладельцу</a>
             	<img src="images/cap.gif" alt="" /><a href="/about/kapitanu/">Капитану</a>
             </div>
-            <h3><a href="/posts">Новости</a></h3>
+            <h3><a href="/about/news">Новости</a></h3>
             <div class="news">
 				<% @posts.each do |post| %>
-				  <%= link_to post.title, posts_url(post) %><br/>
+				  <%= link_to post.title, "/about/news/#{post.id}" %><br/>
 				<% end %>
             </div>
             <h3>Новое в <a href="/blog">блоге</a></h3>
             <div class="news">
 			    <% @blog_posts.each do |post| %>
-				  <%= link_to post.title, posts_url(post) %><br/>
+				  <%= link_to post.title, blog_url(post) %><br/>
 				<% end %>
             </div>
         </div>

@@ -15,14 +15,14 @@ end
 </ul>
 <% if current_user %>
 <div class="leftBlueBox">
-	<% if current_user.owner? %><div class="resumePic"><a href="#">Резюме капитанов</a></div>
+	<% if current_user.owner? %><div class="resumePic"><a href="<%= resumes_path %>">Резюме капитанов</a></div>
     <div class="clear"></div>
-    <div class="servisPic"><a href="#">Заявка на сервисное обслуживание яхты</a></div>
+    <div class="servisPic"><a href="javascript:void();">Заявка на сервисное обслуживание яхты</a></div>
     <% end %>
     <% if current_user.captain? %>
-	<div class="resumePic"><a href="#">Разместить резюме</a></div>
+
 	<% end %>
-	<div class="resumePic"><a href="#">Добавить запись в личный блог</a></div>
+	<div><span class="blogPic"></span><a href="<%= new_user_blog_path(current_user) %>"><span>Добавить запись в личный блог</span></a></div>
 </div>
 <% end %>
 

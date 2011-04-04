@@ -134,23 +134,11 @@
 	});
 	
 	//настройка фона
-	if (jQuery(".wrap").height() < jQuery(document).height()) {
-		jQuery(".wrap").css("background-position", "100% 100%");
-		jQuery(".mapBg").css("background-position", "50% 100%");
-	}
+
 	jQuery(".mapBg img").load(function () {	updateWallpaper(); });
 	jQuery(window).resize(function () {	updateWallpaper(); });
-	function updateWallpaper() {
-		var z1 = jQuery("body").width() / jQuery("body").height();
-		var z2 = jQuery(".mapBg img").width() / jQuery(".mapBg img").height();
-		if (z1 > z2) {
-			jQuery(".mapBg img").width("100%");
-			jQuery(".mapBg img").height("auto");
-		} else {
-			jQuery(".mapBg img").width("auto");
-			jQuery(".mapBg img").height("100%");
-		}
-	}
+
+		updateWallpaper();
 	
 	//tip
 	var tipVisible = false;
@@ -234,3 +222,19 @@
 	});
 	
 });
+
+function updateWallpaper() {
+	if (jQuery(".wrap").height() < jQuery(document).height()) {
+		jQuery(".wrap").css("background-position", "100% 100%");
+		jQuery(".mapBg").css("background-position", "50% 100%");
+	}
+	var z1 = jQuery("body").width() / jQuery("body").height();
+	var z2 = jQuery(".mapBg img").width() / jQuery(".mapBg img").height();
+	if (z1 > z2) {
+		jQuery(".mapBg img").width("100%");
+		jQuery(".mapBg img").height("auto");
+	} else {
+		jQuery(".mapBg img").width("auto");
+		jQuery(".mapBg img").height("100%");
+	}	
+}

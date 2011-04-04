@@ -1,6 +1,6 @@
 class Admin::PagesController < Admin::BaseController
   inherit_resources
-  skip_before_filter :authenticate_admin_user!, :only => :index
+  #skip_before_filter :authenticate_admin_user!, :only => :index
   respond_to :html, :xml, :json
 
   custom_actions :resource => [:menu, :hide]

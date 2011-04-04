@@ -33,30 +33,17 @@
 			<li>11</li>
 		</ul>
 	</div>
-	<a href="#" class="podborButton">Подобрать яхту<span></span></a>
+	<a href="/filter" class="podborButton">Подобрать яхту<span></span></a>
 	<h2>Резюме капитанов</h2>
 	<ul class="resume">
-		<li><img src="images/photo.jpg" />
-			<a class="name" href="#">Брюс<br />Уиллис</a>
-			<p>Тел.: +7 933 914-05-59<br />Эл. почта: sdrob@inbox.ru</p>
-			<a class="invite" href="#">Пригласить</a>
-		</li>
-		<li><img src="images/photo.jpg" />
-			<a class="name" href="#">Брюс<br />Уиллис</a>
-			<p>Тел.: +7 933 914-05-59<br />Эл. почта: sdrob@inbox.ru</p>
-			<a class="invite" href="#">Пригласить</a>
-		</li>
-		<li><img src="images/photo.jpg" />
-			<a class="name" href="#">Брюс<br />Уиллис</a>
-			<p>Тел.: +7 933 914-05-59<br />Эл. почта: sdrob@inbox.ru</p>
-			<a class="invite" href="#">Пригласить</a>
-		</li>
-		<li><img src="images/photo.jpg" />
-			<a class="name" href="#">Брюс<br />Уиллис</a>
-			<p>Тел.: +7 933 914-05-59<br />Эл. почта: sdrob@inbox.ru</p>
-			<a class="invite" href="#">Пригласить</a>
-		</li>
-		<li><a class="button" href="#">Все капитаны</a></li>
+		<% @resumes = Resume.order(:created_at).limit(4).all %>
+		<% if @resumes %>
+		<%  @resumes.each do |resume| %>
+		<%= render 'resumes/resume', :resume => resume %>
+		<% end %>
+		<% end %>
+
+		<li><a class="button" href="<%= resumes_path %>">Все капитаны</a></li>
 	</ul>
 </div>
 </div>

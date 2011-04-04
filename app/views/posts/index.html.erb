@@ -9,14 +9,17 @@ end
 	<%= render 'shared/left_menu'%>
 </div>
 <div class="right">
-<div class="news n_long">
-	<h2>Новости</h2>
-	<% if @posts %>
-	<% @posts.each do |post| %>
-    <p><%= image_tag post.image_url if post.image_url %><span class="date"><%= post.updated_at.strftime("%d/%m/%Y") %></span><a href="/posts/<%= post.id %>"><%= post.title %></a></p>
-    <% end %>
-    <% end %>
-</div>
+
+		<h1>Новости</h1>
+		<ul class="newsList">
+			<% if @posts %>
+			<% @posts.each do |post| %>
+			<li><span><%= post.updated_at.strftime("%d/%m/%Y") %></span><a href="/about/news/<%= post.id %>"><%= post.title %></a></li>
+			<% end %>
+			<% end %>
+		</ul>
+
+
 <% if @posts %>
 <div class="pages clear">
 	<%= will_paginate @posts %>

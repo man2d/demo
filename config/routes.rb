@@ -65,13 +65,15 @@ Navigator2::Application.routes.draw do
   end
   resources :assets
   resources :users do
+    resources :blogs
+    resource :resume
+    resource :item
     member do
       get 'sell_yacht'
       get 'pagestyle'
       get 'personal'
     end
-    resources :blogs
-    resources :resumes
+
   end
   resources :pages, :controller => :home
 #  match '/javascripts/*path' => Sprockets
@@ -104,9 +106,10 @@ Navigator2::Application.routes.draw do
     resources :attachments, :only => [:index, :create, :destroy]
   end
   
-  namespace :about do
-    resources :posts
-  end
+  resources :resumes 
+
+  
+  
   resources :blogs do
 #    member 'topics/:topic_id' => 'blogs#topics'
 #    member 'tags/:tag' => 'blogs#tags'
@@ -119,7 +122,11 @@ Navigator2::Application.routes.draw do
 #    get 'member_posts'
     resources :comments
   end
+  
+  match '/about/news' => 'posts#index'
+  match '/about/news/:id' => 'posts#show'
+  match '/about/sudovladelcu' => 'home#owner'
+  match '/about/kapitanu' => 'home#captain'
+#  match ':controller/:action(/:id(.:format))'
   match '*path' => 'redirect#index'
-  match ':controller/:action(/:id(.:format))'
-
 end
