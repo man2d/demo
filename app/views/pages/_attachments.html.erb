@@ -1,0 +1,20 @@
+<div class="col_2 left">
+	<% if @page.rules.size > 0%>
+	<h2>
+		Законы и правила</h2>
+		<% @page.rules.each do |file| %>
+		<p class="file <%= file.attachment_file_name.split('.').last %>">
+			<a href="<%= file.url %>" target="_blank"><%= file.attachment_file_name %></a></p>
+		<% end %>
+	<% end %>
+</div>
+<div class="col_2 right">
+	<% if @page.blanks.size > 0%>
+	<h2>
+		Бланки</h2>
+		<% @page.blanks.each do |file| %>
+		<p class="file <%= file.attachment_file_name.split('.').last %>">
+			<a href="<%= file.url %>" target="_blank"><%= file.attachment_file_name %></a></p>
+		<% end %>
+	<% end %>
+</div>
