@@ -108,7 +108,7 @@ form { display: inline; margin: 0px; padding: 0px;}
 		.skins a:hover {border: solid 1px #c80009; outline: double 4px #66b8dd;}
 	
 .shadow, .shadow .b, .shadow .r, .shadow .bl, .shadow .br, .shadow .tr { float: left; clear: both; display: inline; position: relative; z-index: 100;}
-	.shadow {float: left; clear: both; padding-right: 12px; background-image: url("../images/shadow_corner_br.png"); background-position: 100% 100%; background-repeat: no-repeat;}
+	.shadow {float: left; clear: both; padding-right: 12px; background-image: url("../images/shadow_corner_br.png"); background-position: 100% 100%; background-repeat: no-repeat; padding-top: 2px;}
 	.shadow .b, .shadow .r {float: left; clear: both;}
 	.shadow .b {background-image: url("../images/shadow_b.png"); background-position: 100% 100%; background-repeat: repeat-x; margin-left: 12px; padding-bottom: 12px;}
 	.shadow .tr {background-image: url("../images/shadow_corner_tr.png"); background-position: 100% 0%; background-repeat: no-repeat; margin-left: -12px;margin-right: -12px; overflow: hidden;}
@@ -129,7 +129,7 @@ form { display: inline; margin: 0px; padding: 0px;}
 	.smallForm .error {color: #c80009; font-size: 12px; line-height: normal; float: left; width: 120px; margin-top: 7px; padding: 0px;}
 	.smallForm .submit {width: 120px; height: 30px; padding: 0px; font-size: 14px; line-height: 14px; margin-top: 7px; margin-right: 15px; float: left; clear: both;}
 	
-.enterFormPos {position: absolute; top: 6px; right: 155px; z-index: 230;}
+.enterFormPos {position: absolute; top: 4px; right: 155px; z-index: 230;}
 .enterForm {border: solid 1px #acacac; background-color: white; width: 260px; padding: 17px; display: block; overflow: hidden; position: relative;}
 	.enterForm .text input {width: 242px;}
 	
@@ -159,7 +159,7 @@ form { display: inline; margin: 0px; padding: 0px;}
 	.map form a:hover { color: #c80009;}
 	.map .error {width: 145px;}
 	.mapPos .arrow {background: url("../images/formArrow2.gif"); width: 21px; height: 11px;
-		 top: 0px; right: 240px;
+		 top: 2px; right: 240px;
 	}
 	.map .close { width: 18px; height: 18px; background: url("../images/mapClose.gif"); position: absolute; top: 10px; right: 10px; border: none; overflow: hidden;}
 	.map .close:hover { background-position: 0px -18px;}
@@ -182,7 +182,7 @@ form { display: inline; margin: 0px; padding: 0px;}
 	.mainPage {font-size: 14px; color: #808080; float: left; display: block; position: relative; margin-bottom: 10px; display: inline;}
 	.mainPage span { background: url("../images/hms_ico.gif"); width: 16px; height: 12px; overflow: hidden; display: block; position: absolute; top: 5px; left: -20px;}
 	
-.addPhoto {}
+.addPhoto { width: 380px;}
 	.addPhoto a { font-size: 13px; line-height: 15px;}
 	.addPhoto .text { padding-bottom: 0px;}
 	.addPhoto ul {margin-right: 10px;}
