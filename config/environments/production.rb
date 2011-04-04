@@ -51,11 +51,11 @@ Navigator2::Application.configure do
   
   ActionMailer::Base.smtp_settings = {
     :address              => "localhost",
-    :port                 => 587,
-    :domain               => "localhost",
-    :user_name            => "localhost",
-    :password             => "foofoo",
+    :port                 => 25,
+    :domain               => "mail.spb-yamaha.ru",
+    :user_name            => "d2nam@spb-yamaha.ru",
+    :password             => "qwerty",
     :authentication       => "plain",
-    :enable_starttls_auto => true
+    :enable_starttls_auto => false
   }
 end
