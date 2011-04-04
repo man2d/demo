@@ -15,7 +15,7 @@
 				<div class="date"><%= Russian::strftime(@post.created_at, "%d %B %Y")%></div>
 				<div class="comments"><a href="#comments"><%= @post.comments.size %> <%= Russian::p(@post.comments.size, "комментарий", "комментария", "комментариев")%></a></div>
 			</div>
-			<% if @post.user %><div class="poster"><a href="#"><img src="<%= @post.user.avatar.url(:thumb) %>" /><%= @post.user.name %></a></div><% end %>
+			<% if @post.user %><div class="poster"><a href="<%= user_url(@post.user) %>"><% if @post.user %><img src="<%= @post.user.avatar.url(:thumb) %>" /><% end %><%= @post.user.name %></a></div><% end %>
 		</div>
 		<div class="blog_comments">
 			<h2 class="left"><a name="comments">Комментарии</a></h2>
@@ -34,7 +34,7 @@
 			<% unless comment.new_record? %>
 			<li>
 				<p class="date">7 марта 2011</p>
-				<a class="poster" href="<%= user_path(comment.user) %>"><img src="<%= comment.user.avatar.url(:thumb) %>" /><%= comment.user.name %></a>
+				<a class="poster" href="<%= user_path(comment.user) %>"><% if comment.user.avatar %><img src="<%= comment.user.avatar.url(:thumb) %>" /><% end %><%= comment.user.name %></a>
 				<p class="post"><%= comment.comment %></p>
 			</li>
 			<% end %>
