@@ -17,11 +17,11 @@
 
   <%#= yield :stylesheets -%>
 
-  	<%= javascript_include_tag "jquery", "rails", :ckeditor, "/javascripts/ckeditor/adapters/jquery.js", "jquery-ui", "/javascripts/sammy.js", "/javascripts/admin/admin.js"  %>
+  	<%= javascript_include_tag "jquery", "rails", :ckeditor, "/javascripts/ckeditor/adapters/jquery.js", "jquery-ui", "/javascripts/sammy.js", "/javascripts/admin/admin.js", "jquery.datepicker"  %>
   <%#= javascript_include_tag :ckeditor %>
 
   <%= yield :javascripts -%>
-
+  <%= yield :js %>
   <%= csrf_meta_tag %>
 <style type="text/css">
 ul.sortable { -webkit-select: none; }

@@ -1,8 +1,14 @@
+
+<div class="w910 typical">
+	<div class="tree"><a href="/">Главная</a> / <a href="/about/news">Новости</a> / <b><%= @post.title %></b> <div class="arrow"></div></div>
+	<div class="clear"></div>
+<div class="left">	
+	<%= render 'shared/left_menu'%>
+</div>
+<div class="right">
 <div class="w910 typical">
 	<h1><%= @post.title %></h1>
-    <p><span class="date"><%= @post.updated_at.strftime("%d/%m/%Y")%></span><br/><%= raw @post.content %></p>
+    <p><span class="date"><%= @post.updated_at.strftime("%d/%m/%Y")%></span><br/><%= raw @post.body %></p>
 
 </div>
-
-
-
+</div>

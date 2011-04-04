@@ -26,7 +26,7 @@ module ApplicationHelper
   end
   
   def link_or_span(page)
-    if page.url == query_string
+    if query_string[page.url]
       klass = "current" 
       content_tag = "p" 
     end

@@ -21,7 +21,7 @@ class Page < ActiveRecord::Base
   has_many :rules, :as => :assetable, :class_name => "Page::Rule", :dependent => :destroy
   has_many :blanks, :as => :assetable, :class_name => "Page::Blank", :dependent => :destroy
   
-  accepts_nested_attributes_for :blocks, :image, :rules, :blanks, :attachments, :pdf, :allow_destroy => true
+  accepts_nested_attributes_for :blocks, :image, :rules, :blanks, :attachments, :pdf, :allow_destroy => true, :reject_if => :all_blank
   
  # sortable :scope => :parent_id
   

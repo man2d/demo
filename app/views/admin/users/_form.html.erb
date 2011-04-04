@@ -8,5 +8,8 @@
 	<%= f.input :phone, :label => "Телефон" %>
 	<%= f.input :activated, :as => :boolean, :label => "Активирован" %>
 	<% end %>
-	<%= f.buttons %>
+	<%= f.buttons do %>
+		<%= f.submit "Сохранить...", :class => :yellow_button %>
+		<%= f.link_to "Отмена", collection_url, :class => :yellow_button %>
+	<% end %>
 <% end %>

@@ -1,4 +1,18 @@
+<% content_for :js do %>
+<script type="text/javascript">
+$(document).ready(function() {
+$('#post_updated_at').datepicker();
+});
+</script>
+<% end %>
 <% semantic_form_for ["admin", resource] do |f| %>
-	<%= f.inputs %>
-	<%= f.buttons %>
+<%= f.inputs do %>
+	<%= f.input :title, :label => "Название" %>
+	<%= f.input :body, :label => "Содержание" %>
+	<%= f.input :updated_at, :as => :string, :label => "Дата"	 %>
+<% end %>
+<%= f.buttons do %>
+	<%= f.submit "Сохранить...", :class => :yellow_button %>
+	<%= f.link_to "Отмена", collection_url, :class => :yellow_button %>
+<% end %>
 <% end %>
