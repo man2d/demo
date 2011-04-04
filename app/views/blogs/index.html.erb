@@ -8,6 +8,7 @@
 		<% if @posts %>
 		<% @posts.each do |post| %>
 		<h1><a href="<%= blog_url(post) %>"><%= post.title %></a></h1>
+		<div class="blog_postInfo">
 		<%= raw post.announce %>
 			<a class="readMore" href="<%= blog_url(post) %>"><span>Читать дальше</span> →</a> <% if current_user && post.user == current_user %><a class="readMore" href="<%= edit_user_blog_url(current_user, post) %>"><span>Редактировать</span> →</a><% end %>
 			<div class="split_line"></div><div class="clear"></div>
@@ -17,7 +18,7 @@
 				<div class="comments"><a href="<%=blog_url(post) %>#comments"><%= post.comments.size %> <%= Russian::p(post.comments.size, "комментарий", "комментария", "комментариев")%></a></div>
 			</div>
 			<div class="poster"><a href="<%= user_path(post.user) %>"><% if post.user %><% if post.user.avatar %><img src="<%= post.user.avatar.url(:thumb) %>" /><% end %><%= post.user.name %><% end %></a></div>
-
+			</div>
 		<% end %>
 		<% else %>
 		Не найдено ни одной записи.
