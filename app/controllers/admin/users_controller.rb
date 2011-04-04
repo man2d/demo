@@ -2,7 +2,7 @@
 class Admin::UsersController < Admin::BaseController
   inherit_resources
   respond_to :html, :xml, :json
-  defaults :route_prefix => 'admin'
+  defaults :route_prefix => 'admin', :resource_class => User, :collection_name => 'users', :instance_name => 'user'
   custom_actions :resource => :menu
   def create
     create!(:notice => "Dude! Nice job creating that page. Yeeeah") { collection_url }
