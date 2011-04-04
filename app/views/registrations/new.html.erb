@@ -26,13 +26,13 @@
 					
 						<%= f.password_field :password, :id => "user_password_password" %>
 						<div class="example pass"></div>
-					  </div><div class="not_ready" id="user_password_status"></div><div class="info"></div>
+					  </div><div class="not_ready" id="user_password_status"></div><div class="info">Пароль должен содержать не менее 6 символов</div>
 <div class="clear"></div>
 		</div>
 	</div>
 	<div class="w910">
 		  
-		<div class="errorInfo"><%= devise_error_messages! %></div>
+		<div class="errorInfo"><%= f.error_messages %></div>
 		<input type="submit" class="submit" value="Зарегистрироваться..." />
 	</div>
 <% end %>

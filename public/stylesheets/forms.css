@@ -29,7 +29,7 @@ form { display: inline; margin: 0px; padding: 0px;}
 			}
 			form .text input:focus {border: solid 1px #999999;behavior: url('js/PIE-1.0beta3/PIE.htc');}
 			form .text textarea { height: 280px; padding-top: 10px; display: inline;}
-			form .text .field_with_errors {border: solid 1px #c80009; outline: solid 0px #c80009; background-image: url("../images/form_input_bg_err.gif");}
+			form .text .field_with_errors input {border: solid 1px #c80009; outline: solid 0px #c80009; background-image: url("../images/form_input_bg_err.gif");}
 		form .not_ready, form .ready {float: left; background-repeat: no-repeat; background-position: 65% 50%; width: 40px; height: 37px; margin-top: 22px;}
 			form .ready { background-image: url("../images/reg_v.gif");}
 		form .example {float: left; clear: both; font-family: "Georgia", serif; font-style: italic; color: #d7ecf5; font-size: 12px; line-height: 16px; width: 100%; overflow: hidden;}
