@@ -23,6 +23,8 @@ gem 'sortable'
 # Stuff
 #gem 'searchlogic'
 gem 'paperclip', '~> 2.3.8'
+gem 'hpricot'
+gem 'httparty'
 #gem 'spawn'
 gem 'delayed_job'
 gem 'delayed_paperclip'

@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
 #  def create_devise_resource
 #    resource = 
 #  end
+
 private
 def after_sign_in_path_for(resource)
 
@@ -23,8 +24,8 @@ def after_sign_in_path_for(resource)
 
 end
   
-  
   def find_page
     @page = Page.find_by_cached_url(query_string)
   end
+
 end

@@ -5,7 +5,7 @@
 <% if @item %>
 	<a href="/">Главная</a><% @page.self_and_ancestors.each do |page| %> / <a href="<%= page.url %>"><%= page.title %></a><% end %> <%= raw ' / ' + content_tag(:b, @item.title+" "+@item.lgth.to_s) if @item %>
 <% else %>
-<a href="#">Главная</a><% @page.self_and_ancestors.each do |page| %>
+<a href="/">Главная</a><% @page.self_and_ancestors.each do |page| %>
   <% if page == @page %>
    / <b><%= page.title %></b>
   <% else %>

@@ -10,7 +10,7 @@ class HintsController < ApplicationController
     end
   end
   def random
-    @hint = Hint.order("RAND()").limit(1)
+    @hint = Hint.order("RAND()").limit(1).first
     if @hint
       render :text => @hint.description
     else 

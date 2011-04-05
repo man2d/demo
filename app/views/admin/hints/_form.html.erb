@@ -1,7 +1,12 @@
 <% semantic_form_for ["admin", resource] do |f| %>
 	<%= f.inputs do %>
-	<%= f.input :word %>
-	<%= f.input :description, :as => :ckeditor %>
+	<%= f.input :word, :label => "Слово для привязки" %>
+	<li id="hint_body_input" class="ckeditor optional">
+		<label for="hint_body">Содержание</label>
+		<div class="left">
+			<%= f.ckeditor_textarea :hin, :description %>
+		</div>
+	</li>
 	<% end %>
 	<%= f.buttons do %>
 		<%= f.submit "Сохранить...", :class => :yellow_button %>

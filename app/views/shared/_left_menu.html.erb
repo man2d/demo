@@ -26,7 +26,7 @@ end
 </div>
 <% end %>
 
-<% if @page && (@page.blanks.size > 0 || @page.rules.size > 0) %>
+<% if @page && @page.slug != "kapitanu" && (@page.blanks.size > 0 || @page.rules.size > 0) %>
 	<ul class="files">
 	<% if @page.blanks.size > 0 %>
 	<% @page.blanks.each do |asset| %>

@@ -29,6 +29,16 @@ class BlogsController < ApplicationController
     end
   end
   
+  def destroy
+    @post = current_user.blog_posts.find(params[:id])
+    if @post.destroy
+      redirect_to :back
+    else
+      flash[:notice] = "Не удалось удалить сообщение"
+      redirect_to :back
+    end
+  end
+  
   def admin_posts
     @posts = BlogPost.joins(:user).where("users.user_type = 'admin'").paginate(:page => params[:page])
     render 'index'

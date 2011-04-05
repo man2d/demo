@@ -62,6 +62,7 @@ GEM
     childprocess (0.1.7)
       ffi (~> 0.6.3)
     configuration (1.2.0)
+    crack (0.1.8)
     css_parser_master (1.2.4)
     cucumber (0.10.0)
       builder (>= 2.1.2)
@@ -102,8 +103,11 @@ GEM
       json (~> 1.4.6)
     has_scope (0.5.0)
     highline (1.6.1)
+    hpricot (0.8.4)
     html_css_decorator (0.1.2)
       css_parser_master (>= 1.2.4)
+    httparty (0.7.4)
+      crack (= 0.1.8)
     i18n (0.5.0)
     inherited_resources (1.2.1)
       has_scope (~> 0.5.0)
@@ -223,7 +227,9 @@ DEPENDENCIES
   faker
   formtastic
   has_scope
+  hpricot
   html_css_decorator
+  httparty
   inherited_resources (~> 1.2.1)
   jquery-rails (>= 0.2.6)
   jrails

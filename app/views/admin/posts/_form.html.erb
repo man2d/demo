@@ -8,7 +8,12 @@ $('#post_updated_at').datepicker();
 <% semantic_form_for ["admin", resource] do |f| %>
 <%= f.inputs do %>
 	<%= f.input :title, :label => "Название" %>
-	<%= f.input :body, :label => "Содержание" %>
+	<li id="post_body_input" class="ckeditor optional">
+		<label for="post_body">Содержание</label>
+		<div class="left">
+			<%= f.ckeditor_textarea :post, :body %>
+		</div>
+	</li>
 	<%= f.input :updated_at, :as => :string, :label => "Дата"	 %>
 <% end %>
 <%= f.buttons do %>

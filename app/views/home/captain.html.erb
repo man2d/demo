@@ -1,3 +1,4 @@
+<% #coding: utf-8 %>
 	<div class="w910 typical">
 		<%= render 'shared/breadcrumbs' %>
 		<div class="left">
@@ -28,10 +29,42 @@
 -->
 			</div>
 			<div class="col_2 right">
-				<h2>Погода</h2>
-				<%=raw open('http://www.yandex.ru/wy/weather.xml').read %>
+				<% if @g_spb %>
+				<h2>Санкт-Петербург</h2>
 				
+					<table class="b-current-weather"><tbody>
+ 						<tr><td class="t t8"><span><pre><%= @g_spb.current_conditions.temp_c %> °C</pre></span><b><i></i></b></td><td class="i"><i class="b-wea-icon g-png"><img src="http://www.google.com<%=@g_spb.current_conditions.icon %>"></i></td><td class="f"><div></div><div><%= @g_spb.current_conditions.wind_condition.gsub("Wind", "Ветер").gsub("at", "~").gsub("N", "С").gsub("W", "З").gsub("E", "В").gsub("S", "Ю").gsub("mph", "м/с") %></div><div><%= @g_spb.current_conditions.humidity.gsub("Humidity", "Влажность") %></div></td></tr>
+						</tbody></table>
+						<table class="b-forecast-brief"><tbody>
+							
+							<tr><% @g_spb.forecast_conditions.each do |c| %><th class="t8"><%= t(c.day_of_week) %></th><% end %></tr>
+						
+							<tr class="data"><% @g_spb.forecast_conditions.each do |c| %><td class="t8"><b class="b-wea-icon g-png"><img src="http://www.google.com<%= c.icon %>"></b></td><% end %></tr>
+							<tr class="data day"><% @g_spb.forecast_conditions.each do |c| %><td class="t8"><%= ((c.high.to_i-32)/1.8).to_i %></td><% end %>
+							<tr class="data night"><% @g_spb.forecast_conditions.each do |c| %><td class="t6"><%= ((c.low.to_i-32)/1.8).to_i %></td><% end %></tr></tbody></table>
+								<% end %>
+								<% if @g_msk %>
+								<h2>Москва</h2>
+
+									<table class="b-current-weather"><tbody>
+				 						<tr><td class="t t8"><span><pre><%= @g_msk.current_conditions.temp_c %> °C</pre></span><b><i></i></b></td><td class="i"><i class="b-wea-icon g-png"><img src="http://www.google.com<%=@g_msk.current_conditions.icon %>"></i></td><td class="f"><div></div><div><%= @g_msk.current_conditions.wind_condition.gsub("Wind", "Ветер").gsub("at", "~").gsub("N", "С").gsub("W", "З").gsub("E", "В").gsub("S", "Ю").gsub("mph", "м/с") %></div><div><%= @g_msk.current_conditions.humidity.gsub("Humidity", "Влажность") %></div></td></tr>
+										</tbody></table>
+										<table class="b-forecast-brief"><tbody>
+
+											<tr><% @g_msk.forecast_conditions.each do |c| %><th class="t8"><%= t(c.day_of_week) %></th><% end %></tr>
+
+											<tr class="data"><% @g_msk.forecast_conditions.each do |c| %><td class="t8"><b class="b-wea-icon g-png"><img src="http://www.google.com<%= c.icon %>"></b></td><% end %></tr>
+											<tr class="data day"><% @g_msk.forecast_conditions.each do |c| %><td class="t8"><%= ((c.high.to_i-32)/1.8).to_i %></td><% end %>
+											<tr class="data night"><% @g_msk.forecast_conditions.each do |c| %><td class="t6"><%= ((c.low.to_i-32)/1.8).to_i %></td><% end %></tr></tbody></table>
+												<% end %>
 			</div>
-<%= render 'pages/attachments'%>
+			<%= render 'pages/attachments' %>
 		</div>
 	</div>
+<% content_for :js do %>
+<style type="text/css">
+table.b-forecast-brief td, table.b-current-weather td { padding: 3px;}
+table.b-current-weather td, table.b-current-weather div { word-wrap: pre;}
+td.f { width: 100%;}
+</style>
+<% end %>

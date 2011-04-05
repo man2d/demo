@@ -1,6 +1,15 @@
 
 
 ru:
+  Mon: "пн"
+  Tue: "вт"
+  Wed: "ср"
+  Thu: "чт"
+  Fri: "пт"
+  Sat: "сб"
+  Sun: "вс"
+  Partly: "частично"
+  Cloudy: "облачно"
   errors:
     template:
       header: "Произошла ошибка при отправке формы"
@@ -179,6 +188,9 @@ ru:
         user_type: "Тип пользователя"
         password: "Пароль"
         name: "Имя пользователя"
+      blog_post:
+        title: "Название"
+        content: "Содержание"
       email: "E-mail"
       
     errors:

@@ -6,9 +6,9 @@
 	</div>
 	<div class="right">
 		<h1><%= @post.title %></h1>
-		<%= raw @post.content %>
+		
 		<div class="blog_postInfo">
-			
+			<%= raw @post.content %>
 			<div class="split_line"></div><div class="clear"></div>
 			<div class="left clear">
 				<div class="tags"><% @post.tags.each do |tag| %><a href="/blogs/tag/<%= tag.name %>"><%= tag.name %></a> <% end %></div>
@@ -33,7 +33,7 @@
 			<% @post.comments.each do |comment| %>
 			<% unless comment.new_record? %>
 			<li>
-				<p class="date">7 марта 2011</p>
+				<p class="date"><%= Russian::strftime(comment.created_at, "%d %B %Y")%></p>
 				<a class="poster" href="<%= user_path(comment.user) %>"><% if comment.user.avatar %><img src="<%= comment.user.avatar.url(:thumb) %>" /><% end %><%= comment.user.name %></a>
 				<p class="post"><%= comment.comment %></p>
 			</li>
@@ -41,6 +41,7 @@
 			<% end %>
 
 			</ul>
+		
 		</div>
 	</div>
 </div>

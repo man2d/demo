@@ -241,8 +241,10 @@
 			opacity: 0
 		}, 300, function() { // после того как спрятали текущий контент
 			//тут подгружаем новый контент внутрь .tempTipData
-			jQuery(".tempTipData").append('123<img src="images/tipPic2.jpg" />');
+			//jQuery(".tempTipData").append('123<img src="images/tipPic2.jpg" />');
+			jQuery.get('/hints/random', function(data) 
 			{// и когда он загружен, проявляем его
+				jQuery(".tempTipData").html(data);
 				var newH = jQuery(".tempTipData").outerHeight(); // узнаем высоту новго контента
 				jQuery(".yacht_tip_dataWrap").animate({
 					height: newH
@@ -257,7 +259,7 @@
 						opacity: 1
 					}, 300);
 				});
-			}
+			});
 		});
 	};
 	function yachtTipShowAnim() {
@@ -317,32 +319,7 @@
 		
 		jQuery(".main_menu li, .sub1 li, .sub2 li").mouseenter(showMenu).mouseleave(hideMenu);
 		
-		function showMenu() {
-			jQuery(this).children("ul, .sub3").stop();
-			jQuery(this).children("ul, .sub3").css('display', 'inline');
-			if (jQuery.browser.msie != true) {
-				jQuery(this).children("ul, .sub3").animate({
-					opacity: 1
-				  }, 300, function() {
-					 // this.style.removeAttribute('filter');
-					// Animation complete.
-				  });
-			} else {
-				jQuery(this).children("ul, .sub3").css("display", "inline");
-				if (isIE6) {jQuery(".sub1").css("paddingTop", "0px").children("li").eq(0).css("marginTop", "30px");	}
-			}
-		}
-		function hideMenu() {
-			jQuery(this).children().stop();
-			if (jQuery.browser.msie != true) {
-				jQuery(this).children("ul, .sub3").animate({
-					opacity: 0
-				  }, 300, function() {
-					// Animation complete.
-					jQuery(this).css('display', 'none');
-				  });
-			} else {jQuery(this).children("ul, .sub3").css("display", "none");}
-		}
+		
 		
 		jQuery(".sub1").mouseleave(function() {
 			//jQuery(".sub1").delay()
@@ -375,4 +352,31 @@ function updateWallpaper() {
 		jQuery(".mapBg img").width("auto");
 		jQuery(".mapBg img").height("100%");
 	}
+}
+
+function showMenu() {
+	jQuery(this).children("ul, .sub3").stop();
+	jQuery(this).children("ul, .sub3").css('display', 'inline');
+	if (jQuery.browser.msie != true) {
+		jQuery(this).children("ul, .sub3").animate({
+			opacity: 1
+		  }, 300, function() {
+			 // this.style.removeAttribute('filter');
+			// Animation complete.
+		  });
+	} else {
+		jQuery(this).children("ul, .sub3").css("display", "inline");
+		if (isIE6) {jQuery(".sub1").css("paddingTop", "0px").children("li").eq(0).css("marginTop", "30px");	}
+	}
+}
+function hideMenu() {
+	jQuery(this).children().stop();
+	if (jQuery.browser.msie != true) {
+		jQuery(this).children("ul, .sub3").animate({
+			opacity: 0
+		  }, 300, function() {
+			// Animation complete.
+			jQuery(this).css('display', 'none');
+		  });
+	} else {jQuery(this).children("ul, .sub3").css("display", "none");}
 }

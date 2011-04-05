@@ -2,21 +2,24 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title><%=(@title?@title:raw('Яхт-клуб &laquo;Президент Нева&raquo;'))%></title>
+<title><%= @page.title if @page && @page.title %><%=raw('Яхт-клуб &laquo;Президент Нева&raquo;') unless @page && @page.title %></title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 <%= stylesheet_link_tag "common", "content", "fonts", "forms", "mainMenu", "otherMenu",  "catalog" %>
+<%= stylesheet_link_tag "nivo-slider", "thickbox", "/javascripts/imageflow/imageflow", "application", "datepicker" %>
 <%#= stylesheet_link_tag :all %>
 <!--[if IE]><link rel="stylesheet" href="/stylesheets/ie/IE.css" type="text/css" /><![endif]-->
 <!--[if lte IE 6]>
 <link rel="stylesheet" href="/stylesheets/ie/ie6_fix.css" type="text/css" media="screen" />
 <![endif]-->
 <%= javascript_include_tag :defaults %>
+<%= javascript_include_tag "jquery.nivo.slider", "imageflow/imageflow", "thickbox/thickbox", "fenix", "jquery.showpassword", "jquery.easing.1.3", 
+"jquery.easing.compatibility", "flowplayer-3.2.6.min", "jquery.datepicker" %>
 <%= csrf_meta_tag %>
 
 <!--<link rel="stylesheet" href="/javascripts/fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
 <script type="text/javascript" src="/javascripts/fancybox/jquery.fancybox-1.3.4.js"></script>-->
-
+<!--
 <script type="text/javascript" src="/javascripts/jquery.nivo.slider.js"></script>
 <link rel="stylesheet" href="/stylesheets/nivo-slider.css" type="text/css" media="screen" />
 
@@ -25,22 +28,21 @@
 <script language="JavaScript" type="text/javascript" src="/javascripts/imageflow/imageflow.js"></script>
 
 <link rel="stylesheet" href="/stylesheets/thickbox.css" type="text/css" media="screen" />
-<!--<script language="JavaScript" type="text/javascript" src="/javascripts/thickbox.js"></script>-->
 
 <script type="text/javascript" src="/javascripts/thickbox/thickbox.js"></script>
 <link rel="stylesheet" href="/stylesheets/thickbox.css" type="text/css" media="screen" />	
 <script type="text/javascript" src="/javascripts/fenix.js"></script>
 <script type="text/javascript" src="/javascripts/jquery.showpassword.js"></script>
-
-<script type="text/javascript" src="/javascripts/jquery.validation/lib/jquery.form.js"></script>
-<script type="text/javascript" src="/javascripts/jquery.validation/jquery.validate.js"></script>
-<script type="text/javascript" src="/javascripts/jquery.validation/additional-methods.js"></script>
 <link rel="stylesheet" href="/stylesheets/application.css" />
 <link rel="stylesheet" href="/stylesheets/datepicker.css" />
 <script type="text/javascript" src="/javascripts/jquery.easing.1.3.js"></script>
 <script type="text/javascript" src="/javascripts/jquery.easing.compatibility.js"></script>
 <script type="text/javascript" src="/javascripts/flowplayer-3.2.6.min.js"></script>
-<script type="text/javascript" src="/javascripts/jquery.datepicker.js"></script>
+<script type="text/javascript" src="/javascripts/jquery.datepicker.js"></script>-->
+<!--<script type="text/javascript" src="/javascripts/jquery.validation/lib/jquery.form.js"></script>
+<script type="text/javascript" src="/javascripts/jquery.validation/jquery.validate.js"></script>
+<script type="text/javascript" src="/javascripts/jquery.validation/additional-methods.js"></script>-->
+
 <%= yield :js %>
 </head>
 <body <%=raw 'class="transparent"' if @template == 2 %>>
@@ -137,9 +139,20 @@
     
     <div id="content">
 	  <%= yield %>
-	  <div class="yacht">
-	    <div class="water"></div>
-	  </div>
+		<div class="yacht">
+			<div class="pict"><a class="yachtPic"></a>
+			<div class="shadow yacht_tip_container" style=""><div class="b"><div class="bl"></div><div class="tr"><div class="r"></div>
+			<div class="dataShadowWrap yacht_tip_data">
+					<div class="yacht_tip_dataWrap">
+						
+					</div>
+			<a unselectable="on" class="close"></a><a unselectable="on" class="refresh"></a></div></div></div><div class="arrow"></div></div>
+			</div>
+			<div class="dataShadowWrap yacht_tip_data">
+					<div class="tempTipData"></div>
+			</div>
+          <div class="water"></div>
+      </div>
     </div>
 </div>
 <div class="contMargin">

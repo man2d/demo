@@ -15,7 +15,7 @@
 							    <p>
 							<% item.item_properties.each do |item_property| %>
 							<% if item_property.property %>
-										<%= item_property.property.title %> &ndash;&nbsp; <%= item_property.value %><br/>
+										<%= raw item_property.property.title %> &ndash;&nbsp; <%= raw item_property.value %><br/>
 							<% end %>
 							<% end %>
 								</p>
