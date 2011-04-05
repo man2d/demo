@@ -131,12 +131,13 @@ $('a.hint').live('click', function(){
   $('.sub3').hide(); el.children('.sub3').css('top', "-"+(index*22).toString()+"px").show();
 }).live('mouseleave', function() { $('.sub3').hide()});*/
 
+$(".small a").live('click', function() {
+  $('div.big img').attr('src', $(this).attr('src').replace('thumb', 'normal'));
+});
 /** Галерея **/
 
 /*
-$("div.gallery a").live('click', function() {
-  $('div.gallery div.big img').attr('src', $(this).attr('rel'));
-});
+
 $('#carinfo_toggle').live('click', function() {
   $('table.carinfo_table').show();
   $('#carinfo_description').hide();

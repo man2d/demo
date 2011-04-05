@@ -16,8 +16,8 @@
 		<% @page.blanks.each do |file| %>
 		<div class="file <%= file.attachment_file_name.split('.').last %>">
 			<a href="<%= file.url %>" target="_blank">
-			<%= file.attachment_file_name.split(".").first %></a><br/>
-			<%= file.attachment_file_name.split(".").last.upcase %> <%= (file.attachment_file_size/1024).round(3) %> Кб
+			<%= file.attachment_file_name.split(".").first %></a>
+			<%= file.attachment_file_name.split(".").last.upcase %>, <%= (file.attachment_file_size/1024).round(3) %> Кб
 			</div>
 		<% end %>
 	<% end %>

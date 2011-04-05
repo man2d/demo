@@ -8,16 +8,16 @@ else
 end
 %>
 
-<% left_menu_items.each do |page| %>
+<% left_menu_items.order(:position).each do |page| %>
   <%= raw link_or_span(page) %>
 <% end %>
 
 </ul>
 <% if current_user %>
 <div class="leftBlueBox">
-	<% if current_user.owner? %><div class="resumePic"><a href="<%= resumes_path %>">Резюме капитанов</a></div>
-    <div class="clear"></div>
-    <div class="servisPic"><a href="javascript:void();">Заявка на сервисное обслуживание яхты</a></div>
+	<% if current_user.owner? %>
+	<div><span class="resumePic"></span><a href="<%= resumes_path %>"><span>Резюме капитанов</span></a></div>
+	<div><span class="servisPic"></span><a href="<%= resumes_path %>"><span>Заявка на сервисное обслуживание яхты</span></a></div>
     <% end %>
     <% if current_user.captain? %>
 

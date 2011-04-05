@@ -68,7 +68,7 @@
 						<div class="shadow mapPos" style="display:none;"><div class="b"><div class="bl"></div><div class="tr"><div class="r"></div>
 						<div class="dataShadowWrap smallForm map">
 								<p class="phone">(812) 321-60-30</p>
-								<form>
+								
 									<h2 class="color_a">Центральный офис</h2>
 									<p>
 										194156, Россия, Санкт-Петербург,<br />ул. Зеленогорская, д. 4, лит. А<br /><br />
@@ -80,21 +80,22 @@
 										факс:  (812) 321-60-30
 									</p>
 									<a class="psevdo sendMsg" href="#" onclick="$('#sendMsg').slideToggle();">Отправить сообщение</a>
+									<%= form_tag "/messages/contact" %>
 									<div id="sendMsg">
 										<div class="text">
 											<label for="name">Представьтесь, пожалуйста</label>
 											<div class="clear"></div>
-											<input type="text" id="name" value="Петр Иванович" />
+											<input type="text" id="name" name="name" />
 										</div>
 										<div class="text">
 											<label for="mail">Эл. почта</label>
 											<div class="clear"></div>
-											<input type="text" id="mail" value="email@post.com" />
+											<input type="text" id="mail" name="email" />
 										</div>
 										<div class="text">
 											<label>Сообщение:</label>
 											<div class="clear"></div>
-											<textarea></textarea>
+											<textarea name="message"></textarea>
 										</div>
 										<input class="submit" value="Отправить" type="submit" /><p class="error"></p>
 									</div>
@@ -176,7 +177,7 @@
 </div>
 <div class="shadow tip_container" style=""><div class="b"><div class="bl"></div><div class="tr"><div class="r"></div>
 <div class="dataShadowWrap tip_data">		
-<a class="close"></a></div></div></div><div class="arrow"></div></div>
+</div></div></div><div class="arrow"></div></div>
 
 </div>
 </div>

@@ -3,7 +3,7 @@
 //document.getElementById('qwe2').style.height = divh + 'px';
 //}
  jQuery(document).ready(function() {
-	 
+	 updateWallpaper();
 	//узнаем ие6
 	var isIE6 = false;
 	if (jQuery.browser.msie == true)
@@ -173,7 +173,7 @@
 		//jQuery(".tip_container").css("left",pos.left+offsetX);
 		jQuery(".tip_container").css("margin-left", -offsetX);
 	};
-	jQuery(".tip_data").children(".close").click(function() {
+	jQuery(".tip_data .close").live('click', function() {
 		tipVisible = false;
 		prevTip = "";
 		jQuery(".tip_container").stop().animate({
@@ -203,7 +203,7 @@
 				query_string = id;
 			}
 			jQuery.get("/hints/"+query_string, function(data) {
-				jQuery(".tip_data").html(data);
+				jQuery(".tip_data").html(data+'<a class="close"></a>');
 				//устанавливаем новое позиционирование
 				setTipPos(tipObj);
 				//проявляем подсказку

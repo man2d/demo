@@ -6,16 +6,11 @@
 		<div class="left">
 			<div class="photo">
 				<% if @item.gallery_images.size > 0 %>
-				<div class="big"><%= @item.gallery_images.first.url(:big) %></div>
+				<div class="big"><%= image_tag @item.gallery_images.first.url(:normal) %></div>
 				<ul class="small">
 					<% @item.gallery_images.each do |img| %>
 					<li><a><img src="<%= img.url(:thumb) %>" alt="" /></a></li>
 					<% end %>
-					<li><a href="#"><img src="images/contentPic.jpg" alt="" /></a></li>
-					<li><a href="#"><img src="images/contentPic.jpg" alt="" /></a></li>
-					<li><a href="#"><img src="images/contentPic.jpg" alt="" /></a></li>
-					<li><a href="#"><img src="images/contentPic.jpg" alt="" /></a></li>
-					<li><a href="#"><img src="images/contentPic.jpg" alt="" /></a></li>
 				</ul>
 				<% end %>
 			</div>

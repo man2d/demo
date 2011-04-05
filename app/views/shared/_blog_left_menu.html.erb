@@ -23,6 +23,8 @@
 	<li<%=raw ' class="current"' if params[:topic_id].to_i == topic.id %>><a href="/blogs/topics/<%= topic.id %>"><%= topic.title %><span>→</span></a></li>
 	    <% end %>
 	</ul>
+	<% if current_user %>
 	<div class="leftBlueBox">
 		<% if current_user %><div><span class="blogPic"></span><a href="<%= new_blog_path %>"><span>Добавить запись в личный блог</span></a></div><% end %>
 	</div>
+	<% end %>

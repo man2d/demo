@@ -15,10 +15,11 @@
 				<div class="date"><%= Russian::strftime(@post.created_at, "%d %B %Y")%></div>
 				<div class="comments"><a href="#comments"><%= @post.comments.size %> <%= Russian::p(@post.comments.size, "комментарий", "комментария", "комментариев")%></a></div>
 			</div>
-			<% if @post.user %><div class="poster"><a href="<%= user_url(@post.user) %>"><% if @post.user %><img src="<%= @post.user.avatar.url(:thumb) %>" /><% end %><%= @post.user.name %></a></div><% end %>
+			<% if @post.user %><div class="poster"><a href="<%= user_url(@post.user) %>"><% if @post.user.avatar %><img src="<%= @post.user.avatar.url(:thumb) %>" /><% end %><%= @post.user.name %></a></div><% end %>
 		</div>
 		<div class="blog_comments">
 			<h2 class="left"><a name="comments">Комментарии</a></h2>
+			<% if current_user %>
 			<a class="showCommentForm">↓ <span>Написать комментарий</span></a>
 			<div class="clear"></div>
 			<ul>
@@ -30,6 +31,7 @@
 					<input class="submit" type="submit" value="Отправить" />
 				<% end %>
 			</li>
+			<% end %>
 			<% @post.comments.each do |comment| %>
 			<% unless comment.new_record? %>
 			<li>

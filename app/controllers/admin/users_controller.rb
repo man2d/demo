@@ -35,7 +35,7 @@ class Admin::UsersController < Admin::BaseController
   end
   def collection
     if params[:search]
-      @users = User.find(params[:search]).all
+      @users = User.where(params[:search]).all
     else
       @users = User.all
     end

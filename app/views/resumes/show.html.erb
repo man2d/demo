@@ -9,7 +9,7 @@
 						<h2><%= @resume.fio %></h2>
 						<p><% if @resume.phone %>Тел.: <%= @resume.phone %><br /><% end %><% if @resume.email %>Эл. почта: <%= @resume.email %><% end %></p>
 					</div>
-					<% if current_user.captain? %><a href="<%= edit_user_resume_path(current_user, @resume) %>" class="submit formReady">Редактировать</a>
+					<% if current_user.captain? %><a href="<%= edit_user_resume_path(current_user) %>" class="submit formReady">Редактировать</a>
 					<% else %><a href="#" class="submit formReady">Пригласить капитана</a><% end %>
 				</div>
 				<h2>Опыт</h2>

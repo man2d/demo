@@ -2,6 +2,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   helper :all
+  include ApplicationHelper
 #  before_filter :create_devise_resource
   
 #  def create_devise_resource

@@ -19,9 +19,12 @@
 		<td>
 			<ul class="tree news">
 				<% collection.each do |resource| %>
-				<li><span><%= check_box_tag "users[]", resource.id %><p class="date"><%= resource.updated_at.to_date %></p><p class="text"><%= resource.name %></p></span></li>
+				<li><span><%= check_box_tag "users[]", resource.id, false, :class => resource.user_type %><p class="text"><%= resource.name %></p></span></li>
 				<% end %>
 			</ul>
+			<br/>Выбрать:<br/>
+			<a onclick="$('.owner').attr('checked', 'checked');">судовладельцы</a>
+			<a onclick="$('.captain').attr('checked', 'checked');">капитаны</a>
 		</td>
 	</tr>
 </table>

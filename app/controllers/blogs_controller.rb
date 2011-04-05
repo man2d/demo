@@ -60,7 +60,12 @@ class BlogsController < ApplicationController
   end
   
   def index
-    @posts = BlogPost.paginate(:page => params[:page])
+    if params[:user_id]
+      @user = User.find(params[:id])
+      @posts = @user.blog_posts.paginate(:page => params[:page])
+    else
+      @posts = BlogPost.paginate(:page => params[:page])
+    end
   end
   
   def show
