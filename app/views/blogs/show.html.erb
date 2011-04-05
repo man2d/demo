@@ -34,7 +34,7 @@
 			<% end %>
 			<% @post.comments.each do |comment| %>
 			<% unless comment.new_record? %>
-			<li>
+			<li style="clear: both;">
 				<p class="date"><%= Russian::strftime(comment.created_at, "%d %B %Y")%></p>
 				<a class="poster" href="<%= user_path(comment.user) %>"><% if comment.user.avatar %><img src="<%= comment.user.avatar.url(:thumb) %>" /><% end %><%= comment.user.name %></a>
 				<p class="post"><%= comment.comment %></p>

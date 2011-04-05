@@ -173,7 +173,7 @@ $('.points a').click(function(){
 
 
 jQuery(document).ready(function(){
-	$('.f1 a').live('click', function() {
+	$('.f1 a').click(function() {
 
 	  $(this).parents('ul').children('li').removeClass('current');
 	  $('.f2 li').removeClass('current');
@@ -182,7 +182,7 @@ jQuery(document).ready(function(){
 	  $.get('/filter/do?search[item_assign_id]='+$(this).attr('data'));
 	  updateWallpaper();
 	});
-	$('.f2 a').live('click', function() {
+	$('.f2 a').click(function() {
 	  $(this).parents('ul').children('li').removeClass('current');
 	  $('.f1 li').removeClass('current');
 	  $(this).parents('li').addClass('current');

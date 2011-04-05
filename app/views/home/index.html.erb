@@ -26,8 +26,8 @@
         </div>
         <div class="right">
         	<div class="part">
-        		<img src="images/ship.gif" alt="" /><a href="/about/sudovladelcu">Судовладельцу</a>
-            	<img src="images/cap.gif" alt="" /><a href="/about/kapitanu/">Капитану</a>
+        		<img src="/images/ship.gif" alt="" /><a href="/about/sudovladelcu">Судовладельцу</a>
+            	<img src="/images/cap.gif" alt="" /><a href="/about/kapitanu/">Капитану</a>
             </div>
             <h3><a href="/about/news">Новости</a></h3>
             <div class="news">
@@ -35,7 +35,7 @@
 				  <%= link_to post.title, "/about/news/#{post.id}" %><br/>
 				<% end %>
             </div>
-            <h3>Новое в <a href="/blog">блоге</a></h3>
+            <h3>Новое в <a href="/blogs">блоге</a></h3>
             <div class="news">
 			    <% @blog_posts.each do |post| %>
 				  <%= link_to post.title, blog_url(post) %><br/>
