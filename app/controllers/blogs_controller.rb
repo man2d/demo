@@ -50,7 +50,7 @@ class BlogsController < ApplicationController
   end
   
   def tags
-    @posts = BlogPost.tagged_with(params[:tag]).paginate(:page => params[:page])
+    @posts = BlogPost.tagged_with(CGI.unescape(params[:tag])).paginate(:page => params[:page])
     render 'index'
   end
   

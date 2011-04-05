@@ -111,11 +111,10 @@ Navigator2::Application.routes.draw do
   
   
   resources :blogs do
-#    member 'topics/:topic_id' => 'blogs#topics'
-#    member 'tags/:tag' => 'blogs#tags'
     collection do
       get 'topics/:topic_id' => 'blogs#topics'
       get 'tags/:tag' => 'blogs#tags'
+      get 'tag/:tag' => 'blogs#tags'
       get 'admin_posts'
       get 'member_posts'
     end
