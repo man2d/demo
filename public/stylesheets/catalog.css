@@ -24,9 +24,10 @@
 	}
 	.brand li.number p {font-family: 'HeliosLightRegular', sans-serif; color: #a6a6a6; font-size: 39px;}
 	.brand li a {display: block; float:left; margin-bottom: 5px;}
-		.brand li a.add, .brand li a.remove {font-family: "Arial", "Helvetica", sans-serif; text-decoration: none; white-space: nowrap;
+		a.add, a.remove {font-family: "Arial", "Helvetica", sans-serif; text-decoration: none; white-space: nowrap;
 			border-bottom: dashed 1px; font-size: 12px; line-height: 13px; color: #165e80;}
-		.brand li a.remove {color: #808080;}
+		a.remove {color: #808080;}
+		a.add:hover, a.remove:hover {color: #c80009;}
 		.brand li a.name {font-family: 'HeliosLightRegular', sans-serif; font-size: 16px;
 			color: #4d4d4d; border: none; text-decoration: underline;}
 		.brand li a:hover {color: #c80009;}
@@ -37,6 +38,11 @@
 	.cat_model .left {width: 420px; overflow: hidden; padding-bottom: 20px;}
 		.cat_model .left img { float: left; clear: both; margin-bottom: 15px;}
 	.cat_model .right {width: 460px;}
+		.cat_model .right .right { width: auto;}
+		.cat_model .right .left { width: auto;}
+		.cat_model .right img { margin: 8px; margin-top: 0px; padding: 0px;}
+			.cat_model .right img.left { margin-left: 0px;}
+			.cat_model .right img.right { margin-right: 0px;}
 	.cat_model .right p {font-size: 13px; line-height: 20px; margin-bottom: 10px;}
 	.indent {text-indent: -8px;}
 	

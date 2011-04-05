@@ -14,7 +14,7 @@
 	.sub1 a, .sub2 a {padding: 4px 7px; padding-bottom: 5px; padding-left: 10px;}
 	.sub2 a {background-image: url("../images/mmenu_bbg.png");}
 	.sub3 a { margin: 0px; padding: 0px;}
-	.main_menu a:hover {background-color: #165e80; text-decoration: none;}
+	.main_menu a:hover {background-color: #165e80; color: white; text-decoration: none;}
 	.main_menu li a.current {background-color: #165e80; text-decoration: none; color: white;}
 	.sub1 a:hover {background-color: transparent; background-image: url("../images/mmenu_bbg.png"); color: #282d30;}
 	.sub2 a:hover {background-color: transparent; background-image: url("../images/mmenu_wbg.png"); color: #282d30;}
@@ -50,3 +50,5 @@ li:hover>.arrow{display: block;}
 		.sub3 a:hover img {border-color: #165e80;}
 	.sub3 .right {width: 270px;}
 		.sub3 .right p {font-family: "Arial", "Helvetica", sans-serif; font-size: 12px; line-height: 18px;}
+		
+.outer { border: solid 1px red; float: left; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; padding: 30px 15px 0px 0px; margin-top: -15px;}

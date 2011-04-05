@@ -3,12 +3,7 @@
 //document.getElementById('qwe2').style.height = divh + 'px';
 //}
  jQuery(document).ready(function() {
-	 updateWallpaper();
-	//узнаем ие6
-	var isIE6 = false;
-	if (jQuery.browser.msie == true)
-	if (jQuery.browser.version <= 6)
-		isIE6 = true;
+
 		
 	if (isIE6) {
 		//forms ie6_fix
@@ -80,6 +75,7 @@
 	jQuery(".enter").click(formAnim);
 	function formAnim(animatedObj) {
 		state = "x";
+		if (isIE6) jQuery(".enterFormPos").find(".text input").css("height","31");
 		jQuery('body').unbind('click', formsHandler);
 		if (jQuery(".enter").hasClass("active")) {
 			jQuery(".enter").removeClass("active");
@@ -135,8 +131,10 @@
 	});
 	
 	//настройка фона
+	updateWallpaper();
 	jQuery(".mapBg img").load(function () {	updateWallpaper(); });
 	jQuery(window).resize(function () {	updateWallpaper(); });
+	
 	
 	//tip
 	var tipVisible = false;
@@ -235,6 +233,7 @@
 	function refreshYachtTip() {
 		var currH = jQuery(".yacht_tip_dataWrap").outerHeight();
 		jQuery(".yacht_tip_dataWrap").height(currH);
+		if (isIE6 && (jQuery(".yacht_tip_data").height()%2 == 0)) jQuery(".yacht_tip_data").height(jQuery(".yacht_tip_data").height()+1);
 		
 		if (jQuery.browser.msie == true) jQuery(".yacht_tip_dataWrap img").stop().animate({opacity: 0}, 300);
 		jQuery(".yacht_tip_dataWrap").stop().animate({
@@ -246,10 +245,18 @@
 			{// и когда он загружен, проявляем его
 				jQuery(".tempTipData").html(data);
 				var newH = jQuery(".tempTipData").outerHeight(); // узнаем высоту новго контента
+				if (isIE6 && (newH%2 == 0)) newH++;
+				
 				jQuery(".yacht_tip_dataWrap").animate({
 					height: newH
 				}, 400, function() {
+					//jQuery("#content").prepend(jQuery(".yacht_tip_container").find(".bl").css("bottom"))
+					if (isIE6) {
+						jQuery(".yacht_tip_container").find(".b").css("height", "auto").css("height", jQuery(".yacht_tip_container").find(".b").height());
+					}
+					
 					jQuery(".yacht_tip_data").css("height","auto");
+					
 					jQuery(".yacht_tip_dataWrap").html(jQuery(".tempTipData").html());
 					if (jQuery.browser.msie == true) {
 						jQuery(".yacht_tip_dataWrap img").animate({opacity: 0}, 0);
@@ -257,7 +264,9 @@
 					}
 					jQuery(".yacht_tip_dataWrap").animate({
 						opacity: 1
-					}, 300);
+					}, 300, function() {if (isIE6) {
+						jQuery(".yacht_tip_container").find(".b").css("height", "auto").css("height", jQuery(".yacht_tip_container").find(".b").height());
+					}});
 				});
 			});
 		});
@@ -265,7 +274,7 @@
 	function yachtTipShowAnim() {
 		yachtTipVisible = true;
 		jQuery(".yacht_tip_container").css("bottom",-1000);
-		jQuery(".yacht_tip_dataWrap").height(jQuery(".tempTipData").outerHeight()).html(jQuery(".tempTipData").html());
+		jQuery(".yacht_tip_dataWrap").height(jQuery(".tempTipData").height()).html(jQuery(".tempTipData").html());
 		jQuery(".yacht_tip_container").css("bottom", -jQuery(".yacht_tip_container").height());
 		if (jQuery.browser.msie == true) jQuery(".yacht_tip_dataWrap img").stop().animate({opacity: 0}, 0);
 		//обновляем контент
@@ -311,20 +320,10 @@
 	};
 	
 	//mainMenu
-	{
-		if (isIE6) jQuery(".sub1").width(jQuery(".sub1").parent().width());
-		
-		jQuery(".sub1, .sub2, .sub3").css("display","none");
-		if (jQuery.browser.msie != true) jQuery(".sub1, .sub2, .sub3").css("opacity", 0);
-		
-		jQuery(".main_menu li, .sub1 li, .sub2 li").mouseenter(showMenu).mouseleave(hideMenu);
-		
-		
-		
-		jQuery(".sub1").mouseleave(function() {
-			//jQuery(".sub1").delay()
-		});
-	}
+	if (isIE6) jQuery(".sub1").width(jQuery(".sub1").parent().width());
+	jQuery(".sub1, .sub2, .sub3, .sub").css("display","none");
+	if (jQuery.browser.msie != true) jQuery(".sub1, .sub2, .sub3, .sub").css("opacity", 0);
+	jQuery(".main_menu li, .sub1 li, .sub2 li, .addMenu li").mouseenter(showMenu).mouseleave(hideMenu);
 	
 	//.blog_comments ul li .post 
 	jQuery.each(jQuery(".blog_comments .post"), function() {
@@ -335,14 +334,26 @@
 		if (jQuery(this).width() < 500) jQuery(this).width(500);
 	});
 	
+	//#content
+	if (jQuery("#content").height() < 350) jQuery(".yacht").css("paddingTop", (350-jQuery("#content").height())+"px");
 	
 });
 
+//узнаем ие6
+	var isIE6 = false;
+	if (jQuery.browser.msie == true)
+	if (jQuery.browser.version <= 6)
+		isIE6 = true;
+
 function updateWallpaper() {
-	if (jQuery(".wrap").height() < jQuery(document).height()) {
+	if (jQuery(".wrap").height() < jQuery(document).height() && !isIE6) {
 		jQuery(".wrap").css("background-position", "100% 100%");
 		jQuery(".mapBg").css("background-position", "50% 100%");
 	}
+	if (isIE6) {
+		jQuery(".mapBg").css("overflow","hidden").css("top","0").css("height",jQuery(document).height());
+	}
+	
 	var z1 = jQuery("body").width() / jQuery("body").height();
 	var z2 = jQuery(".mapBg img").width() / jQuery(".mapBg img").height();
 	if (z1 > z2) {
@@ -351,6 +362,12 @@ function updateWallpaper() {
 	} else {
 		jQuery(".mapBg img").width("auto");
 		jQuery(".mapBg img").height("100%");
+	}
+	if (isIE6) {
+		jQuery(".mapBg img").width(jQuery(window).width()).height("auto").css("position","absolute").css("top", jQuery(window).scrollTop()-50)
+		jQuery(window).scroll(function() {
+			jQuery(".mapBg img").width(jQuery(window).width()).height("auto").css("position","absolute").css("top", jQuery(window).scrollTop()-50)
+		})
 	}
 }
 

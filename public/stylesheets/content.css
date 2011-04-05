@@ -131,6 +131,9 @@
 .compare_result {margin-left: -15px; display: inline; margin-bottom: 10px; padding-top: 7px; float: left; clear: both; position: relative; width: 100%;}
 	.compare_result .next, .compare_result .prev {width: 36px; height: 36px; display: block; position: absolute; top: 37px; overflow: hidden;
 		background-image: url("../images/compare_scroll.png");
+		-moz-user-select: none;
+		-khtml-user-select: none;
+		-webkit-user-select: none;
 	}
 		.compare_result .next {background-position: 0px 0px; right: -28px;}
 		.compare_result .prev {background-position: -36px 0px; left: 182px;}
@@ -299,6 +302,7 @@ h2 .actions a {line-height: 15px; margin-top: 1px;}
 	.blog_comments ul li .poster {font-size: 13px; display: inline-block; white-space: nowrap; margin-bottom: 10px; position: relative; display: inline-block;}
 	.blog_comments ul li .poster img { position: absolute; left: -43px; top: 5px; float: left; margin: 0px;}
 	.blog_comments ul li .post { display: inline-block;}
+	.blog_comments ul { width: 100%; }
 	.blog_comments ul .addComment { padding: 0px; border: none; display: none;}
 	.blog_comments .text, .blog_comments h2, .blog_comments .showCommentForm, .blog_comments .submit {margin: 0px 25px;}
 	.blog_comments .showCommentForm { text-decoration: none; font-size: 15px; line-height: 27px; float: right;}
@@ -338,8 +342,10 @@ h2 .actions a {line-height: 15px; margin-top: 1px;}
 .forSale { border: solid 1px #2984bb; background-color: white; padding: 5px 12px; padding-bottom: 9px; text-decoration: none; display: inline-block;}
 	.forSale span { border-bottom: dashed 1px;}
 	
-.tip { text-decoration: none; border-bottom: dotted 1px;}
-.tip_container {position: absolute !important; top: 50px; left: 50%; z-index: 10000 !important;}
+.tip { text-decoration: none !important; border-bottom: dotted 1px !important; display: inline !important; background: none !important; color: #165e80 !important;}
+.tip:hover {color: #c80009 !important;}
+
+.tip_container {position: absolute !important; top: -1000px; left: 50%; z-index: 10000 !important;}
 .tip_data {border: solid 1px #acacac; padding: 45px; padding-top: 34px; padding-bottom: 40px; max-width: 310px; display: block; overflow: hidden; position: relative; background-color: white; margin: 0px;}
 	.tip_data img { margin-bottom: 8px; display: inline;}
 	.tip_data p, .tip_data a { font-size: 11px; line-height: 16px; font-family: "Verdana", "Geneva", sans-serif;}
@@ -356,7 +362,7 @@ h2 .actions a {line-height: 15px; margin-top: 1px;}
 	
 .errorPage { background: no-repeat 50% -200px url("../images/bg_404.gif"); background-color: white;}
 	.errorPage * { float: none; clear: none; padding: 0px; margin: 0 auto; text-align: center;}
-	.errorPage #content { height: 745px; width: 500px; position: relative; overflow: visible !important; padding: 0px; margin: 0 auto;}
+	.errorPage #content { height: 745px; width: 500px; position: relative; overflow: visible !important; padding: 0px; margin: 0 auto !important; float: none;}
 	.errorPage .pages {position: absolute; top: 255px; left: 50%;}
 	.errorPage .pages a {position: absolute; top: 0px; white-space: nowrap; font-family: "Times New Roman", serif; font-size: 20px; font-style: italic; display: inline;}
 	.errorPage .logo {margin-top: 30px; margin-bottom: 30px;}

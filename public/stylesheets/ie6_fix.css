@@ -33,3 +33,5 @@ form fieldset.gray_bg{padding-bottom: 20px;}
 .errorPage .pages {top: 280px;}
 
 .catalog div h1 {margin-top: 5px; margin-bottom: 10px;}
+
+.fullSitemap ul li {clear: none;}
