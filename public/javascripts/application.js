@@ -131,7 +131,7 @@ $('a.hint').live('click', function(){
   $('.sub3').hide(); el.children('.sub3').css('top', "-"+(index*22).toString()+"px").show();
 }).live('mouseleave', function() { $('.sub3').hide()});*/
 
-$(".small a").live('click', function() {
+$(".small img").live('click', function() {
   $('div.big img').attr('src', $(this).attr('src').replace('thumb', 'normal'));
 });
 /** Галерея **/

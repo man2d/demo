@@ -19,10 +19,10 @@
         </tr>
 		
 		<% Property.all.each do |property| %>
-        <tr><th><%= property.title %></th>
+        <tr><th><%= raw property.title %></th>
  	        <% i = 0 %>
 			<% @items.each do |item| %>
-			<td class="row_<%=i+=1%>"<%=raw ' style="width:0;opacity:0;"' if i > 5 %>><%= item.item_properties.where(:property_id => property.id).first.value if item.item_properties.where(:property_id => property.id).first %></td>
+			<td class="row_<%=i+=1%>"<%=raw ' style="width:0;opacity:0;"' if i > 5 %>><%= raw item.item_properties.where(:property_id => property.id).first.value if item.item_properties.where(:property_id => property.id).first %></td>
 			<% end %>
 			</tr>
         <% end %>

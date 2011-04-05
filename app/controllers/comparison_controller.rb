@@ -1,6 +1,10 @@
 class ComparisonController < ApplicationController
   def index
-    @items = Item.find(session[:comparison])
+    if session[:comparison] && session[:comparison].size
+      @items = Item.find(session[:comparison])
+    else
+      redirect_to '/catalog'
+    end
   end
   
   def add
