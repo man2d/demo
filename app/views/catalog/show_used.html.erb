@@ -25,7 +25,7 @@
 			<% if @item.item_properties %>
 			<table class="spec">
 				<% @item.item_properties.each do |item_property| %>
-				<tr><th><p class="name"><%= item_property.property.title %><span class="points"></span></p></th><th></th></tr>
+				<tr><th><p class="name"><%= raw item_property.property.title %><span class="points"></span></p></th><th></th></tr>
 				<tr><td></td><td><p class="value"><%= item_property.value %></p></td></tr>
 				<% end %>
 			</table>
