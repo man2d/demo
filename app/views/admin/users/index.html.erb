@@ -3,7 +3,7 @@
 <ul class="addItems">
 
     <li><%= link_to 'Рассылка', "/admin/users/notification", :class => "ico_addArrow" %></li>
-    <li><%= link_to 'Новые', "/admin/users/?search[activated]=0", :class => "ico_addArrow" %></li>
+    <li><%= link_to 'Неактивированные', "/admin/users/?search[activated]=0", :class => "ico_addArrow" %></li>
     <li><%= link_to 'Капитаны', "/admin/users/?search[user_type]=captain", :class => "ico_addArrow" %></li>
     <li><%= link_to 'Судовладельцы', "/admin/users/?search[user_type]=owner", :class => "ico_addArrow" %></li>
     
