@@ -5,7 +5,7 @@ $('#post_updated_at').datepicker();
 });
 </script>
 <% end %>
-<% semantic_form_for ["admin", resource], :as => :blog_post, :url => admin_blog_path do |f| %>
+<% semantic_form_for ["admin", resource] do |f| %>
 <%= f.inputs do %>
 
 	<li id="post_body_input" class="ckeditor optional">
