@@ -21,7 +21,7 @@
 			<div class="left clear">
 				<div class="tags"><% post.tags.each do |tag| %><a href="/blogs/tag/<%= URI::encode tag.name %>"><%= tag.name %></a> <% end %></div>
 				<div class="date"><%= Russian::strftime(post.created_at, "%d %B %Y")%></div>
-				<div class="comments"><a href="<%=blog_url(post) %>"><%= post.comments.size %> <%= Russian::p(post.comments.size, "комментарий", "комментария", "комментариев")%></a></div>
+				<div class="comments"><a href="<%=blog_url(post) %>#comments"><%= post.comments.size %> <%= Russian::p(post.comments.size, "комментарий", "комментария", "комментариев")%></a></div>
 			</div>
 			<div class="poster"><a href="<%= user_path(post.user) %>"><% if post.user %><% if post.user.avatar %><img src="<%= post.user.avatar.url(:thumb) %>" /><% end %><%= post.user.name %><% end %></a></div>
 			</div>

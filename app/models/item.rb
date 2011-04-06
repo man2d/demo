@@ -36,7 +36,7 @@ class Item < ActiveRecord::Base
   
 
   
-  scope :used, :conditions => {:page_id => 10}
+  scope :used, :conditions => "page_id = 10 OR page_id IS NULL"
   scope :brand_new, :conditions => "page_id != 10"
 #  sortable :scope => :page_id
   

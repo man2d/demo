@@ -13,7 +13,7 @@
 			<div class="left clear">
 				<div class="tags"><% @post.tags.each do |tag| %><a href="/blogs/tag/<%= CGI.escape(tag.name) %>"><%= tag.name %></a> <% end %></div>
 				<div class="date"><%= Russian::strftime(@post.created_at, "%d %B %Y")%></div>
-				<div class="comments"><a><%= @post.comments.size %> <%= Russian::p(@post.comments.size, "комментарий", "комментария", "комментариев")%></a></div>
+				<div class="comments"><a href="#comments"><%= @post.comments.size %> <%= Russian::p(@post.comments.size, "комментарий", "комментария", "комментариев")%></a></div>
 			</div>
 			<% if @post.user %><div class="poster"><a href="<%= user_url(@post.user) %>"><% if @post.user.avatar %><img src="<%= @post.user.avatar.url(:thumb) %>" /><% end %><%= @post.user.name %></a></div><% end %>
 		</div>
@@ -21,8 +21,10 @@
 			<h2 class="left"><a name="comments">Комментарии</a></h2>
 			<% if current_user %>
 			<a class="showCommentForm">↓ <span>Написать комментарий</span></a>
+			<% end %>
 			<div class="clear"></div>
 			<ul>
+			<% if current_user %>
 			<li class="addComment">
 				<% form_for "comment", :url => blog_comments_path(@post), :as => "comment", :as => :comment do |f| %>
 					<div class="text">

@@ -27,6 +27,11 @@ class ItemsController < ApplicationController
   
   def create
     @item = current_user.build_item(params[:item])
+    if @item.price 
+      @item.page_id = 10
+    else
+      @item.page_id = nil
+    end
     if @item.save
       flash[:notice] = "Яхта сохранена"
       redirect_to user_path(current_user)
@@ -37,6 +42,11 @@ class ItemsController < ApplicationController
   
   def update
     @item = current_user.item
+    if @item.price 
+      @item.page_id = 10
+    else
+      @item.page_id = nil
+    end
     if @item.update_attributes(params[:item])
       flash[:notice] = "Яхта сохранена"
       redirect_to user_path(current_user)
