@@ -1,7 +1,7 @@
 #coding: utf-8
 class ItemsController < ApplicationController
 #  layout nil, :only => :show
-  
+  before_filter :authenticate_user!, :only => [:new, :edit, :update, :create]
   def new
     unless @item
       @item = Item.new

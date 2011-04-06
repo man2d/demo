@@ -5,6 +5,8 @@
 <title><%= @page.title if @page && @page.title %><%=raw('Яхт-клуб &laquo;Президент Нева&raquo;') unless @page && @page.title %></title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
+<% if @page && @page.meta_keywords %><meta name="keywords"><%= @page.meta_keywords %></meta><% end %>
+<% if @page && @page.meta_description %><meta name="description"><%= @page.meta_description %></meta><% end %>
 <%= stylesheet_link_tag "common", "content", "fonts", "forms", "mainMenu", "otherMenu",  "catalog" %>
 <%= stylesheet_link_tag "nivo-slider", "thickbox", "/javascripts/imageflow/imageflow", "application", "datepicker" %>
 <%#= stylesheet_link_tag :all %>
@@ -139,6 +141,7 @@
     </div>
     
     <div id="content">
+
 	  <%= yield %>
 		<div class="yacht">
 			<div class="pict"><a class="yachtPic"></a>

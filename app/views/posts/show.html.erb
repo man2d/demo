@@ -4,8 +4,8 @@
 <div class="left">	
 	<%= render 'shared/left_menu'%>
 </div>
-<div class="right newsList">
+<div class="right">
 	<h1><%= @post.title %></h1>
-    <span class="date"><%= @post.updated_at.strftime("%d/%m/%Y")%></span><br/><%= raw @post.body %>
+    <div class="newsList"><span class="date"><%= @post.updated_at.strftime("%d/%m/%Y")%></span><br/><%= raw @post.body %></div>
 </div>
 </div>

@@ -16,8 +16,6 @@ var app = $.sammy('#pages', function() {
     var ids = this.params['splat'][0].split('/');
     var last_id = ids[ids.length-1];
 
-	$('ul.tree li span').removeClass('current');
-    $('li#page_'+last_id+' span').addClass('current');
 	
    
     $.each(ids, function(key, val) {
@@ -26,6 +24,9 @@ var app = $.sammy('#pages', function() {
 	   $('ul.tree li.parent_'+val).show();
 	   $('table#pages td ul').removeClass('sortable');
 	   $('table#pages td[class=level_'+last_id+'] ul').addClass('sortable');
+	
+	$('ul.tree li span').removeClass('current');
+    $('li#page_'+last_id+' span').addClass('current');
 	
 	
 	 } else {
@@ -215,8 +216,10 @@ $(document).ready(function(){
 	
 	$('ul.pages li').live('click', function() {
 		var id = $(this).attr('id').split("_")[1];
-		$('li').removeClass('sort');
-		$('li.parent_'+id).addClass('sort').parents('ul').addClass('sortable').sortable(sortable_options);
+		if($('li.parent_'+id).length) {
+			$('li').removeClass('sort');
+			$('li.parent_'+id).addClass('sort').parents('ul').addClass('sortable').sortable(sortable_options);
+		}
 		
 	});
 

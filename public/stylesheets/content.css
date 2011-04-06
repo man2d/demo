@@ -229,7 +229,8 @@ h2 .actions a {line-height: 15px; margin-top: 1px;}
 	.photo .small li a {float: left; clear: both; width: 108px; height: 82px; position: relative; overflow: hidden; z-index: 1000; border: solid 1px #165e80;}
 	.photo .small li a:hover {outline: solid 4px #66b6db; border: solid 1px #66b6db;}
 
-.main_banner {position: relative; margin-bottom: 20px; width: 100%; overflow: hidden;}
+.main_banner {position: relative; margin-bottom: 20px; width: 100%; overflow: hidden; position: relative;}
+	.main_banner * {position: relative;}
 	.main_banner .images {width: 100%; height: 400px; overflow: hidden;}
 	.main_banner .images img {position: absolute; top: 0px; left: 0px;}
 	.main_banner .nivo-caption {position: absolute; bottom: 68px; right: -2px; overflow: hidden; background-image: url("../images/bluebg.png");}

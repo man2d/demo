@@ -218,11 +218,11 @@
 		else yachtTipHideAnim();
 	});
 	jQuery(".yacht .pict").find(".close").click(yachtTipHideAnim);
-	var tipPos = jQuery(".yacht_tip_container").css("bottom");
-	if (tipPos) tipPos = tipPos.slice(0, -2)
-	jQuery(".yacht_tip_container").css("bottom","-2000px");
+	//var tipPos = jQuery(".yacht_tip_container").css("bottom");
+	//if (tipPos) tipPos = tipPos.slice(0, -2)
+	jQuery(".yacht_tip_container").css("right",-(jQuery(".yacht_tip_container").width() + (jQuery(".pict").parent().width() - jQuery(".pict").position().left)));
 	jQuery(".yacht_tip_container").find(".arrow, .yacht_tip_data, .close, .yacht_tip_dataWrap").css("opacity",0);
-	jQuery(".tempTipData").parent().css("position","absolute").css("bottom","-2000px"); //прячем за краями временный контейнер для подсказок
+	jQuery(".tempTipData").parent().css("position","absolute").css("top","-3000px"); //прячем за краями временный контейнер для подсказок
 	//jQuery(".tempTipData").parent().css("position","absolute").css("bottom","200px"); //прячем за краями временный контейнер для подсказок
 	var yachtTipVisible = false;
 	//обновление подсказки
@@ -232,12 +232,13 @@
 		jQuery(".yacht_tip_dataWrap").height(currH);
 		if (isIE6 && (jQuery(".yacht_tip_data").height()%2 == 0)) jQuery(".yacht_tip_data").height(jQuery(".yacht_tip_data").height()+1);
 		
+		//jQuery(".tempTipData").append('123<img src="images/tipPic2.jpg" />');
+		
 		if (jQuery.browser.msie == true) jQuery(".yacht_tip_dataWrap img").stop().animate({opacity: 0}, 300);
 		jQuery(".yacht_tip_dataWrap").stop().animate({
 			opacity: 0
 		}, 300, function() { // после того как спрятали текущий контент
 			//тут подгружаем новый контент внутрь .tempTipData
-			//jQuery(".tempTipData").append('123<img src="images/tipPic2.jpg" />');
 			jQuery.get('/hints/random', function(data) 
 			{// и когда он загружен, проявляем его
 				jQuery(".tempTipData").html(data);
@@ -270,9 +271,9 @@
 	};
 	function yachtTipShowAnim() {
 		yachtTipVisible = true;
-		jQuery(".yacht_tip_container").css("bottom",-1000);
+		//jQuery(".yacht_tip_container").css("bottom",-1000);
 		jQuery(".yacht_tip_dataWrap").height(jQuery(".tempTipData").height()).html(jQuery(".tempTipData").html());
-		jQuery(".yacht_tip_container").css("bottom", -jQuery(".yacht_tip_container").height());
+		//jQuery(".yacht_tip_container").css("bottom", -jQuery(".yacht_tip_container").height());
 		if (jQuery.browser.msie == true) jQuery(".yacht_tip_dataWrap img").stop().animate({opacity: 0}, 0);
 		//обновляем контент
 		refreshYachtTip();
@@ -281,7 +282,7 @@
 			opacity: 1
 		}, 400);
 		jQuery(".yacht_tip_container").stop().animate({
-			bottom: tipPos
+			right: 17//tipPos
 		}, 400);
 	};
 	function yachtTipHideAnim() {
@@ -295,7 +296,7 @@
 			opacity: 0
 		}, 300);
 		jQuery(".yacht_tip_container").stop().animate({
-			bottom: -jQuery(".yacht_tip_container").height()
+			right: -(jQuery(".yacht_tip_container").width() + (jQuery(".pict").parent().width() - jQuery(".pict").position().left))
 		}, 400);
 	}
 	
@@ -333,6 +334,7 @@
 	
 	//#content
 	if (jQuery("#content").height() < 480) jQuery(".yacht").css("paddingTop", (480-jQuery("#content").height())+"px");
+	if (jQuery(".imageflow").length != 0) jQuery(".yacht").css("paddingTop", "0px");
 	
 	updateFilterResult();
 	
@@ -345,10 +347,12 @@
 		isIE6 = true;
 
 function updateWallpaper() {
-	alert("Обновляю валлпапер...");
 	if (jQuery(".wrap").height() < jQuery(document).height() && !isIE6) {
 		jQuery(".wrap").css("background-position", "100% 100%");
 		jQuery(".mapBg").css("background-position", "50% 100%");
+	} else {
+		jQuery(".wrap").css("background-position", "0% 0%");
+		jQuery(".mapBg").css("background-position", "50% 0%");
 	}
 	if (isIE6) {
 		jQuery(".mapBg").css("overflow","hidden").css("top","0").css("height",jQuery(document).height());

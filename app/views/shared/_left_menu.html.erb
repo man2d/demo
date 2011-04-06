@@ -35,3 +35,10 @@ end
 	<% end %>
 	</ul>
 <% end %>
+
+<% if @page && @page.blocks.size > 0 %>
+<div class="clear"></div>
+	<% @page.blocks.each do |block| %>
+	<%= block.content %>
+	<% end %>
+<% end %>

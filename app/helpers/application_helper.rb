@@ -44,7 +44,8 @@ module ApplicationHelper
   end
   
   def file_extension(mime_type)
-    mime_type.split('/').last
+    
+    mime_type.split('/').last if mime_type
   end
   
   def query_string

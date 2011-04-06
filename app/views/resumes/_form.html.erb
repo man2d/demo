@@ -71,7 +71,7 @@
 				<ul class="files">
 					<% if @resume.assets.size > 0 %>
 					    <% @resume.assets.each do |asset| %>
-						<li><a class="file <%= file_extension(asset.attachment_content_type) %>" href="<%= asset.url %>"><%= asset.attachment_file_name %></a><%= link_to 'Удалить', asset_path(asset), :method => :delete, :class => :remove %></a></li>
+						<li id="asset_<%=asset.id %>"><a class="file <%= file_extension(asset.attachment_content_type) %>" href="<%= asset.url %>"><%= asset.attachment_file_name %></a><%= link_to 'Удалить', asset_path(asset), :method => :delete, :remote => true, :class => :remove %></a></li>
 						<% end %>
 					<% end %>
 						

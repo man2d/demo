@@ -1,0 +1,17 @@
+<% content_for :helpbar do %>
+<div class="addItems_border">
+
+</div>
+<% end %>
+
+<table border="0" id="main">
+	<tr>
+		<td>
+			<ul class="tree news">
+				<% collection.each do |resource| %>
+				<li><span><a href="#" class="pic context" id="blog_<%=resource.id%>"></a><p class="date"><%= resource.updated_at.to_date %></p><p class="text"><%= resource.title %></p></span></li>
+				<% end %>
+			</ul>
+		</td>
+	</tr>
+</table>

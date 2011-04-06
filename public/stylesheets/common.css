@@ -130,7 +130,7 @@ opacity: 0.1;
 .main_menu {}
 
 .w910 {width: 910px;}
-#content {padding-top: 15px; z-index: 4000; overflow: hidden; position: relative;}
+#content {padding-top: 15px; z-index: 4000; position: relative; overflow: hidden;}
 	.typical .left {float: left; width: 200px; margin-right: -225px; display: inline;}
 	.typical .right {float: left !important; margin-left: 225px; display: inline;}
 	.typical .right .right {float: right !important; width: auto;}
@@ -166,13 +166,13 @@ opacity: 0.1;
 		.search .l {left: -12px;}
 		.search .r {background-position: -12px 0px; right: -12px;}
 	.yacht {height: 55px; clear: both; position: relative;}
-		.yacht .pict { width: 87px; height: 33px; position: absolute; bottom: 1px; left: 82%;}
-		.yacht .pict a.yachtPic {background: url('../images/yacht.png'); display: block; width: 87px; height: 33px; z-index: 999; outline: none;}
+		.yacht .pict { width: 87px; height: 33px; position: absolute; bottom: 1px; left: 82%; z-index: 15000;}
+		.yacht .pict a.yachtPic {background: url('../images/yacht.png'); display: block; width: 87px; height: 33px; z-index: 1001; outline: none; position: relative;}
 		.yacht .water {background-color: #00558e; width: 100%; height: 9px; position: absolute; bottom: -1px; left: 0px;
-			filter:alpha(opacity=50);	-moz-opacity: 0.5;	-khtml-opacity: 0.5; opacity: 0.5; overflow: hidden;  z-index: 1001;
+			filter:alpha(opacity=50);	-moz-opacity: 0.5;	-khtml-opacity: 0.5; opacity: 0.5; overflow: hidden;  z-index: 15001;
 		}
 		.tempTipData, .yacht_tip_dataWrap { float: left; clear: both;}
-		.yacht_tip_container {position: absolute !important; bottom: 42px; right: 17px; z-index: 1000;}
+		.yacht_tip_container {position: absolute !important; bottom: 42px; right: -3017px; z-index: 1000;}
 		.yacht_tip_data {border: solid 1px #acacac; padding: 35px; padding-top: 26px; width: 490px; display: block; overflow: hidden; position: relative; background-color: white; margin: 0px; height: auto;}
 			.yacht_tip_data img { margin-top: 4px; margin-bottom: 5px; margin-right: 15px; display: inline; float: left;}
 			.yacht_tip_data p, .tip_data a { font-size: 13px; line-height: 16px; font-family: "Verdana", "Geneva", sans-serif;}
@@ -182,6 +182,9 @@ opacity: 0.1;
 			.yacht_tip_container .arrow {background: url("../images/yacht_tip_arrow.gif") !important; width: 31px !important; height: 36px !important;
 				display: none; overflow: hidden;
 				position: absolute; top: 100% !important; margin-top: -13px; right: 49px !important; z-index: 200; float: left; clear: both;
+				-moz-user-select: none;
+				-khtml-user-select: none;
+				-webkit-user-select: none;
 			}
 			.yacht_tip_data .refresh {position: absolute; bottom: 9px; right: 9px;}
 			.yacht_tip_data .refresh, .yacht_tip_data .close {-moz-user-select: none;	-khtml-user-select: none;	-webkit-user-select: none;}

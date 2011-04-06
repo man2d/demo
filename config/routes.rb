@@ -33,7 +33,7 @@ Navigator2::Application.routes.draw do
         get 'hide'
       end
     end
-    resources :items, :used_items, :hints, :blogs do
+    resources :items, :used_items, :hints, :blogs, :comments do
       member do
         get 'menu'
       end
