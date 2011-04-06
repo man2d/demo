@@ -434,7 +434,6 @@ module CollectiveIdea #:nodoc:
         # the base ActiveRecord class, using the :scope declared in the acts_as_nested_set
         # declaration.
         def nested_set_scope
-          options = {:order => quoted_left_column_name}
           scopes = Array(acts_as_nested_set_options[:scope])
           options[:conditions] = scopes.inject({}) do |conditions,attr|
             conditions.merge attr => self[attr]
