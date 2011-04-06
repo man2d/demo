@@ -4,35 +4,7 @@
 <%= render 'shared/left_menu' %>
 </div>
 <div class="right">
-	<h2>Процесс покупки яхты</h2>
-	<div class="buyProcess">
-		<ul class="steps">
-			<li><span>1</span><a href="#">Выбор яхты</a><span class="arrow"></span></li>
-			<li><span>2</span><a href="#">Согласование спецификаций и утверждение</a><span class="arrow"></span></li>
-			<li class="current"><span>3</span><a href="#">Подписание контракта</a><span class="arrow"></span></li>
-			<li><span>4</span><a href="#">Предоплата </a><span class="arrow"></span></li>
-			<li><span>5</span><a href="#">Второй платёж</a><span class="arrow"></span></li>
-			<li><span>6</span><a href="#">Строительство лодки</a><span class="arrow"></span></li>
-			<li><span>7</span><a href="#">Приёмка на верфи (по желанию клиента)</a><span class="arrow"></span></li>
-			<li><span>8</span><a href="#">Окончательный расчёт</a><span class="arrow"></span></li>
-			<li><span>9</span><a href="#">Транспортировка / доставка </a><span class="arrow"></span></li>
-			<li><span>10</span><a href="#">Растаможивание, оформление</a><span class="arrow"></span></li>
-			<li><span>11</span><a href="#">Ввод в эксплуатацию</a><span class="arrow"></span></li>
-		</ul>
-		<ul class="info">
-			<li>1</li>
-			<li>2</li>
-			<li class="current">Предположим, что Вы хотите использовать свою яхту внутри России. При этом потребуется доставить яхту на спецавтотранспорте. Перевозчику всегда приходится согласовывать маршрут следования, оплачивать различные разрешения, а также зачастую автомашину сопровождения. Таким образом, стоимость перевозки получается достаточно высокой.</li>
-			<li>4</li>
-			<li>5</li>
-			<li>6</li>
-			<li>7</li>
-			<li>8</li>
-			<li>9</li>
-			<li>10</li>
-			<li>11</li>
-		</ul>
-	</div>
+	<%= raw @page.body %>
 	<a href="/filter" class="podborButton">Подобрать яхту<span></span></a>
 	<h2>Резюме капитанов</h2>
 	<ul class="resume">
