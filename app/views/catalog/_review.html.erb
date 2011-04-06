@@ -1,6 +1,6 @@
 <div class="cat_model" id="review">
         	<div class="left"><% if @item.image %><img alt="" src="<%= @item.image.url(:normal) %>" /><% end %>
-            	<!--<center><a href="#" class="videoButton"><span></span>Видеообзор</a></center>-->
+            	<center><span><b><% if current_user && current_user.owner? && @item.price %><%= @item.price %> <%= @item.currencty %><% end %></b></span></center>
             </div>
             <div class="right"><%= raw @item.description %></div>
 </div>

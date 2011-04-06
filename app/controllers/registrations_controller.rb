@@ -5,6 +5,7 @@ class RegistrationsController < ApplicationController
   before_filter :set_template,:create_avatar
   # GET /resource/sign_up
   def new
+    @template = 0
     build_resource({})
     render_with_scope :new
   end

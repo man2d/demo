@@ -18,10 +18,10 @@
 	<div class="col_4">
 		<ul>
 			<% page = Page.find_by_slug('about') %>
-			<li><a href="<%=page.url%>"><%= page.title %></a></li>
+			<li><a href="<%=page.url%>"><%= strip_tags(page.title) %></a></li>
 			<ul>
 			<% page.children.each do |page| %>
-				<li><a href="<%=page.url%>"><%= page.title %></a></li>
+				<li><a href="<%=page.url%>"><%= strip_tags(page.title) %></a></li>
 			<% end %>
 			</ul>
 		</ul>
@@ -29,10 +29,10 @@
 	<div class="col_4">
 		<ul>
 			<% page = Page.find_by_slug('catalog') %>
-			<li><a href="<%=page.url%>"><%= page.title %></a></li>
+			<li><a href="<%=page.url%>"><%= strip_tags(page.title) %></a></li>
 			<ul>
 			<% page.children.each do |page| %>
-				<li><a href="<%=page.url%>"><%= page.title %></a></li>
+				<li><a href="<%=page.url%>"><%= strip_tags(page.title) %></a></li>
 			<% end %>
 			</ul>
 		</ul>
@@ -41,12 +41,12 @@
 	<div class="col_4">
 		<ul>
 			<% page = Page.find_by_slug('filter') %>
-			<li><a href="<%=page.url%>"><%= page.title %></a></li>
+			<li><a href="<%=page.url%>"><%= strip_tags(page.title) %></a></li>
 			<% page = Page.find_by_slug('events') %>
-			<li><a href="<%=page.url%>"><%= page.title %></a></li>
+			<li><a href="<%=page.url%>"><%= strip_tags(page.title) %></a></li>
 			<ul>
 			<% page.children.each do |page| %>
-				<li><a href="<%=page.url%>"><%= page.title %></a></li>
+				<li><a href="<%=page.url%>"><%= strip_tags(page.title) %></a></li>
 			<% end %>
 			</ul>
 		</ul>

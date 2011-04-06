@@ -180,14 +180,15 @@ jQuery(document).ready(function(){
 	  if(!$(this).hasClass('all'))
 	  $(this).parents('li').addClass('current');	
 	  $.get('/filter/do?search[item_assign_id]='+$(this).attr('data'));
-	  updateWallpaper();
+	//  updateWallpaper();
+	//  updateFilterResult();
 	});
 	$('.f2 a').click(function() {
 	  $(this).parents('ul').children('li').removeClass('current');
 	  $('.f1 li').removeClass('current');
 	  $(this).parents('li').addClass('current');
 	  $.get('/filter/do?search[lgth]='+$(this).attr('data'));
-	  updateWallpaper();
+
 	});
 	
 //	$('.ContentFlow a').fancybox();

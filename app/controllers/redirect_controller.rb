@@ -1,7 +1,7 @@
 class RedirectController < ApplicationController
 
   def index
-    @page = Page.find_by_cached_url("/"+params[:path]+"/")
+    @page = Page.where(:status => true).find_by_cached_url("/"+params[:path]+"/")
 #    @page = Page.find(params[:id]) if !@page
     if @page
       @title = @page.title

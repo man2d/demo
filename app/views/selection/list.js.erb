@@ -1,4 +1,6 @@
 $.get("<%= url_for "search" %>",
       function(response) {
         $("#filterResult").html(response);
+	  updateWallpaper();
+	  updateFilterResult();
       });

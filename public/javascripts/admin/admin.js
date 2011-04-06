@@ -15,7 +15,9 @@ var app = $.sammy('#pages', function() {
     
     var ids = this.params['splat'][0].split('/');
     var last_id = ids[ids.length-1];
-    
+
+	$('ul.tree li span').removeClass('current');
+    $('li#page_'+last_id+' span').addClass('current');
 	
    
     $.each(ids, function(key, val) {
@@ -51,7 +53,7 @@ var app = $.sammy('#pages', function() {
 				    var item = data[id].item;
 			//console.log(key);
 
-				    html += '<li '+display+' class="page_list_item parent_'+item.page_id+'" id="item_'+item.id+'"><span class="parent"><a class="pic context" id="item_'+item.id+'" href="#"></a><a href="#/page/'+'">'+item.title+' '+item.lgth+'</a></span></li>';
+				    html += '<li '+display+' class="page_list_item parent_'+item.page_id+'" id="item_'+item.id+'"><span class="parent"><a class="pic context" id="item_'+item.id+'" href="#"></a><a style="text-decoration: none;">'+item.title+' '+item.lgth+'</a></span></li>';
 			      }
 			    html += '</ul></td>';
 			    //context.log(html);
@@ -152,7 +154,7 @@ $(document).ready(function (){
 	 var url = '/admin/'+controller+'/'+id+'/menu';
 
 	 $.get(url, function(result) {
-		el.parents('span').append(result);
+		el.parents('li').append(result);
     });
    });
 

@@ -63,7 +63,7 @@ module CollectiveIdea #:nodoc:
             belongs_to :parent, :class_name => self.base_class.to_s,
               :foreign_key => parent_column_name
             has_many :children, :class_name => self.base_class.to_s,
-              :foreign_key => parent_column_name, :order => quoted_left_column_name
+              :foreign_key => parent_column_name
 
             attr_accessor :skip_before_destroy
           
@@ -86,8 +86,8 @@ module CollectiveIdea #:nodoc:
               end_eval
             end
           
-            named_scope :roots, :conditions => {parent_column_name => nil}, :order => quoted_left_column_name
-            named_scope :leaves, :conditions => "#{quoted_right_column_name} - #{quoted_left_column_name} = 1", :order => quoted_left_column_name
+            named_scope :roots, :conditions => {parent_column_name => nil}
+            named_scope :leaves, :conditions => "#{quoted_right_column_name} - #{quoted_left_column_name} = 1"
 
             define_callbacks("before_move", "after_move")
           end

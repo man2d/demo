@@ -24,7 +24,7 @@ class Page < ActiveRecord::Base
   accepts_nested_attributes_for :blocks, :image, :rules, :blanks, :attachments, :pdf, :allow_destroy => true, :reject_if => :all_blank
   
  # sortable :scope => :parent_id
-  
+
   scope :menu, lambda{where("menu > 0 ")}
   def admin_path
     ids = ["0"]

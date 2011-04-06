@@ -1,5 +1,5 @@
 <div class="w910 personalInfo">
-	<div class="tree"><a href="#">Главная</a> / <b>Блог</b> <div class="arrow"></div></div>
+	<div class="tree"><a href="/">Главная</a> / <a href="/blogs">Блог</a> / <b><%= @user.name %></b> <div class="arrow"></div></div>
 	<div class="clear"></div>
 	<div class="left">
 		<% if @user.avatar %><img style="margin-right: 10px; margin-top: 5px;" class="left" src="<%= @user.avatar.url(:normal) %>" /><% end %>

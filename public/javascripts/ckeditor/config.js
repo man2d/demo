@@ -41,7 +41,7 @@ CKEDITOR.editorConfig = function( config )
   config.toolbar_Blog = [
 	['Cut', 'Copy', 'Paste'],
 	['Undo','Redo','RemoveFormat','Format','Styles'],
-	['Image'],
+	['Image','Link','Unlink'],
 	['NumberedList', 'BulletedList', 'Bold', 'Italic','Subscript','Superscript']];
 	
 };

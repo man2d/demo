@@ -36,6 +36,8 @@
 			if (jQuery(this).height() < 30) jQuery(this).height(30);
 		});
 	}
+	
+	jQuery("h1 span").parent().css('position', 'relative');
 
 	/*jQuery(".sProbegom").click(function() {
 		alert("Hello world!");
@@ -43,7 +45,7 @@
 	
 	//sendOrder
 	jQuery('.sendOrderPos').css("display", "none");
-	jQuery('.sendOrder').click(sendOrderAnim);
+	jQuery('.sendOrder, .sendOrderPos .close').click(sendOrderAnim);
 	function sendOrderAnim() {
 		jQuery('.sendOrderPos').find('.sendOrderForm, .arrow').animate({opacity: "toggle"}, 300);
 		jQuery('.sendOrderPos').animate({height: "toggle"}, 300);
@@ -107,12 +109,7 @@
 			//jQuery(".sProbegom").children("li:eq("+i+")")
 			//jQuery(".sProbegom").children("li:eq("+i+")").css('clear', 'both').css('background-color', 'red');
 	}
-	//filterResult
-	for (var i=1; i < jQuery(".filterResult ul").children().length; i++) {
-		//jQuery(this).children().css('background-color', 'red');
-		if (((i+1)%5) == 0)
-			jQuery(".filterResult ul").children("li:eq("+i+")").css('margin-right', '-200px').css('clear', 'right').after('<div class="clear"></div>');
-	}
+	
 
 	//sub3
 	jQuery(".sub3").parent().mouseover(function() {
@@ -335,7 +332,9 @@
 	});
 	
 	//#content
-	if (jQuery("#content").height() < 350) jQuery(".yacht").css("paddingTop", (350-jQuery("#content").height())+"px");
+	//if (jQuery("#content").height() < 350) jQuery(".yacht").css("paddingTop", (350-jQuery("#content").height())+"px");
+	
+	updateFilterResult();
 	
 });
 
@@ -396,4 +395,13 @@ function hideMenu() {
 			jQuery(this).css('display', 'none');
 		  });
 	} else {jQuery(this).children("ul, .sub3").css("display", "none");}
+}
+
+//filterResult
+function updateFilterResult() {
+	for (var i=1; i < jQuery(".filterResult ul").children().length; i++) {
+		//jQuery(this).children().css('background-color', 'red');
+		if (((i+1)%5) == 0)
+			jQuery(".filterResult ul").children("li:eq("+i+")").css('margin-right', '-200px').css('clear', 'right').after('<div class="clear"></div>');
+	}
 }

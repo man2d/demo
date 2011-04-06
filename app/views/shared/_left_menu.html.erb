@@ -2,21 +2,21 @@
 <ul class="leftMenu">
 <% 
 if @page.root?
-  left_menu_items = @page.children 
+  left_menu_items = @page.children.order(:position)
 else
-  left_menu_items = @page.self_and_siblings
+  left_menu_items = @page.self_and_siblings.order(:position)
 end
 %>
 
-<% left_menu_items.order(:position).each do |page| %>
-  <%= raw link_or_span(page) %>
+<% left_menu_items.each do |page| %>
+  <%= raw link_or_span(page) %> 
 <% end %>
 
 </ul>
 <% if current_user %>
 <div class="leftBlueBox">
 	<% if current_user.owner? %>
-	<div><span class="resumePic"></span><a href="<%= resumes_path %>"><span>Резюме капитанов</span></a></div>
+	<div><span class="resumePic"></span><a href="/about/resumes"><span>Резюме капитанов</span></a></div>
 	<div><span class="servisPic"></span><a href="<%= resumes_path %>"><span>Заявка на сервисное обслуживание яхты</span></a></div>
     <% end %>
     <% if current_user.captain? %>
@@ -26,16 +26,12 @@ end
 </div>
 <% end %>
 
-<% if @page && @page.slug != "kapitanu" && (@page.blanks.size > 0 || @page.rules.size > 0) %>
+<% if @page && (@page.attachments.size > 0) %>
 	<ul class="files">
-	<% if @page.blanks.size > 0 %>
-	<% @page.blanks.each do |asset| %>
+	<% if @page.attachments.size > 0 %>
+	<% @page.attachments.each do |asset| %>
 	<div class="file <%= file_extension(asset.attachment_content_type) %>"><a href="<%= asset.url %>"><%= asset.attachment_file_name %></a></div>
 	<% end %>
 	<% end %>
-	<% if @page.rules.size > 0 %>
-	<% @page.rules.each do |asset| %>
-	<div class="file <%= file_extension(asset.attachment_content_type) %>"><a href="<%= asset.url %>"><%= asset.attachment_file_name %></a></div>
-	<% end %>
-	<% end %>
+	</ul>
 <% end %>

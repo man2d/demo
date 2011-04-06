@@ -63,6 +63,7 @@ class BlogsController < ApplicationController
     if params[:user_id]
       @user = User.find(params[:user_id])
       @posts = @user.blog_posts.paginate(:page => params[:page])
+      @template = 2
     else
       @posts = BlogPost.paginate(:page => params[:page])
     end

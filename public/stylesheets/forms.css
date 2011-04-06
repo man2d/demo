@@ -1,17 +1,17 @@
 .formWrap {width: 100%; clear: both; margin: 0 auto; padding: 0px;}
 form .blueBg { padding: 15px 0px;}
-form { display: inline; margin: 0px; padding: 0px;}
+form { display: inline; margin: 0px; padding: 0px; position: relative;}
 	form, form a {color: white; font-family: "Arial", "Helvetica", sans-serif; font-size: 16px; line-height: 19px;}
 	form a:hover {color: #165e80;}
 	form div, form label {}
 	form div {}
 	form textarea {overflow: auto;}
-	form label {float: left; clear: both;}
-	form input {float: left; clear: both; padding: 0px; margin: 0px; }
+	form label {float: left; clear: both;  position: relative;}
+	form input {float: left; clear: both; padding: 0px; margin: 0px;  position: relative;}
 	form .radio {float: left; clear: both; padding: 7px 0px; padding-bottom: 15px; display: inline;}
 		form .radio label { margin-bottom: 7px;}
 		form .radio input {width: 19px; height: 19px; margin-right: 5px;}
-	form .text {padding-bottom: 20px; float:left; clear: both; width: 430px; padding-right: 20px; display: inline;}
+	form .text {padding-bottom: 20px; float:left; clear: both; width: 430px; padding-right: 20px; display: inline;  position: relative;}
 		form .text input, form .text textarea {height: 40px; margin-left: -3px; font-family: "Arial", "Helvetica", sans-serif;
 			background-color: #FFF; width: 100%; position: relative; margin-bottom: 3px;
 			background-image: url("../images/form_input_bg.gif");
@@ -142,6 +142,8 @@ form { display: inline; margin: 0px; padding: 0px;}
 	.sendOrderForm .text { width: 100%;}
 	.sendOrderForm .text textarea { width: 515px; height: 193px}
 	.sendOrderForm .error {width: 370px;}
+	.sendOrderPos .close { width: 20px !important; height: 20px !important; background: url("../images/compareResult_x.gif"); position: absolute; top: 23px; right: 10px; border: none; overflow: hidden;}
+	.sendOrderPos .close:hover { background-position: 0px -20px;}
 	
 .mapPos {position: absolute; top: 29px; right: -143px; z-index: 1000;}
 .map {border: solid 1px #acacac; padding: 24px; display: block; overflow: hidden; position: relative; width:635px; min-height: 400px;
@@ -170,6 +172,7 @@ form { display: inline; margin: 0px; padding: 0px;}
 	.fullSitemap .col_4 { width: 23% !important; margin-right: 2% !important;}
 	.fullSitemap label { margin: 0px; padding: 0px;}
 	.fullSitemap .text { width: 540px; float: left; clear: none; margin-bottom: 15px; margin-left: 100px; display: inline;}
+	.fullSitemap .text input { padding-left: 10px !important;}
 	.fullSitemap .submit {height: 41px; width: 110px; line-height: 41px; float: right; clear: none; margin-right: 100px;}
 	.fullSitemap ul a, .fullSitemap ul p { font-size: 17px; line-height: 18px !important; font-weight: bold; float: left; display: inline;}
 	.fullSitemap ul li { padding-bottom: 10px;}

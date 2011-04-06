@@ -18,7 +18,7 @@
 			<div class="clear"><br /></div>
 			<% @brands.each do |brand|%>
         	<div class="col_2 <%='left' if brand == @brands.first%><%='right' if brand == @brands.last %>">
-            	<h2><a href="<%= brand.url %>">Каталог <%= brand.title %></a></h2>
+            
                 <% if brand.pdf %><p class="file defaultPic2"><a href="<%= brand.pdf.url %>"><%= brand.title %></a><br />(<%= (brand.pdf.size/1.megabyte.to_f*100).to_i.to_f/100 %> Mб, ПДФ)</p><% end %>
 
             </div>

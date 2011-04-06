@@ -16,10 +16,13 @@ class ItemsController < ApplicationController
   
   def edit
     @item = current_user.item
+    Property.all.each do |p|
+      @item.item_properties.build(:property_id => p.id) unless @item.item_properties.where(:property_id => p.id).first
+    end
   end
   
   def show
-    @item = Item.find(params[:id])
+    @item = User.find(params[:user_id]).item
   end
   
   def create

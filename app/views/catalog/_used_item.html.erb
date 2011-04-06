@@ -1,7 +1,7 @@
 <li>
 <p class="date"><%= Russian::strftime(item.created_at, "%d %B %Y")%></p>
 
-<% if item.image %><a href="#"><img src="<%= item.image.url(:thumb) %>" alt="" /></a><% end %>
+<% if item.image %><a href="<%= item.url %>"><% if item.image %><img src="<%= item.image.url(:thumb) %>" alt="" /><% elsif item.gallery_images.size > 0 %><img src="<%= item.gallery_images.first(:thumb) %>" /><% end %></a><% end %>
 <a class="name" href="<%= item.url %>"><%= item.title %></a>
 <p class="info">
 	<% if item.mileage %>Пробег: <b><%= item.mileage %></b> <i><%= Russian.p(item.mileage, "миля", "мили", "миль")%></i><br /><% end %>

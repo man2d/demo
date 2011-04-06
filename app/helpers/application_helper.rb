@@ -37,7 +37,7 @@ module ApplicationHelper
           raw page.title + content_tag(:span, "→")
         end
       else
-        link_to page.title, page.url
+        link_to raw(page.title), page.url
       end
 
     end

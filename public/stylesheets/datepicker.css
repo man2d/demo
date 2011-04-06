@@ -59,3 +59,5 @@
     width: 200px; /*must have*/
     height: 200px; /*must have*/
 }
+.ui-datepicker-today a { color: red; font-weight: bold;}
+.ui-datepicker-prev, .ui-datepicker-next { cursor: pointer; }
