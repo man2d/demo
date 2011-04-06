@@ -13,6 +13,8 @@ class SelectionController < ApplicationController
       wants.js {
         render :update do |page|
           page.replace_html 'filterResult', :partial => 'list'
+          page.call 'updateWallpaper'
+      	  page.call 'updateFilterResult'
         end
       }
     end

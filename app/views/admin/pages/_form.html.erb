@@ -19,9 +19,9 @@
 
 	<%= f.semantic_fields_for :image do |image_form| %>
 	  
-	  <span><%= image_tag @page.image.url if @page.image %>
-      <%= link_to_remove_fields "Удалить", image_form if @page.image %></span>
-	  <%= image_form.input :attachment, :as => :file, :label => "Картинка" unless image_form.object.new_record? %>
+	  <span><%= image_tag @page.image.url if @page.image && !@page.image.new_record? %>
+      <%= link_to_remove_fields "Удалить", image_form if @page.image && !@page.image.new_record? %></span>
+	  <%= image_form.input :attachment, :as => :file, :label => "Картинка" %>
       <%#= f.input :remove_image, :as => :boolean, :label => "Удалить картинку" %>
        
     <% end %>

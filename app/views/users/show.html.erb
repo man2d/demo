@@ -14,7 +14,7 @@
 		<% if @user.blog_posts.size > 0 %>
 		<ul class="pblogList">
 			<% @user.blog_posts.limit(5).each do |post| %>
-		<li><a class="color_gray_d" href="<%= user_blog_path(post) %>"><%= post.title %></a></li>
+		<li><a class="color_gray_d" href="<%= user_blog_path(@user, post) %>"><%= post.title %></a></li>
 			<% end %>
 		<li class="all"><a href="<%= user_blogs_path(@user) %>">Все записи</a></li>
 		</ul>

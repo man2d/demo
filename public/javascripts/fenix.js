@@ -332,7 +332,7 @@
 	});
 	
 	//#content
-	//if (jQuery("#content").height() < 350) jQuery(".yacht").css("paddingTop", (350-jQuery("#content").height())+"px");
+	if (jQuery("#content").height() < 480) jQuery(".yacht").css("paddingTop", (480-jQuery("#content").height())+"px");
 	
 	updateFilterResult();
 	
