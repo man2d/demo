@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   has_one :resume, :dependent => :destroy 
 
   
-  has_many :blog_posts, :dependent => destroy
+  has_many :blog_posts, :dependent => :destroy
 #  has_many :items
   has_one :item, :dependent => :destroy
   
