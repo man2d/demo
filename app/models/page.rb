@@ -51,6 +51,7 @@ class Page < ActiveRecord::Base
   end
   
   def caching_url_and_level_first
+    self.save
     self.cached_url = url
     self.cached_level = level
     self.save

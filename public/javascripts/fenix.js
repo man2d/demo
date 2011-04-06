@@ -345,6 +345,7 @@
 		isIE6 = true;
 
 function updateWallpaper() {
+	alert("Обновляю валлпапер...");
 	if (jQuery(".wrap").height() < jQuery(document).height() && !isIE6) {
 		jQuery(".wrap").css("background-position", "100% 100%");
 		jQuery(".mapBg").css("background-position", "50% 100%");
