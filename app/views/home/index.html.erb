@@ -23,6 +23,12 @@
  			<% end %>
             </ul>
             <% if @page.pdf %><p class="file defaultPic"><a href="<%= @page.pdf.url %>">Каталог яхт</a>(5 Mб, ПДФ)</p><% end %>
+			
+			<% if @page.blocks.size > 0 %>
+			<% @page.blocks.each do |block| %>
+			<%= raw block.content %>
+			<% end %>
+			<% end %>
         </div>
         <div class="right">
         	<div class="part">
@@ -41,12 +47,7 @@
 				  <%= link_to post.title, blog_url(post) %><br/>
 				<% end %>
             </div>
-			<div class="clear"></div>
-			<% if @page.blocks.size > 0 %>
-			<% @page.blocks.each do |block| %>
-			<%= raw block.content %>
-			<% end %>
-			<% end %>
+			
         </div>
         <div class="clear"></div>
 

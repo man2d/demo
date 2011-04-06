@@ -10,13 +10,12 @@ class User < ActiveRecord::Base
   validates_presence_of :user_type
   has_many :attachments, :as => :assetable, :class_name => "User::Attachment", :dependent => :destroy
   has_one :avatar, :as => :assetable, :class_name => "User::Avatar", :dependent => :destroy
-  has_one :resume  
+  has_one :resume, :dependent => :destroy 
 
   
-  has_many :blog_posts
+  has_many :blog_posts, :dependent => destroy
 #  has_many :items
-  has_many :resumes
-  has_one :item
+  has_one :item, :dependent => :destroy
   
   accepts_nested_attributes_for :avatar, :item
   

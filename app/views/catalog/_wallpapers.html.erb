@@ -1,4 +1,5 @@
 <div class="wallpapers">
+<% if current_user %>
 <ul>
 <% @item.wallpapers.each do |wallpaper| %>
 <li><span>
@@ -9,4 +10,8 @@
 </span></li>
 <% end %>
 </ul>
+<% else %>
+Для скачивания обоев Вам необходимо <%= link_to 'авторизоваться', new_session_path %> или <%= link_to 'зарегистрироваться', new_registration_path %>.
+<% end %>
+
 </div>
