@@ -41,6 +41,12 @@
 				  <%= link_to post.title, blog_url(post) %><br/>
 				<% end %>
             </div>
+			<div class="clear"></div>
+			<% if @page.blocks.size > 0 %>
+			<% @page.blocks.each do |block| %>
+			<%= raw block.content %>
+			<% end %>
+			<% end %>
         </div>
         <div class="clear"></div>
 
