@@ -6,9 +6,11 @@
 	</div>
 	<div class="right">
 		<ul class="resume">
-			<% if @users %>
-			<% @users.each do |member| %>
-			<%= render 'members/member', :member => member %>
+			<%= @members.to_xml %>
+			<% if @members %>
+			<% @members.each do |member| %>
+			<%= member.name %>
+				<%= render 'members/member', :member => member %>
 			<% end %>
 			<% end %>
 		</ul>
