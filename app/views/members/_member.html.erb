@@ -1,5 +1,5 @@
 
 <li><% if member.avatar %><img src="<%= member.avatar.url(:thumb) %>" /><% end %>
 	<a class="name" href="<%= user_path(member) %>"><%= member.name %></a>
-	<p><% if current_user %>Статус: <%= member.user_type.gsub("admin" => "Администратор").gsub("owner", "Судовладелец").gsub("captain", "Капитан") %><br/><% end %></p>
+	<p><% if current_user %>Статус: <%= member.user_type.gsub("admin", "Администратор").gsub("owner", "Судовладелец").gsub("captain", "Капитан") %><br/><% end %></p>
 </li>
