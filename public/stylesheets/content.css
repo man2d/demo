@@ -72,7 +72,7 @@
 .imgDescr {color: #808080; font-family: "Times New Roman", serif; font-style: italic; clear: both;}
 .quote { border-left: solid 4px #165e80; padding-left: 20px; margin-left: 30px; color: #0093c6;
 	font-family: "Times New Roman", serif; font-style: italic; font-size: 17px; line-height: 21px; padding-top: 2px; margin-bottom: 20px; margin-top: 10px;}
-.list1, .page.right ol, .page.right ul { margin-left: 20px; padding-bottom: 12px; padding-top: 5px;}
+.list1, .page.right ol, .page.right ul { margin-left: 0px; padding-bottom: 12px; padding-top: 5px;}
 	.list1 li, .page.right ol li, .page.right ul li { margin-bottom: 7px;}
 	.list1 *, .page.right ol *, .page.right ul * {color: #666666; text-indent: -18px; padding: 0px;}
 .leftBlueBox { background-image: url('../images/bluebg.png'); padding: 20px 0px; padding-bottom: 0px; padding-left: 200px; margin-left: -200px; margin-top: 25px; color: white; float: left; clear: both; width: 100%; display: inline;}
