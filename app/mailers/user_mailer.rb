@@ -5,7 +5,7 @@ class UserMailer < ActionMailer::Base
   def captain(user, sender)
     @user = user
     @sender = sender
-    mail(:to => user.email, "Пользователь #{@sender.name} ")
+    mail(:to => user.email, :subject => "Пользователь #{@sender.name} ")
   end
   
   def message(user, sender, message)
