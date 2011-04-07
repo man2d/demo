@@ -1,5 +1,5 @@
 class NotificationMailer < ActionMailer::Base
-  default :from => "from@example.com"
+  default :from => "noreply@yachtclub-neva.ru"
   
   def notification(user, message)
     @user = user

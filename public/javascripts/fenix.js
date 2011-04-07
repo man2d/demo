@@ -45,7 +45,7 @@
 	
 	//sendOrder
 	jQuery('.sendOrderPos').css("display", "none");
-	jQuery('.sendOrder, .sendOrderPos .close').click(sendOrderAnim);
+	jQuery('.sendOrder, .sendOrderPos .close').live('click', sendOrderAnim);
 	function sendOrderAnim() {
 		jQuery('.sendOrderPos').find('.sendOrderForm, .arrow').animate({opacity: "toggle"}, 300);
 		jQuery('.sendOrderPos').animate({height: "toggle"}, 300);
@@ -222,12 +222,13 @@
 	//if (tipPos) tipPos = tipPos.slice(0, -2)
 	jQuery(".yacht_tip_container").css("right",-(jQuery(".yacht_tip_container").width() + (jQuery(".pict").parent().width() - jQuery(".pict").position().left)));
 	jQuery(".yacht_tip_container").find(".arrow, .yacht_tip_data, .close, .yacht_tip_dataWrap").css("opacity",0);
-	jQuery(".tempTipData").parent().css("position","absolute").css("top","-3000px"); //прячем за краями временный контейнер для подсказок
+	jQuery(".tempTipData").parent().css("position","absolute").css("top","-3000px").css("right", "-2000px"); //прячем за краями временный контейнер для подсказок
 	//jQuery(".tempTipData").parent().css("position","absolute").css("bottom","200px"); //прячем за краями временный контейнер для подсказок
 	var yachtTipVisible = false;
 	//обновление подсказки
 	jQuery(".yacht").find(".refresh").click(refreshYachtTip);
 	function refreshYachtTip() {
+		refreshAnimStart(jQuery(".yacht").find(".refresh"));
 		var currH = jQuery(".yacht_tip_dataWrap").outerHeight();
 		jQuery(".yacht_tip_dataWrap").height(currH);
 		if (isIE6 && (jQuery(".yacht_tip_data").height()%2 == 0)) jQuery(".yacht_tip_data").height(jQuery(".yacht_tip_data").height()+1);
@@ -262,9 +263,12 @@
 					}
 					jQuery(".yacht_tip_dataWrap").animate({
 						opacity: 1
-					}, 300, function() {if (isIE6) {
-						jQuery(".yacht_tip_container").find(".b").css("height", "auto").css("height", jQuery(".yacht_tip_container").find(".b").height());
-					}});
+					}, 300, function() {
+						refreshAnimStop();
+						if (isIE6) {
+							jQuery(".yacht_tip_container").find(".b").css("height", "auto").css("height", jQuery(".yacht_tip_container").find(".b").height());
+						}
+					});
 				});
 			});
 		});
@@ -305,16 +309,26 @@
 	var refreshAnimTimer;
 	var refreshAnimPos = -66;
 	var refreshAnimInterval = 22;
+	var refreshColor = 0;
 	jQuery(".refresh").mouseenter (function() {
-		refreshAnimObj = jQuery(this);
-		refreshAnimTimer = setInterval (refreshAnim, 30);
+		refreshColor = -22;
+		jQuery(refreshAnimObj).css("background-position", refreshAnimPos+"px "+refreshColor+"px");
 	}).mouseleave (function() {
-		clearInterval(refreshAnimTimer);
+		refreshColor = 0;
+		jQuery(refreshAnimObj).css("background-position", refreshAnimPos+"px "+refreshColor+"px");
 	});
+	function refreshAnimStart(obj) {
+		clearInterval(refreshAnimTimer);
+		refreshAnimObj = obj;
+		refreshAnimTimer = setInterval (refreshAnim, 30);
+	}
+	function refreshAnimStop() {
+		clearInterval(refreshAnimTimer);
+	}
 	function refreshAnim() {
 		refreshAnimPos -= refreshAnimInterval;
 		if (refreshAnimPos <= -220) refreshAnimPos = 0;
-		jQuery(refreshAnimObj).css("background-position", refreshAnimPos+"px 0px");
+		jQuery(refreshAnimObj).css("background-position", refreshAnimPos+"px "+refreshColor+"px");
 	};
 	
 	//mainMenu

@@ -36,7 +36,7 @@ ul.sortable { -webkit-select: none; }
     <div id="header_wrapper">
 
 		<div class="head"><img class="naviLogo" src="/images/admin/Navigator_logo.gif" alt="" /><h1 class="siteName">Яхт-клуб &laquo;Президент-Нева&raquo;</h1><a class="goToSite" href="/" target="_blank">Посмотреть сайт<span></span></a></div>
-		
+<% if params[:controller] != "admin/sessions" %>		
 
 
         <div class="left">
@@ -57,12 +57,12 @@ ul.sortable { -webkit-select: none; }
 	  <div class="contentWrap">
 		
       	<%= yield :helpbar %>
-
-      <div id="content" class="treeScroll">
+<% end %>
+      <% if params[:controller] != "admin/sessions" %><div id="content" class="treeScroll"><% end %>
         <%= yield :layout %>
-      </div>
+      <% if params[:controller] != "admin/sessions" %></div><% end %>
 
-      <div class="clear"></div></div></div>
+      <div class="clear"></div><% if params[:controller] != "admin/sessions" %></div></div><% end %>
     <div class="foot">
     	<p class="contact">© Дизайн-студия <a href="http://www.logomotiv.ru">Logomotiv</a>,<br />2003-2011</p>
         <p class="copyright">Тел.: (812) 572-39-03,<br />эл. почта: <a href="#">support@logomotiv.ru</a></p>

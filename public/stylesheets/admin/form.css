@@ -56,10 +56,10 @@ form .addDocs a.addMore { display: block; float: left; clear: both; border-botto
 	
 .buttons {border: none;}
     .buttons ol { margin-left: 160px;}
-	.buttons li { width: auto; clear: none; position: relative; float: left;}
+	.buttons li {position: relative; }
 	.buttons label {margin: 0px; padding: 0px;}
 	.buttons input { width: 200px; display: block; height: auto; width: auto; margin: 0px; padding: 0px; margin-right: 10px; margin-top: 2px; cursor: pointer;}
-	.buttons .yellow_button { margin-right: 40px; margin-top: 25px; height: 37px; width: 140px; text-align: center; padding: 0;}
+	.buttons .yellow_button { margin-right: 40px; margin-top: 25px; height: 37px; width: 140px; text-align: center; padding: 0; cursor: pointer;}
 
 .confirm { background-color: #f5f5f5; border: solid 1px #ff0000;
 	 font-family: "Verdana", "Geneva", sans-serif; font-size: 17px; line-height: 23px;
@@ -80,3 +80,22 @@ form .addDocs a.addMore { display: block; float: left; clear: both; border-botto
 }
 .buttons .confirm_button { margin-top: 15px;}
 .fields { float: left; clear: both;}
+
+.login { clear: both; margin: 0 auto; float: none; width: 460px; padding-bottom: 70px; padding-top: 80px;}
+	.login fieldset {border: none; width: 100%;}
+	.login input {width: 435px; margin-top: 3px;}
+	.login label {width: 100%; float: left;}
+	.login .yellow_button { width: 120px; margin-right: 50px;}
+	.login .submitError { margin-top: 3px; width: 52%;}
+	
+.notification {}
+	.notification fieldset { width: 45%; float: left; border: none;}
+	.notification .boolean { padding-top: 10px;}
+	.notification .boolean label { float: left; clear: both; margin: 0px; padding: 0px; height: auto !important; padding-bottom: 12px; width: 90%;}
+	.notification .boolean input { margin-left: 0px; height: auto;}
+	.notification .buttons li {margin: 0px;}
+	.notification .buttons li textarea { margin-top: 3px; height: 213px;}
+	.notification .yellow_button { width: 130px; float: left; height: 37px; clear: none !important; margin-bottom: 20px;}
+	.notification .collapse { margin: 0px; margin-right: 20px; margin-bottom: 10px; font-size: 16px; line-height: 18px;}
+	.notification .submitError {clear: both;}
+	.submitError {float: left; color: #f10000; font-size: 15px; line-height: 19px; padding-left: 45px; background: no-repeat 0px 50% url("/images/admin/attention.png");}

@@ -1,8 +1,9 @@
 <%
 @resume ||= resume
 %>
-<li><img src="images/photo.jpg" />
-	<a class="name" href="#"><%= @resume.user.name %></a>
-	<p><% if @resume.user.phone %>Тел.: <%= @resume.user.phone %><br /><% end %><% if @resume.user.email %>Эл. почта: <%= @resume.user.email %><% end %></p>
-	<a class="invite" href="#">Пригласить</a>
+<li><img src="<%= @resume.user.avatar.url(:thumb) %>" />
+	<a class="name" href="<%= user_resume_path(@resume.user) %>"><%= @resume.user.name %></a>
+	<p><% if current_user && current_user.owner? %><% if @resume.user.phone %>Тел.: <%= @resume.user.phone %><br /><% end %><% if @resume.user.email %>Эл. почта: <%= @resume.user.email %><% end %><% end %></p>
+	<% if (current_user && current_user.owner?) || Rails.env == 'development' %><a data-remote="true" class="invite" href="/messages/form/<%=@resume.user.id%>">Пригласить</a><% end %>
+	
 </li>

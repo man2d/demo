@@ -157,7 +157,7 @@ form { display: inline; margin: 0px; padding: 0px; position: relative;}
 	.map .text input {width: 265px;}
 	.map form {float: right; width: 285px;}
 	.map form p, .map form a {font-family: "Verdana", "Geneva", sans-serif; font-size: 12px; line-height: 15px; border: none;}
-	.map form a { color: #165e80; text-decoration: underline;}
+	.map form a, .transparent .map form a { color: #165e80; text-decoration: underline;}
 	.map form a:hover { color: #c80009;}
 	.map .error {width: 145px;}
 	.mapPos .arrow {background: url("../images/formArrow2.gif"); width: 21px; height: 11px;

@@ -228,6 +228,8 @@ h2 .actions a {line-height: 15px; margin-top: 1px;}
 	.photo .small li {float: left; padding-bottom: 7px; padding-right: 7px;}
 	.photo .small li a {float: left; clear: both; width: 108px; height: 82px; position: relative; overflow: hidden; z-index: 1000; border: solid 1px #165e80;}
 	.photo .small li a:hover {outline: solid 4px #66b6db; border: solid 1px #66b6db;}
+	.photo .small .current a {border: solid 1px #66b6db;}
+    .photo .small .current a:hover {outline: none; cursor: default;}
 
 .main_banner {position: relative; margin-bottom: 20px; width: 100%; overflow: hidden; position: relative;}
 	.main_banner * {position: relative;}

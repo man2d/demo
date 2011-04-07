@@ -129,6 +129,8 @@ Navigator2::Application.routes.draw do
   match '/about/captain' => 'home#captain'
   match '/about/resume' => 'resumes#index'
   match '/about/resumes' => 'resumes#index'
+  match '/about/members' => 'members#index'
+  match '/messages/:action(/:id)' => 'messages'
 #  match ':controller/:action(/:id(.:format))'
   match '*path' => 'redirect#index'
 end

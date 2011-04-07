@@ -18,7 +18,7 @@ class HomeController < ApplicationController
   end
   
   def index
-    @items = Item.order("RAND()").limit(3)
+    @items = Item.brand_new.order("RAND()").limit(3)
     
     @posts = Post.order("created_at DESC").limit(5)
     @blog_posts = BlogPost.order("created_at DESC").limit(5)

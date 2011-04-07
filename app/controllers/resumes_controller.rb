@@ -1,6 +1,6 @@
 #coding: utf-8
 class ResumesController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => :index
   before_filter :find_page
   def new
     @resume = current_user.resumes.build

@@ -10,7 +10,7 @@
 
 <div class="w910 index">
     	<div class="left">
-        	<p class="about"><span></span><%= raw @page.body %>
+        	<p class="about"><span></span><%= raw(sanitize @page.body, :tags => %w(a)) %></p>
             <h3>Яхты в <a href="/catalog">каталоге</a></h3>
             <ul class="cols_3">
 	        <% @items.each do |item| %>

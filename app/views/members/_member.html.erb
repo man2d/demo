@@ -1,0 +1,8 @@
+<%
+@user ||= user
+%>
+<li><img src="<%= @user.avatar.url(:thumb) %>" />
+	<a class="name" href="<%= user_path(@user) %>"><%= @user.name %></a>
+	<p><% if current_user %>Статус: <%= @user.user_type %><br/><% end %></p>
+
+</li>

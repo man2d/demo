@@ -7,25 +7,35 @@
 </ul>
 </div>
 <% end %>
-<%= form_for "notification", :url => "/admin/users/send_notification", :as => :notification do %>
-<table border="0" id="main">
-	<tr>
-		<td>
-			<%= text_area_tag :notification, nil, :rows => 20, :cols => 30 %><br/>
-			<%= submit_tag "Отправить" %>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<ul class="tree news">
-				<% collection.each do |resource| %>
-				<li><span><%= check_box_tag "users[]", resource.id, false, :class => resource.user_type %><p class="text"><%= resource.name %></p></span></li>
-				<% end %>
-			</ul>
-			<br/>Выбрать:<br/>
-			<a onclick="$('.owner').attr('checked', 'checked');">судовладельцы</a>
-			<a onclick="$('.captain').attr('checked', 'checked');">капитаны</a>
-		</td>
-	</tr>
-</table>
+<h2>Рассылка уведомлений</h2>
+<%= form_for "notification", :url => "/admin/users/send_notification", :as => :notification, :html => {:class => :notification} do %>
+<fieldset>
+	<a class="collapse" href="javascript:void();" onclick="$('input[type=checkbox]').attr('checked', 'checked');">всем</a>    <a class="collapse" href="javascript:void();" onclick="$('input[type=checkbox].owner').attr('checked', 'checked');">судовладельцам</a>    <a class="collapse" href="javascript:void();" onclick="$('input[type=checkbox].captain').attr('checked', 'checked');">капитанам</a>    <a class="collapse" href="javascript:void();" onclick="$('input[type=checkbox]').removeAttr('checked');">очистить</a>
+	<ol>
+	<li class="boolean">
+		<% collection.each do |resource| %>
+		<label for="x<%= resource.id%>"><input id="x<%= resource.id %>" class="<%= resource.user_type %>" type="checkbox" /><%= resource.name %></label>
+		<% end %>
+    </li>
+    </ol>
+</fieldset>
+
+<fieldset class="buttons">
+<ol>
+<li class="text">
+<label for="description">
+   Сообщение
+	<div class="left">
+		<div class="left">
+			<%= text_area_tag :notification, nil %>
+	</div>
+</label>
+</li>
+<li>
+    <input type="submit" class="yellow_button clear" value="Отправить" href="#" />
+	<input type="reset" class="yellow_button clear" value="Отменить" href="#" />
+	<div class="submitError">Неправильный логин<br />или пароль</div>
+</li>
+</ol>
+</fieldset>
 <% end %>
