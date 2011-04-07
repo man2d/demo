@@ -86,8 +86,8 @@ module CollectiveIdea #:nodoc:
               end_eval
             end
           
-            named_scope :roots, :conditions => {parent_column_name => nil}
-            named_scope :leaves, :conditions => "#{quoted_right_column_name} - #{quoted_left_column_name} = 1"
+            scope :roots, :conditions => {parent_column_name => nil}
+            scope :leaves, :conditions => "#{quoted_right_column_name} - #{quoted_left_column_name} = 1"
 
             define_callbacks("before_move", "after_move")
           end
@@ -149,7 +149,7 @@ module CollectiveIdea #:nodoc:
         def each_root_valid?(roots_to_validate)
           left = right = 0
           roots_to_validate.all? do |root|
-            tap(root.left > left && root.right > right) do
+            (root.left > left && root.right > right).tap do
               left = root.left
               right = root.right
             end
