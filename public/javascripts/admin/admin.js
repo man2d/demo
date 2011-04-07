@@ -175,7 +175,7 @@ $(document).ready(function(){
 	$('a.collapse').live('click', function(){
 		$('div.'+$(this).attr('rel')).toggle('slow');
 	});
-	$('textarea.ckeditor_textarea').ckeditor();
+	$('textarea.ckeditor_textarea').ckeditor({ width: '100%',height: '100%',language: 'ru',filebrowserBrowseUrl: '/ckeditor/attachments',filebrowserUploadUrl: '/ckeditor/attachments',filebrowserImageBrowseUrl: '/ckeditor/pictures',filebrowserImageUploadUrl: '/ckeditor/pictures' });
 
 	var sortable_options = {
 	
@@ -234,7 +234,7 @@ function add_fields(link, association, content) {
      var new_id = new Date().getTime();  
      var regexp = new RegExp("new_" + association, "g");  
      $(link).before(content.replace(regexp, new_id)+'<div class="clear"></div>');  
-     $('textarea.ckeditor_textarea').ckeditor();
+     $('textarea.ckeditor_textarea').ckeditor({ width: '100%',height: '100%',language: 'ru',filebrowserBrowseUrl: '/ckeditor/attachments',filebrowserUploadUrl: '/ckeditor/attachments',filebrowserImageBrowseUrl: '/ckeditor/pictures',filebrowserImageUploadUrl: '/ckeditor/pictures' });
 }
 
 
