@@ -7,8 +7,8 @@
 	<div class="right">
 		<ul class="resume">
 			<% if @users %>
-			<% @users.each do |user| %>
-			<%= render 'members/member', :user => user %>
+			<% @users.each do |member| %>
+			<%= render 'members/member', :member => member %>
 			<% end %>
 			<% end %>
 		</ul>
