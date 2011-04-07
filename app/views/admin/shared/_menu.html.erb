@@ -4,4 +4,5 @@
 <% if resource.methods.find{|m| m == :status} %><li><a class="ico_cmHide" href="<%= hide_resource_url(resource) %>">Режим невидимости</a></li><% end %>
 <li><a class="ico_cmTypo" href="#">Оттипографить</a></li>
 <li><%= link_to "Удалить", resource_url(resource), :method => :delete, :class => "ico_cmDel", :confirm => "Объект будет удален!\nХотите продолжить?" %></li>
+<li class="close"><a href="javascript:void(0);">&times;</a></li>
 </ul>

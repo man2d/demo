@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110401104924) do
+ActiveRecord::Schema.define(:version => 20110407110848) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
@@ -160,7 +160,7 @@ ActiveRecord::Schema.define(:version => 20110401104924) do
 
   create_table "items", :force => true do |t|
     t.string   "title"
-    t.integer  "price"
+    t.string   "price",           :limit => 24
     t.text     "description"
     t.string   "image_file_name"
     t.datetime "created_at"

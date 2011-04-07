@@ -132,6 +132,8 @@ $('a.hint').live('click', function(){
 }).live('mouseleave', function() { $('.sub3').hide()});*/
 
 $(".small img").live('click', function() {
+  $('.small li').removeClass('current');
+  $(this).parents('li').addClass('current');
   $('div.big img').attr('src', $(this).attr('src').replace('thumb', 'normal'));
 });
 /** Галерея **/

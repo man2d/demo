@@ -17,16 +17,21 @@
 <div class="clear"></div>
 
   <div class="radio"><% if devise_mapping.rememberable? -%>
-    <label for="remember_me">Запомнить меня <%= f.check_box :remember_me %></label>
+    <label for="user_remember_me"><%= f.check_box :remember_me %>Запомнить меня </label>
   <% end -%></div>
-  <div class="w910">
-  <div class="errorInfo"><%= flash[:notice] || flash[:alert] %></div>
-  <%= f.submit "Войти", :class => :submit %>
-  </div>
 
-<% end %>
+
+
 <div class="clear"></div>
-<%= render :partial => "devise/shared/links" %>
+<%= render :partial => "devise/shared/links" %><br/>
 </div>
+
 </div>
+<div class="clear"></div>
+
+<div class="w910">
+	<div class="errorInfo"><%= f.error_messages %><br/><%= flash[:notice] || flash[:alert] %></div>
+	 <%= f.submit "Войти", :class => :submit %>
+</div>
+<% end %>
 </div>

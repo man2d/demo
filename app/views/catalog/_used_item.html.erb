@@ -8,5 +8,5 @@
 <% if item.year %>Год выпуска: <b><%= item.year %></b><% end %>
 </p>
 
-<% if item.price %><p class="price"><%= item.price %><i><%= item.currency %></i></p><% end %>
+<% if item.price %><p class="price"><%= item.price %><i><%= raw item.currency %></i></p><% end %>
 </li>

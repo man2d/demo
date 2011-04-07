@@ -17,7 +17,7 @@
 			<%=raw @item.description if @item.description %>
 		</div>
 		<div class="right">
-			<% if @item.price %><p class="price"><%= @item.price %> <%= @item.currency %></p><% end %>
+			<% if @item.price %><p class="price"><%= @item.price %> <%= raw @item.currency %></p><% end %>
 			<table class="mainInfo">
 				<% if @item.mileage %><tr><th>Пробег:</th><td><%= @item.mileage %> <i>миль</i></td></tr><% end %>
 				<% if @item.year %><tr><th>Год выпуска:</th><td><%= @item.year %></td></tr><% end %>
