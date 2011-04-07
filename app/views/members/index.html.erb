@@ -6,11 +6,9 @@
 	</div>
 	<div class="right">
 		<ul class="resume">
-			<%= @members.to_xml %>
 			<% if @members %>
 			<% @members.each do |member| %>
-			<%= member.name %>
-				<%= render 'members/member', :member => member %>
+				<%= render 'members/member' %>
 			<% end %>
 			<% end %>
 		</ul>
