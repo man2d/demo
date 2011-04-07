@@ -20,8 +20,8 @@ class HomeController < ApplicationController
   def index
     @items = Item.brand_new.order("RAND()").limit(3)
     
-    @posts = Post.order("created_at DESC").limit(5)
-    @blog_posts = BlogPost.order("created_at DESC").limit(5)
+    @posts = Post.order("updated_at DESC").limit(5)
+    @blog_posts = BlogPost.order("updated_at DESC").limit(5)
     
     @page = Page.find_by_slug("main")
     @blocks = @page.blocks.limit(1) if @page
