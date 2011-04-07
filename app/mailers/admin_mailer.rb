@@ -1,3 +1,4 @@
+#coding: utf-8
 class AdminMailer < ActionMailer::Base
   default :from => "noreply@yachtclub-neva.ru"
   
