@@ -3,7 +3,8 @@
 <p>Вам открыт доступ к закрытой информации сайта www.yachtclub-neva.ru</p>
 <p>Вы можете подтвердить свой E-mail по следующей ссылке:</p>
 
+<p><%= link_to 'Подтвердить', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>
+
 <p>Ваш логин: <%= @resource.email %>
 <p>Ваш пароль: <%= @resource.password %></p>
 
-<p><%= link_to 'Подтвердить', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>

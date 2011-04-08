@@ -11,7 +11,7 @@ class AdminMailer < ActionMailer::Base
   end
   
   def catalog(user, address = '', message = '')
-    address = user.address if address == ''
+    @address = user.address if address == ''
     mail(:subject => "Запрос каталога")
   end
 end

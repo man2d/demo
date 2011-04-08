@@ -3,7 +3,7 @@ class ResumesController < ApplicationController
   before_filter :authenticate_user!, :except => :index
   before_filter :find_resume_page
   def new
-    @resume = current_user.resumes.build
+    @resume = current_user.build_resume
     @resume.resume_educations.build
     @resume.resume_jobs.build
   end
@@ -24,7 +24,7 @@ class ResumesController < ApplicationController
   end
   
   def create
-    @resume = current_user.resumes.build(params[:resume])
+    @resume = current_user.build_resume(params[:resume])
     if @resume.save
       flash[:notice] = "Резюме сохранено"
       redirect_to user_path(current_user)
