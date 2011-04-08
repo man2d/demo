@@ -1,7 +1,7 @@
 #coding: utf-8
 class ResumesController < ApplicationController
   before_filter :authenticate_user!, :except => :index
-  before_filter :find_page
+  before_filter :find_resume_page
   def new
     @resume = current_user.resumes.build
     @resume.resume_educations.build
@@ -45,5 +45,9 @@ class ResumesController < ApplicationController
     else
       render 'update'
     end
+  end
+  
+  def find_resume_page
+    @page = Page.find_by_slug('resumes')
   end
 end

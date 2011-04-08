@@ -75,7 +75,7 @@
 .list1, .page.right ol, .page.right ul { margin-left: 0px; padding-bottom: 12px; padding-top: 5px;}
 	.list1 li, .page.right ol li, .page.right ul li { margin-bottom: 7px;}
 	.list1 *, .page.right ol *, .page.right ul * {color: #666666; text-indent: -18px; padding: 0px;}
-.leftBlueBox { background-image: url('../images/bluebg.png'); padding: 20px 0px; padding-bottom: 0px; padding-left: 200px; margin-left: -200px; margin-top: 25px; color: white; float: left; clear: both; width: 100%; display: inline;}
+.leftBlueBox { background-image: url('../images/bluebg.png'); padding: 20px 0px; padding-bottom: 0px; padding-left: 200px; margin-left: -200px; margin-top: 25px; margin-bottom: 25px; color: white; float: left; clear: both; width: 100%; display: inline;}
 	.leftBlueBox div { padding-left: 34px; display: block; float:left; width: 150px; clear: both; line-height: 15px; min-height: 15px; position: relative; margin-bottom: 20px;}
 	.leftBlueBox a {color: white; display: inline-block; float: left; clear: both; line-height: 17px; text-decoration: none;}
 	.leftBlueBox a span {border-bottom: solid 1px; width: auto; height: auto; position: relative; display: inline; background: none;}
@@ -197,7 +197,7 @@ h3, h3 a {font-size: 16px; line-height: 18px; font-weight: normal; font-family: 
 	*top: 1px;
 	}
 	.actions span { position: relative;}
-	.actions a {text-decoration: none; border-bottom: dashed 1px; display: block; float: left; margin-bottom: 5px; font-size: 13px; line-height: 16px;}
+	.actions a {text-decoration: none; border-bottom: dashed 1px; display: block; float: left; margin-bottom: 5px; font-size: 13px; line-height: 13px;}
 h2 .actions {width: auto; position: absolute; top: 0px; right: 0px; z-index: 6000;}
 h2 .actions a {line-height: 15px; margin-top: 1px;}
 

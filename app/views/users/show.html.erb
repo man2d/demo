@@ -27,7 +27,7 @@
 	<h2>Моя яхта</h2>
 		<% if @user.item.gallery_images.size > 0 %><a href="<%= user_item_path(@user) %>" class="imgBorder"><img src="<%= @user.item.gallery_images.first.url(:normal) %>" /></a><% end %>
 		<div class="clear"></div>
-		<% if @user.item.description %><p><%= @user.item.description %></p><% end %>
+		<% if @user.item.description %><p><%= strip_tags(@user.item.description) %></p><% end %>
 		<% if @user.item.price %><a class="forSale" href="#"><span>Продается</span></a><% end %>
 	<% end %>
 	</div>

@@ -5,11 +5,11 @@
 $(document).ready(function() {
 if (CKEDITOR.instances['blog_post_announce']) { 
         CKEDITOR.remove(CKEDITOR.instances['blog_post_announce']);}
-        CKEDITOR.replace('blog_post_announce', { width: '600px',height: '100%',language: 'ru',toolbar: 'Blog',filebrowserUploadUrl: '/ckeditor/attachments',filebrowserImageUploadUrl: '/ckeditor/pictures' });
+        CKEDITOR.replace('blog_post_announce', { width: '700px',height: '100%',language: 'ru',toolbar: 'Blog',filebrowserUploadUrl: '/ckeditor/attachments',filebrowserImageUploadUrl: '/ckeditor/pictures' });
 
 		if (CKEDITOR.instances['blog_post_content']) { 
 		        CKEDITOR.remove(CKEDITOR.instances['blog_post_content']);}
-		        CKEDITOR.replace('blog_post_content', { width: '600px',height: '100%',language: 'ru',toolbar: 'Blog',filebrowserUploadUrl: '/ckeditor/attachments',filebrowserImageUploadUrl: '/ckeditor/pictures' });
+		        CKEDITOR.replace('blog_post_content', { width: '700px',height: '500px',language: 'ru',toolbar: 'Blog',filebrowserUploadUrl: '/ckeditor/attachments',filebrowserImageUploadUrl: '/ckeditor/pictures' });
 
 });
 //]]>
@@ -36,12 +36,12 @@ end %>
 						<div class="example"></div>
 				</div><div class="info"></div>
 <div class="clear"></div>
-				<div class="text">
+<!--				<div class="text">
 					<label for="name">Категория</label>
 						<%= select_tag "post", options_from_collection_for_select(BlogTopic.all, "id", "title"), :include_blank => true %>
 						<div class="example"></div>
 				</div><div class="info"></div>
-<div class="clear"></div>
+<div class="clear"></div>-->
 				<div class="text">
 					<label for="name">Анонс</label>
 						<div class="clear"></div>
