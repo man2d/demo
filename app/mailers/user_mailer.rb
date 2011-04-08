@@ -5,7 +5,7 @@ class UserMailer < ActionMailer::Base
   def captain(user, sender)
     @user = user
     @sender = sender
-    mail(:to => user.email, :subject => "Пользователь #{@sender.name} ")
+    mail(:to => user.email, :subject => "Пользователь #{@sender.name} приглашает Вас")
   end
   
   def message(user, sender, message)
@@ -14,6 +14,6 @@ class UserMailer < ActionMailer::Base
     @sender = sender
 #    @url  = "http://example.com/login"
     mail(:to => user.email,
-             :subject => "Welcome to My Awesome Site")
+             :subject => 'Сообщение от пользователя с сайта Яхт-клуба "Президент Нева"')
   end
 end

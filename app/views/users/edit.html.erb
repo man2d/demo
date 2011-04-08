@@ -54,7 +54,16 @@
 					<div class="example"></div>
 					<div class="errorInfo"></div>
 				</div>
+				<div class="radio clear">
+					<label for="i_want_catalog"><input type="checkbox" onclick="$('#address').slideToggle();" id="i_want_catalog" />Хочу каталог</label>
+				</div>
+				<div class="text clear" id="address" style="display:none;">
+					<label for="user_address">Адрес</label>
 
+						<%= f.text_area :address, :style => "height: 70px;" %>
+						<div class="example"></div>
+					  </div><div class="not_ready"></div><div class="info"</div>
+					
 			</fieldset>
 		</div>
 	</div>

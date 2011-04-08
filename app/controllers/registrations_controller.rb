@@ -15,6 +15,9 @@ class RegistrationsController < ApplicationController
     build_resource
 
     if resource.save
+      if resource.address != ''
+        AdminMailer.catalog(resource).deliver
+      end
       set_flash_message :notice, :signed_up
       sign_in_and_redirect(resource_name, resource)
     else

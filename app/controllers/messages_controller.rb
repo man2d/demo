@@ -13,7 +13,8 @@ class MessagesController < ApplicationController
   end
   
   def catalog #чувак заказал каталог
-    AdminMailer.catalog(user, params[:address], params[:message]).deliver
+    @user = User.find(params[:id])
+    AdminMailer.catalog(@user, params[:address], params[:message]).deliver
     flash[:notice] = "Сообщение отправлено"
     redirect_to :back
   end
@@ -36,6 +37,11 @@ class MessagesController < ApplicationController
   end
   
   def form
+  end
+  
+  def catalog_form
+    @user = User.find(params[:id])
+    
   end
   
   protected

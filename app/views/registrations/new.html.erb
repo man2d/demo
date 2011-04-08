@@ -28,6 +28,17 @@
 						<div class="example pass"></div>
 					  </div><div class="not_ready" id="user_password_status"></div><div class="info">Пароль должен содержать не менее 6 символов</div>
 <div class="clear"></div>
+<div class="radio">
+	<label for="i_want_catalog"><input type="checkbox" onclick="$('#address').slideToggle();" id="i_want_catalog" />Хочу каталог</label>
+</div>
+<div class="text" id="address" style="display:none;">
+	<label for="user_address">Адрес</label>
+	
+		<%= f.text_area :address, :style => "height: 70px;" %>
+		<div class="example"></div>
+	  </div><div class="not_ready"></div><div class="info"</div>
+		</div>
+<div class="clear"></div>
 		</div>
 	</div>
 	<div class="w910">

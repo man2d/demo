@@ -1,2 +1,2 @@
-$('#main_container').append('<%= render 'form', :message_for => '/message/'+params[:id] %>');
-$(".sendOrderPos").css('top', document.body.scrollTop+200+'px').css('right', '50%').css('margin-right', '-300px').css('z-index', '33333').show();
+$('#main_container').append('<%= render 'form', :message_for => 'message/'+params[:id] %>');
+$(".sendOrderPos").css('top', document.body.scrollTop+'px').css('right', '50%').css('margin-right', '-300px').css('z-index', '33333').show();
