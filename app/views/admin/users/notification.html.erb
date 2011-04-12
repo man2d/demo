@@ -14,7 +14,7 @@
 	<ol>
 	<li class="boolean">
 		<% collection.each do |resource| %>
-		<label for="x<%= resource.id%>"><input id="x<%= resource.id %>" class="<%= resource.user_type %>" type="checkbox" /><%= resource.name %></label>
+		<label for="x<%= resource.id%>"><input id="x<%= resource.id %>" name="user_id[]" value="<%= resource.id %>" class="<%= resource.user_type %>" type="checkbox" /><%= resource.name %></label>
 		<% end %>
     </li>
     </ol>
@@ -34,7 +34,7 @@
 <li>
     <input type="submit" class="yellow_button clear" value="Отправить" href="#" />
 	<input type="reset" class="yellow_button clear" value="Отменить" href="#" />
-	<div class="submitError">Неправильный логин<br />или пароль</div>
+	<div class="submitError"></div>
 </li>
 </ol>
 </fieldset>

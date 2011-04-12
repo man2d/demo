@@ -1,14 +1,11 @@
 .spec a {white-space: normal;} 
 
 .filters table .bg {}
-div.f1 {
-   position: relative;
-}
-div.f1 span {
-   position: absolute;
-   top: 50%;
-}
-div.f1 span span {
-   position: relative;
-   top: -50%;
-}
+
+
+form .text input {line-height: 40px;}
+.sendOrderForm .text input, .enterForm .text input { line-height: 30px;}
+.search input { line-height: 22px;}
+
+.smallForm .text input { line-height: 30px;}
+

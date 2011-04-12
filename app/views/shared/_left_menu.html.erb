@@ -17,7 +17,7 @@ end
 <div class="leftBlueBox">
 	<% if current_user.owner? %>
 	<div><span class="resumePic"></span><a href="/about/resumes"><span>Резюме капитанов</span></a></div>
-	<div><span class="servisPic"></span><a href="<%= resumes_path %>"><span>Заявка на сервисное обслуживание яхты</span></a></div>
+<!--	<div><span class="servisPic"></span><a href="<%= resumes_path %>"><span>Заявка на сервисное обслуживание яхты</span></a></div> -->
     <% end %>
     <% if current_user.captain? %>
 
@@ -30,8 +30,8 @@ end
 	<ul class="files">
 	<% if @page.attachments.size > 0 %>
 	<% @page.attachments.each do |asset| %>
-	<div class="file <%= file.attachment_file_name.split(".").last.upcase %>"><a href="<%= asset.url %>"><%= asset.attachment_file_name %></a>
-		<%= file.attachment_file_name.split(".").last.upcase %>, <%= (file.attachment_file_size/1024).round(3) %> Кб
+	<div class="file <%= asset.attachment_file_name.split(".").last.downcase %>"><a href="<%= asset.url %>"><%= asset.attachment_file_name %></a>
+		<%= asset.attachment_file_name.split(".").last.upcase %>, <%= (asset.attachment_file_size/1024).round(3) %> Кб
 		</div>
 	<% end %>
 	<% end %>

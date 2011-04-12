@@ -7,7 +7,7 @@
 <% else %>
 <a href="/">Главная</a><% @page.self_and_ancestors.each do |page| %>
   <% if page == @page %>
-   / <b><%= page.title %></b>
+   / <b><%= raw page.title %></b>
   <% else %>
    / <a href="<%= page.url %>"><%= strip_tags(page.title) %></a>
   <% end %>

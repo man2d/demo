@@ -2,7 +2,7 @@
 	<li<%=raw ' class="current"' if (params[:action] == 'show' || params[:action] == 'edit') && (params[:controller] == 'registrations' || params[:controller] == 'users') %>><a href="<%= edit_registration_path(current_user) %>">Основное</a></li>
 	<% if current_user.owner? %><li<%=raw ' class="current"' if params[:controller] == 'items' %>><a href="<%= edit_user_item_path(current_user) %>">Моя яхта</a></li><% end %>
 	<% if current_user.captain? %>
-	<% if current_user.resume %><li<%=raw ' class="current"' if params[:controller] == 'resumes' %>><a href="<%= user_resume_path(current_user, current_user.resume) %>">Мое резюме</a></li>
+	<% if current_user.resume %><li<%=raw ' class="current"' if params[:controller] == 'resumes' %>><a href="<%= user_resume_path(current_user) %>">Мое резюме</a></li>
 	<% else %><li<%=raw ' class="current"' if params[:controller] == 'resumes' %>><a href="<%= new_user_resume_path(current_user) %>">Мое резюме</a></li>
 	<% end %>
 	<% end %>

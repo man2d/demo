@@ -25,10 +25,10 @@
             <% if @page.pdf %><p class="file defaultPic"><a href="<%= @page.pdf.url %>">Каталог яхт</a>(5 Mб, ПДФ)</p><% end %>
 			
 			<p>
-			<img alt="" src="/ckeditor_assets/pictures/29/content_catalog.gif?1302197373" style="width: 41px; height: 27px; " /></p>
-			<% unless current_user %><a class="invite" href="/register">Заказать каталог</a>
-			<% else %><a data-remote="true" class="invite" href="/messages/catalog_form/<%=current_user.id%>">Заказать каталог</a><% end %>
-			<% if @page.blocks.size > 0 %>
+			
+			<% unless current_user %><a class="invite" href="/register"><img alt="" src="/images/katalog_unreg.png" /></a>
+			<% else %><a data-remote="true" class="invite" href="/messages/catalog_form/<%=current_user.id%>"><img alt="" src="/images/katalog.png" /></a><% end %>
+			</p>			<% if @page.blocks.size > 0 %>
 			<% @page.blocks.each do |block| %>
 			<%= raw block.content %>
 			<% end %>

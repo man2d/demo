@@ -1,2 +1,3 @@
-Прошу прислать печатную версию каталога Яхт на адрес <%= @address %> для <%= user.name %>, тел: <%= user.phone %>
-<%= "Сообщение: "+message if message != "" %>
+Прошу прислать печатную версию каталога Яхт на адрес <%= @address || @user.address %> для <%= @user.name %>, тел: <%= @user.phone %>, e-mail: <%= @email || @user.email %><br/><br/>
+
+<%= "Сообщение: "+@message if @message != "" %>

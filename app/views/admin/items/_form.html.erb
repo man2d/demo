@@ -6,7 +6,7 @@
   <%= f.inputs do %>
     <li class="select optional" id="item_page_input"><label for="item_page_id">Категория</label><%= f.select :page_id, nested_set_options(Page.where("title != 'С пробегом'").find_all_by_parent_id(3)) {|i| "#{'-'*i.level} #{i.title}"}, :include_blank => true %></li>
 	<%= f.input :title %>
-	<%= f.input :price %> <%= f.input :currency, :as => :select, :label => "Валюта", :collection => options_for_select({"$" => "$", "Руб." => '<p style="line-height: 12px; height: 4px; display: block; font-family: \'Times New Roman\', Times, serif; font-size:16px; border-bottom: solid 1px; float: left; width: 7px;">Р</p>', "Фунт" => "&pound;", "Евро" => "&euro;"}, @item.currency) %>
+	<%= f.input :price %> <%= f.input :currency, :as => :select, :label => "Валюта", :collection => options_for_select({"$" => "$", "Руб." => '<p style="line-height: 12px; height: 1px; font-weight: normal; display: block; font-family: \'Times New Roman\', Times, serif; font-size:16px; border-bottom: solid 1px; width: 7px;">Р</p>', "Фунт" => "&pound;", "Евро" => "&euro;"}, @item.currency) %>
 	<br/><div class="clear"></div>
 	<%= f.input :item_assign, :as => :select, :label => "Назначение" %>
 	<%= f.input :lgth, :label => "Длина" %>

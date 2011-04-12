@@ -7,14 +7,15 @@ class MessagesController < ApplicationController
   end
   
   def item_app #чувак богатый сильно, надо бы адрес узнать. редирект на страницу с заказом каталога?
-    AdminMailer.item_app(params[:name], params[:email], params[:message]).deliver
+    @item = Item.find(params[:id])
+    AdminMailer.item_app(@item, params[:name], params[:email], params[:message]).deliver
     flash[:notice] = "Сообщение отправлено"
     redirect_to :back    
   end
   
   def catalog #чувак заказал каталог
     @user = User.find(params[:id])
-    AdminMailer.catalog(@user, params[:address], params[:message]).deliver
+    AdminMailer.catalog(@user, params[:address], params[:message], params[:email]).deliver
     flash[:notice] = "Сообщение отправлено"
     redirect_to :back
   end
@@ -22,7 +23,7 @@ class MessagesController < ApplicationController
   def captain #пригласить капитана
     @user = User.find(params[:id])
     @sender = current_user
-    UserMailer.captain(@user).deliver
+    UserMailer.captain(@user, @sender).deliver
     flash[:notice] = "Сообщение отправлено"
     redirect_to :back
     
@@ -31,7 +32,7 @@ class MessagesController < ApplicationController
   def message #сообщение чуваку
     @sender = current_user
     @user = User.find(params[:id])
-    UserMailer.message(@user, @sender, params[:message]).deliver
+    UserMailer.user_message(@user, @sender, params[:message]).deliver
     flash[:notice] = "Сообщение отправлено"
     redirect_to :back
   end

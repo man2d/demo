@@ -8,12 +8,11 @@ class UserMailer < ActionMailer::Base
     mail(:to => user.email, :subject => "Пользователь #{@sender.name} приглашает Вас")
   end
   
-  def message(user, sender, message)
+  def user_message(user, sender, message)
     @user = user
     @message = message
     @sender = sender
 #    @url  = "http://example.com/login"
-    mail(:to => user.email,
-             :subject => 'Сообщение от пользователя с сайта Яхт-клуба "Президент Нева"')
+    mail(:to => @user.email, :subject => 'Сообщение от пользователя с сайта Яхт-клуба "Президент Нева"')
   end
 end

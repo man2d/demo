@@ -20,7 +20,7 @@ class Admin::UsersController < Admin::BaseController
   end
   
   def send_notification
-    @users = User.find(params[:users])
+    @users = User.find(params[:user_id])
     @users.each do |user|
       NotificationMailer.notification(user, params[:notification]).deliver
     end
@@ -35,7 +35,11 @@ class Admin::UsersController < Admin::BaseController
   end
   def collection
     if params[:search]
-      @users = User.where(params[:search]).all
+      if params[:search][:activated] && params[:search][:activated].to_i == 0
+        @users = User.where(:activated => nil).all
+      else
+        @users = User.where(params[:search]).all
+      end
     else
       @users = User.all
     end

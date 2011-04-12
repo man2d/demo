@@ -34,7 +34,7 @@
 				<% end %>
 			</li>
 			<% end %>
-			<% @post.comments.each do |comment| %>
+			<% @post.comments.order("created_at").each do |comment| %>
 			<% unless comment.new_record? %>
 			<li style="clear: both;">
 				<p class="date"><%= Russian::strftime(comment.created_at, "%d %B %Y")%></p>

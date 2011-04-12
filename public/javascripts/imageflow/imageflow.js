@@ -1473,6 +1473,6 @@ domReadyEvent.init();
 domReady(function()
 {
 	var instanceOne = new ImageFlow();
-	instanceOne.init({ ImageFlowID:'exteriorFlow', circular: true, slider: false, 	
+	instanceOne.init({ ImageFlowID:'exteriorFlow', circular: true, slider: false
 	});
 });

@@ -16,7 +16,8 @@ class RegistrationsController < ApplicationController
 
     if resource.save
       if resource.address != ''
-        AdminMailer.catalog(resource).deliver
+        resource.update_attribute(:address, params[:user][:address])
+        AdminMailer.catalog(resource, params[:user][:address], '', params[:user][:email]).deliver
       end
       set_flash_message :notice, :signed_up
       sign_in_and_redirect(resource_name, resource)
@@ -36,6 +37,9 @@ class RegistrationsController < ApplicationController
   # PUT /resource
   def update
     if resource.update_attributes(params[resource_name])
+      if params[:user][:address]
+        AdminMailer.catalog(resource, params[:user][:address], '', resource.email).deliver
+      end
       set_flash_message :notice, :updated
       redirect_to after_update_path_for(resource)
     else

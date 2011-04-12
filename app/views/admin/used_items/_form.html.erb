@@ -7,6 +7,7 @@
     <%= f.input :page_id, :value => Page.find_by_slug("s_probegom").id, :as => :hidden %>
 	<%= f.input :title %>
 	<%= f.input :price %> <%= f.input :currency, :label => "Валюта" %>
+	<%= f.input :user, :label => "Пользователь", :as => :select %>
 	<%= f.input :item_assign, :as => :select, :label => "Назначение" %>
 	<%= f.input :lgth, :label => "Длина" %>
 	<li id="item_on_hand_input" class="boolean optional"><label for="item_on_hand">Есть в наличии</label><%= f.check_box :on_hand %></li>

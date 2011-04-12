@@ -6,6 +6,9 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update_attributes(params[:user])
+       if params[:user][:address]
+            AdminMailer.catalog(@user, params[:user][:address], '', @user.email).deliver
+        end
       flash[:notice] = "Профиль сохранен"
       redirect_to user_path(@user)
     else

@@ -157,14 +157,14 @@ opacity: 0.1;
 	.foot .copyright {float: left; text-indent: -11px; margin-right: 80px; padding-left: 12px; margin-left: -12px;}
 	.foot .smap {margin-left: 9px; float: left; clear: both;}
 	.search {float: left; clear: both; display: inline; height: 22px; margin-top: 18px; position: relative; margin-left: 9px;}
-		.search input {border: none; outline: 0 none; background-image: url("../images/search_m.gif"); border:0; position: relative;
-			margin: 0px; padding: 0px; height: 22px; width: 225px; color: #808080; font-size: 11px; line-height: 12px; float: left; clear: both;}
+		.search input {border: none; outline: 0 none; background-image: url("../images/search_m.gif"); border:0; position: relative; z-index: 10;
+			margin: 0px; padding: 0px; height: 22px; width: 205px; color: #808080; font-size: 11px; line-height: 12px; float: left; clear: both;}
 		.search input:focus {border: none; outline: 0 none; color: black;}
-		.search .ico {background-image: url("../images/search_ico.gif"); width: 17px; height: 16px; position: absolute; top: 3px; right: -5px;}
+		.search .ico {background-image: url("../images/search_ico.gif"); width: 17px; height: 16px; position: absolute; top: 3px; right: -17px; z-index: 11;}
 			.search .ico:hover {background-position: 0px -16px;}
-		.search .l, .search .r {background-image: url("../images/search_rounds.png"); width: 12px; height: 22px; position: absolute; top: 0px; border:0; overflow: hidden;}
-		.search .l {left: -12px;}
-		.search .r {background-position: -12px 0px; right: -12px;}
+		.search .l, .search .r {background-image: url("../images/search_rounds.png"); width: 12px; height: 22px; position: absolute; top: 0px; border:0; overflow: hidden; z-index: 9;}
+		.search .l {left: -9px;}
+		.search .r { width: 26px; background-position: -26px 0px; right: -22px;}
 	.yacht {height: 55px; clear: both; position: relative;}
 		.yacht .pict { width: 87px; height: 33px; position: absolute; bottom: 1px; left: 82%; z-index: 15000;}
 		.yacht .pict a.yachtPic {background: url('../images/yacht.png'); display: block; width: 87px; height: 33px; z-index: 1001; outline: none; position: relative;}
@@ -206,3 +206,7 @@ opacity: 0.1;
 		.home:hover {background-position: 0px -24px;}
 		.mail:hover {background-position: -16px -24px;}
 		.sitemap:hover {background-position: -32px -24px;}
+		
+	.homeActive, .homeActive:hover {background-position: 0px -36px; cursor: default;}
+	.mailActive, .mailActive:hover {background-position: -16px -36px; cursor: default;}
+	.sitemapActive, .sitemapActive:hover {background-position: -32px -36px; cursor: default;}

@@ -1,7 +1,8 @@
 		<div class="w910 typical">
 				<div class="tree"><a href="/">Главная</a> / <a href="/about/">Клуб</a> / <b>Резюме пользователя <%= @resume.user.name %></b> <div class="arrow"></div></div>
+				<div class="clear"></div>
 			<div class="left">
-<%#= render 'shared/left_menu', :page => Page.find_by_slug('about') %>
+<%= render 'shared/left_menu' %>
 			</div>
 			<div class="right">
 				<div class="resumeMainInfo">
@@ -10,8 +11,8 @@
 						<h2><%= @resume.fio %></h2>
 						<p><% if @resume.phone %>Тел.: <%= @resume.phone %><br /><% end %><% if @resume.email %>Эл. почта: <%= @resume.email %><% end %></p>
 					</div>
-					<% if current_user.captain? %><a href="<%= edit_user_resume_path(current_user) %>" class="submit formReady">Редактировать</a>
-					<% else %><a href="#" class="submit formReady">Пригласить капитана</a><% end %>
+					<% if current_user.captain? && current_user == @resume.user %><a href="<%= edit_user_resume_path(current_user) %>" class="submit formReady">Редактировать</a>
+					<% else %><a data-remote="true" class="invite" href="/messages/form/<%=@resume.user.id%>" class="submit formReady">Пригласить капитана</a><% end %>
 				</div>
 				<h2>Опыт</h2>
 <p><%= @resume.more %></p>
@@ -23,6 +24,7 @@
 <% if @resume.resume_educations %>
 <h2>Образование</h2>
 <% @resume.resume_educations.each do |edu| %>
+<p><%= edu.title %>, <%= edu.edu_type %>, <%= edu.speciality %></p>
 <% end %>
 <% end %>
 			</div>

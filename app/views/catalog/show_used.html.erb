@@ -30,6 +30,7 @@
 				<% end %>
 			</table>
 			<% end %>
+			<% if @item.user %><a data-remote="true" class="invite" href="/messages/form/<%=@item.user.id%>">Написать продавцу</a><% end %>
 		</div>
 	</div>
 </div>

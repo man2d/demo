@@ -6,8 +6,6 @@
 	-webkit-user-select: none;
 }
 .imageflow {
-	overflow-x: hidden;
-	overflow-y: hidden;
 	position: relative;
 	text-align: left;
 	visibility: hidden;

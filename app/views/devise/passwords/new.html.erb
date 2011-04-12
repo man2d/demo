@@ -1,12 +1,27 @@
-<h2>Forgot your password?</h2>
+<div class="formWrap">
 
-<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
-  <%= devise_error_messages! %>
 
-  <p><%= f.label :email %><br />
-  <%= f.text_field :email %></p>
+<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post, :class => :registration }) do |f| %>
+  
+<div class="w910">
+<h1>Забыли пароль?</h1>
+</div>
+<div class="blueBg">
+<div class="w910">
+  <div class="text"><%= f.label :email %>
+  <%= f.text_field :email %></div>
+ </div>
 
-  <p><%= f.submit "Send me reset password instructions" %></p>
+<div class="clear"></div>
+
+<div class="w910"><%= render :partial => "devise/shared/links" %></div>
+</div>
+<div class="w910">
+<div class="errorInfo"><%= devise_error_messages! %></div>
+  <%= f.submit "Прислать инструкции по восстановлению пароля", :class => "submit formReady" %>
+  </div>
 <% end %>
 
-<%= render :partial => "devise/shared/links" %>
+
+
+</div>
