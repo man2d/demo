@@ -8,6 +8,7 @@
                             <% if item.exterior_images.size > 0 %><a class="force" href="<%= item.url %>?view=exterior">Экстерьер</a><% end %>
                             <% if item.specification_images.size > 0 %><a class="force" href="<%= item.url %>?view=specification">Спецификация</a><% end %>
 							<% if item.wallpapers.size > 0 %><a class="force" href="<%= item.url %>?view=wallpapers">Обои</a><% end %>
+							<% if item.video_html %><a class="force" href="<%= item.url %>?view=video">Видео</a><% end %>
 							<% if item.threed_assets.size > 0 %><a class="force" href="<%= item.url %>?view=threed_view">3D-вид</a><% end %>
                         </div>
                         <div class="right">
