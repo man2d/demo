@@ -581,19 +581,32 @@ function ImageFlow ()
 							newImageW = image.w * newImageH / image.h;
 							break;
 					}
+					var isIE6 = false;
+					if (jQuery.browser.msie == true) {
+					if (jQuery.browser.version <= 7) {
+					isIE = true;}}
+					
+					if(!isIE) {
 					if(newImageH > 270) {
 						newImageH = 400;
-						newImageW =image.w * newImageH / image.h;
+						
 					}
+					}
+					newImageW =image.w * newImageH / image.h;
 //					console.log(newImageH);
 					var newImageTop = (my.imagesDivHeight - newImageH) + ((newImageH / (my.reflectionP + 1)) * my.reflectionP);
 
 					/* Set new image properties */
-					if(newImageH == 400) {
+					
+					if(!isIE) {
+					  if(newImageH == 400) {
 						image.style.left = (xs - (image.pc / 2) / z * my.size)-70 + 'px';
 
-				    } else {
+				      } else {
 						image.style.left = xs - (image.pc / 2) / z * my.size + 'px';					
+				      }
+				    } else {
+					    image.style.left = xs - (image.pc / 2) / z * my.size + 'px';					
 				    }
 					if(newImageW && newImageH)
 					{
@@ -1449,7 +1462,8 @@ var domReadyEvent =
 		}
 
 		/* for Internet Explorer */
-		/*@cc_on
+		//@cc_on
+		/*if(jQuery.browser.msie && jQuery.browser.version <= 7){
 			@if (@_win32 || @_win64)
 			document.write("<script id=__ie_onload defer src=\"//:\"><\/script>");
 			var script = document.getElementById("__ie_onload");
@@ -1461,7 +1475,7 @@ var domReadyEvent =
 				}
 			};
 			@end
-		@*/
+		}*/
 	}
 };
 

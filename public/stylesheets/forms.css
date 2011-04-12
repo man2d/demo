@@ -75,7 +75,7 @@ form { display: inline; margin: 0px; padding: 0px; position: relative;}
 	form .loading { background: no-repeat -9px 0px url("../images/ajax_loader.gif"); line-height: 50px; text-indent: 40px; font-size: 12px; font-style: italic; color: #666;}
 	form .loading img { float: left;}
 	form fieldset ul { margin: 0px 30px;}
-	form .more {float: left; clear: both; border-bottom: dashed 1px; text-decoration: none; margin-bottom: 10px;}
+	form .more {float: left; clear: both; border-bottom: dashed 1px; text-decoration: none; margin-bottom: 10px; white-space: nowrap;}
 	
 .personal {color: #1a1a1a; margin: 0 auto; clear: both; display: block; width: 100%;}
 	.personal .text .errorInfo { margin: 0px;}
@@ -101,21 +101,21 @@ form { display: inline; margin: 0px; padding: 0px; position: relative;}
 	.period {}
 	.period label {clear: none; width: auto !important; margin-right: 10px; line-height: 28px;}
 	.period input {clear: none; width: 60px !important; height: 28px !important; margin-right: 10px; font-size: 16px !important; line-height: 28px !important;}
-	.skins { float: left; margin: 0px 30px; padding: 30px 0px; display: inline;}
-		.skins li {float: left; width: 25%; margin-bottom: 20px;}
+	.skins { float: left; margin: 0px 30px; padding: 30px 0px; display: inline; width:100%;}
+		.skins li {float: left; width: 24%; margin-bottom: 20px;}
 		.skins a { border: solid 1px #66b8dd; float: left;}
 		.skins li.current a {border: solid 1px #c80009;}
 		.skins a:hover {border: solid 1px #c80009; outline: double 4px #66b8dd;}
 	
-.shadow, .shadow .b, .shadow .r, .shadow .bl, .shadow .br, .shadow .tr { float: left; clear: both; display: inline; position: relative; z-index: 100;}
+.shadow, .shadow .b, .shadow .r, .shadow .bl, .shadow .br, .shadow .tr, .shadow .dataShadowWrap { float: left; clear: both; display: inline; position: relative; z-index: 100;}
 	.shadow {float: left; clear: both; padding-right: 12px; background-image: url("../images/shadow_corner_br.png"); background-position: 100% 100%; background-repeat: no-repeat;}
-	.shadow .b, .shadow .r {float: left; clear: both;}
+	.shadow .b, .shadow .r {float: left; clear: none;}
 	.shadow .b {background-image: url("../images/shadow_b.png"); background-position: 100% 100%; background-repeat: repeat-x; margin-left: 12px; padding-bottom: 12px;}
 	.shadow .tr {background-image: url("../images/shadow_corner_tr.png"); background-position: 100% 0%; background-repeat: no-repeat; margin-left: -12px;margin-right: -12px; overflow: hidden;}
 	.shadow .bl, .shadow .br { width: 12px; height: 12px; position: absolute; overflow: hidden; display: block;}
 	.shadow .r {background: repeat-y 100% 100% url("../images/shadow_r.png"); position: absolute; top: 12px; right: 0px; width: 12px; height: 1000px;}
 	.shadow .bl {background-image: url("../images/shadow_corner_bl.png"); bottom: 0px; left: -12px;}
-	.shadow .dataShadowWrap {display: block !important; color: black; margin-right: 12px;}
+	.shadow .dataShadowWrap {color: black; margin-right: 12px;}
 	.shadow .arrow {background: url("../images/formArrow.gif"); width: 11px; height: 21px; display: block; overflow: hidden;
 		 position: absolute; top: 35px; right: 2px; z-index: 200; float: left; clear: both;
 	}
@@ -127,7 +127,7 @@ form { display: inline; margin: 0px; padding: 0px; position: relative;}
 	.smallForm .text input, .smallForm .text textarea {width: 242px; height: 30px; line-height: 17px; font-size: 15px; position: relative;}
 	.smallForm .text textarea { width: 97%; height: 193px; padding: 0px 5px; padding-top: 7px;}
 	.smallForm .error {color: #c80009; font-size: 12px; line-height: normal; float: left; width: 120px; margin-top: 7px; padding: 0px;}
-	.smallForm .submit {width: 120px; height: 30px; padding: 0px; font-size: 14px; line-height: 14px; margin-top: 7px; margin-right: 15px; float: left; clear: both;}
+	.smallForm .submit {width: 120px; height: 30px; padding: 0px; font-size: 14px; line-height: 14px; margin-top: 7px; margin-right: 15px; float: left; clear: both; z-index: 200;}
 	
 .enterFormPos {position: absolute; top: 5px; right: 155px; z-index: 230; display: inline; padding-top: 0px !important;}
 .enterForm {border: solid 1px #acacac; background-color: white; width: 260px; padding: 17px; display: block; overflow: hidden; position: relative;}
@@ -146,7 +146,7 @@ form { display: inline; margin: 0px; padding: 0px; position: relative;}
 	.sendOrderPos .close:hover { background-position: 0px -20px;}
 	
 .mapPos {position: absolute; top: 29px; right: -143px; z-index: 1000;}
-.map {border: solid 1px #acacac; padding: 24px; display: block; overflow: hidden; position: relative; width:635px; min-height: 400px;
+.map {border: solid 1px #acacac; padding: 24px; display: block; overflow: hidden; position: relative; min-height: 400px; width:632px;
 	background: no-repeat 21px 77px url("../images/nevaMap.gif"); background-color: white; padding-top: 10px; margin-top: 10px;
 }
 	.mapPos .tr {background-position: 100% 10px;}
@@ -166,7 +166,7 @@ form { display: inline; margin: 0px; padding: 0px; position: relative;}
 	.map .close { width: 18px; height: 18px; background: url("../images/mapClose.gif"); position: absolute; top: 10px; right: 10px; border: none; overflow: hidden;}
 	.map .close:hover { background-position: 0px -18px;}
 	.sendMsg {display: inline-block; float:left; clear: both; margin-bottom: 8px; margin-top: 15px;}
-	#sendMsg { padding-left: 3px; margin-left: -3px; float:left; display: none;}
+	#sendMsg { padding-left: 3px; margin-left: -3px; float:left; display: none; width: 100%;}
 
 .fullSitemap {}
 	.fullSitemap .col_4 { width: 23% !important; margin-right: 2% !important;}

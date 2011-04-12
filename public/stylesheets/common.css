@@ -156,7 +156,7 @@ opacity: 0.1;
 	.foot .author {float: right; background-image: url("../images/Logomotiv.gif"); background-repeat: no-repeat; padding-left: 35px; background-position: 0px 3px;}
 	.foot .copyright {float: left; text-indent: -11px; margin-right: 80px; padding-left: 12px; margin-left: -12px;}
 	.foot .smap {margin-left: 9px; float: left; clear: both;}
-	.search {float: left; clear: both; display: inline; height: 22px; margin-top: 18px; position: relative; margin-left: 9px;}
+	.search {float: left; clear: both; display: inline; height: 22px; margin-top: 18px; position: relative; margin-left: 9px; z-index: 1;}
 		.search input {border: none; outline: 0 none; background-image: url("../images/search_m.gif"); border:0; position: relative; z-index: 10;
 			margin: 0px; padding: 0px; height: 22px; width: 205px; color: #808080; font-size: 11px; line-height: 12px; float: left; clear: both;}
 		.search input:focus {border: none; outline: 0 none; color: black;}

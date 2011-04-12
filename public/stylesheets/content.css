@@ -111,10 +111,11 @@
 		.compare .count.close:hover span {background-position: -8px -6px;}
 		
 	.compare .compare_items {float: left; clear: both; padding: 0px 15px; margin-bottom: 3px; width: 174px;}
-		.compare .compare_items li {float: left; clear: both; width: 100%; padding: 3px 0px;}
+		.compare .compare_items li {float: left; clear: both; width: 100%; padding: 3px 0px; position: relative;}
 		.compare .compare_items a {display: inline; position: relative; float: left; margin-right: 30px;}
-		.compare .compare_items .close {display: block; background-image: url("../images/compare_x.gif"); width: 15px; height: 15px;
-			position: absolute; top: 4px; right: 0px; overflow: hidden; margin: 0px;
+		.compare .compare_items a.close {display: block !important; background-image: url("../images/compare_x.gif"); width: 15px; height: 15px;
+			position: absolute; top: 4px; right: 0px;  margin: 0px; line-height: 15px; font-size: 100px;
+			overflow: hidden; text-decoration: none;
 		}
 		.compare .compare_items .close:hover {background-position: 0px -15px;}
 	.compare .button, .resume .button, form .button { display: inline-block; border: solid 1px #8da0a8; height: 18px; line-height: 17px; font-size: 12px; text-decoration: none; padding: 0px 6px; margin: 5px auto; margin-bottom: 10px;
@@ -196,7 +197,7 @@ h3, h3 a {font-size: 16px; line-height: 18px; font-weight: normal; font-family: 
 	.presence .point {font-size: 23px; line-height: 11px; overflow: hidden; position: absolute; top: 0px; right: -13px; display: block; color: #0093c6;
 	*top: 1px;
 	}
-	.actions span { position: relative;}
+	.actions span { position: relative; z-index: 1; height: 22px;}
 	.actions a {text-decoration: none; border-bottom: dashed 1px; display: block; float: left; margin-bottom: 5px; font-size: 13px; line-height: 16px;}
 h2 .actions {width: auto; position: absolute; top: 0px; right: 0px; z-index: 6000;}
 h2 .actions a {line-height: 15px; margin-top: 1px;}

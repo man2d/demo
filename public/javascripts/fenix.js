@@ -6,11 +6,6 @@
 
 		
 	if (isIE6) {
-		//forms ie6_fix
-		jQuery.each(jQuery(".example, .errorInfo"), function() {
-			if (jQuery.trim(jQuery(this).html()) == "")
-				jQuery(this).height(0);
-		});
 		//bgPic ie6_fix
 		jQuery(".bgPic").remove();
 		jQuery(".head").before('<div class="bgPic"></div>');
@@ -30,10 +25,19 @@
 		});
 		//ie6_fix для tags
 		jQuery(".blog_postInfo .tags").after('<div class="clear"></div');
-		//file ie6_fix
+	}
+	
+	if (jQuery.browser.msie == true)
+	if (jQuery.browser.version < 8) {
+		//file ie6,7_fix
 		jQuery.each(jQuery(".file"), function() {
 			jQuery(this).css("clear","none").after('<div class="clear"></div>');
 			if (jQuery(this).height() < 30) jQuery(this).height(30);
+		});
+		//forms ie,7_fix
+		jQuery.each(jQuery(".example, .errorInfo"), function() {
+			if (jQuery.trim(jQuery(this).html()) == "")
+				jQuery(this).height(0);
 		});
 	}
 	
@@ -45,7 +49,7 @@
 	
 	//sendOrder
 	jQuery('.sendOrderPos').css("display", "none");
-	jQuery('.sendOrder, .sendOrderPos .close').live('click', sendOrderAnim);
+	jQuery('.sendOrder, .sendOrderPos .close').click(sendOrderAnim);
 	function sendOrderAnim() {
 		jQuery('.sendOrderPos').find('.sendOrderForm, .arrow').animate({opacity: "toggle"}, 300);
 		jQuery('.sendOrderPos').animate({height: "toggle"}, 300);
@@ -136,38 +140,8 @@
 	//tip
 	var tipVisible = false;
 	var prevTip = "";
-	jQuery(".tip_container").css("top", -1000);
-	function setTipPos(tipObj) {
-		jQuery(".tip_data").css("height","auto");
-		if (isIE6) {
-			jQuery(".tip_data").width(310);
-		}
-		//alert(jQuery(".tip_data").height());
-		//получаем позицию подсказки
-		var pos = tipObj.offset();
-		//получаем вертикальное процентное позиционирование
-		var persent = (pos.top*100)/jQuery(document).height();
-		//получаем вертикальное смещение на основе верт. поз-я
-		var margin = (jQuery(".tip_data").innerHeight() - 40)/100 * persent;
-		
-		//устанавливаем новые свойства
-		jQuery(".tip_container").css("margin-top",margin * -1);
-		jQuery(".tip_container .arrow").css("top",margin+(tipObj.height()/2-10));
-		//для стрелки и горизонтального смещения
-		var offsetX = (jQuery(document).width()/2)-pos.left;
-		var offsetMargin = 12;
-		if ((jQuery(document).width()/2) < pos.left) {
-			if (isIE6) offsetMargin = 3;
-			offsetX += jQuery(".tip_container").width()+offsetMargin;
-			jQuery(".tip_container .arrow").removeClass("rArrow");
-		} else {
-			if (isIE6) offsetMargin += 10;
-			offsetX -= tipObj.width()+offsetMargin;
-			jQuery(".tip_container .arrow").addClass("rArrow");
-		}
-		//jQuery(".tip_container").css("left",pos.left+offsetX);
-		jQuery(".tip_container").css("margin-left", -offsetX);
-	};
+	jQuery(".tip_container").css("top", "-1000px");
+	
 	jQuery(".tip_data .close").live('click', function() {
 		tipVisible = false;
 		prevTip = "";
@@ -197,13 +171,14 @@
 			if(id) {
 				query_string = id;
 			}
-			jQuery.get("/hints/"+query_string, function(data) {
+			jQuery.get("/hints/"+encodeURIComponent(query_string)).success(function(data) {
 				jQuery(".tip_data").html(data+'<a class="close"></a>');
+				//jQuery(".tip_data").html('12312313');
 				//устанавливаем новое позиционирование
 				setTipPos(tipObj);
 				//проявляем подсказку
 				var offsetY = 8;
-				if (isIE6) offsetY = 0;
+				if (isIE6 || isIE7) offsetY = 0;
 				jQuery(".tip_container").animate({
 					top: tipObj.offset().top - offsetY
 				}, 1500, "easeOutElastic", function() {	});
@@ -220,9 +195,10 @@
 	jQuery(".yacht .pict").find(".close").click(yachtTipHideAnim);
 	//var tipPos = jQuery(".yacht_tip_container").css("bottom");
 	//if (tipPos) tipPos = tipPos.slice(0, -2)
-	jQuery(".yacht_tip_container").css("right",-(jQuery(".yacht_tip_container").width() + (jQuery(".pict").parent().width() - jQuery(".pict").position().left)));
+	if (jQuery(".pict").length != 0)
+		jQuery(".yacht_tip_container").css("right",-(jQuery(".yacht_tip_container").width() + (jQuery(".pict").parent().width() - jQuery(".pict").position().left)));
 	jQuery(".yacht_tip_container").find(".arrow, .yacht_tip_data, .close, .yacht_tip_dataWrap").css("opacity",0);
-	jQuery(".tempTipData").parent().css("position","absolute").css("top","-3000px").css("right", "-2000px"); //прячем за краями временный контейнер для подсказок
+	jQuery(".tempTipData").parent().css("position","absolute").css("top","-3000px").css("left","-3000px");; //прячем за краями временный контейнер для подсказок
 	//jQuery(".tempTipData").parent().css("position","absolute").css("bottom","200px"); //прячем за краями временный контейнер для подсказок
 	var yachtTipVisible = false;
 	//обновление подсказки
@@ -348,17 +324,32 @@
 	
 	//#content
 	if (jQuery("#content").height() < 480) jQuery(".yacht").css("paddingTop", (480-jQuery("#content").height())+"px");
-	if (jQuery(".imageflow").length != 0) jQuery(".yacht").css("paddingTop", "0px");
+	if (jQuery(".catalog").length != 0) jQuery(".yacht").css("paddingTop", "0px");
 	
 	updateFilterResult();
 	
+	//ie7_fix
+	if (jQuery.browser.msie == true)
+	if (jQuery.browser.version == 7)
+	{
+		jQuery(".enterFormPos").width(296);
+		jQuery(".mapPos").width(682);
+		jQuery(".yacht_tip_container").width(562);
+		jQuery(".sendOrderPos").width(577);
+		//.podborButton
+		jQuery(".podborButton").width(jQuery(".podborButton").parent().width());
+	}
 });
 
 //узнаем ие6
 	var isIE6 = false;
 	if (jQuery.browser.msie == true)
-	if (jQuery.browser.version <= 6)
+	if (jQuery.browser.version < 7)
 		isIE6 = true;
+	var isIE7 = false;
+	if (jQuery.browser.msie == true)
+	if (jQuery.browser.version == 7)
+		isIE7 = true;
 
 function updateWallpaper() {
 	if (jQuery(".wrap").height() < jQuery(document).height() && !isIE6) {
@@ -424,3 +415,35 @@ function updateFilterResult() {
 			jQuery(".filterResult ul").children("li:eq("+i+")").css('margin-right', '-200px').css('clear', 'right').after('<div class="clear"></div>');
 	}
 }
+
+function setTipPos(tipObj) {
+		jQuery(".tip_data").css("height","auto");
+		var isIE6 = jQuery.browser.msie == true && jQuery.browser.version == 6;
+		if (isIE6) {
+			jQuery(".tip_data").width(310);
+		}
+		//получаем позицию подсказки
+		var pos = tipObj.offset();
+		//получаем вертикальное процентное позиционирование
+		var persent = (pos.top*100)/jQuery(document).height();
+		//получаем вертикальное смещение на основе верт. поз-я
+		var margin = (jQuery(".tip_data").innerHeight() - 40)/100 * persent;
+		
+		//устанавливаем новые свойства
+		jQuery(".tip_container").css("margin-top",margin * -1);
+		jQuery(".tip_container .arrow").css("top",margin+(tipObj.height()/2-10));
+		//для стрелки и горизонтального смещения
+		var offsetX = (jQuery(document).width()/2)-pos.left;
+		var offsetMargin = 12;
+		if ((jQuery(document).width()/2) < pos.left) {
+			if (isIE6) offsetMargin = 3;
+			offsetX += jQuery(".tip_container").width()+offsetMargin;
+			jQuery(".tip_container .arrow").removeClass("rArrow");
+		} else {
+			if (isIE6) offsetMargin += 10;
+			offsetX -= tipObj.width()+offsetMargin;
+			jQuery(".tip_container .arrow").addClass("rArrow");
+		}
+		//jQuery(".tip_container").css("left",pos.left+offsetX);
+		jQuery(".tip_container").css("margin-left", -offsetX);
+	};
