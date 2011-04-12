@@ -582,16 +582,12 @@ function ImageFlow ()
 							break;
 					}
 					var isIE = false;
-					if (jQuery.browser.msie == true) {
-					if (jQuery.browser.version <= 7) {
+					if (jQuery.browser.msie == true && jQuery.browser.version <= 7) {
 					  isIE = true;
-					}}
-					
-					if(!isIE) {
-					if(newImageH > 270) {
-						newImageH = 400;
-						
 					}
+					
+					if(!isIE && newImageH > 270) {
+						newImageH = 400;
 					}
 					newImageW =image.w * newImageH / image.h;
 //					console.log(newImageH);
