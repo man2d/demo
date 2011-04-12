@@ -42,11 +42,11 @@
 	-->
 	<div id="tabs">
 		<%=
-		begin
+#		begin
 			render 'catalog/'+params[:view].to_s
-		rescue
+#		rescue
 			render 'catalog/review'
-		end
+#		end
 		%>
 		<%#= render 'catalog/review' %>
 		<%#= render 'catalog/threed_view' %>
