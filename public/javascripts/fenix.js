@@ -216,9 +216,10 @@
 			opacity: 0
 		}, 300, function() { // после того как спрятали текущий контент
 			//тут подгружаем новый контент внутрь .tempTipData
-			jQuery.get('/hints/random', function(data) 
+			jQuery.getJSON('/hints/'+$('.yacht_data_id').attr('id')+'/next', function(data) 
 			{// и когда он загружен, проявляем его
-				jQuery(".tempTipData").html(data);
+				$('.yacht_data_id').attr('id', data.hint.id);
+				jQuery(".tempTipData").html(data.hint.description);
 				var newH = jQuery(".tempTipData").outerHeight(); // узнаем высоту новго контента
 				if (isIE6 && (newH%2 == 0)) newH++;
 				

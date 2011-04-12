@@ -17,4 +17,16 @@ class HintsController < ApplicationController
       render :text => '', :status => 500
     end
   end
+  
+  def next
+    @hint = Hint.find(params[:id])
+    @next_hint = Hint.where("id > ?", @hint.id).first
+    @next_hint = Hint.first unless @next_hint
+    if @hint
+      @hint.id = @next_hint.id
+      render :json => @hint
+    else
+      render :text => '', :status => 500
+    end
+  end
 end

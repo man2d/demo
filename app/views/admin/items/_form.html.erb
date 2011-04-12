@@ -11,6 +11,7 @@
 	<%= f.input :item_assign, :as => :select, :label => "Назначение" %>
 	<%= f.input :lgth, :label => "Длина" %>
 	<li id="item_on_hand_input" class="boolean optional"><label for="item_on_hand">Есть в наличии</label><%= f.check_box :on_hand %></li>
+	<li id="item_on_hand_input" class="boolean optional"><label for="item_on_hand">Показать в каталоге</label><%= f.check_box :show_in_catalog %></li>
 	<li id="item_description_input" class="string optional">
 		<label for="item_description">Описание</label>
 		<div class="left"><%= ckeditor_textarea :item, :description %></div>
@@ -107,9 +108,7 @@
 	<div class="video_block hidden">
 	<% if @item.videos %>
 	<div class="docs">
-	  <% @item.videos.each do |video| %>
-	    <div id="<%= dom_id(video) %>"><%= video.id %> <%= link_to "Удалить" %></div><% %>
-	  <% end %>
+		<%= f.input :video_html, :as => :text, :label => "Embed-код" %>
 	</div>
 	<% end %>
 		<div class="clear"></div>

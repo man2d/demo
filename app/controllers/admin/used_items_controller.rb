@@ -28,9 +28,9 @@ class Admin::UsedItemsController < Admin::BaseController
   end
   def collection
     if params[:page_id]
-      @items = Item.find_all_by_page_id(params[:page_id])
-    else
-      @items = Item.used.all
+        @items = Item.unscoped.where(:page_id => params[:page_id]).all
+      else
+        @items = Item.unscoped.where("page_id = 10").all
     end
   end
 end

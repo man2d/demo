@@ -13,4 +13,12 @@ class Admin::CommentsController < Admin::BaseController
   def menu
     render :partial => 'admin/shared/menu'
   end
+  
+  def collection
+    if params[:search]
+      Comment.where(params[:search]).all
+    else
+      Comment.all
+    end
+  end
 end

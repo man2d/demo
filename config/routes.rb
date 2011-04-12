@@ -59,8 +59,8 @@ Navigator2::Application.routes.draw do
 
   resources :posts
   resources :hints do
-    collection do
-      get 'random'
+    member do
+      get 'next'
     end
   end
   resources :assets

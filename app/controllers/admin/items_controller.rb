@@ -29,12 +29,11 @@ class Admin::ItemsController < Admin::BaseController
   
   protected
   
-  
   def collection
     if params[:page_id]
-      @items = Item.find_all_by_page_id(params[:page_id])
+      @items = Item.unscoped.where(:page_id => params[:page_id]).all
     else
-      @items = Item.brand_new.all
+      @items = Item.unscoped.where("page_id != 10").all
     end
   end
 end

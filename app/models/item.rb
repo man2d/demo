@@ -1,5 +1,5 @@
 class Item < ActiveRecord::Base
-
+  default_scope :conditions => {:show_in_catalog => true}
   #has_many :assets, :as => :assetable
 =begin
   with_options :as => :assetable, :class_name => "Asset" do |item|
@@ -9,6 +9,22 @@ class Item < ActiveRecord::Base
     item.has_many :specification_assets, :conditions => {:asset_group_id => 4}
   end
 =end
+=begin
+  def self.find_with_hidden(*args)
+    self.with_exclusive_scope { find(*args) }
+  end
+
+  def self.find_all_with_hidden(*args)
+    self.with_exclusive_scope { find(:all) }
+  end
+  
+  def self.find_all_brand_new
+    self.with_exclusive_scope(:find => limit(10))
+  end
+=end
+  scope :used, :conditions => "page_id = 10 OR page_id IS NULL"
+  scope :brand_new, :conditions => "page_id != 10"
+  
   def url
       page.url + self.id.to_s if page
   end
@@ -36,8 +52,7 @@ class Item < ActiveRecord::Base
   
 
   
-  scope :used, :conditions => "page_id = 10 OR page_id IS NULL"
-  scope :brand_new, :conditions => "page_id != 10"
+
 #  sortable :scope => :page_id
   
 #  accepts_nested_attributes_for :assets, :allow_destroy => true

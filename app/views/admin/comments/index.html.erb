@@ -4,12 +4,19 @@
 </div>
 <% end %>
 
+<%= form_tag "", :method => "GET", :id => "user_filter" %>
+<select name="search[user_id]" onchange="$('#user_filter').submit();">
+<% User.all.each do |user| %>
+<option value="<%= user.id %>" /><%= user.name %>
+<% end %>
+</select>
+</form>
 <table border="0" id="main">
 	<tr>
 		<td>
 			<ul class="tree news">
 				<% collection.each do |resource| %>
-				<li><span><a href="#" class="pic context" id="comment_<%=resource.id%>"></a><p class="date"><%= resource.updated_at.to_date %></p><p class="text"><%= resource.comment %></p></span></li>
+				<li><span><a href="javascript:void();" class="pic context" id="comment_<%=resource.id%>"></a><p class="date"><%= resource.updated_at.to_date %></p><p class="text"><%= resource.comment %></p></span></li>
 				<% end %>
 			</ul>
 		</td>

@@ -13,7 +13,7 @@
 		<td>
 			<ul class="tree other sortable" id="items">
 				<% collection.each do |resource| %>
-				<li id="item_<%= resource.id %>"><span><center><%= resource.title + " " + resource.lgth.to_s %><br/><%=image_tag(resource.image.url(:thumb)) if resource.image %></center>
+				<li id="item_<%= resource.id %>"><span><center><%= resource.title.to_s + " " + resource.lgth.to_s %><br/><%=image_tag(resource.image.url(:thumb)) if resource.image %></center>
 				                <p class="buttons"><%= link_to "", resource_url(resource), :method => :delete, :class=> "ico_cmDel", :confirm => "Объект будет удален!\nХотите продолжить?" %><a class="ico_cmEdit" href="<%=edit_resource_url(resource)%>"></a></p>
 				                </span></li>
 				<% end %>

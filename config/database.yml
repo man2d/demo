@@ -5,9 +5,10 @@ development:
   encoding: utf8
   database: yahtus
   pool: 5
-  username: d2nam
-  password: vyww8AXZ
+  username: root
+  password: root
   timeout: 5000
+  socket: /Applications/MAMP/tmp/mysql/mysql.sock
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

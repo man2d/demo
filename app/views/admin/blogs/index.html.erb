@@ -9,7 +9,7 @@
 		<td>
 			<ul class="tree news">
 				<% collection.each do |resource| %>
-				<li><span><a href="#" class="pic context" id="blog_<%=resource.id%>"></a><p class="date"><%= resource.updated_at.to_date %></p><p class="text"><%= resource.title %></p></span></li>
+				<li><span><a href="javascript:void();" class="pic context" id="blog_<%=resource.id%>"></a><p class="date"><%= resource.updated_at.to_date %></p><p class="text"><%= resource.title %></p></span></li>
 				<% end %>
 			</ul>
 		</td>
