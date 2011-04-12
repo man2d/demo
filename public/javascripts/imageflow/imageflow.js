@@ -581,10 +581,11 @@ function ImageFlow ()
 							newImageW = image.w * newImageH / image.h;
 							break;
 					}
-					var isIE6 = false;
+					var isIE = false;
 					if (jQuery.browser.msie == true) {
 					if (jQuery.browser.version <= 7) {
-					isIE = true;}}
+					  isIE = true;
+					}}
 					
 					if(!isIE) {
 					if(newImageH > 270) {

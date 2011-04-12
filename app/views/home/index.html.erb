@@ -1,8 +1,10 @@
 <div class="clear"></div>
 <div class="main_banner">
 	<div id="slider" class="images">
+		<% if Slide.all.size > 0%>
 		<% Slide.all.each do |slide| %>
 			<%= image_tag slide.image.url, :title => slide.title, :alt => '', :href => slide.item.url, :style => 'display:none;' %>
+		<% end %>
 		<% end %>
 	</div>
 
