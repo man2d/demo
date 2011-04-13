@@ -24,7 +24,8 @@ form fieldset.gray_bg{padding-bottom: 20px;}
 
 .catalog div h1 {margin-top: 5px; margin-bottom: 10px;}
 
-.fullSitemap ul li {clear: none;}
+.fullSitemap ul {width: 100%;}
+.fullSitemap ul li {clear: both; width: 100%;}
 
 .blog_postInfo .poster img {float: left;}
 

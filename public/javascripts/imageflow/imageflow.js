@@ -588,23 +588,36 @@ function ImageFlow ()
 					
 					if(!isIE && newImageH > 270) {
 						newImageH = 400;
+					} 
+					//document.write(newImageH);
+					
+					newImageW = image.w * newImageH / image.h;
+					if(isIE) {
+					    newImageH = newImageH * 0.8;
+						newImageW = newImageW*1.2;
 					}
-					newImageW =image.w * newImageH / image.h;
+					
 //					console.log(newImageH);
 					var newImageTop = (my.imagesDivHeight - newImageH) + ((newImageH / (my.reflectionP + 1)) * my.reflectionP);
 
 					/* Set new image properties */
 					
-					if(!isIE) {
+					/*if(!isIE) {
 					  if(newImageH == 400) {
 						image.style.left = (xs - (image.pc / 2) / z * my.size)-70 + 'px';
 
 				      } else {
 						image.style.left = xs - (image.pc / 2) / z * my.size + 'px';					
 				      }
-				    } else {
-					    image.style.left = xs - (image.pc / 2) / z * my.size + 'px';					
-				    }
+				    } else {*/
+					  //  image.style.left = xs - (image.pc / 2) / z * my.size + 'px';					
+					  if(newImageH == 400) {
+						image.style.left = (xs - (image.pc / 2) / z * my.size)-70 + 'px';
+
+				      } else {
+						image.style.left = xs - (image.pc / 2) / z * my.size + 'px';					
+				      }
+				    //}
 					if(newImageW && newImageH)
 					{
 						image.style.height = newImageH + 'px';
@@ -1460,8 +1473,8 @@ var domReadyEvent =
 
 		/* for Internet Explorer */
 		//@cc_on
-		/*if(jQuery.browser.msie && jQuery.browser.version <= 7){
-			@if (@_win32 || @_win64)
+		if(jQuery.browser.msie && jQuery.browser.version <= 7){
+			//@if (@_win32 || @_win64)
 			document.write("<script id=__ie_onload defer src=\"//:\"><\/script>");
 			var script = document.getElementById("__ie_onload");
 			script.onreadystatechange = function()
@@ -1471,8 +1484,8 @@ var domReadyEvent =
 					domReadyEvent.run(); // call the onload handler
 				}
 			};
-			@end
-		}*/
+			//@end
+		}
 	}
 };
 

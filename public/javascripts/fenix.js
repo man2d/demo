@@ -61,7 +61,7 @@
 	jQuery('.map .close').click(mapAnim);
 	function mapAnim() {
 		jQuery('.phone').find('.map, .arrow').animate({opacity: "toggle"}, 400);
-		jQuery('.phone').find('.mapPos').animate({height: "toggle"}, 400);
+		jQuery('.phone').find('.mapPos').css("right", -143).animate({height: "toggle"}, 400);
 	}
 	
 	//enter 
@@ -81,6 +81,7 @@
 	jQuery(".enter").click(formAnim);
 	function formAnim(animatedObj) {
 		state = "x";
+		jQuery(".enterFormPos").css("right",155)
 		if (isIE6) jQuery(".enterFormPos").find(".text input").css("height","31");
 		jQuery('body').unbind('click', formsHandler);
 		if (jQuery(".enter").hasClass("active")) {
@@ -216,11 +217,10 @@
 			opacity: 0
 		}, 300, function() { // после того как спрятали текущий контент
 			//тут подгружаем новый контент внутрь .tempTipData
-			jQuery.getJSON('/hints/'+$('.yacht_data_id').attr('id')+'/next', function(data) 
+jQuery.getJSON('/hints/'+$('.yacht_data_id').attr('id')+'/next', function(data) 
 			{// и когда он загружен, проявляем его
 				$('.yacht_data_id').attr('id', data.hint.id);
-				jQuery(".tempTipData").html(data.hint.description);
-				var newH = jQuery(".tempTipData").outerHeight(); // узнаем высоту новго контента
+				jQuery(".tempTipData").html(data.hint.description);				var newH = jQuery(".tempTipData").outerHeight(); // узнаем высоту новго контента
 				if (isIE6 && (newH%2 == 0)) newH++;
 				
 				jQuery(".yacht_tip_dataWrap").animate({

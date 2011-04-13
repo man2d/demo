@@ -129,7 +129,7 @@ form { display: inline; margin: 0px; padding: 0px; position: relative;}
 	.smallForm .error {color: #c80009; font-size: 12px; line-height: normal; float: left; width: 120px; margin-top: 7px; padding: 0px;}
 	.smallForm .submit {width: 120px; height: 30px; padding: 0px; font-size: 14px; line-height: 14px; margin-top: 7px; margin-right: 15px; float: left; clear: both; z-index: 200;}
 	
-.enterFormPos {position: absolute; top: 5px; right: 155px; z-index: 230; display: inline; padding-top: 0px !important;}
+.enterFormPos {position: absolute; top: 5px; right: 2155px; z-index: 230; display: inline; padding-top: 0px !important;}
 .enterForm {border: solid 1px #acacac; background-color: white; width: 260px; padding: 17px; display: block; overflow: hidden; position: relative;}
 	.enterForm .text input {width: 242px;}
 	
@@ -145,7 +145,7 @@ form { display: inline; margin: 0px; padding: 0px; position: relative;}
 	.sendOrderPos .close { width: 20px !important; height: 20px !important; background: url("../images/compareResult_x.gif"); position: absolute; top: 23px; right: 10px; border: none; overflow: hidden;}
 	.sendOrderPos .close:hover { background-position: 0px -20px;}
 	
-.mapPos {position: absolute; top: 29px; right: -143px; z-index: 1000;}
+.mapPos {position: absolute; top: 29px; right: -2143px; z-index: 1000;}
 .map {border: solid 1px #acacac; padding: 24px; display: block; overflow: hidden; position: relative; min-height: 400px; width:632px;
 	background: no-repeat 21px 77px url("../images/nevaMap.gif"); background-color: white; padding-top: 10px; margin-top: 10px;
 }

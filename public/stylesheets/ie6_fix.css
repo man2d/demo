@@ -34,8 +34,14 @@ form fieldset.gray_bg{padding-bottom: 20px;}
 
 .catalog div h1 {margin-top: 5px; margin-bottom: 10px;}
 
-.fullSitemap ul li {clear: none;}
+.fullSitemap .col_4 {width: 23% !important; margin-right: 10px !important; display: inline;}
+.fullSitemap ul {width: 100%;}
+.fullSitemap ul li {clear: both; width: 100%;}
 
 .blog_postInfo .poster img {float: left;}
 
 .spec .name { width: 95%; overflow: hidden;}
+
+.main_banner .nivo-caption {background-image: url("../images/bluebg.gif");}
+
+.shadow, .shadow .b, .shadow .r, .shadow .bl, .shadow .br, .shadow .tr, .yacht_tip_container .arrow { background-image: none !important;}

@@ -13,7 +13,7 @@
                           "/vendor/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.css",
                           "/vendor/typus/stylesheets/screen",
                           "/vendor/typus/stylesheets/application" %>
-  <%= stylesheet_link_tag "/stylesheets/admin/common.css", "/stylesheets/admin/content.css" , "admin/form", "datepicker" %>
+  <%= stylesheet_link_tag "admin/common", "admin/content", "admin/form", "datepicker" %>
 
   <%#= yield :stylesheets -%>
 
@@ -33,7 +33,7 @@ ul.sortable { -webkit-select: none; }
 
 <div id="main_container">
 
-    <div id="header_wrapper">
+
 
 		<div class="head"><img class="naviLogo" src="/images/admin/Navigator_logo.gif" alt="" /><h1 class="siteName">Яхт-клуб &laquo;Президент-Нева&raquo;</h1><a class="goToSite" href="/" target="_blank">Посмотреть сайт<span></span></a></div>
 <% if params[:controller] != "admin/sessions" %>		
@@ -51,7 +51,7 @@ ul.sortable { -webkit-select: none; }
 
 
 
-    </div>
+
 
     <div id="content_wrapper" class="content">
 	  <div class="contentWrap">
