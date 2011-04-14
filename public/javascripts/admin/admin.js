@@ -130,7 +130,9 @@ $(document).ready(function (){
 			if(page.resource == 'catalog/index') {
 				items_load_class='class="items"';
 			}
-		    html += '<li '+display+' class="page_list_item parent_'+page.parent_id+'" id="page_'+page.id+'"><span class="parent"><a class="pic context" id="page_'+page.id+'" href="#"></a><a '+items_load_class+' href="#/page/'+page.admin_path+'">'+page.title+'</a></span></li>';
+			console.log(page.status);
+			if(!page.status) hidden = ' invisible'; else hidden = '';
+		    html += '<li '+display+' class="page_list_item parent_'+page.parent_id+'" id="page_'+page.id+'"><span class="parent'+hidden+'"><a class="pic context" id="page_'+page.id+'" href="#"></a><a '+items_load_class+' href="#/page/'+page.admin_path+'">'+page.title+'</a></span></li>';
 	      }
 	    html += '</ul></td>';
 	    //context.log(html);

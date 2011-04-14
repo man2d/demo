@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110414085528) do
+ActiveRecord::Schema.define(:version => 20110414090857) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
@@ -179,6 +179,13 @@ ActiveRecord::Schema.define(:version => 20110414085528) do
     t.integer  "user_id"
     t.text     "video_html"
     t.boolean  "show_in_catalog"
+  end
+
+  create_table "notifications", :force => true do |t|
+    t.text     "notification"
+    t.text     "user_ids"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "pages", :force => true do |t|

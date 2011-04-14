@@ -19,11 +19,20 @@ class Admin::UsersController < Admin::BaseController
     
   end
   
+  def notifications
+    @notifications = Notification.all
+  end
+  
   def send_notification
     @users = User.find(params[:user_id])
+    @notification = Notification.new(:notification => params[:notification])
+    @user_ids = []
     @users.each do |user|
-      NotificationMailer.notification(user, params[:notification]).deliver
+      NotificationMailer.notification(user, params[:notification], params[:attachment]).deliver
+      @user_ids << user.id
     end
+    @notification.user_ids = @user_ids
+    @notification.save
     flash[:notice] = "Рассылка инициирована"
     redirect_to :back
   end

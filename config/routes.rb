@@ -43,6 +43,7 @@ Navigator2::Application.routes.draw do
         get 'menu'
       end
       collection do
+        get 'notifications'
         get 'notification'
         post 'send_notification'
       end

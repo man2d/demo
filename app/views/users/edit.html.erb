@@ -11,8 +11,10 @@
 			<fieldset class="noBorder">
 				<div class="text avatar" style="width: 300px;">
 					<label for="avatar">Аватар</label>
-					<img src="<%= current_user.avatar.url(:normal) %>" alt="Аватар" />
-						<a class="submit formReady" style="position: relative;" href="#">Выбрать фото<%= f.fields_for :avatar do |avatar| %><%= avatar.file_field :attachment %><% end %></a>
+					<img id="user_avatar" src="<%= current_user.avatar.url(:normal) %>" alt="Аватар" />
+						<a class="submit formReady" style="position: relative;" href="#">Выбрать фото<%= f.fields_for :avatar do |avatar| %><%= avatar.file_field :attachment, :onchange  => "avatar_handle();" %><% end %></a><br clear="both" />
+						<p id="file_info"></p>
+					<!--	<a onclick="console.log($('#user_avatar_attributes_attachment').attr('value'));"> -->
 				</div>
 				<div class="text left">
 					<label for="name">Ф.И.О.</label>

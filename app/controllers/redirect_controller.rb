@@ -21,8 +21,7 @@ class RedirectController < ApplicationController
         end
        #render :nothing => true, :status => 200
       else  
-        redirect_to '/404.html', :status => 404
-        #render :file => '/404.html', :status => 404
+        render :file => "#{Rails.root}/public/404.html", :status => 404, :layout => false        
       end
     end
     

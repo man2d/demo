@@ -3,6 +3,11 @@
 <li><a class="ico_cmEdit" href="<%= edit_resource_url(resource) %>">Редактировать</a></li>
 <% if resource.methods.find{|m| m=="status"} %><li><a class="ico_cmHide" href="<%= hide_resource_url(resource) %>">Режим невидимости</a></li><% end %>
 <% if resource.methods.find{|m| m=="resource"} && resource.resource == 'items' && resource.model_name == "Page" %><li><a class="ico_cmAdd" href="<%= new_item_url(resource, :page => resource) %>">Добавить товар</a></li><% end %>
+<% if resource.status %>
+<li><a class="ico_cmHide" href="<%= hide_resource_url(resource) %>">Режим невидимости</a></li>
+<% else %>
+<li><a class="ico_cmHide" href="<%= hide_resource_url(resource) %>">Включить</a></li>
+<% end %>
 <li><%= link_to "Удалить", resource_url(resource), :method => :delete, :class => "ico_cmDel", :confirm => "Удаление страницы может привести к необратимым последствиям.\nПродолжить удаление?" %></li>
 <li class="close"><a href="javascript:void(0);">&times;</a></li>
 </ul>

@@ -48,6 +48,19 @@ class Admin::PagesController < Admin::BaseController
     
   end
   
+  def hide
+    @page = Page.find(params[:id])
+    if @page.status
+      @page.status = false
+      @page.menu = false
+    else
+      @page.status = true
+      @page.menu = true
+    end
+    @page.save
+    redirect_to :back
+  end
+  
   
   protected
   

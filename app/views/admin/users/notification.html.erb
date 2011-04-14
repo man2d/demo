@@ -1,14 +1,13 @@
 <% content_for :helpbar do %>
 <div class="addItems_border">
 <ul class="addItems">
-	<li class="red"><%= link_to "Новая новость", new_resource_url  %></li>
-    <li><%#= link_to 'Добавить новость', new_admin_post_path, :class => "ico_addArrow" %></li>
-    
+	<li class="red"><%= link_to "История рассылок", notifications_admin_users_url  %></li>
+    <li><%#= link_to 'Добавить новость', new_admin_post_path, :class => "ico_addArrow" %></li>    
 </ul>
 </div>
 <% end %>
 <h2>Рассылка уведомлений</h2>
-<%= form_for "notification", :url => "/admin/users/send_notification", :as => :notification, :html => {:class => :notification} do %>
+<%= form_for "notification", :url => "/admin/users/send_notification", :as => :notification, :html => {:class => :notification, :multipart => true} do %>
 <fieldset>
 	<a class="collapse" href="javascript:void();" onclick="$('input[type=checkbox]').attr('checked', 'checked');">всем</a>    <a class="collapse" href="javascript:void();" onclick="$('input[type=checkbox].owner').attr('checked', 'checked');">судовладельцам</a>    <a class="collapse" href="javascript:void();" onclick="$('input[type=checkbox].captain').attr('checked', 'checked');">капитанам</a>    <a class="collapse" href="javascript:void();" onclick="$('input[type=checkbox]').removeAttr('checked');">очистить</a>
 	<ol>
@@ -26,8 +25,8 @@
 <label for="description">
    Сообщение
 	<div class="left">
-		<div class="left">
 			<%= text_area_tag :notification, nil %>
+			<%= file_field_tag :attachment %>
 	</div>
 </label>
 </li>

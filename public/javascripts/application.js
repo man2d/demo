@@ -136,6 +136,7 @@ $(".small img").live('click', function() {
   $(this).parents('li').addClass('current');
   $('div.big img').attr('src', $(this).attr('src').replace('thumb', 'normal'));
 });
+
 /** Галерея **/
 
 /*
@@ -244,4 +245,14 @@ function add_fields(link, association, content) {
      var regexp = new RegExp("new_" + association, "g");  
      $(link).before(content.replace(regexp, new_id));  
  
+}
+
+function avatar_handle() {
+	file = $('#user_avatar_attributes_attachment').attr('value');
+	reWin = /.*\/(.*)/;
+	var fileTitle = file.replace(reWin, "$1"); //выдираем название файла для windows
+	reUnix = /.*\\(.*)/;
+	fileTitle = fileTitle.replace(reUnix, "$1"); //выдираем название файла для unix-систем
+	$('#file_info').html(fileTitle);
+	$('#user_avatar_attributes_attachment').parents('a').text('Файл выбран');
 }

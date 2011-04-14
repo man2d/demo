@@ -38,13 +38,13 @@ h2 {font-size: 21px; font-weight: normal; color: #696969; display: block; line-h
 .tree li span.current {background-color: #f0f0f1; background-image: url("/images/admin/treeArrow.gif"); background-position: top right; background-repeat: no-repeat;}
 .tree li span.current a {color: #ff0000; text-decoration: none;}
 .tree li span a:hover {color: #ff0000;}
-.tree li span.hidden a {color: #a0a0a0;}
-.tree li span.hidden.current a {color: #ff8383;}
-.tree li span.hidden a:hover {color: #ff8383;}
-.tree li span.hidden a.pic {background-image: url("/images/admin/hidden_out.gif");}
-.tree li span.hidden a.pic:hover {background-image: url("/images/admin/hidden_over.gif");}
-.tree li span.hidden.active a.pic {background-image: url("/images/admin/hidden_over.gif");}
-.tree li span.hidden.current a.pic {background-image: url("/images/admin/hidden_current.gif");}
+.tree li span.invisible a {color: #a0a0a0;}
+.tree li span.invisible.current a {color: #ff8383;}
+.tree li span.invisible a:hover {color: #ff8383;}
+.tree li span.invisible a.pic {background-image: url("/images/admin/hidden_out.gif");}
+.tree li span.invisible a.pic:hover {background-image: url("/images/admin/hidden_over.gif");}
+.tree li span.invisible.active a.pic {background-image: url("/images/admin/hidden_over.gif");}
+.tree li span.invisible.current a.pic {background-image: url("/images/admin/hidden_current.gif");}
 .tree.sortable li:hover { cursor: move;}
 .tree.sortable li.ui-sortable-helper { cursor: crosshair;}
 

@@ -37,7 +37,15 @@ module ApplicationHelper
           raw page.title + content_tag(:span, "→")
         end
       else
-        link_to raw(page.title), page.url
+        if page.slug == 'members' || page.slug == 'resumes'
+          unless current_user
+            link_to raw(page.title), "javascript:void();", :class => :inactive
+          else
+            link_to raw(page.title), page.url
+          end
+        else
+          link_to raw(page.title), page.url
+        end
       end
 
     end

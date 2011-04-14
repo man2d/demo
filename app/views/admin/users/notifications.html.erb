@@ -1,0 +1,25 @@
+<% content_for :helpbar do %>
+<div class="addItems_border">
+<ul class="addItems">
+	<li class="red"><%= link_to "Новая рассылка", "/admin/users/notification"  %></li>
+    <li><%#= link_to 'Добавить новость', new_admin_post_path, :class => "ico_addArrow" %></li>
+    
+</ul>
+</div>
+<% end %>
+
+<table border="0" id="main">
+	<tr>
+		<td>
+			<ul class="tree news">
+				<% @notifications.each do |resource| %>
+				<li><span><a href="javascript:void();" class="" id="post_<%=resource.id%>"></a><p class="date"><%= resource.updated_at.to_date %></p><p class="text"><a href="javascript:void();" style="border-bottom: 1px dashed;" onclick="$('#notification_<%=resource.id%>').toggle();"><%= resource.notification %></a></p><p id="notification_<%=resource.id%>" style="display:none;">
+				<% User.find(resource.user_ids).each do |user| %>
+				<%= user.name %><br/>
+				<% end %>
+				</p></span></li>
+				<% end %>
+			</ul>
+		</td>
+	</tr>
+</table>
