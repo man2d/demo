@@ -22,8 +22,8 @@
   DD_belatedPNG.fix('img, a, a:hover, div, ul, li, li:hover, p, span, em');
 </script>
 <![endif]-->
-<%= javascript_include_tag :defaults %>
-<%= javascript_include_tag "preload", "jquery.nivo.slider", "imageflow/imageflow", "thickbox/thickbox", "fenix", "jquery.showpassword", "jquery.easing.1.3", "jquery.easing.compatibility", "flowplayer-3.2.6.min", "jquery.datepicker", "ajaxfileupload" %>
+<%= javascript_include_tag :defaults, "fenix" %>
+<%= javascript_include_tag "preload", "jquery.nivo.slider", "imageflow/imageflow", "thickbox/thickbox", "jquery.showpassword", "jquery.easing.1.3", "jquery.easing.compatibility", "flowplayer-3.2.6.min", "jquery.datepicker", :cache => "stuff" %>
 <%#= javascript_include_tag "imageflow/imageflow" %>
 <%= csrf_meta_tag %>
 

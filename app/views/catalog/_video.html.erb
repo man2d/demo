@@ -1,4 +1,19 @@
 <div class="cat_model" id="video">
-<%= raw @item.video_html %>
+<%= raw @item.video_html if @item.video_html %>
+<% if @item.video %>
+<a 
+	href="http://pseudo01.hddn.com/vod/demo.flowplayervod/flowplayer-700.flv" 
+	style="display:block;width:425px;height:300px;" 
+	id="player">
+</a>
 
+<script>
+flowplayer("player", "http://releases.flowplayer.org/swf/flowplayer-3.2.7.swf",  {
+	clip: {
+		autoPlay: false, 
+		autoBuffering: true // <- do not place a comma here  
+	}
+});
+</script>
+<% end %>
 </div>
