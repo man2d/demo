@@ -106,7 +106,6 @@
    <%= f.inputs do %>
 	<a class="collapse" href="javascript:void();" rel="video_block">Видео</a>
 	<div class="video_block hidden">
-	<% if @item.videos %>
 	<div class="docs">
 		<%= f.input :video_html, :as => :text, :label => "Embed-код" %>
 	</div>
@@ -116,15 +115,9 @@
 	  <%= video_form.input :attachment, :as => :file %>
     <% end %>
 
-	<% end %>
 		<div class="clear"></div>
-	<% f.semantic_fields_for :videos do |videos| %>
-     <%#= render 'item_property_fields', :f => item_properties %>
-	<% end %>
-	<%= link_to_add_fields "Добавить", f, :videos %>
 	</div>
-   <% end %>
-
+	<% end %>
       
    <%= f.inputs do %>
 	<a class="collapse" href="javascript:void();" rel="properties_block">Характеристики</a>
