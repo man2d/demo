@@ -11,8 +11,9 @@ class Admin::ItemsController < Admin::BaseController
   end
   
   def edit
-    @item.build_video unless resource.video
-    @item.build_image unless resource.image
+    @item = Item.unscoped.find(params[:id])
+    @item.build_video unless @item.video
+    @item.build_image unless @item.image
     edit!
   end
   
@@ -35,7 +36,6 @@ class Admin::ItemsController < Admin::BaseController
   end
   
   def collection
-      
     if params[:page_id]
       @items = Item.unscoped.where(:page_id => params[:page_id]).all
     else
