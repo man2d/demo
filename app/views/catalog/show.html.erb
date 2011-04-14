@@ -25,7 +25,7 @@
             <% if @item.wallpapers.size > 0 %><li<%=raw ' class="current"' if params[:view] =='wallpapers' %>><a href="?view=wallpapers" rel="wallpapers">Обои</a></li><% end %>
             <% if @item.specification_images.size > 0 || @item.item_properties.size > 0 %><li<%=raw ' class="current"' if params[:view] =='specification' %>><a href="?view=specification" rel="specification">Спецификация</a></li><% end %>
             <% if @item.threed_assets.size > 0 %><li<%=raw ' class="current"' if params[:view] =='threed_view' %>><a href="?view=threed_view" rel="3dview">3-D вид</a></li><% end %>
-            <% if @item.video_html %><li<%=raw ' class="current"' if params[:view] =='video' %>><a href="?view=video" rel="video">Видео</a></li><% end %>
+            <% if @item.video_html || @item.video %><li<%=raw ' class="current"' if params[:view] =='video' %>><a href="?view=video" rel="video">Видео</a></li><% end %>
             <li class="last"></li>
         </ul>
 
