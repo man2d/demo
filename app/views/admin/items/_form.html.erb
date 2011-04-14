@@ -109,8 +109,10 @@
 	<div class="docs">
 		<%= f.input :video_html, :as => :text, :label => "Embed-код" %>
 	</div>
-	<span><%= @item.video.attachment_file_name if @item.video %></span>
+	<br clear="both" /	>
+
 	<%= f.semantic_fields_for :video do |video_form| %>
+	<span><%= @item.video.attachment_file_name if @item.video %>
 	  <%= link_to_remove_fields "Удалить", video_form %></span>
 	  <%= video_form.input :attachment, :as => :file %>
     <% end %>

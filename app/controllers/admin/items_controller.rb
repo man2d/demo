@@ -33,6 +33,8 @@ class Admin::ItemsController < Admin::BaseController
 
   def resource
     @item = Item.unscoped.find(params[:id])
+    @item.build_video unless @item.video
+    @item.build_image unless @item.image
   end
   
   def collection
