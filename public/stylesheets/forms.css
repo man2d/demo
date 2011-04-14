@@ -191,3 +191,9 @@ form { display: inline; margin: 0px; padding: 0px; position: relative;}
 	.addPhoto ul {margin-right: 10px;}
 	.addPhoto ul li { float: left; width: 33%; margin: 0px; padding: 0px; margin-bottom: 15px; overflow: hidden;}
 	.addPhoto ul li.addFile { width: 80%;}
+
+.simpleTip { padding-top: 10px; z-index: 35000; position: absolute; left: 50%;}
+	.simpleTip .tip_data { padding: 25px;}
+	.simpleTip .arrow {background: url("../images/formArrow2.gif"); width: 21px; height: 11px;
+		 top: 0px; left: 10px;
+	}

@@ -1,10 +1,5 @@
-//onload=function() {
-//var divh = document.getElementById('qwe').offsetHeight;
-//document.getElementById('qwe2').style.height = divh + 'px';
-//}
- jQuery(document).ready(function() {
-
-		
+jQuery(document).ready(function() {
+	
 	if (isIE6) {
 		//bgPic ie6_fix
 		jQuery(".bgPic").remove();
@@ -342,7 +337,7 @@ jQuery.getJSON('/hints/'+$('.yacht_data_id').attr('id')+'/next', function(data)
 	}
 	//подсказки для меню leftMenu
 	jQuery(".leftMenu .inactive").live('click', function() {
-		var tipText = 'Для просмотра этого раздела необходимо<br /><a href="">зарегистрироваться</a> или <a href="">авторизоваться</a>';
+		var tipText = 'Для просмотра этого раздела необходимо<br /><a alt="зарегистрироваться" href="http://demo.logomotiv.ru/register">зарегистрироваться</a> или <a alt="авторизоваться" href="http://demo.logomotiv.ru/users/sign_in">авторизоваться</a>';
 		showTip(jQuery(this), tipText);
 	});
 });
@@ -473,7 +468,7 @@ function showTip(parentObj, tipText) {
 	var style = 'display: none; top: '+(pos.top+jQuery(parentObj).height()-6)+'px;';
 	var marginValue = jQuery(document).width()/2 - pos.left;
 	style += ' margin-left: -'+marginValue+'px';
-	var arrowPos = jQuery(parentObj).innerWidth()/2 - 10;
+	var arrowPos = jQuery(parentObj).innerWidth()/2 - 5;
 	if (arrowPos > 100) arrowPos = 80;
 	//формируем хтмл
 	var tip = '<div class="shadow simpleTip" style="'+style+'"><div class="b"><div class="bl"></div><div class="tr"><div class="r"></div><div class="dataShadowWrap tip_data"><p>'+tipText+'</p><a class="close"></a></div></div></div><div class="arrow" style="left: '+arrowPos+'px;"></div></div>';
@@ -488,4 +483,4 @@ function showTip(parentObj, tipText) {
 			prevSTip = "";
 		});
 	});
-}
+};
