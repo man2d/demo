@@ -47,7 +47,7 @@ class Item < ActiveRecord::Base
   has_one :slide  
   
   accepts_nested_attributes_for :exterior_images, :interior_images, :wallpapers, :gallery_images, :specification_images, :video, :image, :allow_destroy => true, :reject_if => :all_blank
-  accepts_nested_attributes_for :item_properties, :allow_destroy => true, :reject_if => lambda{ |a| a.value == nil }
+  accepts_nested_attributes_for :item_properties, :allow_destroy => true, :reject_if => proc { |attributes| attributes['value'].blank? }
 #  accepts_nested_attributes_for :image,  :allow_destroy => true
 
   
