@@ -192,13 +192,13 @@ h3, h3 a {font-size: 16px; line-height: 18px; font-weight: normal; font-family: 
 	position: relative; margin-bottom: 10px; clear: both;}
 	h3 {color: #333333;}
 		
-.actions {float: right; margin-top: 5px; z-index: 1500; width: 140px;}
+.actions {float: right; margin-top: 5px; z-index: 1500; width: 140px; position: relative;}
 	.presence {font-size: 10px; line-height: 11px; margin-bottom: 20px; position: relative; display: block; float: left;} 
 	.presence .point {font-size: 23px; line-height: 11px; overflow: hidden; position: absolute; top: 0px; right: -13px; display: block; color: #0093c6;
 	*top: 1px;
 	}
 	.actions span { position: relative; z-index: 1; height: 22px;}
-	.actions a {text-decoration: none; border-bottom: dashed 1px; display: block; float: left; margin-bottom: 5px; font-size: 13px; line-height: 16px;}
+	.actions a {text-decoration: none; border-bottom: dashed 1px; display: block; float: left; margin-bottom: 5px; font-size: 13px; line-height: 14px !important;}
 h2 .actions {width: auto; position: absolute; top: 0px; right: 0px; z-index: 6000;}
 h2 .actions a {line-height: 15px; margin-top: 1px;}
 

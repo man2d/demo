@@ -5,6 +5,7 @@
 	-khtml-user-select: none;
 	-webkit-user-select: none;
 }
+#tabs {z-index: 100; position: relative;}
 .imageflow {
 	position: relative;
 	text-align: left;

@@ -340,6 +340,11 @@ jQuery.getJSON('/hints/'+$('.yacht_data_id').attr('id')+'/next', function(data)
 		//.podborButton
 		jQuery(".podborButton").width(jQuery(".podborButton").parent().width());
 	}
+	//подсказки для меню leftMenu
+	jQuery(".leftMenu .inactive").live('click', function() {
+		var tipText = 'Для просмотра этого раздела необходимо<br /><a href="">зарегистрироваться</a> или <a href="">авторизоваться</a>';
+		showTip(jQuery(this), tipText);
+	});
 });
 
 //узнаем ие6
@@ -448,3 +453,39 @@ function setTipPos(tipObj) {
 		//jQuery(".tip_container").css("left",pos.left+offsetX);
 		jQuery(".tip_container").css("margin-left", -offsetX);
 	};
+
+var prevSTip = "";	
+function showTip(parentObj, tipText) {
+	if (prevSTip == jQuery(parentObj).html()) {
+		jQuery(".simpleTip").animate({height: 'toggle'}, 100, function() {
+			jQuery(this).remove();
+			prevSTip = "";
+		});
+		return;
+	}
+	prevSTip = jQuery(parentObj).html();
+	//убираем все текущие подсказки
+	jQuery(".simpleTip").animate({height: 'toggle'}, 150, function() {
+		jQuery(this).remove();
+	});
+	//позиционирование
+	var pos = jQuery(parentObj).offset();
+	var style = 'display: none; top: '+(pos.top+jQuery(parentObj).height()-6)+'px;';
+	var marginValue = jQuery(document).width()/2 - pos.left;
+	style += ' margin-left: -'+marginValue+'px';
+	var arrowPos = jQuery(parentObj).innerWidth()/2 - 10;
+	if (arrowPos > 100) arrowPos = 80;
+	//формируем хтмл
+	var tip = '<div class="shadow simpleTip" style="'+style+'"><div class="b"><div class="bl"></div><div class="tr"><div class="r"></div><div class="dataShadowWrap tip_data"><p>'+tipText+'</p><a class="close"></a></div></div></div><div class="arrow" style="left: '+arrowPos+'px;"></div></div>';
+
+	//показываем подсказку
+	jQuery("#main_container").append(tip);
+	jQuery(".simpleTip").animate({height: 'toggle'}, 200);
+	
+	jQuery(".simpleTip").find(".close").live('click', function() {
+		jQuery(this).parents(".simpleTip").animate({height: 'toggle'}, 200, function() {
+			jQuery(this).remove();
+			prevSTip = "";
+		});
+	});
+}
