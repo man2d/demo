@@ -129,7 +129,7 @@
 	.resume .button {height: 30px; line-height: 29px; padding: 0px 30px;}
 	form .button {height: 28px; line-height: 29px; padding: 0px 20px; margin: 0px; float: right;}
 		
-.compare_result {margin-left: -15px; display: inline; margin-bottom: 10px; padding-top: 7px; float: left; clear: both; position: relative; width: 100%;}
+.compare_result {margin-left: -15px; display: inline; margin-bottom: 10px; padding-top: 7px; float: left; clear: both; position: relative; width: auto;}
 	.compare_result .next, .compare_result .prev {width: 36px; height: 36px; display: block; position: absolute; top: 37px; overflow: hidden;
 		background-image: url("../images/compare_scroll.png");
 		-moz-user-select: none;
