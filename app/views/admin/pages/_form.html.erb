@@ -44,7 +44,7 @@
    <%= link_to_remove_fields "Удалить", pdf %>
 <% end %>
 <% end %>-->
-
+<% if @page.slug == 'kapitanu' %>
 <%= f.inputs do %>
 	<a class="collapse" href="javascript:void();" rel="blanks_block">Бланки</a>
 	<div class="blanks_block hidden">
@@ -73,7 +73,7 @@
 	<%= link_to_add_fields "Добавить", f, :rules %>
 	</div>
 <% end %>
-
+<% end %>
 <%= f.inputs do %>
 	<a class="collapse" href="javascript:void();" rel="attachments_block">Аттачи</a>
 	<div class="attachments_block hidden">

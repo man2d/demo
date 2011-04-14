@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110412111042) do
+ActiveRecord::Schema.define(:version => 20110414085528) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
@@ -65,18 +65,28 @@ ActiveRecord::Schema.define(:version => 20110412111042) do
 
   create_table "blog_posts", :force => true do |t|
     t.string   "title"
-    t.text     "content"
+    t.text     "content",       :limit => 16777215
     t.integer  "user_id"
     t.integer  "blog_topic_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "announce"
+    t.text     "announce",      :limit => 16777215
   end
 
   create_table "blog_topics", :force => true do |t|
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "carrierwave_assets", :force => true do |t|
+    t.string   "filename"
+    t.integer  "item_id"
+    t.integer  "asset_group_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "assetable_id"
+    t.string   "assetable_type"
   end
 
   create_table "ckeditor_assets", :force => true do |t|
@@ -132,6 +142,7 @@ ActiveRecord::Schema.define(:version => 20110412111042) do
     t.text     "description", :limit => 16777215
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "position"
   end
 
   create_table "item_assigns", :force => true do |t|
@@ -155,7 +166,7 @@ ActiveRecord::Schema.define(:version => 20110412111042) do
     t.string   "image_file_name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "image"
+    t.string   "image_old"
     t.integer  "page_id"
     t.integer  "item_assign_id"
     t.integer  "length"
@@ -192,28 +203,6 @@ ActiveRecord::Schema.define(:version => 20110412111042) do
     t.integer  "position"
   end
 
-  create_table "pages_broken", :force => true do |t|
-    t.string   "title"
-    t.string   "slug"
-    t.text     "body"
-    t.boolean  "status"
-    t.string   "meta_keywords"
-    t.string   "meta_description"
-    t.integer  "rgt"
-    t.integer  "lft"
-    t.integer  "parent_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "resource"
-    t.integer  "cached_level"
-    t.boolean  "menu"
-    t.string   "cached_url"
-    t.string   "image"
-    t.text     "description"
-    t.string   "pdf"
-    t.integer  "position"
-  end
-
   create_table "posts", :force => true do |t|
     t.string   "title"
     t.string   "announce"
@@ -229,7 +218,7 @@ ActiveRecord::Schema.define(:version => 20110412111042) do
   end
 
   create_table "resume_educations", :force => true do |t|
-    t.string   "edu_type"
+    t.integer  "edu_type"
     t.integer  "status"
     t.string   "title"
     t.string   "speciality"
@@ -286,13 +275,13 @@ ActiveRecord::Schema.define(:version => 20110412111042) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                                     :default => "", :null => false
-    t.string   "encrypted_password",         :limit => 128, :default => "", :null => false
-    t.string   "password_salt",                             :default => "", :null => false
+    t.string   "email",                                          :default => "", :null => false
+    t.string   "encrypted_password",         :limit => 128,      :default => "", :null => false
+    t.string   "password_salt",                                  :default => "", :null => false
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                             :default => 0
+    t.integer  "sign_in_count",                                  :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -300,7 +289,7 @@ ActiveRecord::Schema.define(:version => 20110412111042) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
-    t.datetime "confirmed_at"
+    t.date     "confirmed_at"
     t.string   "confirmation_token"
     t.datetime "confirmation_token_sent_at"
     t.datetime "confirmation_sent_at"
@@ -308,7 +297,7 @@ ActiveRecord::Schema.define(:version => 20110412111042) do
     t.datetime "locked_at"
     t.integer  "failed_attempts"
     t.string   "unlock_token"
-    t.text     "about"
+    t.text     "about",                      :limit => 16777215
     t.string   "city"
     t.string   "phone"
     t.boolean  "receive_comments"

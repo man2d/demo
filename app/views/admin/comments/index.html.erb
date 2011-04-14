@@ -6,8 +6,9 @@
 
 <%= form_tag "", :method => "GET", :id => "user_filter" %>
 <select name="search[user_id]" onchange="$('#user_filter').submit();">
+<option value="">выбрать пользователя</option>
 <% User.all.each do |user| %>
-<option value="<%= user.id %>" /><%= user.name %>
+<option <%=raw 'selected="selected"' if params[:search][:user_id].to_i == user.id %> value="<%= user.id %>" /><%= user.name %></option>
 <% end %>
 </select>
 </form>

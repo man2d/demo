@@ -24,7 +24,7 @@ class Admin::UsedItemsController < Admin::BaseController
   protected
   
   def resource
-    @item = Item.find_by_id(params[:id])
+    @item = Item.unscoped.find(params[:id])
   end
   def collection
     if params[:page_id]

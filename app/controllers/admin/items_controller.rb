@@ -6,11 +6,12 @@ class Admin::ItemsController < Admin::BaseController
   def new
     @item = Item.new
     @item.build_image
+    @item.build_video
     new!
   end
   
   def edit
-    @item = Item.find(params[:id])
+    @item.build_video unless resource.video
     @item.build_image unless resource.image
     edit!
   end
@@ -28,12 +29,19 @@ class Admin::ItemsController < Admin::BaseController
   end
   
   protected
+
+  def resource
+    @item = Item.unscoped.find(params[:id])
+  end
   
   def collection
+      
     if params[:page_id]
       @items = Item.unscoped.where(:page_id => params[:page_id]).all
     else
       @items = Item.unscoped.where("page_id != 10").all
     end
   end
+
+
 end

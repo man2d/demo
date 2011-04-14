@@ -14,7 +14,7 @@
 
   <%= f.submit "Войти", :class => [:yellow_button, :clear] %>
 
-	<% if flash[:alert] %><div class="submitError" style="min-height: 40px;"><%= flash[:alert] %></div><% end %>
+	<% if flash[:alert] && flash[:alert] != "Вам нужно войти или зарегистрироваться перед тем, как продолжить." %><div class="submitError" style="min-height: 40px;"><%= flash[:alert] %></div><% end %>
 </fieldset>
 <% end %>
 	</div>

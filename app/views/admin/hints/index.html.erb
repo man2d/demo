@@ -11,9 +11,9 @@
 <table border="0" id="main">
 	<tr>
 		<td>
-			<ul class="tree news">
+			<ul class="tree news sortable" id="hints">
 				<% collection.each do |resource| %>
-				<li><span><a href="javascript:void();" class="pic context" id="hint_<%=resource.id%>"></a><p class="date"><%= resource.updated_at.to_date %></p><p class="text"><%= resource.word	 %></p></span></li>
+				<li id="hint_<%= resource.id %>"><span><a href="javascript:void();" class="pic context" id="hint_<%=resource.id%>"></a><p class="date"><%= resource.updated_at.to_date %></p><p class="text"><%= resource.word	 %></p></span></li>
 				<% end %>
 			</ul>
 		</td>

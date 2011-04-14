@@ -42,11 +42,12 @@ class Item < ActiveRecord::Base
   has_many :wallpapers, :as => :assetable, :class_name => "Item::Wallpaper", :dependent => :destroy
   has_many :specification_images, :as => :assetable, :class_name => "Item::SpecificationImage", :dependent => :destroy
   has_many :threed_assets, :as => :assetable, :class_name => "Item::ThreedAsset", :dependent => :destroy
-  has_many :videos, :as => :assetable, :class_name => "Item::Video", :dependent => :destroy
+  has_one :video, :as => :assetable, :class_name => "Item::Video", :dependent => :destroy
   has_one :image, :as => :assetable, :class_name => "Item::Image", :dependent => :destroy
+  has_one :slide  
   
-  
-  accepts_nested_attributes_for :exterior_images, :interior_images, :wallpapers, :gallery_images, :specification_images, :videos, :image, :allow_destroy => true, :reject_if => :all_blank
+  accepts_nested_attributes_for :exterior_images, :interior_images, :wallpapers, :gallery_images, :specification_images, :video, :image, :allow_destroy => true, :reject_if => :all_blank
+  accepts_nested_attributes_for :item_properties, :allow_destroy => true, :reject_if => lambda{ |a| a.value == nil }
 #  accepts_nested_attributes_for :image,  :allow_destroy => true
 
   
@@ -56,7 +57,7 @@ class Item < ActiveRecord::Base
 #  sortable :scope => :page_id
   
 #  accepts_nested_attributes_for :assets, :allow_destroy => true
-  accepts_nested_attributes_for :item_properties, :allow_destroy => true
+
 #  mount_uploader :image, ImageUploader
-  has_one :slide
+
 end

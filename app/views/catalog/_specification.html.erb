@@ -2,6 +2,9 @@
 <div class="spec" id="specification">
 	<% if @item.specification_images.size > 0 %>
 	<div class="left"><% @item.specification_images.each do |image| %><img alt="" src="<%= image.url %>" /><% end %></div>
+	<% else %>
+	<div class="left"><% if @item.image %><img alt="" src="<%= @item.image.url(:normal) %>" /><% end %>
+	</div>
     <% end %>
 <% if @item.item_properties.size > 0 %>
     <div class="right">

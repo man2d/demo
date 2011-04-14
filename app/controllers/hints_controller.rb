@@ -19,11 +19,11 @@ class HintsController < ApplicationController
   end
   
   def next
-    @hint = Hint.find(params[:id])
-    @next_hint = Hint.where("id > ?", @hint.id).first
+    @hint = Hint.find_by_position(params[:id])
+    @next_hint = Hint.where("position > ?", @hint.position).first
     @next_hint = Hint.first unless @next_hint
     if @hint
-      @hint.id = @next_hint.id
+      @hint.id = @next_hint.position
       render :json => @hint
     else
       render :text => '', :status => 500

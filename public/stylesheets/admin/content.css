@@ -45,6 +45,8 @@ h2 {font-size: 21px; font-weight: normal; color: #696969; display: block; line-h
 .tree li span.hidden a.pic:hover {background-image: url("/images/admin/hidden_over.gif");}
 .tree li span.hidden.active a.pic {background-image: url("/images/admin/hidden_over.gif");}
 .tree li span.hidden.current a.pic {background-image: url("/images/admin/hidden_current.gif");}
+.tree.sortable li:hover { cursor: move;}
+.tree.sortable li.ui-sortable-helper { cursor: crosshair;}
 
 .addItems_border {border: solid 1px #f0f0f1; padding: 1px; float: left; clear: both; width: 100%; margin-bottom: 20px;}
 .addItems {float: left; clear: both; width: 100%; background-color: #f0f0f1;}
