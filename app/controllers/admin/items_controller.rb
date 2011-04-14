@@ -22,20 +22,17 @@ class Admin::ItemsController < Admin::BaseController
   end
   
   def update
+    @item = Item.unscoped.find(params[:id])
     update!(:notice => "Dude! Nice job creating that page. Yeeeah") { collection_url }
   end
   
   def menu
     render :partial => 'menu'
   end
+    
   
   protected
 
-  def resource
-    @item = Item.unscoped.find(params[:id])
-    @item.build_video unless @item.video
-    @item.build_image unless @item.image
-  end
   
   def collection
     if params[:page_id]
