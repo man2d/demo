@@ -36,9 +36,9 @@ class Admin::ItemsController < Admin::BaseController
   
   def collection
     if params[:page_id]
-      @items = Item.unscoped.where(:page_id => params[:page_id]).all
+      @items = Item.unscoped.where(:page_id => params[:page_id]).order(:position).all
     else
-      @items = Item.unscoped.where("page_id != 10").all
+      @items = Item.unscoped.where("page_id != 10").order(:position).all
     end
   end
 

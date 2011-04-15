@@ -52,7 +52,7 @@ jQuery(document).ready(function() {
 	
 	//phone map
 	jQuery('.mapPos').css("display", "none");
-	jQuery('.phone').children('a').click(mapAnim);
+	jQuery('#bigphone').children('a').click(mapAnim);
 	jQuery('.map .close').click(mapAnim);
 	function mapAnim() {
 		jQuery('.phone').find('.map, .arrow').animate({opacity: "toggle"}, 400);
@@ -304,6 +304,9 @@ jQuery.getJSON('/hints/'+$('.yacht_data_id').attr('id')+'/next', function(data)
 	};
 	
 	//mainMenu
+	jQuery.each(jQuery(".main_menu li a:first"), function() {
+		jQuery(this).css("width",(jQuery(this).parent("li").outerWidth()-14));
+	});
 	if (isIE6) jQuery(".sub1").width(jQuery(".sub1").parent().width());
 	jQuery(".sub1, .sub2, .sub3, .sub").css("display","none");
 	if (jQuery.browser.msie != true) jQuery(".sub1, .sub2, .sub3, .sub").css("opacity", 0);
@@ -464,8 +467,12 @@ function showTip(parentObj, tipText) {
 		jQuery(this).remove();
 	});
 	//позиционирование
+	var topOffsetFix = 6;
+	if (jQuery.browser.msie == true && jQuery.browser.version < 8) {topOffsetFix = -13;}
+	if (jQuery.browser.msie == true && jQuery.browser.version < 7) {topOffsetFix = 0;}
+	
 	var pos = jQuery(parentObj).offset();
-	var style = 'display: none; top: '+(pos.top+jQuery(parentObj).height()-6)+'px;';
+	var style = 'display: none; top: '+(pos.top+jQuery(parentObj).height()-topOffsetFix)+'px;';
 	var marginValue = jQuery(document).width()/2 - pos.left;
 	style += ' margin-left: -'+marginValue+'px';
 	var arrowPos = jQuery(parentObj).innerWidth()/2 - 5;

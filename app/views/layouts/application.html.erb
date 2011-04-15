@@ -11,11 +11,11 @@
 <%= stylesheet_link_tag "common", "content", "fonts", "forms", "mainMenu", "otherMenu",  "catalog", :cache => "style" %>
 <%= stylesheet_link_tag "nivo-slider", "thickbox", "/javascripts/imageflow/imageflow", "application", "datepicker" %>
 <%#= stylesheet_link_tag :all %>
-<!--[if lte IE 7]>
+<!--[if IE 7]>
 <link rel="stylesheet" href="/stylesheets/ie7_fix.css" type="text/css" media="screen" />
 <![endif]-->
 <!--[if IE]><link rel="stylesheet" href="/stylesheets/IE.css" type="text/css" /><![endif]-->
-<!--[if lte IE 6]>
+<!--[if IE 6]>
 <link rel="stylesheet" href="/stylesheets/ie6_fix.css" type="text/css" media="screen" />
 <script type="text/javascript" src="/javascripts/DD_belatedPNG_0.0.8a.js"></script>
 <script type="text/javascript">
@@ -26,11 +26,11 @@
 <%= javascript_include_tag "preload", "jquery.nivo.slider", "imageflow/imageflow", "thickbox/thickbox", "jquery.showpassword", "jquery.easing.1.3", "jquery.easing.compatibility", "flowplayer-3.2.6.min", "jquery.datepicker", :cache => "stuff" %>
 <%#= javascript_include_tag "imageflow/imageflow" %>
 <%= csrf_meta_tag %>
-
+<%#= javascript_include_tag "firebug/firebug" %>
 
 <%= yield :js %>
 
-<meta name = "format-detection" content = "telephone=no">
+<meta name="format-detection" content="telephone=no" />
 </head>
 <body onload="MM_preloadImages('/images/shadow_corner_br.png', '/images/shadow_b.png', '/images/shadow_corner_tr.png', '/images/shadow_r.png', '/images/shadow_corner_bl.png')"<%=raw ' class="transparent"' if @template == 2 %>>
 	<%#= current_user.to_xml if current_user %>
@@ -51,7 +51,7 @@
             </div>
             <div class="right clear">
 
-        			<div class="phone color_gray_l">(812) <a>320-63-00</a>
+        			<div class="phone color_gray_l"><div id="bigphone">(812) <a>320-63-00</a></div>
 						<div class="shadow mapPos"><div class="b"><div class="bl"></div><div class="tr"><div class="r"></div>
 						<div class="dataShadowWrap smallForm map">
 								<p class="phone">(812) 320-63-00</p>
@@ -117,11 +117,11 @@
             </div>
 			</div>
 			<div id="compare_container"><%= render 'comparison/list' %></div>
-			<ul class="main_menu" style="height: 30px;">
+			<ul class="main_menu">
 			<%= render 'shared/menu' %>
-
-		        <li style="z-index: 24;" class="blog"><a href="/blogs/"<%=raw ' class="current"' if params[:controller] == 'blogs' %>>БЛОГ</a><span></span></li>
+		        <li style="z-index: 24;" class="blog"><a href="/blogs/"<%=raw ' class="current"' if params[:controller] == 'blogs' %>>БЛОГ</a><span>&nbsp;</span></li>
 		    </ul>
+		    <div class="clear"></div>
 		</div>
     </div>
     
@@ -137,7 +137,7 @@
 					</div>
 			<a unselectable="on" class="close"></a><a unselectable="on" class="refresh"></a></div></div></div><div class="arrow"></div></div>
 			</div>
-			<div class="dataShadowWrap yacht_tip_data">
+			<div class="dataShadowWrap yacht_tip_data" style="left: -3000px;">
 					<div class="tempTipData"></div>
 			</div>
           <div class="water"></div>

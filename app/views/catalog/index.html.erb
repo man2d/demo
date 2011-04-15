@@ -18,7 +18,7 @@
             	<li class="number"><p><%= length.lgth %></p></li>
 <% @page.items.order(:position).find_all_by_lgth(length.lgth).each do |item| %>
                 <li>
-                <a href="<%= item.item_url %>"><% if item.image %><img alt="" src="<%= item.image.url(:masked) %>"><% end %></a>
+                <a href="<%= item.item_url %>"><% if item.image %><img alt="" src="<%= item.image.url(:masked) %>" /><% end %></a>
                 <a href="<%= item.item_url %>" class="name"><%= item.title %></a>
 
 				<% if !session[:comparison] || !session[:comparison].include?(item.id.to_i) %>

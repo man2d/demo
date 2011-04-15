@@ -78,7 +78,7 @@ $('.compare .toggle').live('click', function() {
 });
 
 $('.comparison').live('click', function(){
-  $(this).toggleClass('add').toggleClass('remove');	
+//  $(this).toggleClass('add');	
   if($(this).text() == "Добавить к сравнению") {
 	$(this).text("Убрать из сравнения");
   } else {
@@ -137,6 +137,10 @@ $(".small img").live('click', function() {
   $('div.big img').attr('src', $(this).attr('src').replace('thumb', 'normal'));
 });
 
+
+$('a.psevdo').live('click', function() {
+  $('#'+$(this).attr('id')+'_block').slideToggle();
+});
 /** Галерея **/
 
 /*

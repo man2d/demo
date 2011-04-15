@@ -106,8 +106,8 @@
    <%= f.inputs do %>
 	<a class="collapse" href="javascript:void();" rel="video_block">Видео</a>
 	<div class="video_block hidden">
-	<div class="docs">
-		<%= f.input :video_html, :as => :text, :label => "Embed-код" %>
+	<div class="docs" style="width:100%;">
+		<%= f.input :video_html, :as => :text, :label => "Embed-код", :hint => raw(image_tag("youtubs.gif")) %>
 	</div>
 	<br clear="both" /	>
 

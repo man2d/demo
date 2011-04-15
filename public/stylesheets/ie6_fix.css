@@ -10,10 +10,12 @@ body {
 
 #content {float: left;}
 
+.addMenu {}
 .addMenu li ul {left: -3px;}
-.addMenu .bg {left: -3px;}
+.addMenu .bg {background: #e5edf1 !important;}
 
 .main_menu li, .sub1 li, .sub2 li{ width: auto; margin: 0px; padding: 0px; }
+.compare_result {width: 100%;}
 .compare_result tr:hover {background-color: #f4f4f4;}
 .compare_result tr.first:hover {background-color: transparent;}
 

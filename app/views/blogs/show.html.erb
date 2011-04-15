@@ -18,7 +18,7 @@
 			<% if @post.user %><div class="poster"><a href="<%= user_url(@post.user) %>"><% if @post.user.avatar %><img src="<%= @post.user.avatar.url(:thumb) %>" /><% end %><%= @post.user.name %></a></div><% end %>
 		</div>
 		<div class="blog_comments">
-			<h2 class="left"><a name="comments">Комментарии</a></h2>
+			<h2 class="left" id="comments">Комментарии</h2>
 			<% if current_user %>
 			<a class="showCommentForm">↓ <span>Написать комментарий</span></a>
 			<% end %>

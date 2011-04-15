@@ -1,6 +1,7 @@
 
 
 .main_menu li, .sub1 li, .sub2 li{ width: auto; margin: 0px; padding: 0px; }
+.compare_result {width: 100%;}
 .compare_result tr:hover {background-color: #f4f4f4;}
 .compare_result tr.first:hover {background-color: transparent;}
 
@@ -33,3 +34,6 @@ form fieldset.gray_bg{padding-bottom: 20px;}
 
 /*ie7*/
 .addMenu li ul {left: 17px;}
+
+.simpleTip { padding-top: 0px;}
+.simpleTip .arrow { top: -10px;}

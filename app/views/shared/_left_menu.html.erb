@@ -2,9 +2,9 @@
 <ul class="leftMenu">
 <% 
 if @page.root?
-  left_menu_items = @page.children.order(:position)
+  left_menu_items = @page.children.menu.order(:position)
 else
-  left_menu_items = @page.self_and_siblings.order(:position)
+  left_menu_items = @page.self_and_siblings.menu.order(:position)
 end
 %>
 

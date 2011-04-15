@@ -103,16 +103,18 @@ opacity: 0.1;
 
 .head {margin: 0px; padding: 0px; z-index: 5000;}
 	.head .right {z-index: 2000; position: relative;}
-	.phone {float: left; margin-top: 23px; clear: both; position: relative;}
+	.phone {float: left; margin-top: 23px; clear: both; position: relative; display: inline;}
 	.phone, .phone a {font-size: 29px; font-family: 'HeliosLightRegular', sans-serif; position: relative;}
 	.phone a { text-decoration: none; border-bottom: dashed 1px; line-height: 25px;}
+	#bigphone { width: 210px; line-height: 29px; display: block;}
+	#bigphone a { display: inline-block; line-height: 29px;}
 	.logo {float: left; margin-top: 25px; margin-bottom: 30px; width: 193px; height: 89px; display: block; overflow: hidden;
 		background-image: url("../images/PrezidentNeva.gif"); padding: 0px;}
 	.home, .mail, .sitemap {display: block; background-image: url("../images/hms_ico.gif"); width: 16px; height: 12px; overflow: hidden; float:left; margin-left: 15px; margin-top: 45px;}
 	.home {background-position: 0px 0px;}
 	.mail {background-position: -16px 0px;}
 	.sitemap {background-position: -32px 0px;}
-	.client {float: left; background-color: #165e80; margin-left: 20px; margin-top: 18px; padding: 8px 15px;}
+	.client {float: left; background-color: #165e80; margin-left: 20px; margin-top: 18px; padding: 8px 15px; display: inline;}
 		.client, .client p, .client a {color: white; text-decoration: none; position: relative;}
 		.client a {border-bottom: solid 1px;}
 		.client .enter {border-bottom: dashed 1px; z-index: 231;
