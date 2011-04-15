@@ -1,6 +1,6 @@
 <% if current_admin_user %>
 <ul class="menu">
-<% {:pages => "Страницы", :items => "Товары", :used_items => "Товары с пробегом", :posts => "Новости", :slides => "Слайдшоу", :hints => "Подсказки", :users => "Пользователи", :blogs => "Блоги", :comments => "Комментарии"}.each do |controller, name| %>
+<% {:pages => "Страницы", :items => "Товары", :used_items => "С пробегом", :posts => "Новости", :slides => "Слайдшоу", :hints => "Подсказки", :users => "Пользователи", :blogs => "Блоги", :comments => "Комментарии"}.each do |controller, name| %>
     <% if params[:controller] == "admin/"+controller.to_s
 	    klasss = "current"
        if params[:action] == 'index'
