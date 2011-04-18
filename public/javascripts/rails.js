@@ -62,6 +62,7 @@
 			}
 		});
 	}
+	
 
 	// Handles "data-method" on links such as:
 	// <a href="/users/5" data-method="delete" rel="nofollow" data-confirm="Are you sure?">Delete</a>
@@ -109,6 +110,41 @@
 		});
 		return missing;
 	}
+	function callRemote(elem) {
+	        var el      = elem,
+	            method  = el.attr('method') || el.attr('data-method') || 'GET',
+	            url     = el.attr('action') || el.attr('href'),
+	            dataType  = el.attr('data-type')  || 'script';
+
+	        if (url === undefined) {
+	          throw "No URL specified for remote call (action or href must be present).";
+	        } else {
+	            if (el.triggerAndReturn('ajax:before')) {
+	                var data = el.is('form') ? el.serializeArray() : [];
+	                $.ajax({
+	                    url: url,
+	                    data: data,
+	                    dataType: dataType,
+	                    type: method.toUpperCase(),
+	                    beforeSend: function (xhr) {
+	                        el.trigger('ajax:loading', xhr);
+	                    },
+	                    success: function (data, status, xhr) {
+	                        el.trigger('ajax:success', [data, status, xhr]);
+	                    },
+	                    complete: function (xhr) {
+	                        el.trigger('ajax:complete', xhr);
+	                    },
+	                    error: function (xhr, status, error) {
+	                        el.trigger('ajax:failure', [xhr, status, error]);
+	                    }
+	                });
+	            }
+
+	            el.trigger('ajax:after');
+	        }
+	    }
+	
 
 	$('a[data-confirm], a[data-method], a[data-remote]').live('click.rails', function(e) {
 		var link = $(this);
@@ -155,3 +191,4 @@
 		if (this == event.target) enableFormElements($(this));
 	});
 })( jQuery );
+
