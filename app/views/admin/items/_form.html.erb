@@ -109,7 +109,7 @@
 	<div class="docs" style="width:100%;">
 		<%= f.input :video_html, :as => :text, :label => "Embed-код", :hint => raw(image_tag("youtubs.gif")) %>
 	</div>
-	<br clear="both" /	>
+	<br clear="both" />
 
 	<%= f.semantic_fields_for :video do |video_form| %>
 	<span><%= @item.video.attachment_file_name if @item.video %>
