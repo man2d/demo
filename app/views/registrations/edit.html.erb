@@ -12,7 +12,7 @@
 			<fieldset class="noBorder">
 				<div class="text avatar" style="width: 300px;">
 					<label for="avatar">Аватар</label>
-					<img src="<%= current_user.avatar.url %>" alt="Аватар" />
+					<img src="<%= current_user.avatar.url(:normal) %>" alt="Аватар" />
 						<a class="submit formReady" style="position: relative;">Выбрать фото<%= f.fields_for :avatar do |avatar| %><%= avatar.file_field :attachment %><% end %></a>
 				</div>
 				<div class="text left">

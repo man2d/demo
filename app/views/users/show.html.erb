@@ -5,7 +5,7 @@
 		<% if @user.avatar %><img style="margin-right: 10px; margin-top: 5px;" class="left" src="<%= @user.avatar.url(:normal) %>" /><% end %>
 		<div class="left">
 			<h2 class="color_black noclear"><%= @user.name %></h2>
-			<% if @user == current_user %><a class="submit formReady edit" href="<%= edit_user_path(@user) %>">Редактировать</a><% end %>
+			<% if @user == current_user %><a class="submit formReady edit" href="<%= edit_user_path %>">Редактировать</a><% end %>
 		</div>
 		<div class="clear"><br /></div>
 		<h2>О себе</h2>

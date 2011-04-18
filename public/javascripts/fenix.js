@@ -44,7 +44,7 @@ jQuery(document).ready(function() {
 	
 	//sendOrder
 	jQuery('.sendOrderPos').css("display", "none");
-	jQuery('.sendOrder, .sendOrderPos .close').click(sendOrderAnim);
+	jQuery('.sendOrder, .sendOrderPos .close').live('click', function(){sendOrderAnim});
 	function sendOrderAnim() {
 		jQuery('.sendOrderPos').find('.sendOrderForm, .arrow').animate({opacity: "toggle"}, 300);
 		jQuery('.sendOrderPos').animate({height: "toggle"}, 300);
